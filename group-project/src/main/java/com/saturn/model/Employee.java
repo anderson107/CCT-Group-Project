@@ -1,7 +1,8 @@
-package saturnproject.model;
+package com.saturn.model;
 
+import lombok.Data;
 
-
+@Data
 public class Employee {
 
 	private int id;

@@ -1,10 +1,12 @@
-package saturnproject.model;
+package com.saturn.model;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 
+import lombok.Data;
 
+@Data
 public class HealthSafetyChecklist implements Tasks {
 
 	//***** private fields ************
@@ -66,10 +68,6 @@ public class HealthSafetyChecklist implements Tasks {
 			}
 		}
 		return null;
-	}
-
-	public int getId() {
-		return id;
 	}
 
 }
