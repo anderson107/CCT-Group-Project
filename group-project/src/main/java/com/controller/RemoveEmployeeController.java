@@ -1,6 +1,5 @@
 package com.controller;
 
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 
@@ -10,7 +9,7 @@ public class RemoveEmployeeController {
 	private javafx.scene.control.Button backMenuRemoveEmployeeButton;
 
 	@FXML
-	public void closeRemoveEmployeeWindow(Event e){
+	public void closeRemoveEmployeeWindow(){
 		
 		Stage stage =(Stage) backMenuRemoveEmployeeButton.getScene().getWindow();
 		

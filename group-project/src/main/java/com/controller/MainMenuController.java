@@ -1,6 +1,5 @@
 package com.controller;
 
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,19 +9,19 @@ import javafx.stage.Stage;
 public class MainMenuController {
 
 	@FXML
-	public void addEmployee(Event e) {
+	public void addEmployee() {
 		String view = Views.ADD_EMPLOYEE;
 		loadView(view);
 	}
 	
 	@FXML
-	public void removeEmployee(Event e) {
+	public void removeEmployee() {
 		String view = Views.REMOVE_EMPLOYEE;
 		loadView(view);
 	}
 	
 	@FXML
-	public void searchEmployee(Event e) {
+	public void searchEmployee() {
 		String view = Views.SEARCH_EMPLOYEE;
 		loadView(view);
 	}

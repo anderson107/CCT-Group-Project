@@ -1,6 +1,5 @@
 package com.controller;
 
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 
@@ -10,7 +9,7 @@ public class SearchEmployeeController {
 	private javafx.scene.control.Button searchBackButton;
 	
 	@FXML
-	public void searchCloseWindows(Event e) {
+	public void searchCloseWindows() {
 		// get stage
 		Stage stage = (Stage) searchBackButton.getScene().getWindow();
 	    // close stage

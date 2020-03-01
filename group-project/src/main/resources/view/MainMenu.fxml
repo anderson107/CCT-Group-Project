@@ -8,13 +8,13 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.MainMenuController">
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.MainMenuController">
    <top>
-      <TabPane prefHeight="600.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+      <TabPane tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
           <Tab text="Administrator">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="571.0" prefWidth="700.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0">
                      <children>
                         <VBox layoutX="28.0" layoutY="38.0" prefHeight="410.0" prefWidth="146.0">
                            <children>
