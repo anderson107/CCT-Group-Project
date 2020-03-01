@@ -1,8 +1,10 @@
 package com.saturn.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class Employee {
 
 	private int id;
@@ -16,5 +18,5 @@ public class Employee {
 	private String city;
 	private String position;
 	private String password;
-	
+
 }

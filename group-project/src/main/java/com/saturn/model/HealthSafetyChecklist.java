@@ -5,8 +5,10 @@ import java.util.List;
 import java.util.ListIterator;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class HealthSafetyChecklist implements Tasks {
 
 	//***** private fields ************
@@ -18,10 +20,6 @@ public class HealthSafetyChecklist implements Tasks {
 	
 	
 	//******* constructors **************
-	
-	public HealthSafetyChecklist() {
-		
-	}
 	
 	public HealthSafetyChecklist(String status, String frequency) {
 		this.frequency = frequency;

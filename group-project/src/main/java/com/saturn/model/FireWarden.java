@@ -5,8 +5,10 @@ import java.util.List;
 import java.util.ListIterator;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class FireWarden implements Tasks {
 	
 	// ******fields********
@@ -19,10 +21,6 @@ public class FireWarden implements Tasks {
 	List<FireWarden>firewardenTasks;
 	
 	// *******constructors*******
-	
-	public FireWarden() {
-		
-	}
 	
 	public FireWarden(String task, String status, String frequency) {
 		this.task = task;
@@ -37,6 +35,7 @@ public class FireWarden implements Tasks {
 	public void addTask(Object fireWarden) {
 		if(firewardenTasks==null) {
 			firewardenTasks = new ArrayList<>();
+			firewardenTasks.add((FireWarden) fireWarden);
 		}else {
 			firewardenTasks.add((FireWarden) fireWarden);
 		}

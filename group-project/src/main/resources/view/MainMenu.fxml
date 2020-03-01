@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <TabPane prefHeight="600.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Administrator">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="571.0" prefWidth="700.0">
+                     <children>
+                        <VBox layoutX="28.0" layoutY="38.0" prefHeight="410.0" prefWidth="146.0">
+                           <children>
+                              <Button layoutX="28.0" layoutY="38.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="148.0" text="ADD EMPLOYEE">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="148.0" text="REMOVE EMPLOYEE">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="148.0" text="SEARCH EMPLOYEE">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="148.0" text="UPDATE EMPLOYEE">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="148.0" text="CHANGE PASSWORD" />
+                           </children>
+                        </VBox>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Tasks ">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane prefHeight="571.0" prefWidth="700.0">
+                           <children>
+                              <VBox layoutX="28.0" layoutY="38.0" prefHeight="410.0" prefWidth="146.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="148.0" text="ADD TASK">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin></Button>
+                                    <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="148.0" text="REMOVE TASK">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin></Button>
+                                    <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="148.0" text="SEARCH TASK">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin></Button>
+                                    <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="148.0" text="UPDATE TASK" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Training">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="571.0" prefWidth="700.0">
+                     <children>
+                        <AnchorPane prefHeight="571.0" prefWidth="700.0">
+                           <children>
+                              <VBox layoutX="28.0" layoutY="38.0" prefHeight="410.0" prefWidth="146.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="148.0" text="ADD TRAINING">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                    <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="148.0" text="REMOVE TRAINING">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                    <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="148.0" text="SEARCH TRAINING">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                    <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="148.0" text="UPDATE TRAINING" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </top>
+</BorderPane>
