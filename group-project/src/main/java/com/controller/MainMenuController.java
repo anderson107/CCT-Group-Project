@@ -26,6 +26,12 @@ public class MainMenuController {
 		loadView(view);
 	}
 	
+	@FXML
+	public void updateEmployee() {
+		String view = Views.UPDATE_EMPLOYEE;
+		loadView(view);
+	}
+	
 	// method to upload the fxml files
 	private void loadView(String view) {
 		try {

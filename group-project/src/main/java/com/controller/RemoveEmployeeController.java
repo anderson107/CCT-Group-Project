@@ -9,7 +9,7 @@ public class RemoveEmployeeController {
 	private javafx.scene.control.Button backMenuRemoveEmployeeButton;
 
 	@FXML
-	public void closeRemoveEmployeeWindow(){
+	private void closeRemoveEmployeeWindow(){
 		
 		Stage stage =(Stage) backMenuRemoveEmployeeButton.getScene().getWindow();
 		
