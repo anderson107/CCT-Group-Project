@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="315.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.RemoveEmployeeController">
+   <left>
+      <AnchorPane prefHeight="317.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="161.0" layoutY="7.0" text="Remove Employee">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="52.0" layoutY="55.0" text="ID/Email">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField layoutX="135.0" layoutY="52.0" prefHeight="25.0" prefWidth="208.0" promptText="Enter ID or email " />
+            <TextArea layoutX="52.0" layoutY="127.0" prefHeight="73.0" prefWidth="405.0" />
+            <Label layoutX="50.0" layoutY="102.0" text="Employee information" />
+            <Button layoutX="92.0" layoutY="232.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="123.0" text="Remove">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="backMenuRemoveEmployeeButton" layoutX="266.0" layoutY="232.0" mnemonicParsing="false" onAction="#closeRemoveEmployeeWindow" prefHeight="39.0" prefWidth="123.0" text="Cancel">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Separator layoutX="26.0" layoutY="37.0" orientation="VERTICAL" prefHeight="253.0" prefWidth="6.0" />
+            <Separator layoutX="27.0" layoutY="37.0" prefHeight="3.0" prefWidth="446.0" />
+            <Separator layoutX="28.0" layoutY="289.0" prefHeight="3.0" prefWidth="446.0" />
+            <Separator layoutX="471.0" layoutY="37.0" orientation="VERTICAL" prefHeight="253.0" prefWidth="6.0" />
+            <Button layoutX="357.0" layoutY="50.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="99.0" text="Search">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children></AnchorPane>
+   </left>
+</BorderPane>
