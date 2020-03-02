@@ -32,6 +32,13 @@ public class MainMenuController {
 		loadView(view);
 	}
 	
+	@FXML
+	public void changePassword() {
+		String view = Views.CHANGE_PASSWORD;
+		loadView(view);
+	}
+	
+	
 	// method to upload the fxml files
 	private void loadView(String view) {
 		try {
