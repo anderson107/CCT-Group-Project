@@ -10,32 +10,32 @@ public class MainMenuController {
 
 	@FXML
 	public void addEmployee() {
-		String view = Views.ADD_EMPLOYEE;
-		loadView(view);
+		loadView(Views.ADD_EMPLOYEE);
 	}
 	
 	@FXML
 	public void removeEmployee() {
-		String view = Views.REMOVE_EMPLOYEE;
-		loadView(view);
+		loadView(Views.REMOVE_EMPLOYEE);
 	}
 	
 	@FXML
 	public void searchEmployee() {
-		String view = Views.SEARCH_EMPLOYEE;
-		loadView(view);
+		loadView(Views.SEARCH_EMPLOYEE);
 	}
 	
 	@FXML
 	public void updateEmployee() {
-		String view = Views.UPDATE_EMPLOYEE;
-		loadView(view);
+		loadView(Views.UPDATE_EMPLOYEE);
 	}
 	
 	@FXML
 	public void changePassword() {
-		String view = Views.CHANGE_PASSWORD;
-		loadView(view);
+		loadView(Views.CHANGE_PASSWORD);
+	}
+	
+	@FXML
+	public void openAddTaskWindow() {
+		loadView(Views.ADD_TASK);
 	}
 	
 	
