@@ -38,6 +38,15 @@ public class MainMenuController {
 		loadView(Views.ADD_TASK);
 	}
 	
+	@FXML
+	public void openRemoveTaskWindow() {
+		loadView(Views.REMOVE_TASK);
+	}
+	
+	@FXML
+	private void openSearchTaskWindow() {
+		loadView(Views.SEARCH_TASK);
+	}
 	
 	// method to upload the fxml files
 	private void loadView(String view) {

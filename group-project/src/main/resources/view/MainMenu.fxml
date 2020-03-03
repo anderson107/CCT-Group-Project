@@ -52,15 +52,15 @@
                            <children>
                               <VBox layoutX="28.0" layoutY="38.0" prefHeight="410.0" prefWidth="146.0">
                                  <children>
-                                    <Button fx:id="addTaskButton" mnemonicParsing="false" onAction="#openAddTaskWindow" prefHeight="43.0" prefWidth="148.0" text="ADD TASK">
+                                    <Button mnemonicParsing="false" onAction="#openAddTaskWindow" prefHeight="43.0" prefWidth="148.0" text="ADD TASK">
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
                                        </VBox.margin></Button>
-                                    <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="148.0" text="REMOVE TASK">
+                                    <Button mnemonicParsing="false" onAction="#openRemoveTaskWindow" prefHeight="43.0" prefWidth="148.0" text="REMOVE TASK">
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
                                        </VBox.margin></Button>
-                                    <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="148.0" text="SEARCH TASK">
+                                    <Button mnemonicParsing="false" onAction="#openSearchTaskWindow" prefHeight="43.0" prefWidth="148.0" text="SEARCH TASK">
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
                                        </VBox.margin></Button>
