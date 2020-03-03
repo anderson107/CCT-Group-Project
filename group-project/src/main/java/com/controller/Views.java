@@ -12,6 +12,7 @@ public final class Views {
 	public final static String ADD_TASK = "/view/AddTask.FXML";
 	public final static String REMOVE_TASK = "/view/RemoveTask.FXML";
 	public final static String SEARCH_TASK = "/view/SearchTask.FXML";
+	public final static String UPDATE_TASK = "/view/UpdateTask.FXML";
 	
 	private Views() {
 		

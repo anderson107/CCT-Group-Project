@@ -9,43 +9,48 @@ import javafx.stage.Stage;
 public class MainMenuController {
 
 	@FXML
-	public void addEmployee() {
+	private void addEmployee() {
 		loadView(Views.ADD_EMPLOYEE);
 	}
 	
 	@FXML
-	public void removeEmployee() {
+	private void removeEmployee() {
 		loadView(Views.REMOVE_EMPLOYEE);
 	}
 	
 	@FXML
-	public void searchEmployee() {
+	private void searchEmployee() {
 		loadView(Views.SEARCH_EMPLOYEE);
 	}
 	
 	@FXML
-	public void updateEmployee() {
+	private void updateEmployee() {
 		loadView(Views.UPDATE_EMPLOYEE);
 	}
 	
 	@FXML
-	public void changePassword() {
+	private void changePassword() {
 		loadView(Views.CHANGE_PASSWORD);
 	}
 	
 	@FXML
-	public void openAddTaskWindow() {
+	private void openAddTaskWindow() {
 		loadView(Views.ADD_TASK);
 	}
 	
 	@FXML
-	public void openRemoveTaskWindow() {
+	private void openRemoveTaskWindow() {
 		loadView(Views.REMOVE_TASK);
 	}
 	
 	@FXML
 	private void openSearchTaskWindow() {
 		loadView(Views.SEARCH_TASK);
+	}
+	
+	@FXML
+	private void openUpdateTaskWindow() {
+		loadView(Views.UPDATE_TASK);
 	}
 	
 	// method to upload the fxml files

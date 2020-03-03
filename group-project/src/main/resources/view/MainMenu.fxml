@@ -64,7 +64,7 @@
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
                                        </VBox.margin></Button>
-                                    <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="148.0" text="UPDATE TASK" />
+                                    <Button mnemonicParsing="false" onAction="#openUpdateTaskWindow" prefHeight="43.0" prefWidth="148.0" text="UPDATE TASK" />
                                  </children>
                               </VBox>
                            </children>
@@ -103,6 +103,8 @@
                         </AnchorPane>
                      </children></AnchorPane>
             </content>
+          </Tab>
+          <Tab text="Reports">
           </Tab>
         </tabs>
       </TabPane>
