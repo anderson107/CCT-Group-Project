@@ -53,6 +53,11 @@ public class MainMenuController {
 		loadView(Views.UPDATE_TASK);
 	}
 	
+	@FXML
+	private void openReportTasksWindow() {
+		loadView(Views.TASK_REPORT);
+	}
+	
 	// method to upload the fxml files
 	private void loadView(String view) {
 		try {

@@ -24,14 +24,14 @@
                </font>
             </Label>
             <TextField layoutX="135.0" layoutY="52.0" prefHeight="25.0" prefWidth="208.0" promptText="Enter ID or email " />
-            <TextArea layoutX="52.0" layoutY="127.0" prefHeight="73.0" prefWidth="405.0" />
+            <TextArea editable="false" layoutX="52.0" layoutY="127.0" prefHeight="73.0" prefWidth="405.0" />
             <Label layoutX="50.0" layoutY="102.0" text="Employee information" />
             <Button layoutX="357.0" layoutY="50.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="99.0" text="Search">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="searchBackButton" layoutX="177.0" layoutY="226.0" mnemonicParsing="false" onAction="#searchCloseWindows" prefHeight="39.0" prefWidth="123.0" text="BACK">
+            <Button fx:id="searchBackButton" layoutX="177.0" layoutY="225.0" mnemonicParsing="false" onAction="#searchCloseWindows" prefHeight="39.0" prefWidth="123.0" text="BACK">
                <font>
                   <Font size="14.0" />
                </font>

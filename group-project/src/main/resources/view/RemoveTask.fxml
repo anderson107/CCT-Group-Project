@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane prefHeight="350.0" prefWidth="300.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="com.controller.RemoveTaskController">
+<BorderPane prefHeight="350.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.RemoveTaskController">
    <top>
       <AnchorPane prefHeight="350.0" prefWidth="300.0" BorderPane.alignment="CENTER">
          <children>
@@ -29,7 +28,7 @@
             <Label layoutX="32.0" layoutY="94.0" text="Task Description" />
             <ScrollPane layoutX="32.0" layoutY="119.0">
                <content>
-                  <TextArea prefHeight="157.0" prefWidth="233.0" wrapText="true" />
+                  <TextArea editable="false" prefHeight="157.0" prefWidth="233.0" wrapText="true" />
                </content>
             </ScrollPane>
             <Button layoutX="202.0" layoutY="47.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Enter" />
