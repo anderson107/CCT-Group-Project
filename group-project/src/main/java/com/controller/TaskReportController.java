@@ -23,6 +23,7 @@ public class TaskReportController implements Initializable {
 	@FXML
 	private javafx.scene.control.Button taskReportBackButton;
 	
+	String name;
 	@FXML
 	private void closeTaskReportWindow() {
 		Stage stage = (Stage) taskReportBackButton.getScene().getWindow();
