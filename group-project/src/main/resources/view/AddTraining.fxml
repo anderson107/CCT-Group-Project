@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane prefHeight="423.0" prefWidth="450.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="com.controller.AddTrainingController">
+   <top>
+      <AnchorPane prefHeight="440.0" prefWidth="450.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="174.0" layoutY="14.0" text="ADD TRAINING">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="46.0" layoutY="64.0" text="Select Training Type" />
+            <ChoiceBox fx:id="trainingTypeChoiceBox" layoutX="166.0" layoutY="60.0" prefHeight="25.0" prefWidth="222.0" />
+            <Label layoutX="46.0" layoutY="113.0" prefHeight="17.0" prefWidth="117.0" text="Describe Training" />
+            <TextArea layoutX="46.0" layoutY="139.0" prefHeight="168.0" prefWidth="341.0" promptText="Describe the training here" wrapText="true" />
+            <Button layoutX="90.0" layoutY="344.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="106.0" text="ADD" />
+            <Button fx:id="addTrainingBackButton" layoutX="235.0" layoutY="344.0" mnemonicParsing="false" onAction="#closeAddTrainingWindow" prefHeight="42.0" prefWidth="106.0" text="BACK" />
+            <Separator layoutX="20.0" layoutY="43.0" orientation="VERTICAL" prefHeight="369.0" prefWidth="3.0" />
+            <Separator layoutX="21.0" layoutY="43.0" prefHeight="3.0" prefWidth="392.0" />
+            <Separator layoutX="411.0" layoutY="43.0" orientation="VERTICAL" prefHeight="369.0" prefWidth="3.0" />
+            <Separator layoutX="21.0" layoutY="411.0" prefHeight="3.0" prefWidth="392.0" />
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>

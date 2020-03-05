@@ -18,6 +18,10 @@ public final class Views {
 	public static final String REMOVE_TASK = "/view/RemoveTask.FXML";
 	public static final String SEARCH_TASK = "/view/SearchTask.FXML";
 	public static final String UPDATE_TASK = "/view/UpdateTask.FXML";
+	public final static String ADD_TRAINING = "/view/AddTraining.FXML";
+	public static final String REMOVE_TRAINING = "/view/RemoveTraining.FXML";
+	public static final String SEARCH_TRAINING = "/view/SearchTraining.FXML";
+	public static final String UPDATE_TRAINING = "/view/UpdateTraining.FXML";
 	
 	private Views() {
 		

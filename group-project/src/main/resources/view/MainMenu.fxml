@@ -110,22 +110,22 @@
                            <children>
                               <VBox layoutX="28.0" layoutY="38.0" prefHeight="410.0" prefWidth="146.0">
                                  <children>
-                                    <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="148.0" text="ADD TRAINING">
+                                    <Button mnemonicParsing="false" onAction="#openAddTrainingWindow" prefHeight="43.0" prefWidth="148.0" text="ADD TRAINING">
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
                                        </VBox.margin>
                                     </Button>
-                                    <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="148.0" text="REMOVE TRAINING">
+                                    <Button mnemonicParsing="false" onAction="#openRemoveTrainingWindow" prefHeight="43.0" prefWidth="148.0" text="REMOVE TRAINING">
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
                                        </VBox.margin>
                                     </Button>
-                                    <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="148.0" text="SEARCH TRAINING">
+                                    <Button mnemonicParsing="false" onAction="#openSearchTrainingWindow" prefHeight="43.0" prefWidth="148.0" text="SEARCH TRAINING">
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
                                        </VBox.margin>
                                     </Button>
-                                    <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="148.0" text="UPDATE TRAINING" />
+                                    <Button mnemonicParsing="false" onAction="#openUpdateTrainingWindow" prefHeight="43.0" prefWidth="148.0" text="UPDATE TRAINING" />
                                  </children>
                               </VBox>
                            </children>
