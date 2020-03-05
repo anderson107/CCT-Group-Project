@@ -14,6 +14,7 @@
         <annotation_api_version>1.3.2</annotation_api_version>
         <java.version>13</java.version>
         <openjfx.version>13</openjfx.version>
+        <dynamic_report_version>6.1.0</dynamic_report_version>
     </properties>
 
     <dependencies>
@@ -67,6 +68,31 @@
             <artifactId>javafx-swing</artifactId>
             <version>${openjfx.version}</version>
         </dependency>
+        
+        <dependency>
+           <groupId>net.sourceforge.dynamicreports</groupId>
+           <artifactId>dynamicreports-core</artifactId>
+           <version>${dynamic_report_version}</version>
+        </dependency>
+        
+        <dependency>
+           <groupId>jakarta.xml.bind</groupId>
+           <artifactId>jakarta.xml.bind-api</artifactId>
+           <version>2.3.2</version>
+        </dependency>
+        
+        <dependency>
+           <groupId>org.glassfish.jaxb</groupId>
+           <artifactId>jaxb-runtime</artifactId>
+           <version>2.3.2</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.19</version>
+        </dependency>
+        
 
     </dependencies>
 

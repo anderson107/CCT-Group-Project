@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class Employee {
+	
+	public static final String first_name = "Anderson";
 
 	private int id;
 	private String firstName;

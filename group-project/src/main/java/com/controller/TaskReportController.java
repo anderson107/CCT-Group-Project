@@ -3,6 +3,8 @@ package com.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.saturn.model.ReportGenerator;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -23,12 +25,18 @@ public class TaskReportController implements Initializable {
 	@FXML
 	private javafx.scene.control.Button taskReportBackButton;
 	
-	String name;
 	@FXML
 	private void closeTaskReportWindow() {
 		Stage stage = (Stage) taskReportBackButton.getScene().getWindow();
 		stage.close();
 	}
+	
+	@FXML
+	private void printReport() {
+		ReportGenerator report = new ReportGenerator();
+		report.show();
+	}
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
