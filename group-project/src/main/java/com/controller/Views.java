@@ -9,11 +9,15 @@ public final class Views {
 	public final static String SEARCH_EMPLOYEE = "/view/SearchEmployee.FXML";
 	public final static String UPDATE_EMPLOYEE = "/view/UpdateEmployee.FXML";
 	public final static String CHANGE_PASSWORD = "/view/ChangePassword.FXML";
-	public final static String ADD_TASK = "/view/AddTask.FXML";
-	public final static String REMOVE_TASK = "/view/RemoveTask.FXML";
-	public final static String SEARCH_TASK = "/view/SearchTask.FXML";
-	public final static String UPDATE_TASK = "/view/UpdateTask.FXML";
+	public final static String ADD_ITEM_CHECKLIST = "/view/AddItemChecklist.FXML";
+	public final static String REMOVE_ITEM_CHECKLIST = "/view/RemoveItemChecklist.FXML";
+	public final static String SEARCH_ITEM_CHECKLIST = "/view/SearchItemChecklist.FXML";
+	public final static String UPDATE_ITEM_CHECKLIST = "/view/UpdateItemChecklist.FXML";
 	public static final String TASK_REPORT = "/view/TaskReport.FXML";
+	public static final String ADD_TASK = "/view/AddTask.FXML";
+	public static final String REMOVE_TASK = "/view/RemoveTask.FXML";
+	public static final String SEARCH_TASK = "/view/SearchTask.FXML";
+	public static final String UPDATE_TASK = "/view/UpdateTask.FXML";
 	
 	private Views() {
 		

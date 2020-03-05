@@ -34,6 +34,31 @@ public class MainMenuController {
 	}
 	
 	@FXML
+	private void openAddItemChecklistWindow() {
+		loadView(Views.ADD_ITEM_CHECKLIST);
+	}
+	
+	@FXML
+	private void openRemoveItemChecklistWindow() {
+		loadView(Views.REMOVE_ITEM_CHECKLIST);
+	}
+	
+	@FXML
+	private void openSearchItemChecklistWindow() {
+		loadView(Views.SEARCH_ITEM_CHECKLIST);
+	}
+	
+	@FXML
+	private void openUpdateItemChecklistWindow() {
+		loadView(Views.UPDATE_ITEM_CHECKLIST);
+	}
+	
+	@FXML
+	private void openReportTasksWindow() {
+		loadView(Views.TASK_REPORT);
+	}
+	
+	@FXML
 	private void openAddTaskWindow() {
 		loadView(Views.ADD_TASK);
 	}
@@ -51,11 +76,6 @@ public class MainMenuController {
 	@FXML
 	private void openUpdateTaskWindow() {
 		loadView(Views.UPDATE_TASK);
-	}
-	
-	@FXML
-	private void openReportTasksWindow() {
-		loadView(Views.TASK_REPORT);
 	}
 	
 	// method to upload the fxml files
