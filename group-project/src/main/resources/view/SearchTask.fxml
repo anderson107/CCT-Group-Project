@@ -21,7 +21,7 @@
             </Label>
             <Label layoutX="32.0" layoutY="49.0" text="Task ID">
                <font>
-                  <Font size="14.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
             <TextField layoutX="86.0" layoutY="47.0" prefHeight="25.0" prefWidth="97.0" promptText="Enter task ID" />
@@ -32,7 +32,7 @@
                </content>
             </ScrollPane>
             <Button layoutX="202.0" layoutY="47.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Search" />
-            <Button layoutX="106.0" layoutY="295.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Back" />
+            <Button fx:id="searchTaskBackButton" layoutX="106.0" layoutY="295.0" mnemonicParsing="false" onAction="#closeSearchTaskWindow" prefHeight="25.0" prefWidth="75.0" text="Back" />
             <Separator layoutX="22.0" layoutY="37.0" prefHeight="4.0" prefWidth="256.0" />
             <Separator layoutX="19.0" layoutY="38.0" orientation="VERTICAL" prefHeight="297.0" prefWidth="6.0" />
             <Separator layoutX="20.0" layoutY="334.0" prefHeight="3.0" prefWidth="257.0" />

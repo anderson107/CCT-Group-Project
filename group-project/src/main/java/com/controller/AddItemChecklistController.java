@@ -13,20 +13,20 @@ public class AddItemChecklistController implements Initializable{
 	
 	//*********** private fields *************
 	@FXML
-	private javafx.scene.control.ChoiceBox<String>selectTask;
+	private javafx.scene.control.ChoiceBox<String>selectChecklist;
 
 	@FXML
 	private javafx.scene.control.ChoiceBox<String>selectFrequency;
 	
 	@FXML
-	private javafx.scene.control.Button addTaskBackButton;
+	private javafx.scene.control.Button addItemBackButton;
 	
 	//********** private and public methods **********************
 	
 	// it closes add task window when back button is clicked
 	@FXML
 	private void closeAddTaskWindow() {
-        Stage stage =(Stage) addTaskBackButton.getScene().getWindow();
+        Stage stage =(Stage) addItemBackButton.getScene().getWindow();
 		stage.close();
 	}
 
@@ -36,7 +36,7 @@ public class AddItemChecklistController implements Initializable{
 		ObservableList<String> list = FXCollections.observableArrayList();
 		   list.addAll("Health and Safety", "Fire Warden");
 		  //populate the Choice box;  
-		  selectTask.setItems(list);
+		  selectChecklist.setItems(list);
 		  
 		  ObservableList<String> list1 = FXCollections.observableArrayList();
 		   list1.addAll("Daily", "Weekly","Biweekly","Monthly");

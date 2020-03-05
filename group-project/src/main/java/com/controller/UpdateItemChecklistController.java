@@ -18,11 +18,11 @@ public class UpdateItemChecklistController implements Initializable {
 	private javafx.scene.control.ChoiceBox<String> updateSelectFrequencyChoiceBox;
 	
 	@FXML
-	private javafx.scene.control.Button updateTaskBackButton;
+	private javafx.scene.control.Button updateItemBackButton;
 	
 	@FXML
 	private void closeUpdateTaskWindow() {
-		Stage stage = (Stage) updateTaskBackButton.getScene().getWindow();
+		Stage stage = (Stage) updateItemBackButton.getScene().getWindow();
 		stage.close();
 	}
 
