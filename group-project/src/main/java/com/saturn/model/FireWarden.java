@@ -4,35 +4,28 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @NoArgsConstructor
-public class FireWarden implements Tasks {
+public class FireWarden extends ChecklistSuperClass implements Checklist {
 	
 	// ******fields********
-	
-	private int id;
-	private String task;
-	private String status;
-	private String frequency;
 	
 	List<FireWarden>firewardenTasks;
 	
 	// *******constructors*******
 	
-	public FireWarden(String task, String status, String frequency) {
-		this.task = task;
-		this.status = status;
-		this.frequency = frequency;
+	public FireWarden(String itemDescription, String status, String frequency) {
+		this.setFrequency(frequency);
+		this.setStatus(status);
+		this.setItemDescription(itemDescription);
 	}
 	
 	// *******public methods*********
 	
 	// method to add fire warden task to the fire warden list
 	@Override
-	public void addTask(Object fireWarden) {
+	public void addItem(Checklist fireWarden) {
 		if(firewardenTasks==null) {
 			firewardenTasks = new ArrayList<>();
 			firewardenTasks.add((FireWarden) fireWarden);
@@ -43,7 +36,7 @@ public class FireWarden implements Tasks {
 	
 	// method to remove the task from the list
 	@Override
-	public void removeTask(int id) {
+	public void removeItem(int id) {
 		ListIterator<FireWarden>iterator = firewardenTasks.listIterator();
 		while(iterator.hasNext()) {
 			FireWarden fireWarden = iterator.next();
@@ -57,7 +50,7 @@ public class FireWarden implements Tasks {
 	
 	// method to get fire warden task
 	@Override
-	public FireWarden getTask(int id) {
+	public FireWarden getItem(int id) {
 		for(FireWarden f: firewardenTasks) {
 			if(f.getId()==id) {
 				return f;

@@ -4,33 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @NoArgsConstructor
-public class HealthSafetyChecklist implements Tasks {
+public class HealthSafetyChecklist extends ChecklistSuperClass implements Checklist {
 
 	//***** private fields ************
-	
-	private int id;
-	private String frequency;
-	private String status;
 	private List<HealthSafetyChecklist>hsChecklist;
-	
 	
 	//******* constructors **************
 	
-	public HealthSafetyChecklist(String status, String frequency) {
-		this.frequency = frequency;
-		this.status = status;
+	public HealthSafetyChecklist(String itemDescription, String status, String frequency) {
+		this.setItemDescription(itemDescription);
+		this.setFrequency(frequency);
+		this.setStatus(status);
 	}
 	
 	//********* public methods ***************
 	
 	// method to add a health and safety task
 	@Override
-	public void addTask(Object obj) {
+	public void addItem(Checklist obj) {
 		
 		if(hsChecklist == null) {
 			hsChecklist = new ArrayList<>();
@@ -42,7 +36,7 @@ public class HealthSafetyChecklist implements Tasks {
 
 	// method to remove a H&S task
 	@Override
-	public void removeTask(int id) {
+	public void removeItem(int id) {
 		
 		ListIterator<HealthSafetyChecklist> iterator = hsChecklist.listIterator();
 		
@@ -58,7 +52,7 @@ public class HealthSafetyChecklist implements Tasks {
 
 	// method to get a H&S task
 	@Override
-	public HealthSafetyChecklist getTask(int id) {
+	public HealthSafetyChecklist getItem(int id) {
 		
 		for(HealthSafetyChecklist hs: hsChecklist) {
 			if(hs.getId()==id) {

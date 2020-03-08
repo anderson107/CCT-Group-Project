@@ -1,6 +1,8 @@
 package com.saturn.model;
 
+import java.io.File;
 import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -10,6 +12,7 @@ import net.sf.dynamicreports.report.builder.column.Columns;
 import net.sf.dynamicreports.report.builder.component.Components;
 import net.sf.dynamicreports.report.builder.datatype.DataTypes;
 import net.sf.dynamicreports.report.constant.HorizontalTextAlignment;
+import net.sf.dynamicreports.report.exception.DRException;
 
 public class ReportGenerator {
 	
@@ -34,6 +37,7 @@ public class ReportGenerator {
 			e.printStackTrace();
 		}
 		
+		
 		report.columns(
 			Columns.column("Employee id", "id", DataTypes.integerType()).setHorizontalTextAlignment(HorizontalTextAlignment.LEFT),
 			Columns.column("First Name","first_name", DataTypes.stringType()),
@@ -44,8 +48,9 @@ public class ReportGenerator {
 			)
 			.pageFooter(Components.pageXofY())	
 			.setDataSource("SELECT id, first_name, last_name, email FROM instructor", 
-                    connection);
-				
+                    connection)
+			.setPageHeaderBackgroundComponent(Components.image("/download.png"));
+		
 	}
 	
 	public void show() {
