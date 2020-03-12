@@ -38,7 +38,7 @@
                               <TextField layoutX="178.0" layoutY="11.0" prefHeight="25.0" prefWidth="198.0" promptText="Enter ID/Name" />
                               <Button layoutX="396.0" layoutY="11.0" mnemonicParsing="false" text="Search" />
                               <Button layoutX="33.0" layoutY="50.0" mnemonicParsing="false" text="UPDATE" />
-                              <Button layoutX="33.0" layoutY="91.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="DELETE" />
+                              <Button fx:id="deleteRow" layoutX="33.0" layoutY="91.0" mnemonicParsing="false" onAction="#deleteRow" prefHeight="25.0" prefWidth="60.0" text="DELETE" />
                            </children>
                         </AnchorPane>
                   </content>
