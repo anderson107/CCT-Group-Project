@@ -1,5 +1,6 @@
 package com.saturn.model;
 
+import javafx.scene.control.CheckBox;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,6 +9,7 @@ import lombok.NoArgsConstructor;
 public class ChecklistSuperClass {
 
 	private int id;
+	private CheckBox checkbox;
 	private String itemDescription;
 	private String frequency;
 	private String status;

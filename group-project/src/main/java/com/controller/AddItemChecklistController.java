@@ -34,12 +34,12 @@ public class AddItemChecklistController implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		ObservableList<String> list = FXCollections.observableArrayList();
-		   list.addAll("Health and Safety", "Fire Warden");
+		   list.addAll("Health and Safety", "Fire Warden", "Task");
 		  //populate the Choice box;  
 		  selectChecklist.setItems(list);
 		  
 		  ObservableList<String> list1 = FXCollections.observableArrayList();
-		   list1.addAll("Daily", "Weekly","Biweekly","Monthly");
+		   list1.addAll("Once","Daily", "Weekly","Biweekly","Monthly");
 		  //populate the Choice box;  
 		  selectFrequency.setItems(list1);
 		

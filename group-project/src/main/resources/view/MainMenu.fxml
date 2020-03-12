@@ -56,44 +56,11 @@
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
                                        </VBox.margin></Button>
-                                    <Button mnemonicParsing="false" onAction="#openRemoveItemChecklistWindow" prefHeight="43.0" prefWidth="148.0" text="REMOVE ITEM">
+                                    <Button mnemonicParsing="false" onAction="#openUpdateItemChecklistWindow" prefHeight="43.0" prefWidth="148.0" text="UPDATE ITEM">
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
                                        </VBox.margin></Button>
-                                    <Button mnemonicParsing="false" onAction="#openSearchItemChecklistWindow" prefHeight="43.0" prefWidth="148.0" text="SEARCH ITEM">
-                                       <VBox.margin>
-                                          <Insets bottom="10.0" />
-                                       </VBox.margin></Button>
-                                    <Button mnemonicParsing="false" onAction="#openUpdateItemChecklistWindow" prefHeight="43.0" prefWidth="148.0" text="UPDATE ITEM" />
-                                 </children>
-                              </VBox>
-                           </children>
-                        </AnchorPane>
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-          <Tab text="Tasks ">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <AnchorPane prefHeight="571.0" prefWidth="700.0">
-                           <children>
-                              <VBox layoutX="28.0" layoutY="38.0" prefHeight="410.0" prefWidth="146.0">
-                                 <children>
-                                    <Button mnemonicParsing="false" onAction="#openAddTaskWindow" prefHeight="43.0" prefWidth="148.0" text="ADD TASK">
-                                       <VBox.margin>
-                                          <Insets bottom="10.0" />
-                                       </VBox.margin></Button>
-                                    <Button mnemonicParsing="false" onAction="#openRemoveTaskWindow" prefHeight="43.0" prefWidth="148.0" text="REMOVE TASK">
-                                       <VBox.margin>
-                                          <Insets bottom="10.0" />
-                                       </VBox.margin></Button>
-                                    <Button mnemonicParsing="false" onAction="#openSearchTaskWindow" prefHeight="43.0" prefWidth="148.0" text="SEARCH TASK">
-                                       <VBox.margin>
-                                          <Insets bottom="10.0" />
-                                       </VBox.margin></Button>
-                                    <Button mnemonicParsing="false" onAction="#openUpdateTaskWindow" prefHeight="43.0" prefWidth="148.0" text="UPDATE TASK" />
+                                    <Button mnemonicParsing="false" onAction="#openTaskAdmistrator" prefHeight="43.0" prefWidth="148.0" text="TASK ADMISTRATOR" />
                                  </children>
                               </VBox>
                            </children>

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 
+import javafx.scene.control.CheckBox;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
@@ -18,6 +19,7 @@ public class HealthSafetyChecklist extends ChecklistSuperClass implements Checkl
 		this.setItemDescription(itemDescription);
 		this.setFrequency(frequency);
 		this.setStatus(status);
+		this.setCheckbox(new CheckBox());
 	}
 	
 	//********* public methods ***************

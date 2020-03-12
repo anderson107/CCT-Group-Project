@@ -59,26 +59,6 @@ public class MainMenuController {
 	}
 	
 	@FXML
-	private void openAddTaskWindow() {
-		loadView(Views.ADD_TASK);
-	}
-	
-	@FXML
-	private void openRemoveTaskWindow() {
-		loadView(Views.REMOVE_TASK);
-	}
-	
-	@FXML
-	private void openSearchTaskWindow() {
-		loadView(Views.SEARCH_TASK);
-	}
-	
-	@FXML
-	private void openUpdateTaskWindow() {
-		loadView(Views.UPDATE_TASK);
-	}
-	
-	@FXML
 	private void openAddTrainingWindow() {
 		loadView(Views.ADD_TRAINING);
 	}
@@ -96,6 +76,11 @@ public class MainMenuController {
 	@FXML
 	private void openUpdateTrainingWindow() {
 		loadView(Views.UPDATE_TRAINING);
+	}
+	
+	@FXML
+	private void openTaskAdmistrator() {
+		loadView(Views.TASK_ADMINISTRATOR);
 	}
 	
 	// method to upload the fxml files

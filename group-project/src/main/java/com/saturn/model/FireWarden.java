@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 
+import javafx.scene.control.CheckBox;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 public class FireWarden extends ChecklistSuperClass implements Checklist {
 	
 	// ******fields********
-	
 	List<FireWarden>firewardenTasks;
 	
 	// *******constructors*******
@@ -19,6 +19,7 @@ public class FireWarden extends ChecklistSuperClass implements Checklist {
 		this.setFrequency(frequency);
 		this.setStatus(status);
 		this.setItemDescription(itemDescription);
+		this.setCheckbox(new CheckBox());;
 	}
 	
 	// *******public methods*********
