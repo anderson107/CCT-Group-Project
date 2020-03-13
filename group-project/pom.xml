@@ -15,6 +15,8 @@
         <java.version>13</java.version>
         <openjfx.version>13</openjfx.version>
         <dynamic_report_version>6.1.0</dynamic_report_version>
+        <mySql_version>8.0.19</mySql_version>
+        <hibernate_version>5.4.11.Final</hibernate_version>
     </properties>
 
     <dependencies>
@@ -90,9 +92,14 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.19</version>
+            <version>${mySql_version}</version>
         </dependency>
         
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate_version}</version>
+        </dependency>
 
     </dependencies>
 

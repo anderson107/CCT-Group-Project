@@ -1,37 +1,42 @@
 package com.saturn.model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 
+import javafx.scene.control.CheckBox;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @NoArgsConstructor
-public class Task {
+public class Task extends ChecklistSuperClass implements Checklist {
 
-	private int id;
-	private String task;
-	private String status;
+	
 	private List<Task>taskList;
 	
-	public Task(String task, String status) {
-		this.task = task;
-		this.status = status;
+	public Task(String task, String status, String frequency) {
+		this.setItemDescription(task);
+		this.setStatus(status);
+		this.setFrequency(frequency);
+		this.setCheckbox(new CheckBox());
+		this.setDueDate(LocalDate.now());
 	}
-	
-	public void addTask(Task task) {
+		
+	@Override
+	public void addItem(Checklist task) {
 		if(taskList==null) {
 			taskList = new ArrayList<>();
-			taskList.add(task);
+			taskList.add((Task) task);
 		}else {
-			taskList.add(task);
+			taskList.add((Task) task);
 		}
+		
 	}
-	
-	public void removeTask(int id) {
-		ListIterator<Task>iterator = taskList.listIterator();
+
+	@Override
+	public void removeItem(int id) {
+    ListIterator<Task>iterator = taskList.listIterator();
 		
 		while(iterator.hasNext()) {
 			Task task = iterator.next();
@@ -41,10 +46,11 @@ public class Task {
 				break;
 			}
 		}
-	}
-	
-	public Task getTask(int id) {
 		
+	}
+
+	@Override
+	public Task getItem(int id) {
 		for(Task t: taskList) {
 			if(t.getId()==id) {
 				return t;

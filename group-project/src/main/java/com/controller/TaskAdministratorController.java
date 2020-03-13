@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -36,7 +37,13 @@ public class TaskAdministratorController implements Initializable {
 	
 	@FXML
 	private TableColumn<ChecklistSuperClass, String>status;
+	
+	@FXML
+	private TableColumn<ChecklistSuperClass, LocalDate> dueDate;
 
+	@FXML
+	private CheckBox checkbox1;
+	
 	private List<ChecklistSuperClass> fire;
 	
 	public TaskAdministratorController() {
@@ -54,6 +61,7 @@ public class TaskAdministratorController implements Initializable {
 		description.setCellValueFactory(new PropertyValueFactory<ChecklistSuperClass, String>("itemDescription"));
 		frequency.setCellValueFactory(new PropertyValueFactory<ChecklistSuperClass, String>("frequency"));
 		status.setCellValueFactory(new PropertyValueFactory<ChecklistSuperClass, String>("status"));
+		dueDate.setCellValueFactory(new PropertyValueFactory<ChecklistSuperClass, LocalDate>("dueDate"));
 
 	    tableView.getItems().setAll(fire);
 		

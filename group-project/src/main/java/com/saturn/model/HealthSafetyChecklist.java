@@ -1,5 +1,6 @@
 package com.saturn.model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
@@ -20,6 +21,7 @@ public class HealthSafetyChecklist extends ChecklistSuperClass implements Checkl
 		this.setFrequency(frequency);
 		this.setStatus(status);
 		this.setCheckbox(new CheckBox());
+		this.setDueDate(LocalDate.now());
 	}
 	
 	//********* public methods ***************

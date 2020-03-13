@@ -1,5 +1,6 @@
 package com.saturn.model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
@@ -12,14 +13,15 @@ public class FireWarden extends ChecklistSuperClass implements Checklist {
 	
 	// ******fields********
 	List<FireWarden>firewardenTasks;
-	
 	// *******constructors*******
 	
 	public FireWarden(String itemDescription, String status, String frequency) {
 		this.setFrequency(frequency);
 		this.setStatus(status);
 		this.setItemDescription(itemDescription);
-		this.setCheckbox(new CheckBox());;
+		this.setCheckbox(new CheckBox());
+		this.setCreationDate(LocalDate.now());
+		this.setDueDate(LocalDate.now());
 	}
 	
 	// *******public methods*********
