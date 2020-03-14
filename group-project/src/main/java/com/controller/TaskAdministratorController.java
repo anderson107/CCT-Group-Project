@@ -70,11 +70,13 @@ public class TaskAdministratorController implements Initializable {
 	@FXML
 	private void deleteRow() {
 		ObservableList<ChecklistSuperClass>delete = FXCollections.observableArrayList();
+		/*
 		for(ChecklistSuperClass c: fire) {
 			if(c.getCheckbox().isSelected()) {
 				delete.add(c);
 			}
 		}
+		*/
 		fire.removeAll(delete);
 		tableView.getItems().setAll(fire);
 		//tableView.refresh();

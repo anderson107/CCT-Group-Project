@@ -19,7 +19,7 @@ public class Task extends ChecklistSuperClass implements Checklist {
 		this.setItemDescription(task);
 		this.setStatus(status);
 		this.setFrequency(frequency);
-		this.setCheckbox(new CheckBox());
+		//this.setCheckbox(new CheckBox());
 		this.setDueDate(LocalDate.now());
 	}
 		

@@ -20,7 +20,7 @@ public class HealthSafetyChecklist extends ChecklistSuperClass implements Checkl
 		this.setItemDescription(itemDescription);
 		this.setFrequency(frequency);
 		this.setStatus(status);
-		this.setCheckbox(new CheckBox());
+		//this.setCheckbox(new CheckBox());
 		this.setDueDate(LocalDate.now());
 	}
 	
