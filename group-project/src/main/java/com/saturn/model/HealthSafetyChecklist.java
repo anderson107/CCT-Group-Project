@@ -5,13 +5,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
 import javafx.scene.control.CheckBox;
 import lombok.NoArgsConstructor;
 
+@Entity
+@Table(name="hs")
 @NoArgsConstructor
 public class HealthSafetyChecklist extends ChecklistSuperClass implements Checklist {
 
 	//***** private fields ************
+	@Transient
 	private List<HealthSafetyChecklist>hsChecklist;
 	
 	//******* constructors **************
@@ -20,8 +27,9 @@ public class HealthSafetyChecklist extends ChecklistSuperClass implements Checkl
 		this.setItemDescription(itemDescription);
 		this.setFrequency(frequency);
 		this.setStatus(status);
-		//this.setCheckbox(new CheckBox());
+		this.setCheckbox(new CheckBox());
 		this.setDueDate(LocalDate.now());
+		this.setCreationDate(LocalDate.now());
 	}
 	
 	//********* public methods ***************
