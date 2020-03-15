@@ -17,6 +17,7 @@ C:\Users\DELL\git\CCT-Group-Project\group-project\src\main\java\com\saturn\model
 C:\Users\DELL\git\CCT-Group-Project\group-project\src\main\java\com\saturn\model\TrainingSuperClass.java
 C:\Users\DELL\git\CCT-Group-Project\group-project\src\main\java\com\controller\UpdateItemChecklistController.java
 C:\Users\DELL\git\CCT-Group-Project\group-project\src\main\java\com\saturn\model\FireWarden.java
+C:\Users\DELL\git\CCT-Group-Project\group-project\src\main\java\com\saturn\dao\DatabaseConnection.java
 C:\Users\DELL\git\CCT-Group-Project\group-project\src\main\java\com\controller\Views.java
 C:\Users\DELL\git\CCT-Group-Project\group-project\src\main\java\com\saturn\model\HealthSafetyChecklist.java
 C:\Users\DELL\git\CCT-Group-Project\group-project\src\main\java\com\controller\MainMenuController.java
@@ -25,7 +26,9 @@ C:\Users\DELL\git\CCT-Group-Project\group-project\src\main\java\com\controller\U
 C:\Users\DELL\git\CCT-Group-Project\group-project\src\main\java\com\controller\AddItemChecklistController.java
 C:\Users\DELL\git\CCT-Group-Project\group-project\src\main\java\com\controller\RemoveTrainingController.java
 C:\Users\DELL\git\CCT-Group-Project\group-project\src\main\java\com\controller\AddTrainingController.java
+C:\Users\DELL\git\CCT-Group-Project\group-project\src\main\java\com\saturn\model\Frequency.java
 C:\Users\DELL\git\CCT-Group-Project\group-project\src\main\java\com\saturn\model\SeaChangeTraining.java
 C:\Users\DELL\git\CCT-Group-Project\group-project\src\main\java\com\controller\ChangePasswordController.java
 C:\Users\DELL\git\CCT-Group-Project\group-project\src\main\java\com\controller\SearchEmployeeController.java
+C:\Users\DELL\git\CCT-Group-Project\group-project\src\main\java\com\saturn\model\ChecklistCategory.java
 C:\Users\DELL\git\CCT-Group-Project\group-project\src\main\java\com\saturn\model\ReportGenerator.java

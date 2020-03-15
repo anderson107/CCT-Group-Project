@@ -14,16 +14,6 @@ public class NewMain {
 		// TODO Auto-generated method stub
 		Main.main(args);
 		
-		Task task = new Task("Enter enter", "Enter enter", "Enter enter");
-		
-		DatabaseConnection.addChecklistItem(task);
-		
-		List<Task>list = DatabaseConnection.loadAllData(Task.class);
-		
-		for(Task t: list) {
-			System.out.println(t);
-		}
-		
 	}
 
 }

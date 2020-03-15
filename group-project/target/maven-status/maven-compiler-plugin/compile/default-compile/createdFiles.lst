@@ -4,7 +4,9 @@ com\saturn\model\VirtualAcademyTraining.class
 com\saturn\model\ReportGenerator.class
 com\controller\AddItemChecklistController.class
 com\controller\SearchItemChecklistController.class
+com\saturn\dao\DatabaseConnection.class
 com\controller\RegisterFormController.class
+com\saturn\model\ChecklistCategory.class
 com\saturn\model\ChecklistSuperClass.class
 com\saturn\model\SeaChangeTraining.class
 com\controller\UpdateItemChecklistController.class
@@ -23,6 +25,7 @@ com\controller\SearchEmployeeController.class
 com\controller\SearchTrainingController.class
 com\saturn\model\Employee.class
 com\saturn\model\HealthSafetyChecklist.class
+com\saturn\model\Frequency.class
 com\controller\UpdateTrainingController.class
 com\saturn\model\FireWarden.class
 com\saturn\NewMain.class
