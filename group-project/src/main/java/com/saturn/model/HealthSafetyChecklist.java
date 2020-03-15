@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import javafx.scene.control.CheckBox;
 import lombok.NoArgsConstructor;
 
 @Entity
@@ -27,7 +26,7 @@ public class HealthSafetyChecklist extends ChecklistSuperClass implements Checkl
 		this.setItemDescription(itemDescription);
 		this.setFrequency(frequency);
 		this.setStatus(status);
-		this.setCheckbox(new CheckBox());
+		this.setCheckbox(null);
 		this.setDueDate(LocalDate.now());
 		this.setCreationDate(LocalDate.now());
 	}

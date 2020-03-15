@@ -5,14 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.SecondaryTable;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import javafx.scene.control.CheckBox;
 import lombok.NoArgsConstructor;
 
 @Entity
@@ -29,7 +25,7 @@ public class FireWarden extends ChecklistSuperClass implements Checklist {
 		this.setFrequency(frequency);
 		this.setStatus(status);
 		this.setItemDescription(itemDescription);
-		this.setCheckbox(new CheckBox());
+		this.setCheckbox(null);
 		this.setCreationDate(LocalDate.now());
 		this.setDueDate(LocalDate.now());
 	}

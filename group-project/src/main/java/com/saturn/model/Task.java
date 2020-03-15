@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import javafx.scene.control.CheckBox;
 import lombok.NoArgsConstructor;
 
 @Entity
@@ -24,7 +23,7 @@ public class Task extends ChecklistSuperClass implements Checklist {
 		this.setItemDescription(task);
 		this.setStatus(status);
 		this.setFrequency(frequency);
-		this.setCheckbox(new CheckBox());
+		this.setCheckbox(null);
 		this.setDueDate(LocalDate.now());
 		this.setCreationDate(LocalDate.now());
 	}
