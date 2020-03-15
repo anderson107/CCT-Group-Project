@@ -23,7 +23,7 @@ public class Validation {
 	}
 	
 	// it validates Choice box fields
-	public static boolean isChoiceBoxSelected(ChoiceBox choicebox, Label label, String text) {
+	public static boolean isChoiceBoxSelected(ChoiceBox<String> choicebox, Label label, String text) {
 		boolean isValid = true;
 		
 		if(choicebox.getValue()==null) {

@@ -25,6 +25,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class TaskAdministratorController implements Initializable {
 
+	// private fields //
 	@FXML
 	private TableView<ChecklistSuperClass> tableView;
 
@@ -44,6 +45,9 @@ public class TaskAdministratorController implements Initializable {
 	private TableColumn<ChecklistSuperClass, String> status;
 
 	@FXML
+	private TableColumn<ChecklistSuperClass, LocalDate> creationDate;
+
+	@FXML
 	private TableColumn<ChecklistSuperClass, LocalDate> dueDate;
 
 	@FXML
@@ -54,9 +58,12 @@ public class TaskAdministratorController implements Initializable {
 
 	private List<ChecklistSuperClass> checklistList;
 
+	// constructor //
 	public TaskAdministratorController() {
 		checklistList = new ArrayList<>();
 	}
+
+	// private and public methods //
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -74,12 +81,13 @@ public class TaskAdministratorController implements Initializable {
 		frequency.setCellValueFactory(new PropertyValueFactory<ChecklistSuperClass, String>("frequency"));
 		status.setCellValueFactory(new PropertyValueFactory<ChecklistSuperClass, String>("status"));
 		dueDate.setCellValueFactory(new PropertyValueFactory<ChecklistSuperClass, LocalDate>("dueDate"));
+		creationDate.setCellValueFactory(new PropertyValueFactory<ChecklistSuperClass, LocalDate>("creationDate"));
 		checklistList.addAll(DatabaseConnection.loadAllData(FireWarden.class));
 		checklistList.addAll(DatabaseConnection.loadAllData(HealthSafetyChecklist.class));
 		checklistList.addAll(DatabaseConnection.loadAllData(Task.class));
-		
+
 		// it sets check boxes to each object
-		for(ChecklistSuperClass c: checklistList) {
+		for (ChecklistSuperClass c : checklistList) {
 			c.setCheckbox(new CheckBox());
 		}
 
@@ -93,7 +101,7 @@ public class TaskAdministratorController implements Initializable {
 		if (taskAdministratorChoicebox.getValue().matches(ChecklistCategory.HEALTH_SAFETY.getCategory())) {
 			checklistList.addAll(DatabaseConnection.loadAllData(HealthSafetyChecklist.class));
 			// it sets check boxes to each object
-			for(ChecklistSuperClass c: checklistList) {
+			for (ChecklistSuperClass c : checklistList) {
 				c.setCheckbox(new CheckBox());
 			}
 			tableView.getItems().setAll(checklistList);
@@ -102,7 +110,7 @@ public class TaskAdministratorController implements Initializable {
 		else if (taskAdministratorChoicebox.getValue().matches(ChecklistCategory.FIRE_WARDEN.getCategory())) {
 			checklistList.addAll(DatabaseConnection.loadAllData(FireWarden.class));
 			// it sets check boxes to each object
-			for(ChecklistSuperClass c: checklistList) {
+			for (ChecklistSuperClass c : checklistList) {
 				c.setCheckbox(new CheckBox());
 			}
 			tableView.getItems().setAll(checklistList);
@@ -111,17 +119,17 @@ public class TaskAdministratorController implements Initializable {
 		else if (taskAdministratorChoicebox.getValue().matches(ChecklistCategory.TASK.getCategory())) {
 			checklistList.addAll(DatabaseConnection.loadAllData(Task.class));
 			// it sets check boxes to each object
-			for(ChecklistSuperClass c: checklistList) {
+			for (ChecklistSuperClass c : checklistList) {
 				c.setCheckbox(new CheckBox());
 			}
 			tableView.getItems().setAll(checklistList);
-			
+
 		} else if (taskAdministratorChoicebox.getValue().matches(ChecklistCategory.ALL.getCategory())) {
 			checklistList.addAll(DatabaseConnection.loadAllData(FireWarden.class));
 			checklistList.addAll(DatabaseConnection.loadAllData(HealthSafetyChecklist.class));
 			checklistList.addAll(DatabaseConnection.loadAllData(Task.class));
 			// it sets check boxes to each object
-			for(ChecklistSuperClass c: checklistList) {
+			for (ChecklistSuperClass c : checklistList) {
 				c.setCheckbox(new CheckBox());
 			}
 			tableView.getItems().setAll(checklistList);
@@ -130,22 +138,25 @@ public class TaskAdministratorController implements Initializable {
 
 	@FXML
 	private void deleteRow() {
-		
-		
+
 		ObservableList<ChecklistSuperClass> delete = FXCollections.observableArrayList();
 
 		for (ChecklistSuperClass c : checklistList) {
 			if (c.getCheckbox().isSelected()) {
 				delete.add(c);
-				
-			// Confirmation window of delete item and return if "no" is clicked
-			int index=JOptionPane.showInternalConfirmDialog(null, "Delete the selected item(s)?");
-			if(index==1 || index==2) {
-				return;
-			}else {
-				DatabaseConnection.deleteItemFromChecklist((Checklist) c);
 			}
-				
+		}
+
+		if (!delete.isEmpty()) {
+			// Confirmation window of delete item and return if "no" is clicked
+			int index = JOptionPane.showConfirmDialog(null, "Delete the selected item(s)?", "Confirmation Window",
+					JOptionPane.YES_NO_OPTION);
+			if (index == 1) {
+				return;
+			} else {
+				for (ChecklistSuperClass d : delete) {
+					DatabaseConnection.deleteItemFromChecklist((Checklist) d);
+				}
 			}
 		}
 
