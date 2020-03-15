@@ -138,8 +138,8 @@ public class TaskAdministratorController implements Initializable {
 			if (c.getCheckbox().isSelected()) {
 				delete.add(c);
 				
+			// Confirmation window of delete item and return if "no" is clicked
 			int index=JOptionPane.showInternalConfirmDialog(null, "Delete the selected item(s)?");
-			
 			if(index==1 || index==2) {
 				return;
 			}else {
