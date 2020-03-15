@@ -43,8 +43,6 @@
                </content>
             </ScrollPane>
             
-            
-            
             <Button fx:id="addItemBackButton" layoutX="216.0" layoutY="383.0" mnemonicParsing="false" onAction="#closeAddTaskWindow" prefHeight="35.0" prefWidth="99.0" text="BACK" />
             <Separator layoutX="28.0" layoutY="57.0" prefHeight="3.0" prefWidth="345.0" />
             <Separator layoutX="27.0" layoutY="424.0" prefHeight="3.0" prefWidth="346.0" />

@@ -4,7 +4,8 @@ public enum ChecklistCategory {
 
 	FIRE_WARDEN("Fire Warden"),
 	HEALTH_SAFETY("Health and Safety"),
-	TASK("Task");
+	TASK("Task"),
+	ALL("All");
 	
 	
 	private String category;
