@@ -1,5 +1,6 @@
 package com.saturn.dao;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -95,4 +96,21 @@ public final class DatabaseConnection {
 		}
 	    return data;
 	}
+	
+	public static <T> void updateItemChecklistItem(Class<T>type, int id, String frequency, String status, LocalDate localdate) {
+		Session session = factory.getCurrentSession();
+		try {
+			session.beginTransaction();
+			ChecklistSuperClass obj = (ChecklistSuperClass) session.get(type, id);
+			obj.setFrequency(frequency);
+			session.getTransaction().commit();
+			
+			}catch(Exception es) {
+				es.printStackTrace();
+			}
+			finally {
+				session.close();
+			}
+	}
+	
 }

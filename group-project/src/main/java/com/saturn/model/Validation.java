@@ -1,6 +1,7 @@
 package com.saturn.model;
 
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
@@ -35,6 +36,20 @@ public class Validation {
 			label.setText("");
 		}
 		return isValid;
+	}
+	
+	public static boolean isDateEmpty(DatePicker datepicker, Label label, String text) {
+		boolean valid = true;
+		
+		if(datepicker.getValue()==null) {
+			valid = false;
+			label.setText(text);
+			datepicker.requestFocus();
+		}else {
+			valid=true;
+			label.setText("");
+		}
+		return valid;
 	}
 
 }
