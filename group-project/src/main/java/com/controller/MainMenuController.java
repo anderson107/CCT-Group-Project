@@ -97,7 +97,7 @@ public class MainMenuController {
 	}
 	
 	// method to upload the fxml files
-	private void loadView(String view, String windowTitle) {
+	public void loadView(String view, String windowTitle) {
 		try {
 			 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(view));
 		        Parent root1 = (Parent) fxmlLoader.load();

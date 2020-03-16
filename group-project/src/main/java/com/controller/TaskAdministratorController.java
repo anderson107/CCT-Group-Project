@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
+import com.saturn.Main;
 import com.saturn.dao.DatabaseConnection;
 import com.saturn.model.Checklist;
 import com.saturn.model.ChecklistCategory;
@@ -19,9 +20,15 @@ import com.saturn.model.Task;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import lombok.Getter;
 
 public class TaskAdministratorController implements Initializable {
 
@@ -55,12 +62,14 @@ public class TaskAdministratorController implements Initializable {
 
 	@FXML
 	private CheckBox checkbox1;
+	
+	protected static ObservableList<ChecklistSuperClass> selected;
 
-	private List<ChecklistSuperClass> checklistList;
+	private List<ChecklistSuperClass> checklistList=new ArrayList<>();
 
 	// constructor //
 	public TaskAdministratorController() {
-		checklistList = new ArrayList<>();
+		selected = FXCollections.observableArrayList();
 	}
 
 	// private and public methods //
@@ -140,7 +149,6 @@ public class TaskAdministratorController implements Initializable {
 	private void deleteRow() {
 
 		ObservableList<ChecklistSuperClass> delete = FXCollections.observableArrayList();
-
 		for (ChecklistSuperClass c : checklistList) {
 			if (c.getCheckbox().isSelected()) {
 				delete.add(c);
@@ -165,4 +173,33 @@ public class TaskAdministratorController implements Initializable {
 
 	}
 
+	@FXML
+	private void openUpdateTaskWindow() {
+
+		int index = 0;
+		for (ChecklistSuperClass cl : checklistList) {
+			if (cl.getCheckbox().isSelected()) {
+				selected.add(cl);
+				index++;
+			}
+		}
+		if (index == 0 || index > 1) {
+			JOptionPane.showMessageDialog(null, "Select 1 item");
+			return;
+		} else {
+			try {
+				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(Views.UPDATE_ITEM_CHECKLIST));
+				Parent root1 = (Parent) fxmlLoader.load();
+				Stage stage = new Stage();
+				stage.setScene(new Scene(root1));
+				stage.initModality(Modality.APPLICATION_MODAL);
+				stage.initOwner(Main.stage);
+				stage.setTitle("Update Task");
+				stage.show();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }
