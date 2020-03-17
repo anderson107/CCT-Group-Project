@@ -34,6 +34,7 @@ public class TaskAdministratorController implements Initializable {
 
 	// private fields //
 	@FXML
+	@Getter
 	private TableView<ChecklistSuperClass> tableView;
 
 	@FXML
@@ -163,7 +164,7 @@ public class TaskAdministratorController implements Initializable {
 				return;
 			} else {
 				for (ChecklistSuperClass d : delete) {
-					DatabaseConnection.deleteItemFromChecklist((Checklist) d);
+					DatabaseConnection.deleteItemFromChecklist((ChecklistSuperClass) d);
 				}
 			}
 		}
@@ -172,7 +173,7 @@ public class TaskAdministratorController implements Initializable {
 		tableView.getItems().setAll(checklistList);
 
 	}
-
+	
 	@FXML
 	private void openUpdateTaskWindow() {
 

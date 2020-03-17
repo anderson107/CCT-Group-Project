@@ -3,9 +3,13 @@ package com.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.saturn.dao.DatabaseConnection;
 import com.saturn.model.ChecklistCategory;
 import com.saturn.model.ChecklistSuperClass;
+import com.saturn.model.FireWarden;
 import com.saturn.model.Frequency;
+import com.saturn.model.HealthSafetyChecklist;
+import com.saturn.model.Task;
 import com.saturn.model.Validation;
 
 import javafx.collections.FXCollections;
@@ -30,27 +34,28 @@ public class UpdateItemChecklistController implements Initializable {
 
 	@FXML
 	private TextArea textAreaUpdate;
-	
+
 	@FXML
 	private DatePicker datePicker;
-	
+
 	@FXML
 	private Label textAreaLabel;
-	
+
 	@FXML
 	private Label selectFrequencyLabel;
-	
+
 	@FXML
 	private Label selectCategoryLabel;
-	
+
 	@FXML
 	private Label selectStatusLabel;
-	
-	
+
 	@FXML
 	private Label selectDateLabel;
-	
+
 	private int itemToBeUpdatedIndex;
+	
+	private String className;
 
 	@FXML
 	private void closeUpdateTaskWindow() {
@@ -68,6 +73,15 @@ public class UpdateItemChecklistController implements Initializable {
 				ChecklistCategory.TASK.getCategory());
 		updateSelectTypeChoiceBox.setItems(list);
 
+		// it sets value to type choice box
+		if (updateItem.getClass().getSimpleName().matches("HealthSafetyChecklist")) {
+			updateSelectTypeChoiceBox.setValue(ChecklistCategory.HEALTH_SAFETY.getCategory());
+		} else if (updateItem.getClass().getSimpleName().matches("FireWarden")) {
+			updateSelectTypeChoiceBox.setValue(ChecklistCategory.FIRE_WARDEN.getCategory());
+		} else if (updateItem.getClass().getSimpleName().matches("Task")) {
+			updateSelectTypeChoiceBox.setValue(ChecklistCategory.TASK.getCategory());
+		}
+
 		// it populates frequency choice box
 		ObservableList<String> list1 = FXCollections.observableArrayList();
 		list1.addAll(Frequency.ONCE.getFrequency(), Frequency.DAILY.getFrequency(), Frequency.WEEKLY.getFrequency(),
@@ -83,18 +97,39 @@ public class UpdateItemChecklistController implements Initializable {
 		updateStatus.setValue(updateItem.getStatus());
 		textAreaUpdate.setText(updateItem.getItemDescription());
 		itemToBeUpdatedIndex = updateItem.getId();
-		//datePicker.setValue(updateItem.getDueDate());
+		className = updateItem.getClass().getSimpleName();
+		datePicker.setValue(updateItem.getDueDate());
 		TaskAdministratorController.selected.remove(updateItem);
 	}
+
 	@FXML
 	private void updateItemDatabase() {
-		boolean category = Validation.isChoiceBoxSelected(updateSelectTypeChoiceBox, selectCategoryLabel, "Select a category");
-		boolean frequency = Validation.isChoiceBoxSelected(updateSelectFrequencyChoiceBox, selectFrequencyLabel, "Select frequency");
+		boolean category = Validation.isChoiceBoxSelected(updateSelectTypeChoiceBox, selectCategoryLabel,
+				"Select a category");
+		boolean frequency = Validation.isChoiceBoxSelected(updateSelectFrequencyChoiceBox, selectFrequencyLabel,
+				"Select frequency");
 		boolean status = Validation.isChoiceBoxSelected(updateStatus, selectStatusLabel, "Select status");
 		boolean itemDescription = Validation.isTextAreaEmpty(textAreaUpdate, textAreaLabel, "Enter new description");
 		boolean date = Validation.isDateEmpty(datePicker, selectDateLabel, "Pick a date");
-		
-		if(category&&frequency&&status&&date&&itemDescription) {
+
+		if (category && frequency && status && date && itemDescription) {
+			
+			if(className.matches("FireWarden")) {
+				DatabaseConnection.updateItemChecklistItem(FireWarden.class, itemToBeUpdatedIndex, textAreaUpdate.getText(),
+						updateSelectTypeChoiceBox.getValue(), updateSelectFrequencyChoiceBox.getValue(),
+						updateStatus.getValue(), datePicker);
+				
+			}else if(className.matches("HealthSafetyChecklist")) {
+				DatabaseConnection.updateItemChecklistItem(HealthSafetyChecklist.class, itemToBeUpdatedIndex, textAreaUpdate.getText(),
+						updateSelectTypeChoiceBox.getValue(), updateSelectFrequencyChoiceBox.getValue(),
+						updateStatus.getValue(), datePicker);
+				
+			}else if(className.matches("Task")) {
+				DatabaseConnection.updateItemChecklistItem(Task.class, itemToBeUpdatedIndex, textAreaUpdate.getText(),
+						updateSelectTypeChoiceBox.getValue(), updateSelectFrequencyChoiceBox.getValue(),
+						updateStatus.getValue(), datePicker);
+			}
+			
 			Stage stage = (Stage) textAreaUpdate.getScene().getWindow();
 			stage.close();
 		}
