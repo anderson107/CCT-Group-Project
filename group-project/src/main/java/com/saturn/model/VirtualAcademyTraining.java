@@ -2,14 +2,31 @@ package com.saturn.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ListIterator;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 import lombok.NoArgsConstructor;
 
+@Entity
+@Table(name="virtual_academy")
 @NoArgsConstructor
 public class VirtualAcademyTraining extends TrainingSuperClass implements Training {
 
-	private List<VirtualAcademyTraining> virtualAcademy;
+	@ManyToMany(fetch=FetchType.LAZY,
+			cascade= {CascadeType.PERSIST, CascadeType.MERGE,
+			 CascadeType.DETACH, CascadeType.REFRESH})
+	@JoinTable(
+			name="emp_virtual_training",
+			joinColumns=@JoinColumn(name="employee_id"),
+			inverseJoinColumns=@JoinColumn(name="training_id")
+			)
+	private List<Employee> virtualAcademy;
 	
 	public VirtualAcademyTraining(String training, String status) {
 		this.setTraining(training);
@@ -17,39 +34,14 @@ public class VirtualAcademyTraining extends TrainingSuperClass implements Traini
 	}
 	
 	@Override
-	public void addTraining(Training training) {
+	public void addTraining(Employee employee) {
 		if(virtualAcademy==null) {
 			virtualAcademy = new ArrayList<>();
-			virtualAcademy.add((VirtualAcademyTraining) training);
+			virtualAcademy.add(employee);
 		}else {
-			virtualAcademy.add((VirtualAcademyTraining) training);
+			virtualAcademy.add(employee);
 		}
 	}
 
-	@Override
-	public void removeTraining(int id) {
-
-		ListIterator<VirtualAcademyTraining> iterator = virtualAcademy.listIterator();
-		
-		while(iterator.hasNext()) {
-			VirtualAcademyTraining vat = iterator.next();
-			
-			if(vat.getId()==id) {
-				iterator.remove();
-				break;
-			}
-		}
-	}
-
-	@Override
-	public VirtualAcademyTraining getTraining(int id) {
-
-		for(VirtualAcademyTraining v: virtualAcademy) {
-			if(v.getId()==id) {
-				return v;
-			}
-		}
-		return null;
-	}
-
+	
 }

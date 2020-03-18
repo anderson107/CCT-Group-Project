@@ -1,57 +1,50 @@
 package com.saturn.model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ListIterator;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 import lombok.NoArgsConstructor;
 
+@Entity
+@Table(name="seachange")
 @NoArgsConstructor
 public class SeaChangeTraining extends TrainingSuperClass implements Training {
 
-	private List<SeaChangeTraining> seaChangeList;
+	@ManyToMany(fetch=FetchType.LAZY,
+			cascade= {CascadeType.PERSIST, CascadeType.MERGE,
+			 CascadeType.DETACH, CascadeType.REFRESH})
+	@JoinTable(
+			name="emp_seachange_training",
+			joinColumns=@JoinColumn(name="employee_id"),
+			inverseJoinColumns=@JoinColumn(name="training_id")
+			)
+	List<Employee>seaChangeList;
 	
 	public SeaChangeTraining(String trainingDescription, String status) {
 		this.setTraining(trainingDescription);
 		this.setStatus(status);
+		this.setCreationDate(LocalDate.now());
+		this.setDate(LocalDate.now());
 	}
 	
 	@Override
-	public void addTraining(Training training) {
+	public void addTraining(Employee emp) {
 
 		if(seaChangeList==null) {
 			seaChangeList = new ArrayList<>();
-			seaChangeList.add((SeaChangeTraining) training);
+			seaChangeList.add(emp);
 		}else {
-			seaChangeList.add((SeaChangeTraining) training);
+			seaChangeList.add(emp);
 		}
 	}
-
-	@Override
-	public void removeTraining(int id) {
-		
-		ListIterator<SeaChangeTraining> iterator = seaChangeList.listIterator();
-		
-		while(iterator.hasNext()) {
-			SeaChangeTraining sct = iterator.next();
-			
-			if(sct.getId()==id) {
-				iterator.remove();
-				break;
-			}
-			
-		}
-				
-	}
-
-	@Override
-	public SeaChangeTraining getTraining(int id) {
-		for(SeaChangeTraining s: seaChangeList) {
-			if(s.getId()==id) {
-				return s;
-			}
-		}
-		return null;
-	}
-
+	
 }

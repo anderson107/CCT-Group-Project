@@ -10,7 +10,6 @@ import javax.swing.JOptionPane;
 
 import com.saturn.Main;
 import com.saturn.dao.DatabaseConnection;
-import com.saturn.model.Checklist;
 import com.saturn.model.ChecklistCategory;
 import com.saturn.model.ChecklistSuperClass;
 import com.saturn.model.FireWarden;

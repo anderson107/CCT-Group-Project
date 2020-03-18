@@ -88,11 +88,11 @@ public class AddItemChecklistController implements Initializable {
 		
 		if(choiceboxCategoryValidation==true && choiceboxFrequencyValidation==true && textAreaValidation==true) {
 			if (selectChecklist.getValue().matches(ChecklistCategory.FIRE_WARDEN.getCategory())) {
-				DatabaseConnection.addChecklistItem(new FireWarden(addItemTextfield.getText(), "Pending", selectFrequency.getValue()));
+				DatabaseConnection.add(new FireWarden(addItemTextfield.getText(), "Pending", selectFrequency.getValue()));
 			} else if (selectChecklist.getValue().matches(ChecklistCategory.HEALTH_SAFETY.getCategory())) {
-				DatabaseConnection.addChecklistItem(new HealthSafetyChecklist(addItemTextfield.getText(), "Pending", selectFrequency.getValue()));
+				DatabaseConnection.add(new HealthSafetyChecklist(addItemTextfield.getText(), "Pending", selectFrequency.getValue()));
 			} else if (selectChecklist.getValue().matches(ChecklistCategory.TASK.getCategory())) {
-				DatabaseConnection.addChecklistItem(new Task(addItemTextfield.getText(), "Pending", selectFrequency.getValue()));
+				DatabaseConnection.add(new Task(addItemTextfield.getText(), "Pending", selectFrequency.getValue()));
 			}
 			
 			Stage stage = (Stage) addItemTextfield.getScene().getWindow();
