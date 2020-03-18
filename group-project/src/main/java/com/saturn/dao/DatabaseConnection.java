@@ -57,7 +57,7 @@ public final class DatabaseConnection {
 	}
 
 	// delete item from checklist item from the database
-	public static void deleteItemFromChecklist(ChecklistSuperClass obj) {
+	public static void delete(ChecklistSuperClass obj) {
 		Session session = factory.getCurrentSession();
 		try {
 			session.beginTransaction();
@@ -70,6 +70,21 @@ public final class DatabaseConnection {
 			session.close();
 		}
 	}
+	
+	// delete employee from the database
+		public static void delete(Employee obj) {
+			Session session = factory.getCurrentSession();
+			try {
+				session.beginTransaction();
+				session.delete(obj);
+				session.getTransaction().commit();
+
+			} catch (Exception es) {
+				es.printStackTrace();
+			} finally {
+				session.close();
+			}
+		}
 
 	// get item from database
 	public static <T> ChecklistSuperClass getChecklistItem(Class<T> type, int id) {

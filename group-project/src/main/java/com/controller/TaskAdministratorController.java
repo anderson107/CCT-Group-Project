@@ -163,7 +163,7 @@ public class TaskAdministratorController implements Initializable {
 				return;
 			} else {
 				for (ChecklistSuperClass d : delete) {
-					DatabaseConnection.deleteItemFromChecklist((ChecklistSuperClass) d);
+					DatabaseConnection.delete((ChecklistSuperClass) d);
 				}
 			}
 		}

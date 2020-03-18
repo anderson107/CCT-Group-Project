@@ -23,12 +23,7 @@
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#removeEmployee" prefHeight="43.0" prefWidth="148.0" text="REMOVE EMPLOYEE">
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </VBox.margin>
-                              </Button>
-                              <Button mnemonicParsing="false" onAction="#searchEmployee" prefHeight="43.0" prefWidth="148.0" text="SEARCH EMPLOYEE">
+                              <Button mnemonicParsing="false" onAction="#openEmployeeAdm" prefHeight="43.0" prefWidth="148.0" text="EMPLOYEE ADM">
                                  <VBox.margin>
                                     <Insets bottom="10.0" />
                                  </VBox.margin>

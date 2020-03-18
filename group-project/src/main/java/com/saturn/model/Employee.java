@@ -8,7 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
+import javafx.scene.control.CheckBox;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -50,6 +52,9 @@ public class Employee {
 	@Column(name="registration_date")
 	private LocalDate creationDate;
 	
+	@Transient
+	private CheckBox checkbox;
+	
 	public Employee(String firstName, String lastName, String email, LocalDate dOB, String mobile, String telephone,
 			String address, String city) {
 		this.firstName = firstName;
@@ -61,6 +66,7 @@ public class Employee {
 		this.address = address;
 		this.city = city;
 		this.creationDate = LocalDate.now();
+		this.checkbox = null;
 	}
 
 	

@@ -20,6 +20,7 @@ public final class Views {
 	public static final String UPDATE_TRAINING = "/view/UpdateTraining.FXML";
 	public static final String TASK_ADMINISTRATOR = "/view/TaskAdministrator.FXML";
 	public static final String MAIN_MENU = "/view/MainMenu.FXML";
+	public static final String EMPLOYEE_ADM = "/view/EmployeeAdministrator.fxml";
 	
 	private Views() {
 		
