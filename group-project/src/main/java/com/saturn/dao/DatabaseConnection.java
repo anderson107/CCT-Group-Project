@@ -40,7 +40,7 @@ public final class DatabaseConnection {
 		}
 
 	}
-	
+
 	public static void add(Employee emp) {
 		Session session = factory.getCurrentSession();
 		try {
@@ -53,7 +53,7 @@ public final class DatabaseConnection {
 		} finally {
 			session.close();
 		}
-		
+
 	}
 
 	// delete item from checklist item from the database
@@ -70,28 +70,43 @@ public final class DatabaseConnection {
 			session.close();
 		}
 	}
-	
-	// delete employee from the database
-		public static void delete(Employee obj) {
-			Session session = factory.getCurrentSession();
-			try {
-				session.beginTransaction();
-				session.delete(obj);
-				session.getTransaction().commit();
 
-			} catch (Exception es) {
-				es.printStackTrace();
-			} finally {
-				session.close();
-			}
+	// delete employee from the database
+	public static void delete(Employee obj) {
+		Session session = factory.getCurrentSession();
+		try {
+			session.beginTransaction();
+			session.delete(obj);
+			session.getTransaction().commit();
+
+		} catch (Exception es) {
+			es.printStackTrace();
+		} finally {
+			session.close();
 		}
+	}
 
 	// get item from database
-	public static <T> ChecklistSuperClass getChecklistItem(Class<T> type, int id) {
+	public static <T> ChecklistSuperClass get(Class<T> type, int id) {
 		Session session = factory.getCurrentSession();
 		try {
 			session.beginTransaction();
 			ChecklistSuperClass obj = (ChecklistSuperClass) session.get(type, id);
+			session.getTransaction().commit();
+			return obj;
+		} catch (Exception es) {
+			es.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return null;
+	}
+
+	public static Employee get(int id) {
+		Session session = factory.getCurrentSession();
+		try {
+			session.beginTransaction();
+			Employee obj = session.get(Employee.class, id);
 			session.getTransaction().commit();
 			return obj;
 		} catch (Exception es) {
@@ -121,6 +136,49 @@ public final class DatabaseConnection {
 		return data;
 	}
 
+	// it updates the employee information in the database
+	public static void updateEmployee(int id, String choice, String update) {
+
+		Session session = factory.getCurrentSession();
+
+		try {
+			session.beginTransaction();
+			Employee emp = session.get(Employee.class, id);
+			
+			switch(choice) {
+			case "First Name":
+				emp.setFirstName(update);
+				break;
+			case "Last Name":
+				emp.setLastName(update);
+				break;
+			case "Address":
+				emp.setAddress(update);
+				break;
+			case "Email":
+				emp.setEmail(update);
+				break;
+			case "Mobile":
+				emp.setMobile(update);
+				break;
+			case "Telephone":
+				emp.setTelephone(update);
+				break;
+			case "City/County":
+				emp.setCity(update);
+				break;
+			}
+				
+			session.getTransaction().commit();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+
+	}
+
 	// this method updates the tasks in the checklist administrator window
 	public static <T> void updateItemChecklistItem(Class<T> type, int id, String text, String category,
 			String frequency, String status, DatePicker localdate) {
@@ -136,8 +194,8 @@ public final class DatabaseConnection {
 		}
 
 		Session session = factory.getCurrentSession();
-		
-		ChecklistSuperClass update=null;
+
+		ChecklistSuperClass update = null;
 		try {
 			session.beginTransaction();
 			update = (ChecklistSuperClass) session.get(type, id);
@@ -158,7 +216,7 @@ public final class DatabaseConnection {
 					session.save(hs);
 					session.getTransaction().commit();
 					return;
-					
+
 				} else if (classType.matches("Task")) {
 					Task task = new Task(text, status, frequency);
 					task.setDueDate(localdate.getValue());
@@ -166,11 +224,10 @@ public final class DatabaseConnection {
 					session.save(task);
 					session.getTransaction().commit();
 					return;
-							
-					
-				} 
 
-			}else {
+				}
+
+			} else {
 				update.setItemDescription(text);
 				update.setFrequency(frequency);
 				update.setStatus(status);
