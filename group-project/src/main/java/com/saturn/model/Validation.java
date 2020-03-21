@@ -79,7 +79,7 @@ public class Validation {
 			tf.requestFocus();
 		} else if (!tf.getText().trim().matches(
 				"^(.+)@(.+)$")) {
-			JOptionPane.showMessageDialog(null, "Email be a valid email");
+			JOptionPane.showMessageDialog(null, "Enter a valid email \nemail@email.com");
 		}
 
 		else {

@@ -35,7 +35,10 @@ public class UpdateEmployeeController implements Initializable {
 	@FXML
 	private TextField textField;
 
-	int employeeId = 0;
+	private int employeeId = 0;
+	
+	@FXML
+	protected Button updateEmployee;
 	
 	@FXML
 	private void closeUpdateWindow() {
@@ -50,7 +53,7 @@ public class UpdateEmployeeController implements Initializable {
 		Employee emp = EmployeeAdministratorController.selected.get(0);
 
 		textArea.setText("Name: " + emp.getFirstName() + " " + emp.getLastName() + "\nEmail: " + emp.getEmail()
-				+ "\nAddress: " + emp.getAddress() + "/nCity: " + emp.getCity() + "\nMobile: " + emp.getMobile()
+				+ "\nAddress: " + emp.getAddress() + "\nCity: " + emp.getCity() + "\nMobile: " + emp.getMobile()
 				+ "\nTelephone: " + emp.getTelephone());
 
 		ObservableList<String> list = FXCollections.observableArrayList();
@@ -112,6 +115,7 @@ public class UpdateEmployeeController implements Initializable {
 				}
 				
 			}
+			
 			
 			Stage stage = (Stage) newDataLabel.getScene().getWindow();
 			stage.close();

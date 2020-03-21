@@ -14,6 +14,7 @@ import com.saturn.model.Employee;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -25,12 +26,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import lombok.Getter;
+import javafx.stage.WindowEvent;
 
 public class EmployeeAdministratorController implements Initializable {
 
 	@FXML
-	@Getter
 	private TableView<Employee> tableView;
 
 	@FXML
@@ -65,10 +65,9 @@ public class EmployeeAdministratorController implements Initializable {
 
 	private List<Employee> employeeList = new ArrayList<>();
 
-	protected static ObservableList<Employee> selected;
+	protected static ObservableList<Employee> selected = FXCollections.observableArrayList();;
 
 	public EmployeeAdministratorController() {
-		selected = FXCollections.observableArrayList();
 	}
 
 	// this method populates the table in the employee administrator
@@ -89,7 +88,6 @@ public class EmployeeAdministratorController implements Initializable {
 		employeeList.addAll(DatabaseConnection.loadAllData(Employee.class));
 
 		// it sets all the check boxes that are not in the database
-
 		for (Employee e : employeeList) {
 			e.setCheckbox(new CheckBox());
 		}
@@ -125,34 +123,50 @@ public class EmployeeAdministratorController implements Initializable {
 		tableView.getItems().setAll(employeeList);
 
 	}
-	
+
+	private void refresh() {
+		employeeList.clear();
+		employeeList.addAll(DatabaseConnection.loadAllData(Employee.class));
+		for (Employee e : employeeList) {
+			e.setCheckbox(new CheckBox());
+		}
+		tableView.getItems().setAll(employeeList);
+	}
+
 	@FXML
 	private void openUpdateWindow() {
-		
-		for(Employee e: employeeList) {
-			if(e.getCheckbox().isSelected()) {
+		Stage stage = null;
+
+		for (Employee e : employeeList) {
+			if (e.getCheckbox().isSelected()) {
 				selected.add(e);
 			}
 		}
-		
-		if(selected.size()>1 || selected.size()==0) {
+
+		if (selected.size() > 1 || selected.size() == 0) {
 			JOptionPane.showMessageDialog(null, "Select only 1 employee to be updated");
 			return;
-			
-		}else {
+
+		} else {
 			try {
-				 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(Views.UPDATE_EMPLOYEE));
-			        Parent root1 = (Parent) fxmlLoader.load();
-			        Stage stage = new Stage();
-			        stage.setScene(new Scene(root1));  
-			        stage.initModality(Modality.APPLICATION_MODAL);
-			        stage.initOwner(Main.stage);
-			        stage.setTitle("UPDATE EMPLOYEE");
-			        stage.show();
-			        
-			}catch(Exception e) {
+				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(Views.UPDATE_EMPLOYEE));
+				Parent root1 = (Parent) fxmlLoader.load();
+				stage = new Stage();
+				stage.setScene(new Scene(root1));
+				stage.initModality(Modality.APPLICATION_MODAL);
+				stage.initOwner(Main.stage);
+				stage.setTitle("UPDATE EMPLOYEE");
+				stage.show();
+
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
+
+		stage.setOnHidden((EventHandler<WindowEvent>) new EventHandler<WindowEvent>() {
+			public void handle(WindowEvent we) {
+				refresh();
+			}
+		});
 	}
 }

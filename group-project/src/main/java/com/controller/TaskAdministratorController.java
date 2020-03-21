@@ -18,6 +18,7 @@ import com.saturn.model.Task;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -27,6 +28,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import lombok.Getter;
 
 public class TaskAdministratorController implements Initializable {
@@ -173,9 +175,24 @@ public class TaskAdministratorController implements Initializable {
 
 	}
 	
+	// it refreshes the table view 
+	private void refresh() {
+		checklistList.clear();
+		checklistList.addAll(DatabaseConnection.loadAllData(FireWarden.class));
+		checklistList.addAll(DatabaseConnection.loadAllData(HealthSafetyChecklist.class));
+		checklistList.addAll(DatabaseConnection.loadAllData(Task.class));
+		
+		for(ChecklistSuperClass e: checklistList) {
+			e.setCheckbox(new CheckBox());
+		}
+		
+		tableView.getItems().setAll(checklistList);
+	}
+	
 	@FXML
 	private void openUpdateTaskWindow() {
 
+		Stage stage= null;
 		int index = 0;
 		for (ChecklistSuperClass cl : checklistList) {
 			if (cl.getCheckbox().isSelected()) {
@@ -190,7 +207,7 @@ public class TaskAdministratorController implements Initializable {
 			try {
 				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(Views.UPDATE_ITEM_CHECKLIST));
 				Parent root1 = (Parent) fxmlLoader.load();
-				Stage stage = new Stage();
+				stage = new Stage();
 				stage.setScene(new Scene(root1));
 				stage.initModality(Modality.APPLICATION_MODAL);
 				stage.initOwner(Main.stage);
@@ -200,6 +217,12 @@ public class TaskAdministratorController implements Initializable {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			
+			stage.setOnHidden((EventHandler<WindowEvent>) new EventHandler<WindowEvent>() {
+				public void handle(WindowEvent we) {
+					refresh();
+				}
+			});
 		}
 	}
 }
