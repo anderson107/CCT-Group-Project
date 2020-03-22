@@ -1,12 +1,15 @@
 package com.saturn.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -52,6 +55,14 @@ public class Employee {
 	@Column(name="registration_date")
 	private LocalDate creationDate;
 	
+	@ManyToMany(mappedBy="virtualAcademy")
+	private List<VirtualAcademyTraining>trainings;
+	
+	@ManyToMany(mappedBy="hseList")
+	private List<HSETraining>hseTrainings;
+	
+	@ManyToMany(mappedBy="seaChangeList")
+	private List<SeaChangeTraining>seachangeTrainings;
 	@Transient
 	private CheckBox checkbox;
 	

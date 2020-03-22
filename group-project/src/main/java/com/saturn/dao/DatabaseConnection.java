@@ -13,8 +13,12 @@ import com.saturn.model.ChecklistCategory;
 import com.saturn.model.ChecklistSuperClass;
 import com.saturn.model.Employee;
 import com.saturn.model.FireWarden;
+import com.saturn.model.HSETraining;
 import com.saturn.model.HealthSafetyChecklist;
+import com.saturn.model.SeaChangeTraining;
 import com.saturn.model.Task;
+import com.saturn.model.TrainingSuperClass;
+import com.saturn.model.VirtualAcademyTraining;
 
 import javafx.scene.control.DatePicker;
 
@@ -22,7 +26,9 @@ public final class DatabaseConnection {
 
 	private static final SessionFactory factory = new Configuration().configure("hibernate.cfg.xml")
 			.addAnnotatedClass(FireWarden.class).addAnnotatedClass(HealthSafetyChecklist.class)
-			.addAnnotatedClass(Task.class).addAnnotatedClass(Employee.class).buildSessionFactory();
+			.addAnnotatedClass(Task.class).addAnnotatedClass(Employee.class)
+			.addAnnotatedClass(VirtualAcademyTraining.class).addAnnotatedClass(HSETraining.class)
+			.addAnnotatedClass(SeaChangeTraining.class).buildSessionFactory();
 
 	// add checklist items to the database
 	public static void add(ChecklistSuperClass obj) {
@@ -41,11 +47,29 @@ public final class DatabaseConnection {
 
 	}
 
+	// adds employee to the database
 	public static void add(Employee emp) {
 		Session session = factory.getCurrentSession();
 		try {
 			session.beginTransaction();
 			session.save(emp);
+			session.getTransaction().commit();
+
+		} catch (Exception es) {
+			es.printStackTrace();
+		} finally {
+			session.close();
+		}
+
+	}
+
+	// it adds training to the tables
+	public static void add(TrainingSuperClass training) {
+
+		Session session = factory.getCurrentSession();
+		try {
+			session.beginTransaction();
+			session.save(training);
 			session.getTransaction().commit();
 
 		} catch (Exception es) {
@@ -87,7 +111,7 @@ public final class DatabaseConnection {
 	}
 
 	// get item from database
-	public static <T> ChecklistSuperClass get(Class<T> type, int id) {
+	public static <T> ChecklistSuperClass getChecklist(Class<T> type, int id) {
 		Session session = factory.getCurrentSession();
 		try {
 			session.beginTransaction();
@@ -102,7 +126,39 @@ public final class DatabaseConnection {
 		return null;
 	}
 
-	public static Employee get(int id) {
+	public static <T> TrainingSuperClass getTraining(Class<T> type, int id) {
+		Session session = factory.getCurrentSession();
+		try {
+			session.beginTransaction();
+			TrainingSuperClass obj = (TrainingSuperClass) session.get(type, id);
+			session.getTransaction().commit();
+			return obj;
+		} catch (Exception es) {
+			es.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return null;
+	}
+	
+	public static void addTraining(int empId, int trainingId) {
+		Session session = factory.getCurrentSession();
+		
+		try {
+			session.beginTransaction();
+			Employee obj = session.get(Employee.class, empId);
+			VirtualAcademyTraining trai = session.get(VirtualAcademyTraining.class, trainingId);
+			trai.addTraining(obj);
+			session.save(trai);
+			session.getTransaction().commit();
+		} catch (Exception es) {
+			es.printStackTrace();
+		} finally {
+			session.close();
+		}
+	}
+	
+ 	public static Employee get(int id) {
 		Session session = factory.getCurrentSession();
 		try {
 			session.beginTransaction();
@@ -144,8 +200,8 @@ public final class DatabaseConnection {
 		try {
 			session.beginTransaction();
 			Employee emp = session.get(Employee.class, id);
-			
-			switch(choice) {
+
+			switch (choice) {
 			case "First Name":
 				emp.setFirstName(update);
 				break;
@@ -168,9 +224,9 @@ public final class DatabaseConnection {
 				emp.setCity(update);
 				break;
 			}
-				
+
 			session.getTransaction().commit();
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

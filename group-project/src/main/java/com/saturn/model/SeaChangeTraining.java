@@ -34,6 +34,7 @@ public class SeaChangeTraining extends TrainingSuperClass implements Training {
 		this.setStatus(status);
 		this.setCreationDate(LocalDate.now());
 		this.setDate(LocalDate.now());
+		this.setClassName(null);
 	}
 	
 	@Override

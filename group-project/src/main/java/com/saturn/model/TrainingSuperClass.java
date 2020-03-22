@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.Transient;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,9 @@ public class TrainingSuperClass {
 	
 	@Column(name="status")
 	private String status;
+	
+	@Transient
+	private String className;
 	
 	@Column(name="creation_date")
 	private LocalDate creationDate;

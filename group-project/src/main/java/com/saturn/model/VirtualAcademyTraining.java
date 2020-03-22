@@ -1,5 +1,6 @@
 package com.saturn.model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +32,9 @@ public class VirtualAcademyTraining extends TrainingSuperClass implements Traini
 	public VirtualAcademyTraining(String training, String status) {
 		this.setTraining(training);
 		this.setStatus(status);
+		this.setCreationDate(LocalDate.now());
+		this.setDate(LocalDate.now());
+		this.setClassName(null);
 	}
 	
 	@Override
