@@ -35,6 +35,7 @@ public class HSETraining extends TrainingSuperClass implements Training {
 		this.setCreationDate(LocalDate.now());
 		this.setDate(LocalDate.now());
 		this.setClassName(null);
+		this.setCheckbox(null);
 	}
 	
 	@Override

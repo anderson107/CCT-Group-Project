@@ -76,18 +76,8 @@ public class MainMenuController {
 	}
 	
 	@FXML
-	private void openRemoveTrainingWindow() {
-		loadView(Views.REMOVE_TRAINING, "REMOVE TRAINING");
-	}
-	
-	@FXML
-	private void openSearchTrainingWindow() {
-		loadView(Views.SEARCH_TRAINING, "SEARCH TRAINING");
-	}
-	
-	@FXML
-	private void openUpdateTrainingWindow() {
-		loadView(Views.UPDATE_TRAINING, "UPDATE TRAINING");
+	private void openTrainingAdministrator() {
+		loadView(Views.TRAINING_ADMINISTRATOR, "TRAINING ADM");
 	}
 	
 	@FXML

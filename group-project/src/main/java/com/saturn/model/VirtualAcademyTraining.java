@@ -35,6 +35,7 @@ public class VirtualAcademyTraining extends TrainingSuperClass implements Traini
 		this.setCreationDate(LocalDate.now());
 		this.setDate(LocalDate.now());
 		this.setClassName(null);
+		this.setCheckbox(null);
 	}
 	
 	@Override

@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Transient;
 
+import javafx.scene.control.CheckBox;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -36,4 +37,7 @@ public class TrainingSuperClass {
 	
 	@Column(name="date")
 	private LocalDate date;
+	
+	@Transient
+	private CheckBox checkbox;
 }

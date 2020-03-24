@@ -35,7 +35,6 @@ public class TaskAdministratorController implements Initializable {
 
 	// private fields //
 	@FXML
-	@Getter
 	private TableView<ChecklistSuperClass> tableView;
 
 	@FXML
