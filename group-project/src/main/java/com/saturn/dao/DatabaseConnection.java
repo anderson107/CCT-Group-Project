@@ -80,7 +80,7 @@ public final class DatabaseConnection {
 
 	}
 
-	// delete item from checklist item from the database
+	// delete item from checklist from the database
 	public static void delete(ChecklistSuperClass obj) {
 		Session session = factory.getCurrentSession();
 		try {
@@ -94,6 +94,21 @@ public final class DatabaseConnection {
 			session.close();
 		}
 	}
+	
+	// delete training item from the database
+	public static void delete(TrainingSuperClass obj) {
+			Session session = factory.getCurrentSession();
+			try {
+				session.beginTransaction();
+				session.delete(obj);
+				session.getTransaction().commit();
+
+			} catch (Exception es) {
+				es.printStackTrace();
+			} finally {
+				session.close();
+			}
+		}
 
 	// delete employee from the database
 	public static void delete(Employee obj) {
@@ -288,6 +303,67 @@ public final class DatabaseConnection {
 				update.setFrequency(frequency);
 				update.setStatus(status);
 				update.setDueDate(localdate.getValue());
+				session.getTransaction().commit();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+
+	}
+	
+	public static <T> void updateTraining(Class<T> type, int id, String training, String category) {
+
+		// it sets the string the simple name of the class
+		String classType = null;
+		if (category.matches("Virtual Academy")) {
+			classType = "VirtualAcademyTraining";
+		} else if (category.matches("HSE")) {
+			classType = "HSETraining";
+		} else if (category.matches("SeaChange")) {
+			classType = "SeaChangeTraining";
+		}
+
+		Session session = factory.getCurrentSession();
+
+		TrainingSuperClass update = null;
+		try {
+			session.beginTransaction();
+			update = (TrainingSuperClass) session.get(type, id);
+
+			if (!update.getClass().getSimpleName().matches(classType)) {
+				if (classType.matches("SeaChangeTraining")) {
+					SeaChangeTraining seaChange = new SeaChangeTraining(training);
+					seaChange.setCreationDate(update.getCreationDate());
+					session.delete(update);
+					seaChange.setClassName("SeaChange");
+					session.save(seaChange);
+					session.getTransaction().commit();
+					return;
+
+				} else if (classType.matches("VirtualAcademyTraining")) {
+					VirtualAcademyTraining virtualAcademy = new VirtualAcademyTraining(training);
+					virtualAcademy.setCreationDate(update.getCreationDate());
+					session.delete(update);
+					virtualAcademy.setClassName("Virtual Academy");
+					session.save(virtualAcademy);
+					session.getTransaction().commit();
+					return;
+
+				} else if (classType.matches("HSETraining")) {
+					HSETraining hse = new HSETraining(training);
+					hse.setCreationDate(update.getCreationDate());
+					session.delete(update);
+					hse.setClassName("HSE");
+					session.save(hse);
+					session.getTransaction().commit();
+					return;
+
+				}
+
+			} else {
+				update.setTraining(training);
 				session.getTransaction().commit();
 			}
 		} catch (Exception e) {

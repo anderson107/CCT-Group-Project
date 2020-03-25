@@ -29,11 +29,9 @@ public class SeaChangeTraining extends TrainingSuperClass implements Training {
 			)
 	List<Employee>seaChangeList;
 	
-	public SeaChangeTraining(String trainingDescription, String status) {
+	public SeaChangeTraining(String trainingDescription) {
 		this.setTraining(trainingDescription);
-		this.setStatus(status);
 		this.setCreationDate(LocalDate.now());
-		this.setDate(LocalDate.now());
 		this.setClassName(null);
 		this.setCheckbox(null);
 	}

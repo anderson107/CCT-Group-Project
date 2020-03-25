@@ -21,10 +21,9 @@
                                 <columns>
                                     <TableColumn fx:id="checkbox" prefWidth="45.99999237060547" text="SELECT" />
                                   <TableColumn fx:id="id" prefWidth="33.33331298828125" text="ID" />
-                                    <TableColumn fx:id="description" prefWidth="397.11102294921875" text="DESCRIPTION" />
-                                    <TableColumn fx:id="type" prefWidth="78.888916015625" text="TYPE" />
-                                    <TableColumn fx:id="status" minWidth="0.0" prefWidth="67.111083984375" text="STATUS" />
-                                    <TableColumn fx:id="creationDate" prefWidth="82.88897705078125" text="CREATED" />
+                                    <TableColumn fx:id="description" prefWidth="441.77777099609375" text="DESCRIPTION" />
+                                    <TableColumn fx:id="type" prefWidth="94.88897705078125" text="TYPE" />
+                                    <TableColumn fx:id="creationDate" prefWidth="87.7777099609375" text="CREATED" />
                                 </columns>
                               </TableView>
                               <Label layoutX="179.0" layoutY="16.0" text="Search ">
@@ -34,10 +33,10 @@
                               </Label>
                               <TextField layoutX="234.0" layoutY="11.0" prefHeight="25.0" prefWidth="198.0" promptText="Enter ID/Name" />
                               <Button layoutX="452.0" layoutY="11.0" mnemonicParsing="false" text="Search" />
-                              <Button layoutX="18.0" layoutY="134.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="145.0" text="UPDATE" />
-                              <Button layoutX="18.0" layoutY="174.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="143.0" text="DELETE" />
+                              <Button layoutX="18.0" layoutY="134.0" mnemonicParsing="false" onAction="#openUpdateWindow" prefHeight="25.0" prefWidth="145.0" text="UPDATE" />
+                              <Button layoutX="19.0" layoutY="174.0" mnemonicParsing="false" onAction="#removeTraining" prefHeight="25.0" prefWidth="143.0" text="DELETE" />
                   <ChoiceBox fx:id="trainingAdministratorChoicebox" layoutX="18.0" layoutY="81.0" prefHeight="25.0" prefWidth="89.0" />
-                  <Button layoutX="113.0" layoutY="81.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="Enter" />
+                  <Button layoutX="113.0" layoutY="81.0" mnemonicParsing="false" onAction="#updateTrainingList" prefHeight="25.0" prefWidth="52.0" text="Enter" />
                   <Label layoutX="53.0" layoutY="56.0" text="SELECT LIST">
                      <font>
                         <Font name="System Bold" size="12.0" />

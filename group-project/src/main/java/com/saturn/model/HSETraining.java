@@ -29,11 +29,9 @@ public class HSETraining extends TrainingSuperClass implements Training {
 			)
 	private List<Employee>hseList;
 	
-	public HSETraining(String training, String status) {
+	public HSETraining(String training) {
 		this.setTraining(training);
-		this.setStatus(status);
 		this.setCreationDate(LocalDate.now());
-		this.setDate(LocalDate.now());
 		this.setClassName(null);
 		this.setCheckbox(null);
 	}

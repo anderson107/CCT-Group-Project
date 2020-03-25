@@ -6,23 +6,29 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import javax.swing.JOptionPane;
+
+import com.saturn.Main;
 import com.saturn.dao.DatabaseConnection;
-import com.saturn.model.ChecklistCategory;
 import com.saturn.model.ChecklistSuperClass;
-import com.saturn.model.FireWarden;
 import com.saturn.model.HSETraining;
-import com.saturn.model.HealthSafetyChecklist;
 import com.saturn.model.SeaChangeTraining;
-import com.saturn.model.Task;
 import com.saturn.model.TrainingSuperClass;
 import com.saturn.model.VirtualAcademyTraining;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class TrainingAdministratorController implements Initializable {
 
@@ -42,15 +48,14 @@ public class TrainingAdministratorController implements Initializable {
 	private TableColumn<TrainingSuperClass, String> type;
 
 	@FXML
-	private TableColumn<TrainingSuperClass, String> status;
-
-	@FXML
 	private TableColumn<TrainingSuperClass, LocalDate> creationDate;
 
 	@FXML
 	private ChoiceBox<String> trainingAdministratorChoicebox;
 
 	private List<TrainingSuperClass> trainingList = new ArrayList<>();
+
+	protected static List<TrainingSuperClass> selected = new ArrayList<>();
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -59,19 +64,18 @@ public class TrainingAdministratorController implements Initializable {
 
 		// populate the Choice box;
 		trainingAdministratorChoicebox.setItems(list);
-		trainingAdministratorChoicebox.setValue("SeaChange");
+		trainingAdministratorChoicebox.setValue("All");
 
 		checkbox.setCellValueFactory(new PropertyValueFactory<TrainingSuperClass, String>("checkbox"));
 		id.setCellValueFactory(new PropertyValueFactory<TrainingSuperClass, Integer>("id"));
 		description.setCellValueFactory(new PropertyValueFactory<TrainingSuperClass, String>("training"));
 		type.setCellValueFactory(new PropertyValueFactory<TrainingSuperClass, String>("className"));
-		status.setCellValueFactory(new PropertyValueFactory<TrainingSuperClass, String>("status"));
 		creationDate.setCellValueFactory(new PropertyValueFactory<TrainingSuperClass, LocalDate>("creationDate"));
 
 		trainingList.addAll(DatabaseConnection.loadAllData(SeaChangeTraining.class));
-		trainingList.addAll(DatabaseConnection.loadAllData(HSETraining.class));
 		trainingList.addAll(DatabaseConnection.loadAllData(VirtualAcademyTraining.class));
-		
+		trainingList.addAll(DatabaseConnection.loadAllData(HSETraining.class));
+
 		for (TrainingSuperClass tsc : trainingList) {
 			tsc.setCheckbox(new CheckBox());
 			String className = tsc.getClass().getSimpleName();
@@ -91,5 +95,120 @@ public class TrainingAdministratorController implements Initializable {
 
 		tableView.getItems().setAll(trainingList);
 
+	}
+
+	@FXML
+	private void updateTrainingList() {
+
+		trainingList.clear();
+
+		switch (trainingAdministratorChoicebox.getValue()) {
+
+		case "SeaChange":
+			trainingList.addAll(DatabaseConnection.loadAllData(SeaChangeTraining.class));
+			break;
+		case "HSE":
+			trainingList.addAll(DatabaseConnection.loadAllData(HSETraining.class));
+			break;
+		case "Virtual Academy":
+			trainingList.addAll(DatabaseConnection.loadAllData(VirtualAcademyTraining.class));
+			break;
+		case "All":
+			trainingList.addAll(DatabaseConnection.loadAllData(SeaChangeTraining.class));
+			trainingList.addAll(DatabaseConnection.loadAllData(VirtualAcademyTraining.class));
+			trainingList.addAll(DatabaseConnection.loadAllData(HSETraining.class));
+			break;
+		}
+
+		for (TrainingSuperClass tsc : trainingList) {
+			tsc.setCheckbox(new CheckBox());
+		}
+
+		tableView.getItems().setAll(trainingList);
+
+	}
+
+	@FXML
+	private void removeTraining() {
+		ObservableList<TrainingSuperClass> delete = FXCollections.observableArrayList();
+		for (TrainingSuperClass c : trainingList) {
+			if (c.getCheckbox().isSelected()) {
+				delete.add(c);
+			}
+		}
+
+		if (!delete.isEmpty()) {
+			// Confirmation window of delete item and return if "no" is clicked
+			int index = JOptionPane.showConfirmDialog(null, "Delete the selected item(s)?", "Confirmation Window",
+					JOptionPane.YES_NO_OPTION);
+			if (index == 1) {
+				return;
+			} else {
+				for (TrainingSuperClass d : delete) {
+					DatabaseConnection.delete(d);
+				}
+			}
+		}
+
+		trainingList.removeAll(delete);
+		tableView.getItems().setAll(trainingList);
+
+	}
+
+	private void refresh() {
+		trainingList.clear();
+		trainingList.addAll(DatabaseConnection.loadAllData(SeaChangeTraining.class));
+		trainingList.addAll(DatabaseConnection.loadAllData(VirtualAcademyTraining.class));
+		trainingList.addAll(DatabaseConnection.loadAllData(HSETraining.class));
+
+		for (TrainingSuperClass tsc : trainingList) {
+			tsc.setCheckbox(new CheckBox());
+
+			if (tsc.getClass().getSimpleName().matches("SeaChangeTraining")) {
+				tsc.setClassName("SeaChange");
+			} else if (tsc.getClass().getSimpleName().matches("HSETraining")) {
+				tsc.setClassName("HSE");
+			} else if (tsc.getClass().getSimpleName().matches("VirtualAcademyTraining")) {
+				tsc.setClassName("Virtual Academy");
+			}
+		}
+		tableView.getItems().setAll(trainingList);
+
+	}
+
+	@FXML
+	private void openUpdateWindow() {
+		Stage stage = null;
+		int index = 0;
+		for (TrainingSuperClass cl : trainingList) {
+			if (cl.getCheckbox().isSelected()) {
+				selected.add(cl);
+				index++;
+			}
+		}
+		if (index == 0 || index > 1) {
+			JOptionPane.showMessageDialog(null, "Select 1 item");
+			return;
+		} else {
+			try {
+				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(Views.UPDATE_TRAINING));
+				Parent root1 = (Parent) fxmlLoader.load();
+				stage = new Stage();
+				stage.setScene(new Scene(root1));
+				stage.initModality(Modality.APPLICATION_MODAL);
+				stage.initOwner(Main.stage);
+				stage.setTitle("Update Training");
+				stage.show();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			stage.setOnHidden((EventHandler<WindowEvent>) new EventHandler<WindowEvent>() {
+				public void handle(WindowEvent we) {
+					refresh();
+				}
+			});
+		}
 	}
 }

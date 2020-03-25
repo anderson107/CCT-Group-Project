@@ -29,11 +29,9 @@ public class VirtualAcademyTraining extends TrainingSuperClass implements Traini
 			)
 	private List<Employee> virtualAcademy;
 	
-	public VirtualAcademyTraining(String training, String status) {
+	public VirtualAcademyTraining(String training) {
 		this.setTraining(training);
-		this.setStatus(status);
 		this.setCreationDate(LocalDate.now());
-		this.setDate(LocalDate.now());
 		this.setClassName(null);
 		this.setCheckbox(null);
 	}

@@ -26,17 +26,11 @@ public class TrainingSuperClass {
 	@Column(name="training")
 	private String training;
 	
-	@Column(name="status")
-	private String status;
-	
 	@Transient
 	private String className;
 	
 	@Column(name="creation_date")
 	private LocalDate creationDate;
-	
-	@Column(name="date")
-	private LocalDate date;
 	
 	@Transient
 	private CheckBox checkbox;

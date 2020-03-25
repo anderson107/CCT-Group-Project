@@ -3,7 +3,6 @@ package com.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javax.swing.JOptionPane;
 
 import com.saturn.dao.DatabaseConnection;
 import com.saturn.model.ChecklistCategory;
@@ -13,15 +12,12 @@ import com.saturn.model.HealthSafetyChecklist;
 import com.saturn.model.Task;
 import com.saturn.model.Validation;
 
-import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.stage.Stage;
-import lombok.NonNull;
 import javafx.scene.control.*;
 
 public class AddItemChecklistController implements Initializable {

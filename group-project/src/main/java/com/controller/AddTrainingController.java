@@ -57,13 +57,13 @@ public class AddTrainingController implements Initializable{
 		if(text&&choicebox) {
 			switch(trainingTypeChoiceBox.getValue()){
 			case "SeaChange":
-				DatabaseConnection.add(new SeaChangeTraining(textArea.getText(), "Pending"));
+				DatabaseConnection.add(new SeaChangeTraining(textArea.getText()));
 				break;
 			case "VirtualAcademy":
-				DatabaseConnection.add(new VirtualAcademyTraining(textArea.getText(), "Pending"));
+				DatabaseConnection.add(new VirtualAcademyTraining(textArea.getText()));
 				break;
 			case "HSE":
-				DatabaseConnection.add(new HSETraining(textArea.getText(), "Pending"));
+				DatabaseConnection.add(new HSETraining(textArea.getText()));
 				break;
 			}
 			//DatabaseConnection.addTraining(1, 1);
