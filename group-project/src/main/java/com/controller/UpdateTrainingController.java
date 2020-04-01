@@ -4,11 +4,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.saturn.dao.DatabaseConnection;
-import com.saturn.model.HSETraining;
-import com.saturn.model.SeaChangeTraining;
-import com.saturn.model.TrainingSuperClass;
 import com.saturn.model.Validation;
-import com.saturn.model.VirtualAcademyTraining;
+import com.saturn.model.training.HSETraining;
+import com.saturn.model.training.SeaChangeTraining;
+import com.saturn.model.training.TrainingSuperClass;
+import com.saturn.model.training.VirtualAcademyTraining;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

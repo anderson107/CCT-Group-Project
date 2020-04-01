@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 import com.saturn.Main;
 import com.saturn.dao.DatabaseConnection;
-import com.saturn.model.Employee;
+import com.saturn.model.employee.Employee;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

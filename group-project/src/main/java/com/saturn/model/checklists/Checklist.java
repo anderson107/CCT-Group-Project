@@ -1,4 +1,4 @@
-package com.saturn.model;
+package com.saturn.model.checklists;
 
 public interface Checklist {
 	

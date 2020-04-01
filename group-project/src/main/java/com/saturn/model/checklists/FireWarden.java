@@ -1,4 +1,4 @@
-package com.saturn.model;
+package com.saturn.model.checklists;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

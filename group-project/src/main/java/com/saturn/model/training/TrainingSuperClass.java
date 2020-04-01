@@ -1,7 +1,6 @@
-package com.saturn.model;
+package com.saturn.model.training;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -17,28 +16,22 @@ import lombok.NoArgsConstructor;
 @MappedSuperclass
 @Data
 @NoArgsConstructor
-public class ChecklistSuperClass {
+public class TrainingSuperClass {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	
+	@Column(name="training")
+	private String training;
+	
 	@Transient
-	private CheckBox checkbox;
-	
-	@Column(name="item_description")
-	private String itemDescription;
-	
-	@Column(name="frequency")
-	private String frequency;
-	
-	@Column(name="status")
-	private String status;
+	private String className;
 	
 	@Column(name="creation_date")
 	private LocalDate creationDate;
 	
-	@Column(name="date")
-	private LocalDate dueDate; 
+	@Transient
+	private CheckBox checkbox;
 }

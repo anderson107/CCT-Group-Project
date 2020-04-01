@@ -9,16 +9,16 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.saturn.model.ChecklistCategory;
-import com.saturn.model.ChecklistSuperClass;
-import com.saturn.model.Employee;
-import com.saturn.model.FireWarden;
-import com.saturn.model.HSETraining;
-import com.saturn.model.HealthSafetyChecklist;
-import com.saturn.model.SeaChangeTraining;
-import com.saturn.model.Task;
-import com.saturn.model.TrainingSuperClass;
-import com.saturn.model.VirtualAcademyTraining;
+import com.saturn.model.checklists.ChecklistCategory;
+import com.saturn.model.checklists.ChecklistSuperClass;
+import com.saturn.model.checklists.FireWarden;
+import com.saturn.model.checklists.HealthSafetyChecklist;
+import com.saturn.model.checklists.Task;
+import com.saturn.model.employee.Employee;
+import com.saturn.model.training.HSETraining;
+import com.saturn.model.training.SeaChangeTraining;
+import com.saturn.model.training.TrainingSuperClass;
+import com.saturn.model.training.VirtualAcademyTraining;
 
 import javafx.scene.control.DatePicker;
 

@@ -1,4 +1,4 @@
-package com.saturn.model;
+package com.saturn.model.training;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import com.saturn.model.employee.Employee;
 
 import lombok.NoArgsConstructor;
 

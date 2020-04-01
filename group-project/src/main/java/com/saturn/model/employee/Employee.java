@@ -1,4 +1,4 @@
-package com.saturn.model;
+package com.saturn.model.employee;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -12,6 +12,10 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
+import com.saturn.model.training.HSETraining;
+import com.saturn.model.training.SeaChangeTraining;
+import com.saturn.model.training.VirtualAcademyTraining;
 
 import javafx.scene.control.CheckBox;
 import lombok.Data;

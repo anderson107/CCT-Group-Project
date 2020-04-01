@@ -10,11 +10,11 @@ import javax.swing.JOptionPane;
 
 import com.saturn.Main;
 import com.saturn.dao.DatabaseConnection;
-import com.saturn.model.ChecklistCategory;
-import com.saturn.model.ChecklistSuperClass;
-import com.saturn.model.FireWarden;
-import com.saturn.model.HealthSafetyChecklist;
-import com.saturn.model.Task;
+import com.saturn.model.checklists.ChecklistCategory;
+import com.saturn.model.checklists.ChecklistSuperClass;
+import com.saturn.model.checklists.FireWarden;
+import com.saturn.model.checklists.HealthSafetyChecklist;
+import com.saturn.model.checklists.Task;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

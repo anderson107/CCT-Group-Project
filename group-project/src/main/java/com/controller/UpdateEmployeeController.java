@@ -3,9 +3,9 @@ package com.controller;
 import java.util.ResourceBundle;
 
 import com.saturn.dao.DatabaseConnection;
-import com.saturn.model.Employee;
-import com.saturn.model.EmployeeFields;
 import com.saturn.model.Validation;
+import com.saturn.model.employee.Employee;
+import com.saturn.model.employee.EmployeeFields;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

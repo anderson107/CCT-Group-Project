@@ -1,8 +1,8 @@
 package com.controller;
 
 import com.saturn.dao.DatabaseConnection;
-import com.saturn.model.Employee;
 import com.saturn.model.Validation;
+import com.saturn.model.employee.Employee;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
