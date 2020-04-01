@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 import com.saturn.dao.DatabaseConnection;
 import com.saturn.model.Validation;
 import com.saturn.model.checklists.ChecklistCategory;
+import com.saturn.model.checklists.ChecklistFactory;
 import com.saturn.model.checklists.FireWarden;
 import com.saturn.model.checklists.Frequency;
 import com.saturn.model.checklists.HealthSafetyChecklist;
@@ -83,13 +84,8 @@ public class AddItemChecklistController implements Initializable {
 		Boolean textAreaValidation = Validation.isTextAreaEmpty(addItemTextfield, textAreaLabel, "Enter item description");
 		
 		if(choiceboxCategoryValidation==true && choiceboxFrequencyValidation==true && textAreaValidation==true) {
-			if (selectChecklist.getValue().matches(ChecklistCategory.FIRE_WARDEN.getCategory())) {
-				DatabaseConnection.add(new FireWarden(addItemTextfield.getText(), "Pending", selectFrequency.getValue()));
-			} else if (selectChecklist.getValue().matches(ChecklistCategory.HEALTH_SAFETY.getCategory())) {
-				DatabaseConnection.add(new HealthSafetyChecklist(addItemTextfield.getText(), "Pending", selectFrequency.getValue()));
-			} else if (selectChecklist.getValue().matches(ChecklistCategory.TASK.getCategory())) {
-				DatabaseConnection.add(new Task(addItemTextfield.getText(), "Pending", selectFrequency.getValue()));
-			}
+			
+			DatabaseConnection.add(ChecklistFactory.create(addItemTextfield.getText(), "Pending", selectFrequency.getValue(), selectChecklist.getValue()));
 			
 			Stage stage = (Stage) addItemTextfield.getScene().getWindow();
 			stage.close();

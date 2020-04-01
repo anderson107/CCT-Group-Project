@@ -5,9 +5,7 @@ import java.util.ResourceBundle;
 
 import com.saturn.dao.DatabaseConnection;
 import com.saturn.model.Validation;
-import com.saturn.model.training.HSETraining;
-import com.saturn.model.training.SeaChangeTraining;
-import com.saturn.model.training.VirtualAcademyTraining;
+import com.saturn.model.training.TrainingFactory;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -42,7 +40,7 @@ public class AddTrainingController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		ObservableList<String> list = FXCollections.observableArrayList();
-		   list.addAll("SeaChange", "VirtualAcademy", "HSE");
+		   list.addAll("SeaChange", "Virtual Academy", "HSE");
 		  //populate the Choice box;  
 		   trainingTypeChoiceBox.setItems(list);
 		
@@ -55,20 +53,12 @@ public class AddTrainingController implements Initializable{
 		boolean choicebox= Validation.isChoiceBoxSelected(trainingTypeChoiceBox, choiceboxLabel, "Select training");
 		
 		if(text&&choicebox) {
-			switch(trainingTypeChoiceBox.getValue()){
-			case "SeaChange":
-				DatabaseConnection.add(new SeaChangeTraining(textArea.getText()));
-				break;
-			case "VirtualAcademy":
-				DatabaseConnection.add(new VirtualAcademyTraining(textArea.getText()));
-				break;
-			case "HSE":
-				DatabaseConnection.add(new HSETraining(textArea.getText()));
-				break;
+			
+			DatabaseConnection.add(TrainingFactory.create(textArea.getText(), trainingTypeChoiceBox.getValue()));
+			
 			}
-			//DatabaseConnection.addTraining(1, 1);
 			Stage stage = (Stage) textArea.getScene().getWindow();
 			stage.close();
 		}
 	}
-}
+
