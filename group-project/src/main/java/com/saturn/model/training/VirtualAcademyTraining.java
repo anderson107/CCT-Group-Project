@@ -32,8 +32,8 @@ public class VirtualAcademyTraining extends TrainingSuperClass implements Traini
 			)
 	private List<Employee> virtualAcademy;
 	
-	@OneToMany(mappedBy="virtualAcademy")
-	List<EmployeeSeaChange>virtualAcademyList;
+	@OneToMany(mappedBy="virtualAcademyList")
+	List<EmployeeVirtualAcademy>virtualAcademyList;
 	
 	public VirtualAcademyTraining(String training) {
 		this.setTraining(training);

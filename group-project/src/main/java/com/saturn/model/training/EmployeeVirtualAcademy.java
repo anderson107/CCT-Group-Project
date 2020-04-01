@@ -14,6 +14,9 @@ import javax.persistence.Table;
 
 import com.saturn.model.employee.Employee;
 
+import lombok.Data;
+
+@Data
 @Entity
 @Table(name ="emp_virtual_training")
 public class EmployeeVirtualAcademy {
