@@ -49,13 +49,8 @@ public class MainMenuController {
 	}
 	
 	@FXML
-	private void openRemoveItemChecklistWindow() {
-		loadView(Views.REMOVE_ITEM_CHECKLIST, "REMOVE ITEMS");
-	}
-	
-	@FXML
-	private void openSearchItemChecklistWindow() {
-		loadView(Views.SEARCH_ITEM_CHECKLIST,"SEARCH ITEM");
+	private void openEmployeeTrainingWindow() {
+		loadView(Views.EMPLOYEE_TRAINING, "TRAININGS");
 	}
 	
 	@FXML

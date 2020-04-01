@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.saturn.model.employee.Employee;
@@ -30,6 +31,9 @@ public class SeaChangeTraining extends TrainingSuperClass implements Training {
 			inverseJoinColumns=@JoinColumn(name="training_id")
 			)
 	List<Employee>seaChangeList;
+	
+	@OneToMany(mappedBy="seaChange")
+	List<EmployeeSeaChange>employeeSeaChange;
 	
 	public SeaChangeTraining(String trainingDescription) {
 		this.setTraining(trainingDescription);

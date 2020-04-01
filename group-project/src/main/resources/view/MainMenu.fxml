@@ -73,6 +73,7 @@
                                           <Insets bottom="10.0" />
                                        </VBox.margin>
                                     </Button>
+                                    <Button mnemonicParsing="false" onAction="#openEmployeeTrainingWindow" prefHeight="43.0" prefWidth="148.0" text="EMPLOYEE" />
                                  </children>
                               </VBox>
                            </children>

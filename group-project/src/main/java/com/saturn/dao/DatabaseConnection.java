@@ -15,6 +15,7 @@ import com.saturn.model.checklists.FireWarden;
 import com.saturn.model.checklists.HealthSafetyChecklist;
 import com.saturn.model.checklists.Task;
 import com.saturn.model.employee.Employee;
+import com.saturn.model.training.EmployeeSeaChange;
 import com.saturn.model.training.HSETraining;
 import com.saturn.model.training.SeaChangeTraining;
 import com.saturn.model.training.TrainingSuperClass;
@@ -28,15 +29,15 @@ public final class DatabaseConnection {
 			.addAnnotatedClass(FireWarden.class).addAnnotatedClass(HealthSafetyChecklist.class)
 			.addAnnotatedClass(Task.class).addAnnotatedClass(Employee.class)
 			.addAnnotatedClass(VirtualAcademyTraining.class).addAnnotatedClass(HSETraining.class)
-			.addAnnotatedClass(SeaChangeTraining.class).buildSessionFactory();
+			.addAnnotatedClass(SeaChangeTraining.class).addAnnotatedClass(EmployeeSeaChange.class).buildSessionFactory();
 
 	// add checklist items to the database
-	public static void add(ChecklistSuperClass obj) {
+	public static<T> void add(T t) {
 
 		Session session = factory.getCurrentSession();
 		try {
 			session.beginTransaction();
-			session.save(obj);
+			session.save(t);
 			session.getTransaction().commit();
 
 		} catch (Exception es) {
@@ -46,7 +47,7 @@ public final class DatabaseConnection {
 		}
 
 	}
-
+     /*
 	// adds employee to the database
 	public static void add(Employee emp) {
 		Session session = factory.getCurrentSession();
@@ -79,7 +80,7 @@ public final class DatabaseConnection {
 		}
 
 	}
-
+*/
 	// delete item from checklist from the database
 	public static void delete(ChecklistSuperClass obj) {
 		Session session = factory.getCurrentSession();

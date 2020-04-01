@@ -10,8 +10,6 @@ public final class Views {
 	public final static String UPDATE_EMPLOYEE = "/view/UpdateEmployee.FXML";
 	public final static String CHANGE_PASSWORD = "/view/ChangePassword.FXML";
 	public final static String ADD_ITEM_CHECKLIST = "/view/AddItemChecklist.FXML";
-	public final static String REMOVE_ITEM_CHECKLIST = "/view/RemoveItemChecklist.FXML";
-	public final static String SEARCH_ITEM_CHECKLIST = "/view/SearchItemChecklist.FXML";
 	public final static String UPDATE_ITEM_CHECKLIST = "/view/UpdateItemChecklist.FXML";
 	public static final String TASK_REPORT = "/view/TaskReport.FXML";
 	public final static String ADD_TRAINING = "/view/AddTraining.FXML";
@@ -20,6 +18,7 @@ public final class Views {
 	public static final String EMPLOYEE_ADM = "/view/EmployeeAdministrator.fxml";
 	public static final String TRAINING_ADMINISTRATOR = "/view/TrainingAdministrator.FXML";
 	public static final String UPDATE_TRAINING = "/view/UpdateTraining.FXML";
+	public static final String EMPLOYEE_TRAINING = "/view/EmployeeTraining.FXML";
 	
 	private Views() {
 		

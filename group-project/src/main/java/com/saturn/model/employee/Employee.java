@@ -3,16 +3,19 @@ package com.saturn.model.employee;
 import java.time.LocalDate;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.saturn.model.training.EmployeeHSE;
+import com.saturn.model.training.EmployeeSeaChange;
+import com.saturn.model.training.EmployeeVirtualAcademy;
 import com.saturn.model.training.HSETraining;
 import com.saturn.model.training.SeaChangeTraining;
 import com.saturn.model.training.VirtualAcademyTraining;
@@ -67,8 +70,18 @@ public class Employee {
 	
 	@ManyToMany(mappedBy="seaChangeList")
 	private List<SeaChangeTraining>seachangeTrainings;
+	
 	@Transient
 	private CheckBox checkbox;
+	
+	@OneToMany(mappedBy="employee")
+	private List<EmployeeSeaChange> employeeSeaChange;
+	
+	@OneToMany(mappedBy="employee")
+	private List<EmployeeHSE>employeeHSE;
+	
+	@OneToMany(mappedBy="employee")
+	private List<EmployeeVirtualAcademy>virtualAcademy;
 	
 	public Employee(String firstName, String lastName, String email, LocalDate dOB, String mobile, String telephone,
 			String address, String city) {
