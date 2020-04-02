@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<BorderPane prefHeight="450.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+<BorderPane prefHeight="450.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="com.controller.EmployeeTrainingController">
    <top>
       <AnchorPane prefHeight="452.0" prefWidth="800.0" BorderPane.alignment="CENTER">
          <children>
@@ -24,7 +24,7 @@
                   <TableColumn prefWidth="71.33331298828125" text="Date" />
               </columns>
             </TableView>
-            <ChoiceBox layoutX="133.0" layoutY="24.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="choicebox" layoutX="133.0" layoutY="24.0" prefWidth="150.0" />
             <Button layoutX="301.0" layoutY="23.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Enter" />
             <Label layoutX="32.0" layoutY="30.0" text="Select Employee">
                <font>

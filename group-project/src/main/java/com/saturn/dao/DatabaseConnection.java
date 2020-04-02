@@ -7,6 +7,7 @@ import javax.persistence.criteria.CriteriaQuery;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 import com.saturn.model.checklists.ChecklistCategory;
@@ -24,6 +25,8 @@ import com.saturn.model.training.TrainingSuperClass;
 import com.saturn.model.training.VirtualAcademyTraining;
 
 import javafx.scene.control.DatePicker;
+import lombok.Getter;
+
 
 public final class DatabaseConnection {
 
@@ -50,64 +53,13 @@ public final class DatabaseConnection {
 		}
 
 	}
-
-	/*
-	 * // adds employee to the database public static void add(Employee emp) {
-	 * Session session = factory.getCurrentSession(); try {
-	 * session.beginTransaction(); session.save(emp);
-	 * session.getTransaction().commit();
-	 * 
-	 * } catch (Exception es) { es.printStackTrace(); } finally { session.close(); }
-	 * 
-	 * }
-	 * 
-	 * // it adds training to the tables public static void add(TrainingSuperClass
-	 * training) {
-	 * 
-	 * Session session = factory.getCurrentSession(); try {
-	 * session.beginTransaction(); session.save(training);
-	 * session.getTransaction().commit();
-	 * 
-	 * } catch (Exception es) { es.printStackTrace(); } finally { session.close(); }
-	 * 
-	 * }
-	 */
+	
 	// delete item from checklist from the database
-	public static void delete(ChecklistSuperClass obj) {
+	public static <T> void delete(T t) {
 		Session session = factory.getCurrentSession();
 		try {
 			session.beginTransaction();
-			session.delete(obj);
-			session.getTransaction().commit();
-
-		} catch (Exception es) {
-			es.printStackTrace();
-		} finally {
-			session.close();
-		}
-	}
-
-	// delete training item from the database
-	public static void delete(TrainingSuperClass obj) {
-		Session session = factory.getCurrentSession();
-		try {
-			session.beginTransaction();
-			session.delete(obj);
-			session.getTransaction().commit();
-
-		} catch (Exception es) {
-			es.printStackTrace();
-		} finally {
-			session.close();
-		}
-	}
-
-	// delete employee from the database
-	public static void delete(Employee obj) {
-		Session session = factory.getCurrentSession();
-		try {
-			session.beginTransaction();
-			session.delete(obj);
+			session.delete(t);
 			session.getTransaction().commit();
 
 		} catch (Exception es) {
@@ -146,23 +98,6 @@ public final class DatabaseConnection {
 			session.close();
 		}
 		return null;
-	}
-
-	public static void addTraining(int empId, int trainingId) {
-		Session session = factory.getCurrentSession();
-
-		try {
-			session.beginTransaction();
-			Employee obj = session.get(Employee.class, empId);
-			VirtualAcademyTraining trai = session.get(VirtualAcademyTraining.class, trainingId);
-			trai.addTraining(obj);
-			session.save(trai);
-			session.getTransaction().commit();
-		} catch (Exception es) {
-			es.printStackTrace();
-		} finally {
-			session.close();
-		}
 	}
 
 	public static Employee get(int id) {
@@ -365,5 +300,5 @@ public final class DatabaseConnection {
 		}
 
 	}
-
+	
 }

@@ -79,7 +79,6 @@ public class TrainingAdministratorController implements Initializable {
 		for (TrainingSuperClass tsc : trainingList) {
 			tsc.setCheckbox(new CheckBox());
 			String className = tsc.getClass().getSimpleName();
-			System.out.println(className);
 			switch (className) {
 			case "SeaChangeTraining":
 				tsc.setClassName("SeaChange");

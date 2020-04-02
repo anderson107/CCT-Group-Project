@@ -1,15 +1,11 @@
 package com.saturn.model.training;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -22,18 +18,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class HSETraining extends TrainingSuperClass implements Training {
 
-	@ManyToMany(fetch=FetchType.LAZY,
-			cascade= {CascadeType.PERSIST, CascadeType.MERGE,
-			 CascadeType.DETACH, CascadeType.REFRESH})
-	@JoinTable(
-			name="emp_hse_training",
-			joinColumns=@JoinColumn(name="employee_id"),
-			inverseJoinColumns=@JoinColumn(name="training_id")
-			)
-	private List<Employee>hseList;
-	
-	@OneToMany(mappedBy="hseTraining")
-	List<EmployeeHSE>employeeHSE;
+	@OneToMany(mappedBy = "primaryKey.hsetraining", cascade = CascadeType.ALL, fetch= FetchType.LAZY)
+	private List<EmployeeHSE>employeehse;
 	
 	public HSETraining(String training) {
 		this.setTraining(training);
@@ -45,12 +31,7 @@ public class HSETraining extends TrainingSuperClass implements Training {
 	@Override
 	public void addTraining(Employee emp) {
 
-		if(hseList==null) {
-			hseList = new ArrayList<>();
-			hseList.add(emp);
-		}else {
-			hseList.add(emp);
-		}
+		
 	}
 
 }

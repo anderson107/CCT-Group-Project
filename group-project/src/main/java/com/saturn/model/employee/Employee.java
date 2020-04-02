@@ -3,28 +3,31 @@ package com.saturn.model.employee;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import com.saturn.model.training.EmployeeHSE;
 import com.saturn.model.training.EmployeeSeaChange;
 import com.saturn.model.training.EmployeeVirtualAcademy;
-import com.saturn.model.training.HSETraining;
-import com.saturn.model.training.SeaChangeTraining;
-import com.saturn.model.training.VirtualAcademyTraining;
 
 import javafx.scene.control.CheckBox;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name="employee")
 @NoArgsConstructor
@@ -62,26 +65,20 @@ public class Employee {
 	@Column(name="registration_date")
 	private LocalDate creationDate;
 	
-	@ManyToMany(mappedBy="virtualAcademy")
-	private List<VirtualAcademyTraining>trainings;
+	@OneToMany(mappedBy = "primaryKey.employee", cascade = CascadeType.ALL, fetch= FetchType.EAGER)
+	@Fetch(FetchMode.SUBSELECT)
+	private List<EmployeeHSE>employeehse;
 	
-	@ManyToMany(mappedBy="hseList")
-	private List<HSETraining>hseTrainings;
+	@OneToMany(mappedBy = "primaryKey.employee", cascade = CascadeType.ALL, fetch= FetchType.EAGER)
+	@Fetch(FetchMode.SUBSELECT)
+	private List<EmployeeSeaChange>employeeSeaChange;
 	
-	@ManyToMany(mappedBy="seaChangeList")
-	private List<SeaChangeTraining>seachangeTrainings;
+	@OneToMany(mappedBy = "primaryKey.employee", cascade = CascadeType.ALL, fetch= FetchType.EAGER)
+	@Fetch(FetchMode.SUBSELECT)
+	private List<EmployeeVirtualAcademy>employeeVirtualAcademy;
 	
 	@Transient
 	private CheckBox checkbox;
-	
-	@OneToMany(mappedBy="employee")
-	private List<EmployeeSeaChange> employeeSeaChange;
-	
-	@OneToMany(mappedBy="employee")
-	private List<EmployeeHSE>employeeHSE;
-	
-	@OneToMany(mappedBy="employee")
-	private List<EmployeeVirtualAcademy>virtualAcademy;
 	
 	public Employee(String firstName, String lastName, String email, LocalDate dOB, String mobile, String telephone,
 			String address, String city) {
@@ -96,6 +93,4 @@ public class Employee {
 		this.creationDate = LocalDate.now();
 		this.checkbox = null;
 	}
-
-	
 }
