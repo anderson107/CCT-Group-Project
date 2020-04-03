@@ -9,23 +9,20 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane prefHeight="450.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="com.controller.EmployeeTrainingController">
+<BorderPane prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.EmployeeTrainingController">
    <top>
       <AnchorPane prefHeight="452.0" prefWidth="800.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView layoutX="27.0" layoutY="68.0" prefHeight="348.0" prefWidth="734.0">
+            <TableView fx:id="tableView" layoutX="27.0" layoutY="68.0" prefHeight="348.0" prefWidth="734.0">
               <columns>
-                  <TableColumn prefWidth="75.0" text="Select" />
-                <TableColumn prefWidth="123.11114120483398" text="Employee" />
-                <TableColumn prefWidth="84.88882446289062" text="Training" />
-                  <TableColumn prefWidth="301.77777099609375" text="Description" />
-                  <TableColumn prefWidth="76.0" text="Status" />
-                  <TableColumn prefWidth="71.33331298828125" text="Date" />
+                <TableColumn fx:id="training" prefWidth="114.66669273376465" text="Training" />
+                  <TableColumn fx:id="description" prefWidth="440.66664123535156" text="Description" />
+                  <TableColumn fx:id="status" prefWidth="82.00006103515625" text="Status" />
+                  <TableColumn fx:id="date" prefWidth="94.0" text="Date" />
               </columns>
             </TableView>
             <ChoiceBox fx:id="choicebox" layoutX="133.0" layoutY="24.0" prefWidth="150.0" />
-            <Button layoutX="301.0" layoutY="23.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Enter" />
+            <Button layoutX="301.0" layoutY="23.0" mnemonicParsing="false" onAction="#fillUpTable" prefHeight="25.0" prefWidth="60.0" text="Enter" />
             <Label layoutX="32.0" layoutY="30.0" text="Select Employee">
                <font>
                   <Font name="System Bold" size="12.0" />

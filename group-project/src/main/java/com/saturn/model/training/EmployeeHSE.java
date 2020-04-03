@@ -13,6 +13,7 @@ import javax.persistence.Transient;
 
 import com.saturn.model.employee.Employee;
 
+import javafx.scene.control.ChoiceBox;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,33 +27,34 @@ import lombok.Setter;
 	@AssociationOverride(name = "primaryKey.hsetraining",
 			joinColumns = @JoinColumn(name = "training_id"))
 })
-public class EmployeeHSE {
+public class EmployeeHSE extends EmployeeTraining{
 
 	@EmbeddedId
 	private EmployeeHseCompositeID primaryKey = new EmployeeHseCompositeID();
 		
-	@Column(name="status")
-	private String status;
-	
-	@Column(name="date")
-	private LocalDate date;
+	@Transient
+	private final String className = "HSE";
 	
 	@Transient
+	@Override
 	public Employee getEmployee() {
 		return primaryKey.getEmployee();
 	}
 	
+	@Override
 	public void setEmployee(Employee emp) {
 		primaryKey.setEmployee(emp);
 	}
 	
 	@Transient
-	public HSETraining getHSETraining() {
-		return primaryKey.getHsetraining();
+	@Override
+	public HSETraining getTraining() {
+		return primaryKey.getTraining();
 	}
 	
-	public void setHSETraining(HSETraining training) {
-		primaryKey.setHsetraining(training);
+	@Override
+	public void setTraining(TrainingSuperClass training) {
+		primaryKey.setTraining(training);;
 	}
 
 }

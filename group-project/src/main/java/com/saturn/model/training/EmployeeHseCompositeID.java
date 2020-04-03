@@ -8,10 +8,7 @@ import javax.persistence.ManyToOne;
 
 import com.saturn.model.employee.Employee;
 
-import lombok.Data;
-
 @SuppressWarnings("serial")
-@Data
 @Embeddable
 public class EmployeeHseCompositeID implements Serializable {
 
@@ -20,5 +17,21 @@ public class EmployeeHseCompositeID implements Serializable {
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	private HSETraining hsetraining;
+
+	public Employee getEmployee() {
+		return this.employee;
+	}
+
+	public void setEmployee(Employee emp) {
+		this.employee = emp;
+	}
+
+	public HSETraining getTraining() {
+		return this.hsetraining;
+	}
+
+	public void setTraining(TrainingSuperClass training) {
+		this.hsetraining = (HSETraining) training;
+	}
 	
 }

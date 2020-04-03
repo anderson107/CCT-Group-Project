@@ -8,10 +8,7 @@ import javax.persistence.ManyToOne;
 
 import com.saturn.model.employee.Employee;
 
-import lombok.Data;
-
 @SuppressWarnings("serial")
-@Data
 @Embeddable
 public class EmployeeVirtualAcademyCompositeID implements Serializable{
 
@@ -20,4 +17,20 @@ public class EmployeeVirtualAcademyCompositeID implements Serializable{
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	private VirtualAcademyTraining virtualTraining;
+
+	public VirtualAcademyTraining getTraining() {
+		return this.virtualTraining;
+	}
+
+	public void setTraining(TrainingSuperClass training) {
+		this.virtualTraining = (VirtualAcademyTraining) training;
+	}
+
+	public Employee getEmployee() {
+		return this.employee;
+	}
+
+	public void setEmployee(Employee emp) {
+		this.employee = emp;
+	}
 }

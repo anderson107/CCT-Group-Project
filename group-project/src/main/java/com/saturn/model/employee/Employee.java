@@ -93,4 +93,11 @@ public class Employee {
 		this.creationDate = LocalDate.now();
 		this.checkbox = null;
 	}
+
+	@Override
+	public String toString() {
+		return "" + firstName + " " + lastName;
+	}
+	
+	
 }

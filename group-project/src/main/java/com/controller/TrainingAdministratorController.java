@@ -10,7 +10,6 @@ import javax.swing.JOptionPane;
 
 import com.saturn.Main;
 import com.saturn.dao.DatabaseConnection;
-import com.saturn.model.checklists.ChecklistSuperClass;
 import com.saturn.model.training.HSETraining;
 import com.saturn.model.training.SeaChangeTraining;
 import com.saturn.model.training.TrainingSuperClass;

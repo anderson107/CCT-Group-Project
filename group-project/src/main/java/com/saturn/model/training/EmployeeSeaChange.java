@@ -1,10 +1,7 @@
 package com.saturn.model.training;
 
-import java.time.LocalDate;
-
 import javax.persistence.AssociationOverride;
 import javax.persistence.AssociationOverrides;
-import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -26,32 +23,33 @@ import lombok.Setter;
 	@AssociationOverride(name = "primaryKey.seachangeTraining",
 			joinColumns = @JoinColumn(name = "training_id"))
 })
-public class EmployeeSeaChange {
+public class EmployeeSeaChange extends EmployeeTraining {
 
 	@EmbeddedId
 	private EmployeeSeaChangeCompositeID primaryKey = new EmployeeSeaChangeCompositeID();
 	
-	@Column(name="status")
-	private String status;
-	
-	@Column(name="date")
-	private LocalDate date;
+	@Transient
+	private final String className = "Sea Change";
 	
 	@Transient
+	@Override
 	public Employee getEmployee() {
 		return primaryKey.getEmployee();
 	}
 	
+	@Override
 	public void setEmployee(Employee emp) {
 		primaryKey.setEmployee(emp);
 	}
 	
 	@Transient
-	public SeaChangeTraining getSeaChangeTraining() {
-		return primaryKey.getSeachangeTraining();
+	@Override
+	public SeaChangeTraining getTraining() {
+		return primaryKey.getTraining();
 	}
 	
-	public void setSeaChangeTraining(SeaChangeTraining training) {
-		primaryKey.setSeachangeTraining(training);
+	@Override
+	public void setTraining(TrainingSuperClass training) {
+		primaryKey.setTraining(training);;
 	}
 }

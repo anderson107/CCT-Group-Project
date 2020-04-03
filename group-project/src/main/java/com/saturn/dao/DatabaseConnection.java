@@ -1,5 +1,6 @@
 package com.saturn.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -7,7 +8,6 @@ import javax.persistence.criteria.CriteriaQuery;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 import com.saturn.model.checklists.ChecklistCategory;
@@ -25,7 +25,6 @@ import com.saturn.model.training.TrainingSuperClass;
 import com.saturn.model.training.VirtualAcademyTraining;
 
 import javafx.scene.control.DatePicker;
-import lombok.Getter;
 
 
 public final class DatabaseConnection {
@@ -84,7 +83,7 @@ public final class DatabaseConnection {
 		}
 		return null;
 	}
-
+	
 	public static <T> TrainingSuperClass getTraining(Class<T> type, int id) {
 		Session session = factory.getCurrentSession();
 		try {
@@ -301,4 +300,25 @@ public final class DatabaseConnection {
 
 	}
 	
+	public static <T> List<T> queryDatabase(String query) {
+
+		Session session = factory.getCurrentSession();
+		List<T> queryResults = new ArrayList<>();
+
+		try {
+			session.beginTransaction();
+
+			@SuppressWarnings("unchecked")
+			List<T> results = session.createQuery(query).getResultList();
+			queryResults.addAll(results);
+
+			session.getTransaction().commit();
+			return queryResults;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return null;
+	}
 }

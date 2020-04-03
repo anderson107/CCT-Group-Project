@@ -34,4 +34,11 @@ public class TrainingSuperClass {
 	
 	@Transient
 	private CheckBox checkbox;
+
+	@Override
+	public String toString() {
+		return "" + training;
+	}
+	
+	
 }

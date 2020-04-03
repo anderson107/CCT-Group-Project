@@ -1,10 +1,7 @@
 package com.saturn.model.training;
 
-import java.time.LocalDate;
-
 import javax.persistence.AssociationOverride;
 import javax.persistence.AssociationOverrides;
-import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -26,32 +23,33 @@ import lombok.Setter;
 	@AssociationOverride(name = "primaryKey.virtualTraining",
 			joinColumns = @JoinColumn(name = "training_id"))
 })
-public class EmployeeVirtualAcademy {
+public class EmployeeVirtualAcademy extends EmployeeTraining{
     
 	@EmbeddedId
 	private EmployeeVirtualAcademyCompositeID primaryKey = new EmployeeVirtualAcademyCompositeID();
 	
-	@Column(name="status")
-	private String status;
-	
-	@Column(name="date")
-	private LocalDate date;
+	@Transient
+	private final String className = "Virtual Academy";
 	
 	@Transient
+	@Override
 	public Employee getEmployee() {
 		return primaryKey.getEmployee();
 	}
 	
+	@Override
 	public void setEmployee(Employee emp) {
 		primaryKey.setEmployee(emp);
 	}
 	
 	@Transient
-	public VirtualAcademyTraining getVirtualAcademy() {
-		return primaryKey.getVirtualTraining();
+	@Override
+	public VirtualAcademyTraining getTraining() {
+		return primaryKey.getTraining();
 	}
 	
-	public void setVirtualAcademyTraining(VirtualAcademyTraining training) {
-		primaryKey.setVirtualTraining(training);
+	@Override
+	public void setTraining(TrainingSuperClass training) {
+		primaryKey.setTraining(training);
 	}
 }

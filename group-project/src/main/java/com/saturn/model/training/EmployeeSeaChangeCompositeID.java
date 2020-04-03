@@ -8,10 +8,8 @@ import javax.persistence.ManyToOne;
 
 import com.saturn.model.employee.Employee;
 
-import lombok.Data;
 
 @SuppressWarnings("serial")
-@Data
 @Embeddable
 public class EmployeeSeaChangeCompositeID implements Serializable{
 
@@ -20,4 +18,21 @@ public class EmployeeSeaChangeCompositeID implements Serializable{
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	private SeaChangeTraining seachangeTraining;
+
+	public SeaChangeTraining getTraining() {
+		return seachangeTraining;
+	}
+
+	public void setTraining(TrainingSuperClass training) {
+		this.seachangeTraining = (SeaChangeTraining) training;
+		
+	}
+
+	public Employee getEmployee() {
+		return employee;
+	}
+
+	public void setEmployee(Employee emp) {
+		this.employee = emp;
+	}
 }
