@@ -9,6 +9,7 @@ import javax.persistence.Transient;
 import com.saturn.model.employee.Employee;
 
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
 import lombok.Data;
 
 @Data
@@ -22,7 +23,10 @@ public abstract class EmployeeTraining {
 	private LocalDate date;
 	
 	@Transient
-	private ChoiceBox<String> choicebox;
+	private ChoiceBox<String> statusChoicebox;
+	
+	@Transient
+	private DatePicker datePicker;
 	
 	public abstract Employee getEmployee();
 	

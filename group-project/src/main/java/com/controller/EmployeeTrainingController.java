@@ -35,10 +35,10 @@ public class EmployeeTrainingController implements Initializable {
 	private TableColumn<EmployeeTraining, String> description;
 
 	@FXML
-	private TableColumn<EmployeeTraining, String> status;
+	private TableColumn<EmployeeTraining, ChoiceBox<String>> statusChoicebox;
 
 	@FXML
-	private TableColumn<EmployeeTraining, LocalDate> date;
+	private TableColumn<EmployeeTraining, DatePicker> date;
 
 	private List<Employee> empList = new ArrayList<>();
 
@@ -87,6 +87,19 @@ public class EmployeeTrainingController implements Initializable {
 		// it adds all the training related to employee id retrieved from the choice box
 		for(EmployeeTraining training:employeeTrainingList) {
 			if(training.getEmployee().getId()==id) {
+				
+				// this block sets up the status choice box in the table view
+				ChoiceBox<String>choicebox = new ChoiceBox<String>();
+				ObservableList<String> list = FXCollections.observableArrayList();
+				list.addAll("Pending","Done");
+				choicebox.setItems(list);
+				choicebox.setValue(training.getStatus());
+				training.setStatusChoicebox(choicebox);
+				
+				DatePicker datePicker = new DatePicker();
+				datePicker.setValue(training.getDate());
+				training.setDatePicker(datePicker);
+				
 				empTraining.add(training);
 			}
 		}
@@ -94,8 +107,8 @@ public class EmployeeTrainingController implements Initializable {
 		// it sets the value in the table
 		training.setCellValueFactory(new PropertyValueFactory<EmployeeTraining, String>("className"));
 		description.setCellValueFactory(new PropertyValueFactory<EmployeeTraining, String>("training"));
-		status.setCellValueFactory(new PropertyValueFactory<EmployeeTraining, String>("status"));
-		date.setCellValueFactory(new PropertyValueFactory<EmployeeTraining, LocalDate>("date"));
+		statusChoicebox.setCellValueFactory(new PropertyValueFactory<EmployeeTraining, ChoiceBox<String>>("statusChoicebox"));
+		date.setCellValueFactory(new PropertyValueFactory<EmployeeTraining, DatePicker>("datePicker"));
 
 		tableView.getItems().setAll(empTraining);
 	}

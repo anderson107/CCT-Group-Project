@@ -18,7 +18,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class VirtualAcademyTraining extends TrainingSuperClass implements Training {
 	
-	@OneToMany(mappedBy = "primaryKey.virtualTraining", cascade = CascadeType.ALL, fetch= FetchType.LAZY)
+	@OneToMany(mappedBy = "primaryKey.virtualTraining", cascade= {CascadeType.PERSIST, CascadeType.MERGE,
+			 CascadeType.DETACH, CascadeType.REFRESH, CascadeType.REMOVE}, fetch= FetchType.LAZY)
 	private List<EmployeeVirtualAcademy>employeeVirtualAcademy;
 	
 	public VirtualAcademyTraining(String training) {

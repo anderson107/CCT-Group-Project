@@ -16,9 +16,9 @@
             <TableView fx:id="tableView" layoutX="27.0" layoutY="68.0" prefHeight="348.0" prefWidth="734.0">
               <columns>
                 <TableColumn fx:id="training" prefWidth="114.66669273376465" text="Training" />
-                  <TableColumn fx:id="description" prefWidth="440.66664123535156" text="Description" />
-                  <TableColumn fx:id="status" prefWidth="82.00006103515625" text="Status" />
-                  <TableColumn fx:id="date" prefWidth="94.0" text="Date" />
+                  <TableColumn fx:id="description" prefWidth="416.0000762939453" text="Description" />
+                  <TableColumn fx:id="statusChoicebox" prefWidth="93.99993896484375" text="Status" />
+                  <TableColumn fx:id="date" prefWidth="108.6666259765625" text="Date" />
               </columns>
             </TableView>
             <ChoiceBox fx:id="choicebox" layoutX="133.0" layoutY="24.0" prefWidth="150.0" />

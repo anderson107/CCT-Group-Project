@@ -28,6 +28,13 @@ public class EmployeeSeaChange extends EmployeeTraining {
 	@EmbeddedId
 	private EmployeeSeaChangeCompositeID primaryKey = new EmployeeSeaChangeCompositeID();
 	
+	public EmployeeSeaChange() {
+		this.setStatusChoicebox(null);
+		this.setDate(null);
+		this.setStatus(null);
+		this.setDatePicker(null);
+	}
+	
 	@Transient
 	private final String className = "Sea Change";
 	

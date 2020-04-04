@@ -32,6 +32,13 @@ public class EmployeeHSE extends EmployeeTraining{
 	@EmbeddedId
 	private EmployeeHseCompositeID primaryKey = new EmployeeHseCompositeID();
 		
+	public EmployeeHSE() {
+		this.setStatusChoicebox(null);
+		this.setStatus(null);
+		this.setDate(null);
+		this.setDatePicker(null);
+		
+	}
 	@Transient
 	private final String className = "HSE";
 	

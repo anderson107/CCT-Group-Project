@@ -12,7 +12,8 @@ import com.saturn.model.employee.Employee;
 @Embeddable
 public class EmployeeHseCompositeID implements Serializable {
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
+			 CascadeType.DETACH, CascadeType.REFRESH})
 	private Employee employee;
 	
 	@ManyToOne(cascade = CascadeType.ALL)

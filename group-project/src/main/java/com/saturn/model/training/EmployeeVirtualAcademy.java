@@ -28,6 +28,13 @@ public class EmployeeVirtualAcademy extends EmployeeTraining{
 	@EmbeddedId
 	private EmployeeVirtualAcademyCompositeID primaryKey = new EmployeeVirtualAcademyCompositeID();
 	
+	public EmployeeVirtualAcademy() {
+		this.setStatusChoicebox(null);
+		this.setStatus(null);
+		this.setDate(null);
+		this.setDatePicker(null);
+	}
+	
 	@Transient
 	private final String className = "Virtual Academy";
 	

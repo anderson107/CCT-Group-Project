@@ -18,7 +18,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class HSETraining extends TrainingSuperClass implements Training {
 
-	@OneToMany(mappedBy = "primaryKey.hsetraining", cascade = CascadeType.ALL, fetch= FetchType.LAZY)
+	@OneToMany(mappedBy = "primaryKey.hsetraining", cascade= {CascadeType.PERSIST, CascadeType.MERGE,
+			 CascadeType.DETACH, CascadeType.REFRESH, CascadeType.REMOVE}, fetch= FetchType.LAZY)
 	private List<EmployeeHSE>employeehse;
 	
 	public HSETraining(String training) {

@@ -18,7 +18,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SeaChangeTraining extends TrainingSuperClass implements Training {
 
-	@OneToMany(mappedBy = "primaryKey.seachangeTraining", cascade = CascadeType.ALL, fetch= FetchType.LAZY)
+	@OneToMany(mappedBy = "primaryKey.seachangeTraining", cascade= {CascadeType.PERSIST, CascadeType.MERGE,
+			 CascadeType.DETACH, CascadeType.REFRESH, CascadeType.REMOVE}, fetch= FetchType.LAZY)
 	private List<EmployeeSeaChange>employeeSeaChange;
 	
 	public SeaChangeTraining(String trainingDescription) {
