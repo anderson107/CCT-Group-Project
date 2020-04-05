@@ -4,7 +4,9 @@ public enum ChecklistCategory {
 
 	FIRE_WARDEN("Fire Warden"),
 	HEALTH_SAFETY("Health and Safety"),
-	TASK("Task"),
+	COFFEE_HACCP("Coffee HACCP"),
+	DELI_HACCP("Deli HACCP"),
+	FLOOR_HACCP("Floor HACCP"),
 	ALL("All");
 	
 	

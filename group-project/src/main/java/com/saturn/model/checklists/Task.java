@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="task")
 @NoArgsConstructor
-public class Task extends ChecklistSuperClass implements Checklist {
+public class Task extends ChecklistSuperClass{
 
 	@Transient
 	private List<Task>taskList;
@@ -28,39 +28,4 @@ public class Task extends ChecklistSuperClass implements Checklist {
 		this.setCreationDate(LocalDate.now());
 	}
 		
-	@Override
-	public void addItem(Checklist task) {
-		if(taskList==null) {
-			taskList = new ArrayList<>();
-			taskList.add((Task) task);
-		}else {
-			taskList.add((Task) task);
-		}
-		
-	}
-
-	@Override
-	public void removeItem(int id) {
-    ListIterator<Task>iterator = taskList.listIterator();
-		
-		while(iterator.hasNext()) {
-			Task task = iterator.next();
-			
-			if(task.getId()==id) {
-				iterator.remove();
-				break;
-			}
-		}
-		
-	}
-
-	@Override
-	public Task getItem(int id) {
-		for(Task t: taskList) {
-			if(t.getId()==id) {
-				return t;
-			}
-		}
-		return null;
-	}
 }

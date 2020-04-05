@@ -9,17 +9,17 @@ import javax.persistence.Transient;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="firewarden")
+@Table(name = "coffee_haccp")
 @NoArgsConstructor
-public class FireWarden extends ChecklistSuperClass {
-	
-	// ******fields********
+public class CoffeeHACCP extends ChecklistSuperClass {
+
+	// ***** private fields ************
 	@Transient
-	List<FireWarden>firewardenTasks;
-	// *******constructors*******
-	
-	public FireWarden(String itemDescription, String status, String frequency) {
+	private List<DeliHACCP> delichecklist;
+
+	// ******* constructors **************
+
+	public CoffeeHACCP(String itemDescription, String status, String frequency) {
 		super(itemDescription, status, frequency);
 	}
-	
 }

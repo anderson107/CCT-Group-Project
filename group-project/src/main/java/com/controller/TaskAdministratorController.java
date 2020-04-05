@@ -12,7 +12,10 @@ import com.saturn.Main;
 import com.saturn.dao.DatabaseConnection;
 import com.saturn.model.checklists.ChecklistCategory;
 import com.saturn.model.checklists.ChecklistSuperClass;
+import com.saturn.model.checklists.CoffeeHACCP;
+import com.saturn.model.checklists.DeliHACCP;
 import com.saturn.model.checklists.FireWarden;
+import com.saturn.model.checklists.FloorHACCP;
 import com.saturn.model.checklists.HealthSafetyChecklist;
 import com.saturn.model.checklists.Task;
 
@@ -63,10 +66,10 @@ public class TaskAdministratorController implements Initializable {
 
 	@FXML
 	private CheckBox checkbox1;
-	
+
 	protected static ObservableList<ChecklistSuperClass> selected;
 
-	private List<ChecklistSuperClass> checklistList=new ArrayList<>();
+	private List<ChecklistSuperClass> checklistList = new ArrayList<>();
 
 	// constructor //
 	public TaskAdministratorController() {
@@ -80,7 +83,8 @@ public class TaskAdministratorController implements Initializable {
 
 		ObservableList<String> list = FXCollections.observableArrayList();
 		list.addAll(ChecklistCategory.HEALTH_SAFETY.getCategory(), ChecklistCategory.FIRE_WARDEN.getCategory(),
-				ChecklistCategory.TASK.getCategory(), ChecklistCategory.ALL.getCategory());
+				ChecklistCategory.DELI_HACCP.getCategory(), ChecklistCategory.FLOOR_HACCP.getCategory(),
+				ChecklistCategory.COFFEE_HACCP.getCategory(), ChecklistCategory.ALL.getCategory());
 		// populate the Choice box;
 		taskAdministratorChoicebox.setItems(list);
 		taskAdministratorChoicebox.setValue(ChecklistCategory.ALL.getCategory());
@@ -94,7 +98,9 @@ public class TaskAdministratorController implements Initializable {
 		creationDate.setCellValueFactory(new PropertyValueFactory<ChecklistSuperClass, LocalDate>("creationDate"));
 		checklistList.addAll(DatabaseConnection.loadAllData(FireWarden.class));
 		checklistList.addAll(DatabaseConnection.loadAllData(HealthSafetyChecklist.class));
-		checklistList.addAll(DatabaseConnection.loadAllData(Task.class));
+		checklistList.addAll(DatabaseConnection.loadAllData(DeliHACCP.class));
+		checklistList.addAll(DatabaseConnection.loadAllData(FloorHACCP.class));
+		checklistList.addAll(DatabaseConnection.loadAllData(CoffeeHACCP.class));
 
 		// it sets check boxes to each object
 		for (ChecklistSuperClass c : checklistList) {
@@ -107,6 +113,7 @@ public class TaskAdministratorController implements Initializable {
 
 	@FXML
 	private void updateTable() {
+
 		checklistList.clear();
 		if (taskAdministratorChoicebox.getValue().matches(ChecklistCategory.HEALTH_SAFETY.getCategory())) {
 			checklistList.addAll(DatabaseConnection.loadAllData(HealthSafetyChecklist.class));
@@ -126,8 +133,24 @@ public class TaskAdministratorController implements Initializable {
 			tableView.getItems().setAll(checklistList);
 		}
 
-		else if (taskAdministratorChoicebox.getValue().matches(ChecklistCategory.TASK.getCategory())) {
-			checklistList.addAll(DatabaseConnection.loadAllData(Task.class));
+		else if (taskAdministratorChoicebox.getValue().matches(ChecklistCategory.DELI_HACCP.getCategory())) {
+			checklistList.addAll(DatabaseConnection.loadAllData(DeliHACCP.class));
+			// it sets check boxes to each object
+			for (ChecklistSuperClass c : checklistList) {
+				c.setCheckbox(new CheckBox());
+			}
+			tableView.getItems().setAll(checklistList);
+
+		} else if (taskAdministratorChoicebox.getValue().matches(ChecklistCategory.FLOOR_HACCP.getCategory())) {
+			checklistList.addAll(DatabaseConnection.loadAllData(FloorHACCP.class));
+			// it sets check boxes to each object
+			for (ChecklistSuperClass c : checklistList) {
+				c.setCheckbox(new CheckBox());
+			}
+			tableView.getItems().setAll(checklistList);
+
+		} else if (taskAdministratorChoicebox.getValue().matches(ChecklistCategory.COFFEE_HACCP.getCategory())) {
+			checklistList.addAll(DatabaseConnection.loadAllData(CoffeeHACCP.class));
 			// it sets check boxes to each object
 			for (ChecklistSuperClass c : checklistList) {
 				c.setCheckbox(new CheckBox());
@@ -137,7 +160,10 @@ public class TaskAdministratorController implements Initializable {
 		} else if (taskAdministratorChoicebox.getValue().matches(ChecklistCategory.ALL.getCategory())) {
 			checklistList.addAll(DatabaseConnection.loadAllData(FireWarden.class));
 			checklistList.addAll(DatabaseConnection.loadAllData(HealthSafetyChecklist.class));
-			checklistList.addAll(DatabaseConnection.loadAllData(Task.class));
+			checklistList.addAll(DatabaseConnection.loadAllData(DeliHACCP.class));
+			checklistList.addAll(DatabaseConnection.loadAllData(FloorHACCP.class));
+			checklistList.addAll(DatabaseConnection.loadAllData(CoffeeHACCP.class));
+
 			// it sets check boxes to each object
 			for (ChecklistSuperClass c : checklistList) {
 				c.setCheckbox(new CheckBox());
@@ -173,25 +199,27 @@ public class TaskAdministratorController implements Initializable {
 		tableView.getItems().setAll(checklistList);
 
 	}
-	
-	// it refreshes the table view 
+
+	// it refreshes the table view
 	private void refresh() {
 		checklistList.clear();
 		checklistList.addAll(DatabaseConnection.loadAllData(FireWarden.class));
 		checklistList.addAll(DatabaseConnection.loadAllData(HealthSafetyChecklist.class));
-		checklistList.addAll(DatabaseConnection.loadAllData(Task.class));
-		
-		for(ChecklistSuperClass e: checklistList) {
+		checklistList.addAll(DatabaseConnection.loadAllData(DeliHACCP.class));
+		checklistList.addAll(DatabaseConnection.loadAllData(FloorHACCP.class));
+		checklistList.addAll(DatabaseConnection.loadAllData(CoffeeHACCP.class));
+
+		for (ChecklistSuperClass e : checklistList) {
 			e.setCheckbox(new CheckBox());
 		}
-		
+
 		tableView.getItems().setAll(checklistList);
 	}
-	
+
 	@FXML
 	private void openUpdateTaskWindow() {
 
-		Stage stage= null;
+		Stage stage = null;
 		int index = 0;
 		for (ChecklistSuperClass cl : checklistList) {
 			if (cl.getCheckbox().isSelected()) {
@@ -216,7 +244,7 @@ public class TaskAdministratorController implements Initializable {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
+
 			stage.setOnHidden((EventHandler<WindowEvent>) new EventHandler<WindowEvent>() {
 				public void handle(WindowEvent we) {
 					refresh();

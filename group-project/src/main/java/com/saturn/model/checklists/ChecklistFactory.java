@@ -9,8 +9,12 @@ public class ChecklistFactory {
 			return new FireWarden(itemDescription, status, frequency);
 		case "Health and Safety":
 			return new HealthSafetyChecklist(itemDescription, status, frequency);
-		case "Task":
-			return new Task(itemDescription, status, frequency);
+		case "Floor HACCP":
+			return new FloorHACCP(itemDescription, status, frequency);
+		case "Coffee HACCP":
+			return new  CoffeeHACCP(itemDescription, status, frequency);
+		case "Deli HACCP":
+			return new DeliHACCP(itemDescription, status, frequency);
 		}
 		return null;
 	}

@@ -3,7 +3,6 @@ package com.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
 import com.saturn.dao.DatabaseConnection;
 import com.saturn.model.Validation;
 import com.saturn.model.checklists.ChecklistCategory;
@@ -35,16 +34,16 @@ public class AddItemChecklistController implements Initializable {
 
 	@FXML
 	private TextArea addItemTextfield;
-	
+
 	@FXML
 	private Button addItemChecklist;
-	
+
 	@FXML
 	private Label checklistLabel;
-	
+
 	@FXML
 	private Label frequencyLabel;
-	
+
 	@FXML
 	private Label textAreaLabel;
 
@@ -62,7 +61,8 @@ public class AddItemChecklistController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		ObservableList<String> list = FXCollections.observableArrayList();
 		list.addAll(ChecklistCategory.HEALTH_SAFETY.getCategory(), ChecklistCategory.FIRE_WARDEN.getCategory(),
-				ChecklistCategory.TASK.getCategory());
+				ChecklistCategory.COFFEE_HACCP.getCategory(), ChecklistCategory.DELI_HACCP.getCategory(),
+				ChecklistCategory.FLOOR_HACCP.getCategory());
 		// populate the Choice box;
 		selectChecklist.setItems(list);
 
@@ -78,19 +78,22 @@ public class AddItemChecklistController implements Initializable {
 	// It adds items to checklist fire warden, health and safety and task
 	@FXML
 	public void addItem(ActionEvent actionEvent) {
-		
-		Boolean choiceboxCategoryValidation = Validation.isChoiceBoxSelected(selectChecklist, checklistLabel, "Select a category");
-		Boolean choiceboxFrequencyValidation = Validation.isChoiceBoxSelected(selectFrequency, frequencyLabel, "Select frequency");
-		Boolean textAreaValidation = Validation.isTextAreaEmpty(addItemTextfield, textAreaLabel, "Enter item description");
-		
-		if(choiceboxCategoryValidation==true && choiceboxFrequencyValidation==true && textAreaValidation==true) {
-			
-			DatabaseConnection.add(ChecklistFactory.create(addItemTextfield.getText(), "Pending", selectFrequency.getValue(), selectChecklist.getValue()));
-			
+
+		Boolean choiceboxCategoryValidation = Validation.isChoiceBoxSelected(selectChecklist, checklistLabel,
+				"Select a category");
+		Boolean choiceboxFrequencyValidation = Validation.isChoiceBoxSelected(selectFrequency, frequencyLabel,
+				"Select frequency");
+		Boolean textAreaValidation = Validation.isTextAreaEmpty(addItemTextfield, textAreaLabel,
+				"Enter item description");
+
+		if (choiceboxCategoryValidation == true && choiceboxFrequencyValidation == true && textAreaValidation == true) {
+
+			DatabaseConnection.add(ChecklistFactory.create(addItemTextfield.getText(), "Pending",
+					selectFrequency.getValue(), selectChecklist.getValue()));
+
 			Stage stage = (Stage) addItemTextfield.getScene().getWindow();
 			stage.close();
 		}
-			
-		
+
 	}
 }

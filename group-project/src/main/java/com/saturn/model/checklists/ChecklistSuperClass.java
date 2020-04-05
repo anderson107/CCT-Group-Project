@@ -1,7 +1,6 @@
 package com.saturn.model.checklists;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -40,5 +39,16 @@ public class ChecklistSuperClass {
 	private LocalDate creationDate;
 	
 	@Column(name="date")
-	private LocalDate dueDate; 
+	private LocalDate dueDate;
+
+	public ChecklistSuperClass(String itemDescription, String status, String frequency) {
+		this.itemDescription = itemDescription;
+		this.frequency = frequency;
+		this.status = status;
+		this.setCheckbox(null);
+		this.setCreationDate(LocalDate.now());
+		this.setDueDate(null);
+	} 
+	
+	
 }

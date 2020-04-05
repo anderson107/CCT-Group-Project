@@ -13,7 +13,10 @@ import org.hibernate.cfg.Configuration;
 
 import com.saturn.model.checklists.ChecklistCategory;
 import com.saturn.model.checklists.ChecklistSuperClass;
+import com.saturn.model.checklists.CoffeeHACCP;
+import com.saturn.model.checklists.DeliHACCP;
 import com.saturn.model.checklists.FireWarden;
+import com.saturn.model.checklists.FloorHACCP;
 import com.saturn.model.checklists.HealthSafetyChecklist;
 import com.saturn.model.checklists.Task;
 import com.saturn.model.employee.Employee;
@@ -36,7 +39,9 @@ public final class DatabaseConnection {
 			.addAnnotatedClass(Task.class).addAnnotatedClass(Employee.class)
 			.addAnnotatedClass(VirtualAcademyTraining.class).addAnnotatedClass(HSETraining.class)
 			.addAnnotatedClass(SeaChangeTraining.class).addAnnotatedClass(EmployeeSeaChange.class)
-			.addAnnotatedClass(EmployeeHSE.class).addAnnotatedClass(EmployeeVirtualAcademy.class).buildSessionFactory();
+			.addAnnotatedClass(EmployeeHSE.class).addAnnotatedClass(CoffeeHACCP.class)
+			.addAnnotatedClass(DeliHACCP.class).addAnnotatedClass(FloorHACCP.class)
+			.addAnnotatedClass(EmployeeVirtualAcademy.class).buildSessionFactory();
 
 	// add checklist items to the database
 	public static <T> void add(T t) {
@@ -188,10 +193,13 @@ public final class DatabaseConnection {
 			classType = "FireWarden";
 		} else if (category.matches(ChecklistCategory.HEALTH_SAFETY.getCategory())) {
 			classType = "HealthSafetyChecklist";
-		} else if (category.matches(ChecklistCategory.TASK.getCategory())) {
-			classType = "Task";
+		} else if (category.matches(ChecklistCategory.COFFEE_HACCP.getCategory())) {
+			classType = "CoffeeHACCP";
+		} else if (category.matches(ChecklistCategory.DELI_HACCP.getCategory())) {
+			classType = "CoffeeHACCP";
+		} else if (category.matches(ChecklistCategory.FLOOR_HACCP.getCategory())) {
+			classType = "CoffeeHACCP";
 		}
-
 		Session session = factory.getCurrentSession();
 
 		ChecklistSuperClass update = null;
@@ -216,14 +224,29 @@ public final class DatabaseConnection {
 					session.getTransaction().commit();
 					return;
 
-				} else if (classType.matches("Task")) {
-					Task task = new Task(text, status, frequency);
-					task.setDueDate(localdate.getValue());
+				} else if (classType.matches("DeliHACCP")) {
+					DeliHACCP deli = new DeliHACCP(text, status, frequency);
+					deli.setDueDate(localdate.getValue());
 					session.delete(update);
-					session.save(task);
+					session.save(deli);
 					session.getTransaction().commit();
 					return;
 
+				} else if (classType.matches("CoffeeHACCP")) {
+					CoffeeHACCP coffee = new CoffeeHACCP(text, status, frequency);
+					coffee.setDueDate(localdate.getValue());
+					session.delete(update);
+					session.save(coffee);
+					session.getTransaction().commit();
+					return;
+
+				} else if (classType.matches("FloorHACCP")) {
+					FloorHACCP floor = new FloorHACCP(text, status, frequency);
+					floor.setDueDate(localdate.getValue());
+					session.delete(update);
+					session.save(floor);
+					session.getTransaction().commit();
+					return;
 				}
 
 			} else {
