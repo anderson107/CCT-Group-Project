@@ -88,8 +88,6 @@ public class AddTrainingController implements Initializable {
 					EmployeeSeaChange seachange = new EmployeeSeaChange();
 					seachange.setTraining(lastEntry);
 					seachange.setEmployee(e);
-					seachange.setDate(LocalDate.now());
-					seachange.setStatus("Pending");
 					DatabaseConnection.add(seachange);
 				}
 			}else if(training instanceof HSETraining) {
@@ -99,8 +97,6 @@ public class AddTrainingController implements Initializable {
 					EmployeeHSE hse = new EmployeeHSE();
 					hse.setTraining(lastEntry);
 					hse.setEmployee(e);
-					hse.setDate(LocalDate.now());
-					hse.setStatus("Pending");
 					DatabaseConnection.add(hse);
 				}
 			}else if(training instanceof VirtualAcademyTraining) {
@@ -110,8 +106,6 @@ public class AddTrainingController implements Initializable {
 					EmployeeVirtualAcademy virtual = new EmployeeVirtualAcademy();
 					virtual.setTraining(lastEntry);
 					virtual.setEmployee(e);
-					virtual.setDate(LocalDate.now());
-					virtual.setStatus("Pending");
 					DatabaseConnection.add(virtual);
 				}
 			}

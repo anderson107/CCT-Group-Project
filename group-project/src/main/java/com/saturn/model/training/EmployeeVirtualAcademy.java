@@ -30,7 +30,7 @@ public class EmployeeVirtualAcademy extends EmployeeTraining{
 	
 	public EmployeeVirtualAcademy() {
 		this.setStatusChoicebox(null);
-		this.setStatus(null);
+		this.setStatus("Pending");
 		this.setDate(null);
 		this.setDatePicker(null);
 	}

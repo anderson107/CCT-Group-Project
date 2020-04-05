@@ -18,7 +18,7 @@ public class EmployeeHseCompositeID implements Serializable {
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	private HSETraining hsetraining;
-
+	
 	public Employee getEmployee() {
 		return this.employee;
 	}

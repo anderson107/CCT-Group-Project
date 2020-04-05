@@ -34,7 +34,7 @@ public class EmployeeHSE extends EmployeeTraining{
 		
 	public EmployeeHSE() {
 		this.setStatusChoicebox(null);
-		this.setStatus(null);
+		this.setStatus("Pending");
 		this.setDate(null);
 		this.setDatePicker(null);
 		

@@ -11,7 +11,9 @@ public class NewMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-	    Main.main(args);
+	   Main.main(args);
+		
+		//DatabaseConnection.updateEmployeeTraining();
 		
 //		Employee emp = DatabaseConnection.get(3);
 //		TrainingSuperClass training = DatabaseConnection.getTraining(HSETraining.class, 40);

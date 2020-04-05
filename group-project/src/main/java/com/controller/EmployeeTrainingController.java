@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import javax.swing.JOptionPane;
+
 import com.saturn.dao.DatabaseConnection;
 import com.saturn.model.employee.Employee;
 import com.saturn.model.training.EmployeeHSE;
@@ -19,6 +21,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 public class EmployeeTrainingController implements Initializable {
 
@@ -39,12 +42,19 @@ public class EmployeeTrainingController implements Initializable {
 
 	@FXML
 	private TableColumn<EmployeeTraining, DatePicker> date;
+	
+	@FXML
+	private Button backButton;
+	
+	@FXML
+	private Button updateButton;
 
-	private List<Employee> empList = new ArrayList<>();
-
+	private List<EmployeeTraining>empTraining = new ArrayList<>();
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+
+		List<Employee> empList = new ArrayList<>();
 
 		ObservableList<String> list = FXCollections.observableArrayList();
 
@@ -62,9 +72,6 @@ public class EmployeeTrainingController implements Initializable {
 		
 		// it retrieves all the training items in the database
 		List<EmployeeTraining> employeeTrainingList = new ArrayList<>();
-		
-		// it will retrieve all the training related to employee id get from the choice box
-		List<EmployeeTraining>empTraining = new ArrayList<>();
 		
 		// it gets the first name and last name in the choice box and query the database to get the employee with the given name
 		String name = choicebox.getValue();
@@ -111,5 +118,40 @@ public class EmployeeTrainingController implements Initializable {
 		date.setCellValueFactory(new PropertyValueFactory<EmployeeTraining, DatePicker>("datePicker"));
 
 		tableView.getItems().setAll(empTraining);
+	}
+	
+	// it updates the items modified in the table
+	@FXML
+	private void updateEmployeeTraining() {
+		
+		int count = 0;
+		// it sets the user inputs in the table
+		for(EmployeeTraining e: empTraining) {
+			e.setDate(e.getDatePicker().getValue());
+			e.setStatus(e.getStatusChoicebox().getValue());
+			
+			if(e.getStatus().equals("Done") && !(e.getDate()==null)) {
+				count++;
+			}
+		}
+		
+		
+		// it updates the training
+		DatabaseConnection.updateEmployeeTraining(empTraining);
+		
+		int index = JOptionPane.showConfirmDialog(null, "Employee Training updated successfully \nGo back to menu?", "Confirmation", JOptionPane.YES_NO_OPTION);
+		
+		if(index == 0) {
+			Stage stage = (Stage) updateButton.getScene().getWindow();
+			stage.close();
+		}
+	
+	}
+	
+	// it closes the window
+	@FXML
+	private void backMenu() {
+		Stage stage = (Stage) backButton.getScene().getWindow();
+		stage.close();
 	}
 }

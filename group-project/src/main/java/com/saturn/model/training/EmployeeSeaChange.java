@@ -31,7 +31,7 @@ public class EmployeeSeaChange extends EmployeeTraining {
 	public EmployeeSeaChange() {
 		this.setStatusChoicebox(null);
 		this.setDate(null);
-		this.setStatus(null);
+		this.setStatus("Pending");
 		this.setDatePicker(null);
 	}
 	

@@ -1,5 +1,6 @@
 package com.saturn.dao;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,9 @@ import com.saturn.model.checklists.HealthSafetyChecklist;
 import com.saturn.model.checklists.Task;
 import com.saturn.model.employee.Employee;
 import com.saturn.model.training.EmployeeHSE;
+import com.saturn.model.training.EmployeeHseCompositeID;
 import com.saturn.model.training.EmployeeSeaChange;
+import com.saturn.model.training.EmployeeTraining;
 import com.saturn.model.training.EmployeeVirtualAcademy;
 import com.saturn.model.training.HSETraining;
 import com.saturn.model.training.SeaChangeTraining;
@@ -25,7 +28,6 @@ import com.saturn.model.training.TrainingSuperClass;
 import com.saturn.model.training.VirtualAcademyTraining;
 
 import javafx.scene.control.DatePicker;
-
 
 public final class DatabaseConnection {
 
@@ -52,7 +54,7 @@ public final class DatabaseConnection {
 		}
 
 	}
-	
+
 	// delete item from checklist from the database
 	public static <T> void delete(T t) {
 		Session session = factory.getCurrentSession();
@@ -83,7 +85,7 @@ public final class DatabaseConnection {
 		}
 		return null;
 	}
-	
+
 	public static <T> TrainingSuperClass getTraining(Class<T> type, int id) {
 		Session session = factory.getCurrentSession();
 		try {
@@ -299,7 +301,7 @@ public final class DatabaseConnection {
 		}
 
 	}
-	
+
 	public static <T> List<T> queryDatabase(String query) {
 
 		Session session = factory.getCurrentSession();
@@ -320,5 +322,40 @@ public final class DatabaseConnection {
 			session.close();
 		}
 		return null;
+	}
+
+	public static void updateEmployeeTraining(List<EmployeeTraining> training) {
+
+		Session session = factory.getCurrentSession();
+
+		try {
+			session.beginTransaction();
+
+			List<EmployeeTraining> trainingList = new ArrayList<>();
+			trainingList.addAll(session.createQuery("from EmployeeVirtualAcademy").getResultList());
+			trainingList.addAll(session.createQuery("from EmployeeSeaChange").getResultList());
+			trainingList.addAll(session.createQuery("from EmployeeHSE").getResultList());
+
+			for (EmployeeTraining et : trainingList) {
+				for (EmployeeTraining update : training) {
+
+					if (et.getEmployee().getId() == update.getEmployee().getId()
+							&& et.getTraining().getId() == update.getTraining().getId()) {
+						et.setStatus(update.getStatus());
+						et.setDate(update.getDate());
+						session.update(et);
+					}
+
+				}
+			}
+
+			session.getTransaction().commit();
+
+		} catch (Exception es) {
+			es.printStackTrace();
+		} finally {
+			session.close();
+		}
+
 	}
 }
