@@ -1,5 +1,6 @@
 package com.saturn.dao;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -109,6 +110,21 @@ public final class DatabaseConnection {
 		try {
 			session.beginTransaction();
 			Employee obj = session.get(Employee.class, id);
+			session.getTransaction().commit();
+			return obj;
+		} catch (Exception es) {
+			es.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return null;
+	}
+	
+	public static Task getTask(int id) {
+		Session session = factory.getCurrentSession();
+		try {
+			session.beginTransaction();
+			Task obj = session.get(Task.class, id);
 			session.getTransaction().commit();
 			return obj;
 		} catch (Exception es) {
@@ -315,6 +331,28 @@ public final class DatabaseConnection {
 				update.setTraining(training);
 				session.getTransaction().commit();
 			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+
+	}
+	
+	public static void updateTask(int id, String textArea, String action, LocalDate date, String status) {
+		
+		Session session = factory.getCurrentSession();
+
+		try {
+			session.beginTransaction();
+			Task task = session.get(Task.class, id);
+			task.setAction(action);
+			task.setItemDescription(textArea);
+			task.setDate(date);
+			task.setStatus(status);
+
+			session.getTransaction().commit();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

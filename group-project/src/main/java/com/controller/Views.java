@@ -21,6 +21,7 @@ public final class Views {
 	public static final String EMPLOYEE_TRAINING = "/view/EmployeeTraining.FXML";
 	public static final String ADD_TASK = "/view/AddTask.FXML";
 	public static final String TASK_TABLE = "/view/TaskTableView.FXML";
+	public static final String UPDATE_TASK = "/view/UpdateTask.FXML";
 	
 	private Views() {
 		
