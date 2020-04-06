@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import javafx.scene.control.CheckBox;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -43,6 +44,9 @@ public class Task {
 	@Column(name="action_description")
 	private String action;
 	
+	@Transient
+	private CheckBox checkbox;
+	
 	public Task(String itemDescription) {
 		
 		this.itemDescription = itemDescription;
@@ -50,6 +54,7 @@ public class Task {
 		this.creationDate = LocalDate.now();
 		this.date = null;
 		this.action = null;
+		this.checkbox = null;
 	}
 		
 }

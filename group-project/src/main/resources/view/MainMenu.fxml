@@ -69,7 +69,7 @@
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
                                        </VBox.margin></Button>
-                                    <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="148.0" text="TASK ADMISTRATOR" />
+                                    <Button mnemonicParsing="false" onAction="#openTaskTable" prefHeight="43.0" prefWidth="148.0" text="TASK ADMISTRATOR" />
                                  </children>
                               </VBox>
                            </children>

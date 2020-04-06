@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="495.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.TaskTableController">
+   <top>
+      <AnchorPane prefHeight="495.0" prefWidth="802.0" BorderPane.alignment="CENTER">
+         <children>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="495.0" prefWidth="921.0">
+                           <children>
+                              <TableView fx:id="tableView" layoutX="178.0" layoutY="49.0" prefHeight="389.0" prefWidth="732.0">
+                                <columns>
+                                    <TableColumn fx:id="select" prefWidth="45.99999237060547" text="SELECT" />
+                                  <TableColumn fx:id="id" prefWidth="33.33331298828125" text="ID" />
+                                    <TableColumn fx:id="description" prefWidth="314.0000305175781" text="DESCRIPTION" />
+                                    <TableColumn fx:id="status" minWidth="0.0" prefWidth="68.0" text="STATUS" />
+                                    <TableColumn fx:id="creationDate" prefWidth="69.33331298828125" text="CREATED" />
+                        <TableColumn fx:id="dueDate" prefWidth="74.6666259765625" text="DUE DATE" />
+                        <TableColumn fx:id="actionTaken" prefWidth="123.3333740234375" text="ACTION TAKEN" />
+                                </columns>
+                              </TableView>
+                              <Label layoutX="179.0" layoutY="16.0" text="Search ">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="234.0" layoutY="11.0" prefHeight="25.0" prefWidth="198.0" promptText="Enter ID/Name" />
+                              <Button layoutX="452.0" layoutY="11.0" mnemonicParsing="false" text="Search" />
+                              <Button layoutX="17.0" layoutY="49.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="145.0" text="UPDATE" />
+                              <Button layoutX="18.0" layoutY="91.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="143.0" text="DELETE" />
+                           </children>
+                        </AnchorPane>
+                 </children>
+      </AnchorPane>
+   </top>
+</BorderPane>

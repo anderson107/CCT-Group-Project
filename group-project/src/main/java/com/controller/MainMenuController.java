@@ -89,6 +89,11 @@ public class MainMenuController {
 		loadView(Views.ADD_TASK, "ADD TASK");
 	}
 	
+	@FXML
+	private void openTaskTable() {
+		loadView(Views.TASK_TABLE, "TASK ADMINISTRATOR");
+	}
+	
 	// method to upload the fxml files
 	public void loadView(String view, String windowTitle) {
 		try {
