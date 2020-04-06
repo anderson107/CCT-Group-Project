@@ -13,7 +13,7 @@ import com.saturn.model.checklists.FireWarden;
 import com.saturn.model.checklists.FloorHACCP;
 import com.saturn.model.checklists.Frequency;
 import com.saturn.model.checklists.HealthSafetyChecklist;
-import com.saturn.model.checklists.Task;
+import com.saturn.model.task.Task;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

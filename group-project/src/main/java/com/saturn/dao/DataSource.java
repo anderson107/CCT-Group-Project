@@ -10,8 +10,8 @@ import org.hibernate.cfg.Configuration;
 
 import com.saturn.model.checklists.FireWarden;
 import com.saturn.model.checklists.HealthSafetyChecklist;
-import com.saturn.model.checklists.Task;
 import com.saturn.model.employee.Employee;
+import com.saturn.model.task.Task;
 import com.saturn.model.training.EmployeeHSE;
 import com.saturn.model.training.EmployeeSeaChange;
 import com.saturn.model.training.EmployeeVirtualAcademy;

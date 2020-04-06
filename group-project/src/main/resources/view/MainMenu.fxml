@@ -12,6 +12,8 @@
    <top>
       <TabPane tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
+          <Tab text="                 ">
+          </Tab>
           <Tab text="Administrator">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0">
@@ -55,6 +57,27 @@
                   </AnchorPane>
             </content>
           </Tab>
+          <Tab text="Task">
+          <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane prefHeight="571.0" prefWidth="700.0">
+                           <children>
+                              <VBox layoutX="28.0" layoutY="38.0" prefHeight="410.0" prefWidth="146.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#openAddTask" prefHeight="43.0" prefWidth="148.0" text="ADD TASK">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin></Button>
+                                    <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="148.0" text="TASK ADMISTRATOR" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
           <Tab text="Training">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="571.0" prefWidth="700.0">
@@ -79,6 +102,27 @@
                            </children>
                         </AnchorPane>
                      </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Maintenance ">
+          <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane prefHeight="571.0" prefWidth="700.0">
+                           <children>
+                              <VBox layoutX="28.0" layoutY="38.0" prefHeight="410.0" prefWidth="146.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="148.0" text="ADD CONTRACTOR">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin></Button>
+                                    <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="148.0" text="ADM CONTRACTORS" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
             </content>
           </Tab>
           <Tab text="Reports">

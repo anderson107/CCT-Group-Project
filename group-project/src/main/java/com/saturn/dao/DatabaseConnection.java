@@ -1,6 +1,5 @@
 package com.saturn.dao;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,10 +17,9 @@ import com.saturn.model.checklists.DeliHACCP;
 import com.saturn.model.checklists.FireWarden;
 import com.saturn.model.checklists.FloorHACCP;
 import com.saturn.model.checklists.HealthSafetyChecklist;
-import com.saturn.model.checklists.Task;
 import com.saturn.model.employee.Employee;
+import com.saturn.model.task.Task;
 import com.saturn.model.training.EmployeeHSE;
-import com.saturn.model.training.EmployeeHseCompositeID;
 import com.saturn.model.training.EmployeeSeaChange;
 import com.saturn.model.training.EmployeeTraining;
 import com.saturn.model.training.EmployeeVirtualAcademy;
