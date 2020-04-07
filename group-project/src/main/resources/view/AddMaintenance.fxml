@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane prefHeight="415.0" prefWidth="450.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="com.controller.AddMaintenanceController">
+   <center>
+      <AnchorPane prefHeight="404.0" prefWidth="450.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="42.0" layoutY="38.0" text="Contractor">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="textField" layoutX="110.0" layoutY="34.0" prefHeight="25.0" prefWidth="295.0" promptText="Contractor description" />
+            <Label layoutX="42.0" layoutY="80.0" text="Service description">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="textArea" layoutX="42.0" layoutY="105.0" prefHeight="125.0" prefWidth="361.0" promptText="Description of the service" />
+            <Label layoutX="42.0" layoutY="259.0" text="Last service">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="lastDate" layoutX="117.0" layoutY="255.0" prefHeight="25.0" prefWidth="150.0" />
+            <Label layoutX="42.0" layoutY="299.0" text="Next service">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="nextDate" layoutX="118.0" layoutY="295.0" prefHeight="25.0" prefWidth="150.0" />
+            <Button layoutX="101.0" layoutY="348.0" mnemonicParsing="false" onAction="#addContractor" prefHeight="25.0" prefWidth="102.0" text="REGISTER" />
+            <Button fx:id="backButton" layoutX="249.0" layoutY="348.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="102.0" text="MENU" />
+            <Separator layoutX="22.0" layoutY="20.0" orientation="VERTICAL" prefHeight="369.0" prefWidth="8.0" />
+            <Separator layoutX="26.0" layoutY="20.0" prefHeight="3.0" prefWidth="395.0" />
+            <Separator layoutX="418.0" layoutY="20.0" orientation="VERTICAL" prefHeight="369.0" prefWidth="8.0" />
+            <Separator layoutX="25.0" layoutY="389.0" prefHeight="3.0" prefWidth="395.0" />
+            <Label fx:id="textFieldLabel" layoutX="111.0" layoutY="59.0" prefHeight="17.0" prefWidth="129.0" textFill="#f30404" />
+            <Label fx:id="textAreaLabel" layoutX="42.0" layoutY="230.0" prefHeight="17.0" prefWidth="129.0" textFill="#f30404" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

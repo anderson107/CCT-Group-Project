@@ -17,7 +17,6 @@ import com.saturn.model.checklists.DeliHACCP;
 import com.saturn.model.checklists.FireWarden;
 import com.saturn.model.checklists.FloorHACCP;
 import com.saturn.model.checklists.HealthSafetyChecklist;
-import com.saturn.model.task.Task;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -32,7 +31,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import lombok.Getter;
 
 public class TaskAdministratorController implements Initializable {
 

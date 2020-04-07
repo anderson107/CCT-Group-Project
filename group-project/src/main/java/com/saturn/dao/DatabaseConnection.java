@@ -19,6 +19,7 @@ import com.saturn.model.checklists.FireWarden;
 import com.saturn.model.checklists.FloorHACCP;
 import com.saturn.model.checklists.HealthSafetyChecklist;
 import com.saturn.model.employee.Employee;
+import com.saturn.model.maintenance.Maintenance;
 import com.saturn.model.task.Task;
 import com.saturn.model.training.EmployeeHSE;
 import com.saturn.model.training.EmployeeSeaChange;
@@ -40,7 +41,7 @@ public final class DatabaseConnection {
 			.addAnnotatedClass(SeaChangeTraining.class).addAnnotatedClass(EmployeeSeaChange.class)
 			.addAnnotatedClass(EmployeeHSE.class).addAnnotatedClass(CoffeeHACCP.class)
 			.addAnnotatedClass(DeliHACCP.class).addAnnotatedClass(FloorHACCP.class)
-			.addAnnotatedClass(EmployeeVirtualAcademy.class).buildSessionFactory();
+			.addAnnotatedClass(EmployeeVirtualAcademy.class).addAnnotatedClass(Maintenance.class).buildSessionFactory();
 
 	// add checklist items to the database
 	public static <T> void add(T t) {
