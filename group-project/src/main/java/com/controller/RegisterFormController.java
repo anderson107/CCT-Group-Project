@@ -112,7 +112,7 @@ public class RegisterFormController {
 			training.addAll(DatabaseConnection.loadAllData(VirtualAcademyTraining.class));
 
 			if(training.size()==0) {
-				return;
+				backToMenu();
 			}
 			
 			// adding employee to all the training
@@ -123,28 +123,27 @@ public class RegisterFormController {
 					hse.setTraining(e);
 					hse.setEmployee(emp);
 					hse.setStatus("Pending");
-					hse.setDate(LocalDate.now());
+					hse.setDate(null);
 					DatabaseConnection.add(hse);
 				} else if (e instanceof SeaChangeTraining) {
 					EmployeeSeaChange seaChange = new EmployeeSeaChange();
 					seaChange.setTraining(e);
 					seaChange.setEmployee(emp);
 					seaChange.setStatus("Pending");
-					seaChange.setDate(LocalDate.now());
+					seaChange.setDate(null);
 					DatabaseConnection.add(seaChange);
 				} else if (e instanceof VirtualAcademyTraining) {
 					EmployeeVirtualAcademy virtual = new EmployeeVirtualAcademy();
 					virtual.setTraining(e);
 					virtual.setEmployee(emp);
 					virtual.setStatus("Pending");
-					virtual.setDate(LocalDate.now());
+					virtual.setDate(null);
 					DatabaseConnection.add(virtual);
 				}
 			}
 
 			// closes the window
-			Stage stage = (Stage) backToMenuButton.getScene().getWindow();
-			stage.close();
+			backToMenu();
 		}
 
 	}

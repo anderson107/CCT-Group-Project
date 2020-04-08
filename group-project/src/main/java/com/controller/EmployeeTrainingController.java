@@ -69,6 +69,8 @@ public class EmployeeTrainingController implements Initializable {
 	@FXML
 	private void fillUpTable() {
 		
+		empTraining.clear();
+		
 		// it retrieves all the training items in the database
 		List<EmployeeTraining> employeeTrainingList = new ArrayList<>();
 		
@@ -117,6 +119,8 @@ public class EmployeeTrainingController implements Initializable {
 		date.setCellValueFactory(new PropertyValueFactory<EmployeeTraining, DatePicker>("datePicker"));
 
 		tableView.getItems().setAll(empTraining);
+		
+		employeeTrainingList.clear();
 	}
 	
 	// it updates the items modified in the table

@@ -41,12 +41,6 @@ public class AddTrainingController implements Initializable {
 	@FXML
 	private Label choiceboxLabel;
 
-	@FXML
-	private void closeAddTrainingWindow() {
-		Stage stage = (Stage) addTrainingBackButton.getScene().getWindow();
-		stage.close();
-	}
-
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		ObservableList<String> list = FXCollections.observableArrayList();
@@ -68,51 +62,58 @@ public class AddTrainingController implements Initializable {
 			// creating new object of type training and saving to the database
 			TrainingSuperClass training = TrainingFactory.create(textArea.getText(), trainingTypeChoiceBox.getValue());
 			DatabaseConnection.add(training);
-			
+
 			TrainingSuperClass lastEntry = null;
-			
+
 			// retrieving all employees from the database
 			List<Employee> employees = new ArrayList<>();
-			employees.addAll(DatabaseConnection.loadAllData(Employee.class));
-			
-			List<TrainingSuperClass>trainingList = new ArrayList<>();
-			
-			// if there is employee in the database it is added to the training created above
-			if(employees.size()!=0) {
-			
-			if(training instanceof SeaChangeTraining) {
-				trainingList.addAll(DatabaseConnection.loadAllData(SeaChangeTraining.class));
-				lastEntry = trainingList.get(trainingList.size()-1);
-				for(Employee e: employees) {
-					EmployeeSeaChange seachange = new EmployeeSeaChange();
-					seachange.setTraining(lastEntry);
-					seachange.setEmployee(e);
-					DatabaseConnection.add(seachange);
-				}
-			}else if(training instanceof HSETraining) {
-				trainingList.addAll(DatabaseConnection.loadAllData(HSETraining.class));
-				lastEntry = trainingList.get(trainingList.size()-1);
-				for(Employee e: employees) {
-					EmployeeHSE hse = new EmployeeHSE();
-					hse.setTraining(lastEntry);
-					hse.setEmployee(e);
-					DatabaseConnection.add(hse);
-				}
-			}else if(training instanceof VirtualAcademyTraining) {
-				trainingList.addAll(DatabaseConnection.loadAllData(VirtualAcademyTraining.class));
-				lastEntry = trainingList.get(trainingList.size()-1);
-				for(Employee e: employees) {
-					EmployeeVirtualAcademy virtual = new EmployeeVirtualAcademy();
-					virtual.setTraining(lastEntry);
-					virtual.setEmployee(e);
-					DatabaseConnection.add(virtual);
-				}
-			}
-			}
-		}
-		// it closes the connection
-		Stage stage = (Stage) textArea.getScene().getWindow();
-		stage.close();
 
+			employees.addAll(DatabaseConnection.loadAllData(Employee.class));
+
+			List<TrainingSuperClass> trainingList = new ArrayList<>();
+
+			// if there is employee in the database it is added to the training created
+			// above
+			if (employees.size() != 0) {
+
+				if (training instanceof SeaChangeTraining) {
+					trainingList.addAll(DatabaseConnection.loadAllData(SeaChangeTraining.class));
+					lastEntry = trainingList.get(trainingList.size() - 1);
+					for (Employee e : employees) {
+						EmployeeSeaChange seachange = new EmployeeSeaChange();
+						seachange.setTraining(lastEntry);
+						seachange.setEmployee(e);
+						DatabaseConnection.add(seachange);
+						closeAddTrainingWindow();
+					}
+				} else if (training instanceof HSETraining) {
+					trainingList.addAll(DatabaseConnection.loadAllData(HSETraining.class));
+					lastEntry = trainingList.get(trainingList.size() - 1);
+					for (Employee e : employees) {
+						EmployeeHSE hse = new EmployeeHSE();
+						hse.setTraining(lastEntry);
+						hse.setEmployee(e);
+						DatabaseConnection.add(hse);
+						closeAddTrainingWindow();
+					}
+				} else if (training instanceof VirtualAcademyTraining) {
+					trainingList.addAll(DatabaseConnection.loadAllData(VirtualAcademyTraining.class));
+					lastEntry = trainingList.get(trainingList.size() - 1);
+					for (Employee e : employees) {
+						EmployeeVirtualAcademy virtual = new EmployeeVirtualAcademy();
+						virtual.setTraining(lastEntry);
+						virtual.setEmployee(e);
+						DatabaseConnection.add(virtual);
+					}
+				}
+			}
+			closeAddTrainingWindow();
+		}
+	}
+
+	@FXML
+	private void closeAddTrainingWindow() {
+		Stage stage = (Stage) addTrainingBackButton.getScene().getWindow();
+		stage.close();
 	}
 }

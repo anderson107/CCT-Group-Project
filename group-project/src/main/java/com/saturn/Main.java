@@ -2,6 +2,7 @@ package com.saturn;
 	
 import java.io.IOException;
 
+import com.controller.MainMenuController;
 import com.controller.Views;
 
 import javafx.application.Application;
@@ -19,6 +20,8 @@ public class Main extends Application {
 	
 	public static Stage stage;
 	
+	MainMenuController mainMenu;
+	
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 		this.primaryStage = primaryStage;
@@ -34,6 +37,7 @@ public class Main extends Application {
 		primaryStage.setScene(scene);
 		primaryStage.setMaximized(true);
 		stage = primaryStage;
+		mainMenu = new MainMenuController();
 		primaryStage.show();
 	}
 

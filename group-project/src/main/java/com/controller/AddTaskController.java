@@ -20,7 +20,7 @@ public class AddTaskController {
 	private Button backButton;
 	
 	@FXML
-	private Label textLabel;
+	private Label textAreaLabel;
 	
 	@FXML
 	private Label dateLabel;
@@ -33,7 +33,7 @@ public class AddTaskController {
 	
 	@FXML
 	private void addItem(){
-		boolean text = Validation.isTextAreaEmpty(textArea, textLabel, "Required");
+		boolean text = Validation.isTextAreaEmpty(textArea, textAreaLabel, "Required");
 		boolean date = Validation.isDateEmpty(datePicker, dateLabel, "Required");
 		
 		if(text && date) {
