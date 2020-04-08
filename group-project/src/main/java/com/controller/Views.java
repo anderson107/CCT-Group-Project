@@ -23,6 +23,8 @@ public final class Views {
 	public static final String TASK_TABLE = "/view/TaskTableView.FXML";
 	public static final String UPDATE_TASK = "/view/UpdateTask.FXML";
 	public static final String ADD_CONTRACTOR = "/view/AddMaintenance.FXML";
+	public static final String MAINTENANCE_TABLE = "/view/MaintenanceTable.FXML";
+	public static final String UPDATE_CONTRACTOR = "/view/UpdateContractor.FXML";
 	
 	private Views() {
 		

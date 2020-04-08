@@ -19,6 +19,10 @@ public class DataSource {
 		
 	}
 	
+	public Session getSession() {
+		return session;
+	}
+	
 	public static DataSource getInstance() {
 		return instance;
 	}
@@ -30,8 +34,11 @@ public class DataSource {
 	
 	public Session openSession() {
 		session = getFactory().getCurrentSession();
-		session.beginTransaction();
 		return session;
+	}
+	
+	public void beginTransaction() {
+		session.beginTransaction();
 	}
 	
 	public <T> void add(T t) {
@@ -42,9 +49,9 @@ public class DataSource {
 		session.delete(t);
 	}
 	
-	public <T>Class<T> get(Class<T>type, int id){
-		T t = session.get(type, id);
-		return (Class<T>) t;
+	public <T> Object get(Class<T>type, int id){
+		Object t =session.get(type, id);
+		return t;
 	}
 	
 	public void commit() {
@@ -59,8 +66,9 @@ public class DataSource {
 		factory.close();
 	}
 	
+	@SuppressWarnings("unchecked")
 	public <T> List<T>loadAll(String query){
-		List<T>results = session.createQuery(query).getResultList();
+		List<T> results = session.createQuery(query).getResultList();
 		return results;
 	}
 	

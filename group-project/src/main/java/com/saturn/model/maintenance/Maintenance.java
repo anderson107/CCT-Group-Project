@@ -12,10 +12,12 @@ import javax.persistence.Transient;
 
 import javafx.scene.control.CheckBox;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @Table(name="maintenance")
+@NoArgsConstructor
 public class Maintenance {
 
 	@Id
