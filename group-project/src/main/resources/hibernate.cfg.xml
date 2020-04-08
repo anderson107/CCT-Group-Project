@@ -22,6 +22,21 @@
 
 		<!-- Set the current session context -->
 		<property name="current_session_context_class">thread</property>
+		
+		<mapping class="com.saturn.model.employee.Employee"/>
+		<mapping class="com.saturn.model.checklists.CoffeeHACCP"/>
+		<mapping class="com.saturn.model.checklists.DeliHACCP"/>
+		<mapping class="com.saturn.model.checklists.FloorHACCP"/>
+		<mapping class="com.saturn.model.checklists.FireWarden"/>
+		<mapping class="com.saturn.model.checklists.HealthSafetyChecklist"/>
+		<mapping class="com.saturn.model.maintenance.Maintenance"/>
+		<mapping class="com.saturn.model.task.Task"/>
+		<mapping class="com.saturn.model.training.SeaChangeTraining"/>
+		<mapping class="com.saturn.model.training.HSETraining"/>
+		<mapping class="com.saturn.model.training.VirtualAcademyTraining"/>
+		<mapping class="com.saturn.model.training.EmployeeHSE"/>
+		<mapping class="com.saturn.model.training.EmployeeSeaChange"/>
+		<mapping class="com.saturn.model.training.EmployeeVirtualAcademy"/>
  
     </session-factory>
 

@@ -4,71 +4,64 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
-
-import com.saturn.model.checklists.FireWarden;
-import com.saturn.model.checklists.HealthSafetyChecklist;
-import com.saturn.model.employee.Employee;
-import com.saturn.model.task.Task;
-import com.saturn.model.training.EmployeeHSE;
-import com.saturn.model.training.EmployeeSeaChange;
-import com.saturn.model.training.EmployeeVirtualAcademy;
-import com.saturn.model.training.HSETraining;
-import com.saturn.model.training.SeaChangeTraining;
-import com.saturn.model.training.VirtualAcademyTraining;
-
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-
 
 public class DataSource {
 
-	@Getter @Setter
-	private Session currentSession;
 	
-	@Getter @Setter
-	private Transaction currentTransaction;
+	private static DataSource instance = new DataSource();
 	
-	public DataSource() {
+	private SessionFactory factory;
+
+	private Session session;
+	
+	private DataSource() {
 		
+	}
+	
+	public static DataSource getInstance() {
+		return instance;
+	}
+
+	public SessionFactory getFactory() {
+		factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+		return factory;
 	}
 	
 	public Session openSession() {
-		
-		currentSession = getSessionFactory().openSession();
-		currentTransaction = currentSession.beginTransaction();
-		return currentSession;
-	}
-
-	public SessionFactory getSessionFactory() {
-		SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml")
-		.addAnnotatedClass(FireWarden.class).addAnnotatedClass(HealthSafetyChecklist.class)
-		.addAnnotatedClass(Task.class).addAnnotatedClass(Employee.class)
-		.addAnnotatedClass(VirtualAcademyTraining.class).addAnnotatedClass(HSETraining.class)
-		.addAnnotatedClass(SeaChangeTraining.class).addAnnotatedClass(EmployeeSeaChange.class)
-		.addAnnotatedClass(EmployeeHSE.class).addAnnotatedClass(EmployeeVirtualAcademy.class).buildSessionFactory();
-        return sessionFactory;
+		session = getFactory().getCurrentSession();
+		session.beginTransaction();
+		return session;
 	}
 	
-	public <T> void save(T t) {
-		getCurrentSession().save(t);
+	public <T> void add(T t) {
+		session.save(t);
 	}
 	
-	public <T> Class<T> get(Class<T>type, int id){
-		T t1 = getCurrentSession().get(type, id);
-		return (Class<T>) t1;
+	public <T> void delete(T t) {
+		session.delete(t);
 	}
 	
-	public <T> List<T> getAll(String hql){
-		List<T>list = getCurrentSession().createQuery(hql).getResultList();
-		return list;
+	public <T>Class<T> get(Class<T>type, int id){
+		T t = session.get(type, id);
+		return (Class<T>) t;
 	}
 	
-	public void close() {
-		currentSession.close();
+	public void commit() {
+		session.getTransaction().commit();
+	}
+	
+	public void closeSession() {
+		session.close();
+	}
+	
+	public void closeFactory() {
+		factory.close();
+	}
+	
+	public <T> List<T>loadAll(String query){
+		List<T>results = session.createQuery(query).getResultList();
+		return results;
 	}
 	
 }
