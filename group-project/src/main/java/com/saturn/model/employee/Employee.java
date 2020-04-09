@@ -65,15 +65,15 @@ public class Employee {
 	@Column(name="registration_date")
 	private LocalDate creationDate;
 	
-	@OneToMany(mappedBy = "primaryKey.employee", cascade = CascadeType.ALL, fetch= FetchType.EAGER)
+	@OneToMany(mappedBy = "primaryKey.employee", cascade = CascadeType.ALL, fetch= FetchType.LAZY)
 	@Fetch(FetchMode.SUBSELECT)
 	private List<EmployeeHSE>employeehse;
 	
-	@OneToMany(mappedBy = "primaryKey.employee", cascade = CascadeType.ALL, fetch= FetchType.EAGER)
+	@OneToMany(mappedBy = "primaryKey.employee", cascade = CascadeType.ALL, fetch= FetchType.LAZY)
 	@Fetch(FetchMode.SUBSELECT)
 	private List<EmployeeSeaChange>employeeSeaChange;
 	
-	@OneToMany(mappedBy = "primaryKey.employee", cascade = CascadeType.ALL, fetch= FetchType.EAGER)
+	@OneToMany(mappedBy = "primaryKey.employee", cascade = CascadeType.ALL, fetch= FetchType.LAZY)
 	@Fetch(FetchMode.SUBSELECT)
 	private List<EmployeeVirtualAcademy>employeeVirtualAcademy;
 	

@@ -99,6 +99,11 @@ public class MainMenuController {
 		loadView(Views.MAINTENANCE_TABLE, "CONTRACTOR ADMINISTRATOR");
 	}
 	
+	@FXML
+	private void openReportOptions() {
+		loadView(Views.REPORT_OPTION, "");
+	}
+	
 	// method to upload the fxml files
 	public void loadView(String view, String windowTitle) {
 		try {

@@ -75,7 +75,7 @@
                               <Image url="@images/maintenance.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="employeeButton21" blendMode="DARKEN" layoutX="323.0" layoutY="161.0" mnemonicParsing="false" prefHeight="81.0" prefWidth="192.0" />
+                        <Button fx:id="employeeButton21" blendMode="DARKEN" layoutX="323.0" layoutY="161.0" mnemonicParsing="false" onAction="#openReportOptions" prefHeight="81.0" prefWidth="192.0" />
                         <Text layoutX="411.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Report" wrappingWidth="85.63372802734375">
                            <font>
                               <Font size="18.0" />
