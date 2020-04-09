@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.MainMenuController">
    <top>
@@ -20,72 +19,78 @@
            <content>
               <AnchorPane minHeight="0.0" minWidth="0.0">
                      <children>
-                        <Button fx:id="employeeButton" blendMode="DARKEN" layoutX="51.0" layoutY="41.0" mnemonicParsing="false" onAction="#openEmployeeAdm" prefHeight="81.0" prefWidth="192.0" />
-                           <Text layoutX="145.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employees" wrappingWidth="90.96710205078125">
+                              <Button fx:id="employeeButton" blendMode="DARKEN" layoutX="51.0" layoutY="41.0" mnemonicParsing="false" onAction="#openEmployeeAdm" prefHeight="81.0" prefWidth="192.0" text="Employees">
+                              <graphic>
+                              <ImageView fitHeight="65.0" fitWidth="90.0" layoutX="11.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/employeeButton.png" />
+                                 </image>
+                              </ImageView>
+                              </graphic>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                        <Button fx:id="employeeButton1" blendMode="DARKEN" layoutX="51.0" layoutY="161.0" mnemonicParsing="false" onAction="#openTaskAdmistrator" prefHeight="81.0" prefWidth="192.0" text="Checklist">
                            <font>
                               <Font size="18.0" />
                            </font>
-                        </Text>
-                        <ImageView fitHeight="65.0" fitWidth="90.0" layoutX="62.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/employeeButton.png" />
-                           </image>
-                        </ImageView>
-                        <Button fx:id="employeeButton1" blendMode="DARKEN" layoutX="51.0" layoutY="161.0" mnemonicParsing="false" onAction="#openTaskAdmistrator" prefHeight="81.0" prefWidth="192.0" />
-                        <Text layoutX="143.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Checklists" wrappingWidth="90.96710205078125">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
+                           <graphic>
                         <ImageView fitHeight="65.0" fitWidth="90.0" layoutX="70.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@images/checklist.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="employeeButton11" blendMode="DARKEN" layoutX="51.0" layoutY="282.0" mnemonicParsing="false" onAction="#openEmployeeTrainingWindow" prefHeight="81.0" prefWidth="192.0" />
-                        <Text layoutX="143.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Training" wrappingWidth="90.96710205078125">
+                        </graphic>
+                        </Button>
+                        <Button fx:id="employeeButton11" blendMode="DARKEN" layoutX="51.0" layoutY="282.0" mnemonicParsing="false" onAction="#openEmployeeTrainingWindow" prefHeight="81.0" prefWidth="192.0" text="Training">
                            <font>
                               <Font size="18.0" />
                            </font>
-                        </Text>
+                           <graphic>
                         <ImageView fitHeight="65.0" fitWidth="90.0" layoutX="67.0" layoutY="292.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@images/training.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="employeeButton111" blendMode="DARKEN" layoutX="51.0" layoutY="403.0" mnemonicParsing="false" onAction="#openTaskTable" prefHeight="81.0" prefWidth="192.0" />
-                        <Text layoutX="143.0" layoutY="451.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Task" wrappingWidth="90.96710205078125">
+                        </graphic>
+                        </Button>
+                        <Button fx:id="employeeButton111" blendMode="DARKEN" layoutX="51.0" layoutY="403.0" mnemonicParsing="false" onAction="#openTaskTable" prefHeight="81.0" prefWidth="192.0" text="Task">
                            <font>
                               <Font size="18.0" />
                            </font>
-                        </Text>
+                          <graphic>
                         <ImageView fitHeight="65.0" fitWidth="90.0" layoutX="67.0" layoutY="413.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@images/task.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="employeeButton2" blendMode="DARKEN" layoutX="323.0" layoutY="41.0" mnemonicParsing="false" onAction="#openMaintenanceTable" prefHeight="81.0" prefWidth="192.0" />
-                        <Text layoutX="409.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Maintenance" wrappingWidth="106.96710205078125">
+                        </graphic>
+                        </Button>
+                        <Button fx:id="employeeButton2" blendMode="DARKEN" layoutX="323.0" layoutY="41.0" mnemonicParsing="false" onAction="#openMaintenanceTable" prefHeight="81.0" prefWidth="192.0" text="Maintenance">
                            <font>
-                              <Font size="18.0" />
+                              <Font size="17.0" />
                            </font>
-                        </Text>
+                           <graphic>
                         <ImageView fitHeight="65.0" fitWidth="90.0" layoutX="332.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@images/maintenance.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="employeeButton21" blendMode="DARKEN" layoutX="323.0" layoutY="161.0" mnemonicParsing="false" onAction="#openReportOptions" prefHeight="81.0" prefWidth="192.0" />
-                        <Text layoutX="411.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Report" wrappingWidth="85.63372802734375">
+                        </graphic>
+                        </Button>
+                        <Button fx:id="employeeButton21" blendMode="DARKEN" layoutX="323.0" layoutY="161.0" mnemonicParsing="false" onAction="#openReportOptions" prefHeight="81.0" prefWidth="192.0" text="Report">
                            <font>
                               <Font size="18.0" />
                            </font>
-                        </Text>
+                           <graphic>
                         <ImageView fitHeight="65.0" fitWidth="90.0" layoutX="332.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@images/report.png" />
                            </image>
                         </ImageView>
+                        </graphic>
+                        </Button>
                      </children></AnchorPane>
             </content>
           </Tab>
