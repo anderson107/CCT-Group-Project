@@ -26,6 +26,7 @@ public final class Views {
 	public static final String MAINTENANCE_TABLE = "/view/MaintenanceTable.FXML";
 	public static final String UPDATE_CONTRACTOR = "/view/UpdateContractor.FXML";
 	public static final String REPORT_OPTION = "/view/ReportOptions.FXML";
+	public static final String CHECKLIST_REPORT = "/view/ChecklistReport.FXML";
 	
 	private Views() {
 		

@@ -40,6 +40,9 @@ public class ChecklistSuperClass {
 	
 	@Column(name="date")
 	private LocalDate dueDate;
+	
+	@Transient
+	private String className;
 
 	public ChecklistSuperClass(String itemDescription, String status, String frequency) {
 		this.itemDescription = itemDescription;

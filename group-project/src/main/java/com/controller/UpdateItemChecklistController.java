@@ -91,7 +91,7 @@ public class UpdateItemChecklistController implements Initializable {
 
 		// it populates frequency choice box
 		ObservableList<String> list1 = FXCollections.observableArrayList();
-		list1.addAll(Frequency.ONCE.getFrequency(), Frequency.DAILY.getFrequency(), Frequency.WEEKLY.getFrequency(),
+		list1.addAll(Frequency.DAILY.getFrequency(), Frequency.WEEKLY.getFrequency(),
 				Frequency.BIWEEKLY.getFrequency(), Frequency.SEMIANNUAL.getFrequency(),
 				Frequency.YEARLY.getFrequency());
 		updateSelectFrequencyChoiceBox.setItems(list1);

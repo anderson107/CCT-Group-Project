@@ -104,6 +104,11 @@ public class MainMenuController {
 		loadView(Views.REPORT_OPTION, "");
 	}
 	
+	@FXML
+	private void openChecklistReport() {
+		loadView(Views.CHECKLIST_REPORT, "CHECKLIST REPORT");
+	}
+	
 	// method to upload the fxml files
 	public void loadView(String view, String windowTitle) {
 		try {

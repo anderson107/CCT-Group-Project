@@ -2,7 +2,6 @@ package com.saturn.model.checklists;
 
 public enum Frequency {
 	
-	ONCE("Once"),
 	DAILY("Daily"),
 	WEEKLY("Weekly"),
 	BIWEEKLY("Biweekly"),

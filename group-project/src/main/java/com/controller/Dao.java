@@ -1,62 +1,91 @@
 package com.controller;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.saturn.dao.DataSource;
+import com.saturn.model.checklists.ChecklistSuperClass;
 import com.saturn.model.maintenance.Maintenance;
 import com.saturn.model.task.Task;
 
 public class Dao {
 
 	private DataSource data;
-	
+
 	protected Dao() {
 		data = DataSource.getInstance();
 	}
-	
+
 	// it adds a object to the database
 	protected void add(Object obj) {
-	
+
 		data.openSession();
 		try {
 			data.beginTransaction();
 			data.add(obj);
 			data.commit();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			data.closeSession();
 		}
 	}
 
 	// it retrieves all objects from maintenance
-	protected List<Maintenance> loadAllMaintenance(){
-		List<Maintenance>list = null;
+	protected List<Maintenance> loadAllMaintenance() {
+		List<Maintenance> list = null;
 		data.openSession();
 		try {
 			data.beginTransaction();
 			list = data.loadAll("from Maintenance");
 			data.commit();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			data.closeSession();
 		}
 		return list;
 	}
 
 	// it retrieves all objects from Task
-	protected List<Task>loadAllTask(){
-		List<Task>list = null;
+	protected List<Task> loadAllTask() {
+		List<Task> list = null;
 		data.openSession();
 		try {
 			data.beginTransaction();
 			list = data.loadAll("from Task");
 			data.commit();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			data.closeSession();
 		}
 		return list;
+
+	}
+
+	// it retrieves all objects from Task
+	protected List<ChecklistSuperClass> loadAllChecklistItems(String hql) {
+		List<ChecklistSuperClass> list = null;
+		data.openSession();
+		try {
+			data.beginTransaction();
+			list = data.loadAll(hql);
+			data.commit();
+		} catch (Exception e) {
+			data.closeSession();
+		}
+		return list;
+
+	}
+
+	protected List<ChecklistSuperClass> checklistItems(){
 		
+		List<ChecklistSuperClass> list = new ArrayList<>();
+		list.addAll(loadAllChecklistItems("from FireWarden"));
+		list.addAll(loadAllChecklistItems("from HealthSafetyChecklist"));
+		list.addAll(loadAllChecklistItems("from DeliHACCP"));
+		list.addAll(loadAllChecklistItems("from FloorHACCP"));
+		list.addAll(loadAllChecklistItems("from CoffeeHACCP"));
+		
+		return list;
 	}
 	
 	// it deletes from the database
@@ -66,9 +95,9 @@ public class Dao {
 			data.beginTransaction();
 			data.delete(obj);
 			data.commit();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			data.closeSession();
 		}
 	}
@@ -81,16 +110,17 @@ public class Dao {
 			Maintenance maintenance = (Maintenance) data.get(Maintenance.class, id);
 			data.commit();
 			return maintenance;
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			data.closeSession();
 		}
 		return null;
 	}
 
 	// it updates a maintenance object
-	protected void updateMaintenance(int id, String contractor, String service, LocalDate lastDate, LocalDate nextDate) {
+	protected void updateMaintenance(int id, String contractor, String service, LocalDate lastDate,
+			LocalDate nextDate) {
 		data.openSession();
 		try {
 			data.beginTransaction();
@@ -100,9 +130,9 @@ public class Dao {
 			maintenance.setLastDate(lastDate);
 			maintenance.setNextDate(nextDate);
 			data.commit();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			data.closeSession();
 		}
 	}

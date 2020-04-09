@@ -211,9 +211,9 @@ public final class DatabaseConnection {
 		} else if (category.matches(ChecklistCategory.COFFEE_HACCP.getCategory())) {
 			classType = "CoffeeHACCP";
 		} else if (category.matches(ChecklistCategory.DELI_HACCP.getCategory())) {
-			classType = "CoffeeHACCP";
+			classType = "DeliHACCP";
 		} else if (category.matches(ChecklistCategory.FLOOR_HACCP.getCategory())) {
-			classType = "CoffeeHACCP";
+			classType = "FloorHACCP";
 		}
 		Session session = factory.getCurrentSession();
 

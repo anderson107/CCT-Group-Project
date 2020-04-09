@@ -64,7 +64,7 @@ public class AddItemChecklistController implements Initializable {
 		selectChecklist.setItems(list);
 
 		ObservableList<String> list1 = FXCollections.observableArrayList();
-		list1.addAll(Frequency.ONCE.getFrequency(), Frequency.DAILY.getFrequency(), Frequency.WEEKLY.getFrequency(),
+		list1.addAll(Frequency.DAILY.getFrequency(), Frequency.WEEKLY.getFrequency(),
 				Frequency.BIWEEKLY.getFrequency(), Frequency.SEMIANNUAL.getFrequency(),
 				Frequency.YEARLY.getFrequency());
 		// populate the Choice box;
