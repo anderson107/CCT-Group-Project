@@ -58,6 +58,7 @@ public class Dao {
 		return list;
 		
 	}
+	
 	// it deletes from the database
 	protected void delete(Object obj) {
 		data.openSession();

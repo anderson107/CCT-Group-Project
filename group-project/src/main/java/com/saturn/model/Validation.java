@@ -48,6 +48,7 @@ public class Validation {
 			valid = false;
 			label.setText(text);
 			datepicker.requestFocus();
+			return valid;
 		} else {
 			valid = true;
 			label.setText("");

@@ -2,16 +2,15 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="350.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.TaskReportController">
+<BorderPane prefHeight="268.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.TaskReportController">
    <top>
-      <AnchorPane prefHeight="350.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="266.0" prefWidth="500.0" BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="52.0" layoutY="47.0" prefHeight="20.0" prefWidth="125.0" text="Select per status">
                <font>
@@ -24,29 +23,16 @@
                </font>
             </Label>
             <ChoiceBox fx:id="choicebox" layoutX="129.0" layoutY="95.0" prefHeight="25.0" prefWidth="223.0" />
-            <Label layoutX="86.0" layoutY="194.0" prefHeight="20.0" prefWidth="40.0" text="Start" />
-            <DatePicker fx:id="date1" layoutX="119.0" layoutY="192.0" prefHeight="25.0" prefWidth="107.0" />
-            <Label layoutX="255.0" layoutY="196.0" prefHeight="20.0" prefWidth="40.0" text="End" />
-            <DatePicker fx:id="date2" layoutX="282.0" layoutY="193.0" prefHeight="25.0" prefWidth="107.0" />
             <Separator layoutX="31.0" layoutY="38.0" prefHeight="1.0" prefWidth="440.0" />
-            <Separator layoutX="30.0" layoutY="307.0" prefHeight="3.0" prefWidth="440.0" />
-            <Button layoutX="114.0" layoutY="255.0" mnemonicParsing="false" onAction="#printReport" prefHeight="41.0" prefWidth="117.0" text="Generate Report" />
-            <Button fx:id="taskReportBackButton" layoutX="255.0" layoutY="255.0" mnemonicParsing="false" onAction="#closeTaskReportWindow" prefHeight="41.0" prefWidth="117.0" text="Back" />
-            <Separator layoutX="28.0" layoutY="38.0" orientation="VERTICAL" prefHeight="270.0" prefWidth="7.0" />
-            <Separator layoutX="467.0" layoutY="38.0" orientation="VERTICAL" prefHeight="270.0" prefWidth="7.0" />
+            <Separator layoutX="32.0" layoutY="233.0" prefHeight="3.0" prefWidth="440.0" />
+            <Button layoutX="114.0" layoutY="169.0" mnemonicParsing="false" onAction="#printReport" prefHeight="41.0" prefWidth="117.0" text="Generate Report" />
+            <Button fx:id="taskReportBackButton" layoutX="255.0" layoutY="169.0" mnemonicParsing="false" onAction="#closeTaskReportWindow" prefHeight="41.0" prefWidth="117.0" text="Back" />
+            <Separator layoutX="31.0" layoutY="38.0" orientation="VERTICAL" prefHeight="195.0" prefWidth="4.0" />
+            <Separator layoutX="471.0" layoutY="38.0" orientation="VERTICAL" prefHeight="195.0" prefWidth="6.0" />
             <Separator layoutX="53.0" layoutY="77.0" prefHeight="4.0" prefWidth="394.0" />
             <Separator layoutX="52.0" layoutY="80.0" orientation="VERTICAL" prefHeight="61.0" prefWidth="6.0" />
             <Separator layoutX="54.0" layoutY="141.0" prefHeight="3.0" prefWidth="393.0" />
             <Separator layoutX="445.0" layoutY="77.0" orientation="VERTICAL" prefHeight="65.0" prefWidth="6.0" />
-            <Separator layoutX="53.0" layoutY="179.0" prefHeight="3.0" prefWidth="394.0" />
-            <Separator layoutX="52.0" layoutY="180.0" orientation="VERTICAL" prefHeight="63.0" prefWidth="6.0" />
-            <Separator layoutX="54.0" layoutY="241.0" prefHeight="4.0" prefWidth="393.0" />
-            <Separator layoutX="445.0" layoutY="179.0" orientation="VERTICAL" prefHeight="63.0" prefWidth="6.0" />
-            <Label layoutX="51.0" layoutY="154.0" prefHeight="20.0" prefWidth="116.0" text="Select per date ">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
             <Label fx:id="startDateLabel" layoutX="117.0" layoutY="218.0" prefHeight="17.0" prefWidth="107.0" textFill="#f50909" />
             <Label fx:id="endDateLabel" layoutX="282.0" layoutY="218.0" prefHeight="17.0" prefWidth="107.0" textFill="#f50909" />
             <Label fx:id="choiceLabel" layoutX="129.0" layoutY="120.0" prefHeight="17.0" prefWidth="207.0" textFill="#f50909" />

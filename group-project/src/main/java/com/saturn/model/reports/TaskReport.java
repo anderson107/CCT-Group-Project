@@ -30,7 +30,7 @@ public class TaskReport {
         JRViewer viewer = new JRViewer(generateReport(list));
         
         frame.add(viewer);
-        frame.setSize(new Dimension(500, 400));
+        frame.setSize(new Dimension(500, 600));
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setVisible(true);
