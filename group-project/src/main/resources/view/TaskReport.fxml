@@ -9,70 +9,48 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="450.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.TaskReportController">
-   <left>
-      <AnchorPane prefHeight="451.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+<BorderPane prefHeight="350.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.TaskReportController">
+   <top>
+      <AnchorPane prefHeight="350.0" prefWidth="500.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="191.0" layoutY="14.0" text="TASK REPORT">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="49.0" layoutY="60.0" text="Select Task">
+            <Label layoutX="52.0" layoutY="47.0" prefHeight="20.0" prefWidth="125.0" text="Select per status">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <ChoiceBox fx:id="selectTaskReportChoiceBox" layoutX="128.0" layoutY="57.0" prefHeight="25.0" prefWidth="201.0" />
-            <Label layoutX="49.0" layoutY="106.0" prefHeight="20.0" prefWidth="75.0" text="Select per: ">
+            <Label layoutX="60.0" layoutY="98.0" prefHeight="20.0" prefWidth="71.0" text="Status">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="choicebox" layoutX="129.0" layoutY="95.0" prefHeight="25.0" prefWidth="223.0" />
+            <Label layoutX="86.0" layoutY="194.0" prefHeight="20.0" prefWidth="40.0" text="Start" />
+            <DatePicker fx:id="date1" layoutX="119.0" layoutY="192.0" prefHeight="25.0" prefWidth="107.0" />
+            <Label layoutX="255.0" layoutY="196.0" prefHeight="20.0" prefWidth="40.0" text="End" />
+            <DatePicker fx:id="date2" layoutX="282.0" layoutY="193.0" prefHeight="25.0" prefWidth="107.0" />
+            <Separator layoutX="31.0" layoutY="38.0" prefHeight="1.0" prefWidth="440.0" />
+            <Separator layoutX="30.0" layoutY="307.0" prefHeight="3.0" prefWidth="440.0" />
+            <Button layoutX="114.0" layoutY="255.0" mnemonicParsing="false" onAction="#printReport" prefHeight="41.0" prefWidth="117.0" text="Generate Report" />
+            <Button fx:id="taskReportBackButton" layoutX="255.0" layoutY="255.0" mnemonicParsing="false" onAction="#closeTaskReportWindow" prefHeight="41.0" prefWidth="117.0" text="Back" />
+            <Separator layoutX="28.0" layoutY="38.0" orientation="VERTICAL" prefHeight="270.0" prefWidth="7.0" />
+            <Separator layoutX="467.0" layoutY="38.0" orientation="VERTICAL" prefHeight="270.0" prefWidth="7.0" />
+            <Separator layoutX="53.0" layoutY="77.0" prefHeight="4.0" prefWidth="394.0" />
+            <Separator layoutX="52.0" layoutY="80.0" orientation="VERTICAL" prefHeight="61.0" prefWidth="6.0" />
+            <Separator layoutX="54.0" layoutY="141.0" prefHeight="3.0" prefWidth="393.0" />
+            <Separator layoutX="445.0" layoutY="77.0" orientation="VERTICAL" prefHeight="65.0" prefWidth="6.0" />
+            <Separator layoutX="53.0" layoutY="179.0" prefHeight="3.0" prefWidth="394.0" />
+            <Separator layoutX="52.0" layoutY="180.0" orientation="VERTICAL" prefHeight="63.0" prefWidth="6.0" />
+            <Separator layoutX="54.0" layoutY="241.0" prefHeight="4.0" prefWidth="393.0" />
+            <Separator layoutX="445.0" layoutY="179.0" orientation="VERTICAL" prefHeight="63.0" prefWidth="6.0" />
+            <Label layoutX="51.0" layoutY="154.0" prefHeight="20.0" prefWidth="116.0" text="Select per date ">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="60.0" layoutY="151.0" prefHeight="20.0" prefWidth="71.0" text="Frequency">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <ChoiceBox fx:id="frequencyTaskReportChoiceBox" layoutX="131.0" layoutY="148.0" prefHeight="25.0" prefWidth="221.0" />
-            <Label layoutX="60.0" layoutY="227.0" prefHeight="20.0" prefWidth="71.0" text="Status">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <ChoiceBox fx:id="statusTaskReportChoiceBox" layoutX="129.0" layoutY="224.0" prefHeight="25.0" prefWidth="223.0" />
-            <Label layoutX="58.0" layoutY="283.0" prefHeight="20.0" prefWidth="71.0" text="Date:">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="86.0" layoutY="308.0" prefHeight="20.0" prefWidth="40.0" text="Start" />
-            <DatePicker layoutX="119.0" layoutY="306.0" prefHeight="25.0" prefWidth="107.0" />
-            <Label layoutX="255.0" layoutY="309.0" prefHeight="20.0" prefWidth="40.0" text="End" />
-            <DatePicker layoutX="282.0" layoutY="306.0" prefHeight="25.0" prefWidth="107.0" />
-            <Separator layoutX="31.0" layoutY="97.0" prefHeight="1.0" prefWidth="440.0" />
-            <Separator layoutX="30.0" layoutY="366.0" prefHeight="3.0" prefWidth="440.0" />
-            <Button layoutX="100.0" layoutY="380.0" mnemonicParsing="false" onAction="#printReport" prefHeight="41.0" prefWidth="117.0" text="Generate Report" />
-            <Button fx:id="taskReportBackButton" layoutX="268.0" layoutY="380.0" mnemonicParsing="false" onAction="#closeTaskReportWindow" prefHeight="41.0" prefWidth="117.0" text="Back" />
-            <Separator layoutX="28.0" layoutY="97.0" orientation="VERTICAL" prefHeight="270.0" prefWidth="7.0" />
-            <Separator layoutX="467.0" layoutY="97.0" orientation="VERTICAL" prefHeight="270.0" prefWidth="7.0" />
-            <Separator layoutX="52.0" layoutY="130.0" orientation="VERTICAL" prefHeight="63.0" prefWidth="6.0" />
-            <Separator layoutX="54.0" layoutY="129.0" prefHeight="4.0" prefWidth="394.0" />
-            <Separator layoutX="445.0" layoutY="130.0" orientation="VERTICAL" prefHeight="63.0" prefWidth="6.0" />
-            <Separator layoutX="53.0" layoutY="193.0" prefHeight="3.0" prefWidth="393.0" />
-            <Separator layoutX="53.0" layoutY="206.0" prefHeight="4.0" prefWidth="394.0" />
-            <Separator layoutX="52.0" layoutY="209.0" orientation="VERTICAL" prefHeight="61.0" prefWidth="6.0" />
-            <Separator layoutX="54.0" layoutY="270.0" prefHeight="3.0" prefWidth="393.0" />
-            <Separator layoutX="445.0" layoutY="206.0" orientation="VERTICAL" prefHeight="65.0" prefWidth="6.0" />
-            <Separator layoutX="53.0" layoutY="284.0" prefHeight="3.0" prefWidth="394.0" />
-            <Separator layoutX="52.0" layoutY="285.0" orientation="VERTICAL" prefHeight="63.0" prefWidth="6.0" />
-            <Separator layoutX="54.0" layoutY="346.0" prefHeight="4.0" prefWidth="393.0" />
-            <Separator layoutX="445.0" layoutY="284.0" orientation="VERTICAL" prefHeight="63.0" prefWidth="6.0" />
-            <Separator layoutX="18.0" layoutY="42.0" prefHeight="3.0" prefWidth="467.0" />
-            <Separator layoutX="17.0" layoutY="42.0" orientation="VERTICAL" prefHeight="393.0" prefWidth="6.0" />
-            <Separator layoutX="18.0" layoutY="434.0" prefHeight="3.0" prefWidth="467.0" />
-            <Separator layoutX="483.0" layoutY="42.0" orientation="VERTICAL" prefHeight="393.0" prefWidth="6.0" />
+            <Label fx:id="startDateLabel" layoutX="117.0" layoutY="218.0" prefHeight="17.0" prefWidth="107.0" textFill="#f50909" />
+            <Label fx:id="endDateLabel" layoutX="282.0" layoutY="218.0" prefHeight="17.0" prefWidth="107.0" textFill="#f50909" />
+            <Label fx:id="choiceLabel" layoutX="129.0" layoutY="120.0" prefHeight="17.0" prefWidth="207.0" textFill="#f50909" />
          </children>
       </AnchorPane>
-   </left>
+   </top>
 </BorderPane>

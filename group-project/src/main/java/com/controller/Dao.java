@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.saturn.dao.DataSource;
 import com.saturn.model.maintenance.Maintenance;
+import com.saturn.model.task.Task;
 
 public class Dao {
 
@@ -43,6 +44,20 @@ public class Dao {
 		return list;
 	}
 
+	// it retrieves all objects from Task
+	protected List<Task>loadAllTask(){
+		List<Task>list = null;
+		data.openSession();
+		try {
+			data.beginTransaction();
+			list = data.loadAll("from Task");
+			data.commit();
+		}catch(Exception e) {
+			data.closeSession();
+		}
+		return list;
+		
+	}
 	// it deletes from the database
 	protected void delete(Object obj) {
 		data.openSession();
