@@ -184,7 +184,7 @@ public class ChecklistReportController implements Initializable {
 	}
 	
 	@FXML
-	private void generateTodayLate() {
+	protected void generateTodayLate() {
 		Dao dao = new Dao();
 		List<ChecklistSuperClass> list = new ArrayList<>();
 		List<ChecklistSuperClass> custom = new ArrayList<>();

@@ -27,6 +27,7 @@ public final class Views {
 	public static final String UPDATE_CONTRACTOR = "/view/UpdateContractor.FXML";
 	public static final String REPORT_OPTION = "/view/ReportOptions.FXML";
 	public static final String CHECKLIST_REPORT = "/view/ChecklistReport.FXML";
+	public static final String MAINTENANCE_REPORT = "/view/MaintenanceReport.FXML";
 	
 	private Views() {
 		

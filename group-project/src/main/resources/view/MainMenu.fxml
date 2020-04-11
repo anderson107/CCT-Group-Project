@@ -223,6 +223,7 @@
                                           <Insets bottom="10.0" />
                                        </VBox.margin>
                                     </Button>
+                                    <Button mnemonicParsing="false" onAction="#openMaintenanceReport" prefHeight="43.0" prefWidth="148.0" text="MAINTENANCE REPORT" />
                                  </children>
                               </VBox>
                            </children>

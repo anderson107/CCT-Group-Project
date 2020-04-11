@@ -7,8 +7,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -106,7 +104,12 @@ public class MainMenuController {
 	
 	@FXML
 	private void openChecklistReport() {
-		loadView(Views.CHECKLIST_REPORT, "CHECKLIST REPORT");
+		loadView(Views.CHECKLIST_REPORT, "CHECKLIST REPORT GENERATOR");
+	}
+	
+	@FXML
+	private void openMaintenanceReport(){
+		loadView(Views.MAINTENANCE_REPORT, "MAINTENANCE REPORT GENERATOR");
 	}
 	
 	// method to upload the fxml files
