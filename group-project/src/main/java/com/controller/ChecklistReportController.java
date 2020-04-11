@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -31,6 +32,9 @@ public class ChecklistReportController implements Initializable {
 	@FXML
 	private ChoiceBox<String> frequency;
 
+	@FXML
+	private ChoiceBox<String> checklistDate;
+
 	private String All = "All";
 
 	@Override
@@ -51,6 +55,7 @@ public class ChecklistReportController implements Initializable {
 				Frequency.SEMIANNUAL.getFrequency(), Frequency.YEARLY.getFrequency());
 		frequency.setItems(list2);
 		frequency.setValue("All");
+
 	}
 
 	@FXML
@@ -64,7 +69,7 @@ public class ChecklistReportController implements Initializable {
 		List<ChecklistSuperClass> list = new ArrayList<>();
 		List<ChecklistSuperClass> custom = new ArrayList<>();
 
-		list.addAll(dao.checklistItems());
+		list.addAll(dao.LoadChecklistItems());
 
 		for (ChecklistSuperClass check : list) {
 
@@ -112,14 +117,14 @@ public class ChecklistReportController implements Initializable {
 					continue;
 				}
 
-			}else if (!checkList.matches(All) && !statusString.matches(All) && frequencyString.matches(All)) {
+			} else if (!checkList.matches(All) && !statusString.matches(All) && frequencyString.matches(All)) {
 
 				if (check.getClassName().matches(checkList) && check.getStatus().matches(statusString)) {
 					custom.add(check);
 					continue;
 				}
 
-			}else if (!checkList.matches(All) && !statusString.matches(All) && !frequencyString.matches(All)) {
+			} else if (!checkList.matches(All) && !statusString.matches(All) && !frequencyString.matches(All)) {
 
 				if (check.getClassName().matches(checkList) && check.getStatus().matches(statusString)
 						&& check.getFrequency().matches(frequencyString)) {
@@ -128,6 +133,73 @@ public class ChecklistReportController implements Initializable {
 				}
 			}
 
+		}
+
+		new ChecklistReport(custom);
+	}
+
+	@FXML
+	private void generateTodayReport() {
+
+		Dao dao = new Dao();
+		List<ChecklistSuperClass> list = new ArrayList<>();
+		List<ChecklistSuperClass> custom = new ArrayList<>();
+
+		list.addAll(dao.LoadChecklistItems());
+
+		for (ChecklistSuperClass item : list) {
+
+			if (item.getDueDate() == null) {
+				continue;
+			}
+
+			if (item.getStatus().matches("Pending") && item.getDueDate().equals(LocalDate.now())) {
+				custom.add(item);
+			}
+		}
+
+		new ChecklistReport(custom);
+	}
+
+	@FXML
+	private void generateLate() {
+		Dao dao = new Dao();
+		List<ChecklistSuperClass> list = new ArrayList<>();
+		List<ChecklistSuperClass> custom = new ArrayList<>();
+
+		list.addAll(dao.LoadChecklistItems());
+
+		for (ChecklistSuperClass item : list) {
+
+			if (item.getDueDate() == null) {
+				continue;
+			}
+			LocalDate current = LocalDate.now();
+			if (item.getStatus().matches("Pending") && item.getDueDate().isBefore(current)) {
+				custom.add(item);
+			}
+		}
+
+		new ChecklistReport(custom);
+	}
+	
+	@FXML
+	private void generateTodayLate() {
+		Dao dao = new Dao();
+		List<ChecklistSuperClass> list = new ArrayList<>();
+		List<ChecklistSuperClass> custom = new ArrayList<>();
+
+		list.addAll(dao.LoadChecklistItems());
+
+		for (ChecklistSuperClass item : list) {
+
+			if (item.getDueDate() == null) {
+				continue;
+			}
+			LocalDate current = LocalDate.now();
+			if (item.getStatus().matches("Pending") && item.getDueDate().isBefore(current.plusDays(1))) {
+				custom.add(item);
+			}
 		}
 
 		new ChecklistReport(custom);

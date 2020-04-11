@@ -16,23 +16,13 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="virtual_academy")
 @NoArgsConstructor
-public class VirtualAcademyTraining extends TrainingSuperClass implements Training {
+public class VirtualAcademyTraining extends TrainingSuperClass{
 	
 	@OneToMany(mappedBy = "primaryKey.virtualTraining", cascade= {CascadeType.PERSIST, CascadeType.MERGE,
 			 CascadeType.DETACH, CascadeType.REFRESH, CascadeType.REMOVE}, fetch= FetchType.LAZY)
 	private List<EmployeeVirtualAcademy>employeeVirtualAcademy;
 	
 	public VirtualAcademyTraining(String training) {
-		this.setTraining(training);
-		this.setCreationDate(LocalDate.now());
-		this.setClassName(null);
-		this.setCheckbox(null);
+		super(training);
 	}
-	
-	@Override
-	public void addTraining(Employee employee) {
-		
-	}
-
-	
 }

@@ -76,7 +76,7 @@ public class Dao {
 
 	}
 
-	protected List<ChecklistSuperClass> checklistItems(){
+	protected List<ChecklistSuperClass> LoadChecklistItems(){
 		
 		List<ChecklistSuperClass> list = new ArrayList<>();
 		list.addAll(loadAllChecklistItems("from FireWarden"));

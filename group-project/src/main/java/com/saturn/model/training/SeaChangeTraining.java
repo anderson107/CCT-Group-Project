@@ -16,23 +16,14 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="seachange")
 @NoArgsConstructor
-public class SeaChangeTraining extends TrainingSuperClass implements Training {
+public class SeaChangeTraining extends TrainingSuperClass{
 
 	@OneToMany(mappedBy = "primaryKey.seachangeTraining", cascade= {CascadeType.PERSIST, CascadeType.MERGE,
 			 CascadeType.DETACH, CascadeType.REFRESH, CascadeType.REMOVE}, fetch= FetchType.LAZY)
 	private List<EmployeeSeaChange>employeeSeaChange;
 	
-	public SeaChangeTraining(String trainingDescription) {
-		this.setTraining(trainingDescription);
-		this.setCreationDate(LocalDate.now());
-		this.setClassName(null);
-		this.setCheckbox(null);
-	}
-	
-	@Override
-	public void addTraining(Employee emp) {
-
-		
+	public SeaChangeTraining(String training) {
+		super(training);
 	}
 	
 }

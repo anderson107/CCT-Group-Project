@@ -16,23 +16,14 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="hse")
 @NoArgsConstructor
-public class HSETraining extends TrainingSuperClass implements Training {
+public class HSETraining extends TrainingSuperClass{
 
 	@OneToMany(mappedBy = "primaryKey.hsetraining", cascade= {CascadeType.PERSIST, CascadeType.MERGE,
 			 CascadeType.DETACH, CascadeType.REFRESH, CascadeType.REMOVE}, fetch= FetchType.LAZY)
 	private List<EmployeeHSE>employeehse;
 	
 	public HSETraining(String training) {
-		this.setTraining(training);
-		this.setCreationDate(LocalDate.now());
-		this.setClassName(null);
-		this.setCheckbox(null);
-	}
-	
-	@Override
-	public void addTraining(Employee emp) {
-
-		
+		super(training);
 	}
 
 }

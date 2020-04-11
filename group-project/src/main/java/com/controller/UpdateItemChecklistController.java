@@ -61,8 +61,8 @@ public class UpdateItemChecklistController implements Initializable {
 
 	@FXML
 	private void closeUpdateTaskWindow() {
-		// Stage stage = (Stage) updateItemBackButton.getScene().getWindow();
-		// stage.close();
+//		Stage stage = (Stage) updateItemBackButton.getScene().getWindow();
+//		stage.close();
 	}
 
 	@Override

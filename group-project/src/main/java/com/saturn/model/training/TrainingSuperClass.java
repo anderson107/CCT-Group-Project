@@ -1,6 +1,7 @@
 package com.saturn.model.training;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -8,6 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Transient;
+
+import org.exolab.castor.types.DateTime;
+
+import com.controller.DatePickerConverter;
 
 import javafx.scene.control.CheckBox;
 import lombok.Data;
@@ -40,5 +45,11 @@ public class TrainingSuperClass {
 		return "" + training;
 	}
 	
+	public TrainingSuperClass(String training) {
+		this.training = training;
+		this.setCreationDate(LocalDate.now());
+		this.setClassName(null);
+		this.setCheckbox(null);
+	}
 	
 }
