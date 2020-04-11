@@ -112,6 +112,11 @@ public class MainMenuController {
 		loadView(Views.MAINTENANCE_REPORT, "MAINTENANCE REPORT GENERATOR");
 	}
 	
+	@FXML
+	private void openTrainingReport(){
+		loadView(Views.TRAINING_REPORT, "TRAINING REPORT GENERATOR");
+	}
+	
 	// method to upload the fxml files
 	public void loadView(String view, String windowTitle) {
 		try {

@@ -14,6 +14,7 @@ import com.saturn.model.checklists.FloorHACCP;
 import com.saturn.model.checklists.Frequency;
 import com.saturn.model.checklists.HealthSafetyChecklist;
 import com.saturn.model.reports.ChecklistReport;
+import com.saturn.model.reports.TrainingReport;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

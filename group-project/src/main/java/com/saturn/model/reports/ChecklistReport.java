@@ -25,7 +25,7 @@ public class ChecklistReport {
 	
 	public ChecklistReport(List<ChecklistSuperClass>list) {
 		
-		JFrame frame = new JFrame("Jasper report");
+		JFrame frame = new JFrame("Checklist report");
 
         JRViewer viewer = new JRViewer(generateReport(list));
         

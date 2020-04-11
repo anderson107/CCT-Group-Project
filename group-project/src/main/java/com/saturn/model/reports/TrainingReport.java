@@ -11,7 +11,7 @@ import java.util.Map;
 
 import javax.swing.JFrame;
 
-import com.saturn.model.task.Task;
+import com.saturn.model.training.TrainingReportObject;
 
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
@@ -21,11 +21,11 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.swing.JRViewer;
 
-public class TaskReport {
+public class TrainingReport {
 	
-	public TaskReport(List<Task>list) {
+	public TrainingReport(List<TrainingReportObject>list) {
 		
-		JFrame frame = new JFrame("Task report");
+		JFrame frame = new JFrame("Training report");
 
         JRViewer viewer = new JRViewer(generateReport(list));
         
@@ -36,15 +36,15 @@ public class TaskReport {
         frame.setVisible(true);
 	}
 
-	public JasperPrint generateReport(List<Task>list) {
+	public JasperPrint generateReport(List<TrainingReportObject>list) {
 		
 		String directory = "/Users/Dell/Desktop/cct";
-		String ouptup = directory + File.separatorChar + "TaskReport.pdf";
-		String sourceFile = "src/main/resources/view/report/Task.jasper";
+		String ouptup = directory + File.separatorChar + "EmployeeTraining.pdf";
+		String sourceFile = "src/main/resources/view/report/Training.jasper";
 		JasperPrint jasperPrint = null;
 		try {
 
-			List<Task> tasklist = list;
+			List<TrainingReportObject> tasklist = list;
 
 			JRBeanCollectionDataSource itemsJRBean = new JRBeanCollectionDataSource(tasklist);
 

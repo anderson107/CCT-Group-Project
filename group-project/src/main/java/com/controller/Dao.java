@@ -4,6 +4,11 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+
+import org.hibernate.Session;
+
 import com.saturn.dao.DataSource;
 import com.saturn.model.checklists.ChecklistSuperClass;
 import com.saturn.model.maintenance.Maintenance;
@@ -135,5 +140,44 @@ public class Dao {
 		} finally {
 			data.closeSession();
 		}
+	}
+	
+	protected <T> List<T> queryDB(String query){
+		data.openSession();
+		List<T> queryResults = new ArrayList<>();
+
+		try {
+			data.beginTransaction();
+			@SuppressWarnings("unchecked")
+			List<T> results = data.getSession().createQuery(query).getResultList();
+			queryResults.addAll(results);
+
+			data.commit();
+			
+			return queryResults;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			data.closeSession();;
+		}
+		return null;
+	}
+	
+	public <T> List<T> loadAllData(Class<T> type) {
+		data.openSession();
+		List<T> list = null;
+		try {
+			data.beginTransaction();
+			CriteriaBuilder builder = data.getSession().getCriteriaBuilder();
+			CriteriaQuery<T> criteria = builder.createQuery(type);
+			criteria.from(type);
+			list = data.getSession().createQuery(criteria).getResultList();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			data.closeSession();
+		}
+		return list;
 	}
 }

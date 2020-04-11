@@ -25,7 +25,7 @@ public class MaintenanceReport {
 	
 	public MaintenanceReport(List<Maintenance>list) {
 		
-		JFrame frame = new JFrame("Jasper report");
+		JFrame frame = new JFrame("Maintenance report");
 
         JRViewer viewer = new JRViewer(generateReport(list));
         
