@@ -149,6 +149,18 @@ public class ChecklistReportController implements Initializable {
 		list.addAll(dao.LoadChecklistItems());
 
 		for (ChecklistSuperClass item : list) {
+			
+			if (item instanceof FireWarden) {
+				item.setClassName("Fire Warden");
+			} else if (item instanceof HealthSafetyChecklist) {
+				item.setClassName("Health and Safety");
+			} else if (item instanceof DeliHACCP) {
+				item.setClassName("Deli HACCP");
+			} else if (item instanceof FloorHACCP) {
+				item.setClassName("Floor HACCP");
+			} else if (item instanceof CoffeeHACCP) {
+				item.setClassName("Coffee HACCP");
+			}
 
 			if (item.getDueDate() == null) {
 				continue;
@@ -171,6 +183,18 @@ public class ChecklistReportController implements Initializable {
 		list.addAll(dao.LoadChecklistItems());
 
 		for (ChecklistSuperClass item : list) {
+			
+			if (item instanceof FireWarden) {
+				item.setClassName("Fire Warden");
+			} else if (item instanceof HealthSafetyChecklist) {
+				item.setClassName("Health and Safety");
+			} else if (item instanceof DeliHACCP) {
+				item.setClassName("Deli HACCP");
+			} else if (item instanceof FloorHACCP) {
+				item.setClassName("Floor HACCP");
+			} else if (item instanceof CoffeeHACCP) {
+				item.setClassName("Coffee HACCP");
+			}
 
 			if (item.getDueDate() == null) {
 				continue;
@@ -193,6 +217,18 @@ public class ChecklistReportController implements Initializable {
 		list.addAll(dao.LoadChecklistItems());
 
 		for (ChecklistSuperClass item : list) {
+			
+			if (item instanceof FireWarden) {
+				item.setClassName("Fire Warden");
+			} else if (item instanceof HealthSafetyChecklist) {
+				item.setClassName("Health and Safety");
+			} else if (item instanceof DeliHACCP) {
+				item.setClassName("Deli HACCP");
+			} else if (item instanceof FloorHACCP) {
+				item.setClassName("Floor HACCP");
+			} else if (item instanceof CoffeeHACCP) {
+				item.setClassName("Coffee HACCP");
+			}
 
 			if (item.getDueDate() == null) {
 				continue;

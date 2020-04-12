@@ -25,7 +25,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 		this.primaryStage = primaryStage;
-		this.primaryStage.setTitle("Employee App");
+		this.primaryStage.setTitle("HEALTH AND SAFETY APPLICATION CONTROL");
 		showMainView();
 	}
 	

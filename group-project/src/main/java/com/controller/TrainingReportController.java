@@ -75,6 +75,7 @@ public class TrainingReportController implements Initializable {
 		String AllStatus = "All Status";
 		String AllTraining = "All Training";
 		int id = 0;
+		
 		List<EmployeeTraining> list = new ArrayList<>();
 		list.addAll(dao.loadAllData(EmployeeHSE.class));
 		list.addAll(dao.loadAllData(EmployeeSeaChange.class));
@@ -285,32 +286,6 @@ public class TrainingReportController implements Initializable {
 		new TrainingReport(reportList);
 	}
 
-	public void trainingEmployeeAllReport(Dao dao, List<EmployeeTraining> list) {
-
-		List<TrainingReportObject> custom = new ArrayList<>();
-		List<Employee> employee = new ArrayList<>();
-		employee.addAll(dao.loadAllData(Employee.class));
-
-		for (Employee e : employee) {
-
-			for (EmployeeTraining et : list) {
-
-				if (et.getEmployee().equals(e) && et.getStatus().matches("Pending")) {
-
-					TrainingReportObject trainingObj = new TrainingReportObject();
-					trainingObj.setFirstName(et.getEmployee().getFirstName());
-					trainingObj.setLastName(et.getEmployee().getLastName());
-					trainingObj.setTraining(et.getTraining().getTraining());
-					trainingObj.setClassName(et.getTraining().getClassName());
-					trainingObj.setStatus(et.getStatus());
-					trainingObj.setDate(et.getDate());
-
-					custom.add(trainingObj);
-				}
-			}
-		}
-		new TrainingReport(custom);
-	}
 
 	@FXML
 	private void closeReportWindow() {

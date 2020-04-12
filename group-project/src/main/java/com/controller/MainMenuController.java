@@ -68,13 +68,13 @@ public class MainMenuController {
 	
 	@FXML
 	private void openTaskAdmistrator() {
-		loadView(Views.TASK_ADMINISTRATOR, "TASK ADMINISTRATOR");
+		loadView(Views.CHECKLIST_MANAGER, "CHECKLIST MANAGER");
 		
 	}
 	
 	@FXML
 	private void openEmployeeAdm() {
-		loadView(Views.EMPLOYEE_ADM, "EMPLOYEE ADMINISTRATOR");
+		loadView(Views.EMPLOYEE_ADM, "EMPLOYEE MANAGER");
 	}
 	
 	@FXML
@@ -84,7 +84,7 @@ public class MainMenuController {
 	
 	@FXML
 	private void openTaskTable() {
-		loadView(Views.TASK_TABLE, "TASK ADMINISTRATOR");
+		loadView(Views.TASK_TABLE, "TASK MANAGER");
 	}
 	
 	@FXML
@@ -94,7 +94,7 @@ public class MainMenuController {
 	
 	@FXML
 	private void openMaintenanceTable() {
-		loadView(Views.MAINTENANCE_TABLE, "CONTRACTOR ADMINISTRATOR");
+		loadView(Views.MAINTENANCE_TABLE, "CONTRACTOR MANAGER");
 	}
 	
 	@FXML
@@ -117,6 +117,11 @@ public class MainMenuController {
 		loadView(Views.TRAINING_REPORT, "TRAINING REPORT GENERATOR");
 	}
 	
+	@FXML
+	private void openChecklistAdm() {
+		loadView(Views.TASK_ADMINISTRATOR, "CHECKLIST ITEMS MANAGER");
+	}
+	
 	// method to upload the fxml files
 	public void loadView(String view, String windowTitle) {
 		try {
@@ -127,6 +132,7 @@ public class MainMenuController {
 		        stage.initModality(Modality.APPLICATION_MODAL);
 		        stage.initOwner(Main.stage);
 		        stage.setTitle(windowTitle);
+		        stage.setResizable(false);
 		        stage.show();
 		        
 		}catch(Exception e) {

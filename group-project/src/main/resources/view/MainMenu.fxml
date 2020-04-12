@@ -105,7 +105,7 @@
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#openEmployeeAdm" prefHeight="43.0" prefWidth="148.0" text="EMPLOYEE ADM">
+                              <Button mnemonicParsing="false" onAction="#openEmployeeAdm" prefHeight="43.0" prefWidth="148.0" text="EMPLOYEE MANAGER">
                                  <VBox.margin>
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
@@ -128,7 +128,12 @@
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
                                        </VBox.margin></Button>
-                                    <Button fx:id="taskAdministratorButton" mnemonicParsing="false" onAction="#openTaskAdmistrator" prefHeight="43.0" prefWidth="148.0" text="CHECKLIST ADM" />
+                                    <Button mnemonicParsing="false" onAction="#openChecklistAdm" prefHeight="43.0" prefWidth="148.0" text="UPDATE STATUS">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                    <Button fx:id="taskAdministratorButton" mnemonicParsing="false" onAction="#openChecklistAdm" prefHeight="43.0" prefWidth="148.0" text="CHECKLIST MANAGER" />
                                  </children>
                               </VBox>
                            </children>
@@ -149,7 +154,7 @@
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
                                        </VBox.margin></Button>
-                                    <Button mnemonicParsing="false" onAction="#openTaskTable" prefHeight="43.0" prefWidth="148.0" text="TASK ADMISTRATOR" />
+                                    <Button mnemonicParsing="false" onAction="#openTaskTable" prefHeight="43.0" prefWidth="148.0" text="TASK MANAGER" />
                                  </children>
                               </VBox>
                            </children>
@@ -171,12 +176,12 @@
                                           <Insets bottom="10.0" />
                                        </VBox.margin>
                                     </Button>
-                                    <Button mnemonicParsing="false" onAction="#openTrainingAdministrator" prefHeight="43.0" prefWidth="148.0" text="TRAINING ADM">
+                                    <Button mnemonicParsing="false" onAction="#openTrainingAdministrator" prefHeight="43.0" prefWidth="148.0" text="TRAINING MANAGER">
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
                                        </VBox.margin>
                                     </Button>
-                                    <Button mnemonicParsing="false" onAction="#openEmployeeTrainingWindow" prefHeight="43.0" prefWidth="148.0" text="EMPLOYEE" />
+                                    <Button mnemonicParsing="false" onAction="#openEmployeeTrainingWindow" prefHeight="43.0" prefWidth="148.0" text="EMPLOYEE/TRAINING" />
                                  </children>
                               </VBox>
                            </children>
@@ -196,7 +201,10 @@
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
                                        </VBox.margin></Button>
-                                    <Button mnemonicParsing="false" onAction="#openMaintenanceTable" prefHeight="43.0" prefWidth="148.0" text="ADM CONTRACTORS" />
+                                    <Button mnemonicParsing="false" onAction="#openMaintenanceTable" prefHeight="43.0" prefWidth="148.0" text="CONTRACTOR MANAGER">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></Button>
                                  </children>
                               </VBox>
                            </children>

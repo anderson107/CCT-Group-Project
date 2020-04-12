@@ -7,7 +7,6 @@ import java.util.List;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 
-import org.hibernate.Session;
 
 import com.saturn.dao.DataSource;
 import com.saturn.model.checklists.ChecklistSuperClass;
@@ -142,6 +141,7 @@ public class Dao {
 		}
 	}
 	
+	// it queries the database and returns a list
 	protected <T> List<T> queryDB(String query){
 		data.openSession();
 		List<T> queryResults = new ArrayList<>();
@@ -163,7 +163,8 @@ public class Dao {
 		return null;
 	}
 	
-	public <T> List<T> loadAllData(Class<T> type) {
+	// it loads all the data from a given table
+	protected <T> List<T> loadAllData(Class<T> type) {
 		data.openSession();
 		List<T> list = null;
 		try {
@@ -179,5 +180,30 @@ public class Dao {
 			data.closeSession();
 		}
 		return list;
+	}
+
+	// it updates the table status column
+	protected void updateChecklist(List<ChecklistSuperClass>list){
+		
+		List<ChecklistSuperClass> update = list;
+		
+		data.openSession();
+		
+		try {
+			data.beginTransaction();
+			
+			for(ChecklistSuperClass item: update) {
+				
+				ChecklistSuperClass obj = (ChecklistSuperClass) data.getSession().get(item.getClass().getName(), item.getId());
+				obj.setStatus("Done");
+				data.getSession().save(obj);
+			}
+			data.commit();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			data.closeSession();
+		}
+		
 	}
 }
