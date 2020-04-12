@@ -56,6 +56,9 @@ public class TrainingAdministratorController implements Initializable {
 
 	protected static List<TrainingSuperClass> selected = new ArrayList<>();
 
+	@FXML
+	private Button backButton;
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		ObservableList<String> list = FXCollections.observableArrayList();
@@ -77,17 +80,13 @@ public class TrainingAdministratorController implements Initializable {
 
 		for (TrainingSuperClass tsc : trainingList) {
 			tsc.setCheckbox(new CheckBox());
-			String className = tsc.getClass().getSimpleName();
-			switch (className) {
-			case "SeaChangeTraining":
+			
+			if(tsc instanceof SeaChangeTraining) {
 				tsc.setClassName("SeaChange");
-				break;
-			case "VirtualAcademyTraining":
+			}else if(tsc instanceof VirtualAcademyTraining) {
 				tsc.setClassName("Virtual Academy");
-				break;
-			case "HSETraining":
+			}else if(tsc instanceof HSETraining) {
 				tsc.setClassName("HSE");
-				break;
 			}
 		}
 
@@ -162,12 +161,12 @@ public class TrainingAdministratorController implements Initializable {
 		for (TrainingSuperClass tsc : trainingList) {
 			tsc.setCheckbox(new CheckBox());
 
-			if (tsc.getClass().getSimpleName().matches("SeaChangeTraining")) {
+			if(tsc instanceof SeaChangeTraining) {
 				tsc.setClassName("SeaChange");
-			} else if (tsc.getClass().getSimpleName().matches("HSETraining")) {
-				tsc.setClassName("HSE");
-			} else if (tsc.getClass().getSimpleName().matches("VirtualAcademyTraining")) {
+			}else if(tsc instanceof VirtualAcademyTraining) {
 				tsc.setClassName("Virtual Academy");
+			}else if(tsc instanceof HSETraining) {
+				tsc.setClassName("HSE");
 			}
 		}
 		tableView.getItems().setAll(trainingList);
@@ -208,5 +207,12 @@ public class TrainingAdministratorController implements Initializable {
 				}
 			});
 		}
+	}
+	
+	@FXML
+	private void closeWindow() {
+		
+		Stage stage = (Stage) backButton.getScene().getWindow();
+		stage.close();
 	}
 }

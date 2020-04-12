@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.ResourceBundle;
 
+import com.saturn.model.Validation;
 import com.saturn.model.checklists.ChecklistSuperClass;
 import com.saturn.model.checklists.CoffeeHACCP;
 import com.saturn.model.checklists.DeliHACCP;
@@ -13,10 +14,12 @@ import com.saturn.model.checklists.FireWarden;
 import com.saturn.model.checklists.FloorHACCP;
 import com.saturn.model.checklists.HealthSafetyChecklist;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 
 public class ChecklistManagerController implements Initializable {
 
@@ -38,7 +41,13 @@ public class ChecklistManagerController implements Initializable {
 	@FXML
 	private TableColumn<ChecklistSuperClass, CheckBox> select;
 
-	private List<ChecklistSuperClass> list;
+	private List<ChecklistSuperClass> checkList;
+	
+	@FXML
+	private TextField searchTextField;
+	
+	@FXML
+	private Label searchLabel;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -49,9 +58,9 @@ public class ChecklistManagerController implements Initializable {
 		type.setCellValueFactory(new PropertyValueFactory<ChecklistSuperClass, String>("className"));
 		select.setCellValueFactory(new PropertyValueFactory<ChecklistSuperClass, CheckBox>("checkbox"));
 
-		list = loadData();
+		checkList = loadData();
 
-		tableView.getItems().setAll(list);
+		tableView.getItems().setAll(checkList);
 	}
 
 	@FXML
@@ -61,7 +70,7 @@ public class ChecklistManagerController implements Initializable {
 
 		List<ChecklistSuperClass> selected = new ArrayList<>();
 
-		for (ChecklistSuperClass selec : list) {
+		for (ChecklistSuperClass selec : checkList) {
 
 			if (selec.getCheckbox().isSelected()) {
 				selected.add(selec);
@@ -70,9 +79,11 @@ public class ChecklistManagerController implements Initializable {
 
 		dao.updateChecklist(selected);
 
-		list = loadData();
+		checkList = loadData();
 
-		tableView.getItems().setAll(list);
+		tableView.getItems().setAll(checkList);
+		
+		searchTextField.setText("");
 	}
 
 	private List<ChecklistSuperClass> loadData() {
@@ -111,5 +122,42 @@ public class ChecklistManagerController implements Initializable {
 			sp.setCheckbox(new CheckBox());
 		}
 		return list;
+	}
+	
+	@FXML
+	private void searchItem() {
+		
+		boolean search = Validation.isNumber(searchTextField, searchLabel, "Only Numbers");
+		
+		if(search) {
+			int id = 0;
+			String text = searchTextField.getText();
+			id = Integer.parseInt(text);
+			
+			if(id==0) {
+				return;
+			}
+			
+			checkList = loadData();
+			ListIterator<ChecklistSuperClass> iterator = checkList.listIterator();
+			
+			while(iterator.hasNext()) {
+				ChecklistSuperClass item = iterator.next();
+				
+				if(item.getId() != id) {
+					iterator.remove();
+				}
+			}
+			
+			tableView.getItems().setAll(checkList);
+			
+			searchTextField.setOnKeyPressed(new EventHandler<KeyEvent>() {
+			    @Override
+			    public void handle(KeyEvent event) {
+			    	checkList = loadData();
+			    	tableView.getItems().setAll(checkList);
+			    }
+			});
+		}
 	}
 }

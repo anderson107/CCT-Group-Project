@@ -20,6 +20,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -62,6 +63,9 @@ public class EmployeeAdministratorController implements Initializable {
 
 	@FXML
 	private TableColumn<Employee, LocalDate> registered;
+	
+	@FXML
+	private Button backButton;
 
 	private List<Employee> employeeList = new ArrayList<>();
 
@@ -168,5 +172,11 @@ public class EmployeeAdministratorController implements Initializable {
 				refresh();
 			}
 		});
+	}
+	
+	@FXML
+	private void backMenu() {
+		Stage stage = (Stage) backButton.getScene().getWindow();
+		stage.close();
 	}
 }

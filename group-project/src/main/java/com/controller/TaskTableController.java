@@ -55,6 +55,10 @@ public class TaskTableController implements Initializable{
 	protected static ObservableList<Task> selected;
 	
 	List<Task>taskList;
+	
+	@FXML
+	private Button backButton;
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
@@ -154,4 +158,9 @@ public class TaskTableController implements Initializable{
 		}
 	}
 	
+	@FXML
+	private void closeWindow() {
+		Stage stage = (Stage) backButton.getScene().getWindow();
+		stage.close();
+	}
 }

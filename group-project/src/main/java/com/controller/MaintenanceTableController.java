@@ -2,22 +2,13 @@ package com.controller;
 
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
 import com.saturn.Main;
-import com.saturn.dao.DatabaseConnection;
-import com.saturn.model.checklists.ChecklistSuperClass;
-import com.saturn.model.checklists.CoffeeHACCP;
-import com.saturn.model.checklists.DeliHACCP;
-import com.saturn.model.checklists.FireWarden;
-import com.saturn.model.checklists.FloorHACCP;
-import com.saturn.model.checklists.HealthSafetyChecklist;
 import com.saturn.model.maintenance.Maintenance;
-import com.saturn.model.training.TrainingSuperClass;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -60,6 +51,9 @@ public class MaintenanceTableController implements Initializable {
 	private TableColumn<Maintenance, LocalDate>nextDate;
 
 	private Dao dataConnection = new Dao();
+	
+	@FXML
+	private Button backButton;
 	
 	private List<Maintenance>list;
 	
@@ -158,5 +152,12 @@ public class MaintenanceTableController implements Initializable {
 				}
 			});
 		}
+	}
+	
+	@FXML
+	private void closeWindow() {
+		
+		Stage stage = (Stage) backButton.getScene().getWindow();
+		stage.close();
 	}
 }

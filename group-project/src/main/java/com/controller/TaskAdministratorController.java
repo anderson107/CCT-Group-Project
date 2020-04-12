@@ -69,6 +69,9 @@ public class TaskAdministratorController implements Initializable {
 
 	private List<ChecklistSuperClass> checklistList = new ArrayList<>();
 
+	@FXML
+	private Button backButton;
+	
 	// constructor //
 	public TaskAdministratorController() {
 		selected = FXCollections.observableArrayList();
@@ -249,5 +252,12 @@ public class TaskAdministratorController implements Initializable {
 				}
 			});
 		}
+	}
+	
+	@FXML
+	private void closeWindow() {
+		
+		Stage stage = (Stage) backButton.getScene().getWindow();
+		stage.close();
 	}
 }

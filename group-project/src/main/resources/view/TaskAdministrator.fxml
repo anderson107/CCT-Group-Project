@@ -6,20 +6,19 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="495.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.TaskAdministratorController">
+<BorderPane prefHeight="442.0" prefWidth="921.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.TaskAdministratorController">
    <top>
-      <AnchorPane prefHeight="495.0" prefWidth="802.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="455.0" prefWidth="921.0" BorderPane.alignment="CENTER">
          <children>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="495.0" prefWidth="921.0">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="447.0" prefWidth="921.0">
                            <children>
-                              <TableView fx:id="tableView" layoutX="178.0" layoutY="49.0" prefHeight="389.0" prefWidth="732.0">
+                              <TableView fx:id="tableView" layoutX="178.0" layoutY="24.0" prefHeight="389.0" prefWidth="732.0">
                                 <columns>
                                     <TableColumn fx:id="checkbox" prefWidth="45.99999237060547" style="-fx-alignment: CENTER;" text="SELECT" />
                                   <TableColumn fx:id="id" prefWidth="33.33331298828125" text="ID" />
@@ -30,24 +29,7 @@
                         <TableColumn fx:id="dueDate" prefWidth="73.33331298828125" text="DATE" />
                                 </columns>
                               </TableView>
-                              <Label layoutX="179.0" layoutY="16.0" text="Search ">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField layoutX="234.0" layoutY="11.0" prefHeight="25.0" prefWidth="198.0" promptText="Enter ID/Name" />
-                              <Button layoutX="450.0" layoutY="10.0" mnemonicParsing="false" text="Search">
-                     <graphic>
-                        <ImageView fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/search.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font></Button>
-                              <Button fx:id="updateTaskAdministratorButton" layoutX="18.0" layoutY="134.0" mnemonicParsing="false" onAction="#openUpdateTaskWindow" prefHeight="25.0" prefWidth="145.0" text="UPDATE">
+                              <Button fx:id="updateTaskAdministratorButton" layoutX="18.0" layoutY="109.0" mnemonicParsing="false" onAction="#openUpdateTaskWindow" prefHeight="25.0" prefWidth="145.0" text="UPDATE">
                      <graphic>
                         <ImageView fitHeight="17.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -58,7 +40,7 @@
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font></Button>
-                              <Button fx:id="deleteRow" layoutX="18.0" layoutY="174.0" mnemonicParsing="false" onAction="#deleteRow" prefHeight="27.0" prefWidth="145.0" text="DELETE">
+                              <Button fx:id="deleteRow" layoutX="18.0" layoutY="149.0" mnemonicParsing="false" onAction="#deleteRow" prefHeight="27.0" prefWidth="145.0" text="DELETE">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -69,8 +51,8 @@
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font></Button>
-                  <ChoiceBox fx:id="taskAdministratorChoicebox" layoutX="13.0" layoutY="81.0" prefHeight="25.0" prefWidth="89.0" />
-                  <Button layoutX="108.0" layoutY="81.0" mnemonicParsing="false" onAction="#updateTable" prefHeight="25.0" prefWidth="65.0" text="Enter">
+                  <ChoiceBox fx:id="taskAdministratorChoicebox" layoutX="13.0" layoutY="56.0" prefHeight="25.0" prefWidth="89.0" />
+                  <Button layoutX="108.0" layoutY="56.0" mnemonicParsing="false" onAction="#updateTable" prefHeight="25.0" prefWidth="65.0" text="Enter">
                      <graphic>
                         <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -81,13 +63,25 @@
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font></Button>
-                  <Label layoutX="53.0" layoutY="56.0" text="SELECT LIST">
+                  <Label layoutX="53.0" layoutY="31.0" text="SELECT LIST">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Separator layoutX="-2.0" layoutY="49.0" prefHeight="3.0" prefWidth="183.0" />
-                  <Separator layoutX="-5.0" layoutY="115.0" prefHeight="3.0" prefWidth="183.0" />
+                  <Separator layoutX="-2.0" layoutY="24.0" prefHeight="3.0" prefWidth="183.0" />
+                  <Separator layoutX="-5.0" layoutY="90.0" prefHeight="3.0" prefWidth="183.0" />
+                  <Button fx:id="backButton" layoutX="18.0" layoutY="191.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="27.0" prefWidth="145.0" text="MENU">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/Back.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
                            </children>
                         </AnchorPane>
                  </children>

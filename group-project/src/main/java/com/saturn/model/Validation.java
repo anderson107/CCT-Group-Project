@@ -120,4 +120,19 @@ public class Validation {
 		return valid;
 	}
 
+	public static boolean isNumber(TextField tf, Label label, String text) {
+		boolean valid = true;
+
+		if (!tf.getText().matches("[0-9]+")) {
+			valid = false;
+			label.setText(text);
+			tf.requestFocus();
+		} else {
+			valid = true;
+			label.setText("");
+		}
+
+		return valid;
+	}
+
 }
