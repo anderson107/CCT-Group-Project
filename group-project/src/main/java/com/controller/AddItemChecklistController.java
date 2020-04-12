@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import com.saturn.dao.DatabaseConnection;
@@ -84,9 +85,32 @@ public class AddItemChecklistController implements Initializable {
 				"Enter item description");
 
 		if (choiceboxCategoryValidation == true && choiceboxFrequencyValidation == true && textAreaValidation == true) {
-
+			
+			String frequency = selectFrequency.getValue();
+			LocalDate date = null;
+			switch(frequency) {
+			case "Daily":
+				date = LocalDate.now().plusDays(1);
+				break;
+			case "Weekly":
+				date = LocalDate.now().plusDays(7);
+				break;
+			case "Biweekly":
+				date = LocalDate.now().plusDays(15);
+				break;
+			case "Monthly":
+				date = LocalDate.now().plusDays(30);
+				break;
+			case "Semiannual":
+				date = LocalDate.now().plusMonths(6);
+				break;
+			case "Yearly":
+				date = LocalDate.now().plusMonths(12);
+				break;
+			}
+			
 			DatabaseConnection.add(ChecklistFactory.create(addItemTextfield.getText(), "Pending",
-					selectFrequency.getValue(), selectChecklist.getValue()));
+					selectFrequency.getValue(), selectChecklist.getValue(), date));
 
 			Stage stage = (Stage) addItemTextfield.getScene().getWindow();
 			stage.close();

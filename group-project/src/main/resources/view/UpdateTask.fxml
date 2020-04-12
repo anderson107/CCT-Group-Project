@@ -6,6 +6,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
@@ -15,8 +17,28 @@
       <AnchorPane prefHeight="367.0" prefWidth="562.0" BorderPane.alignment="CENTER">
          <children>
             <TextArea fx:id="textArea" layoutX="41.0" layoutY="63.0" prefHeight="92.0" prefWidth="481.0" wrapText="true" />
-            <Button fx:id="backButton" layoutX="320.0" layoutY="322.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Back" />
-            <Button layoutX="100.0" layoutY="322.0" mnemonicParsing="false" onAction="#updateTask" prefHeight="25.0" prefWidth="127.0" text="Update" />
+            <Button fx:id="backButton" layoutX="320.0" layoutY="308.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="105.0" text="Back">
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/Back.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <Button layoutX="133.0" layoutY="308.0" mnemonicParsing="false" onAction="#updateTask" prefHeight="41.0" prefWidth="105.0" text="Update">
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/update.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
             <Label layoutX="59.0" layoutY="179.0" text="Status">
                <font>
                   <Font name="System Bold" size="12.0" />

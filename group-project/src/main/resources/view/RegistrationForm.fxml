@@ -7,6 +7,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
@@ -73,18 +75,32 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Button layoutX="111.0" layoutY="376.0" mnemonicParsing="false" onAction="#saveEmployeeDatabase" prefHeight="35.0" prefWidth="106.0" text="Register">
+            <Button layoutX="111.0" layoutY="376.0" mnemonicParsing="false" onAction="#saveEmployeeDatabase" prefHeight="35.0" prefWidth="109.0" text="REGISTER">
                <font>
-                  <Font size="14.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/register.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
             <Separator layoutX="15.0" layoutY="51.0" orientation="VERTICAL" prefHeight="307.0" prefWidth="3.0" />
             <Separator layoutX="482.0" layoutY="51.0" orientation="VERTICAL" prefHeight="307.0" prefWidth="6.0" />
             <Separator layoutX="17.0" layoutY="357.0" prefHeight="3.0" prefWidth="465.0" />
-            <Button fx:id="backToMenuButton" layoutX="275.0" layoutY="376.0" mnemonicParsing="false" onAction="#backToMenu" prefHeight="35.0" prefWidth="106.0" text="Menu">
+            <Button fx:id="backToMenuButton" layoutX="275.0" layoutY="376.0" mnemonicParsing="false" onAction="#backToMenu" prefHeight="35.0" prefWidth="106.0" text="MENU">
                <font>
-                  <Font size="14.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/Back.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
             <Label fx:id="firstNameLB" layoutX="126.0" layoutY="88.0" prefHeight="17.0" prefWidth="204.0" textFill="#f30404" />
             <Label fx:id="lastNameLB" layoutX="126.0" layoutY="135.0" prefHeight="17.0" prefWidth="204.0" textFill="#f30404" />
