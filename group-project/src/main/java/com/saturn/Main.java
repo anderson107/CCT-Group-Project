@@ -25,20 +25,21 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 		this.primaryStage = primaryStage;
-		this.primaryStage.setTitle("HEALTH AND SAFETY APPLICATION CONTROL");
+		this.primaryStage.setTitle("LOGIN");
 		showMainView();
 	}
 	
 	private void showMainView() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource(Views.MAIN_MENU));
+		loader.setLocation(Main.class.getResource(Views.LOGIN));
 		mainlayout = loader.load();
 		Scene scene = new Scene(mainlayout);
 		primaryStage.setScene(scene);
-		primaryStage.setMaximized(true);
+		primaryStage.setResizable(false);
 		stage = primaryStage;
 		mainMenu = new MainMenuController();
 		primaryStage.show();
+		
 	}
 
 	public static void main(String[] args) {

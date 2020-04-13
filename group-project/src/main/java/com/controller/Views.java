@@ -30,6 +30,7 @@ public final class Views {
 	public static final String MAINTENANCE_REPORT = "/view/MaintenanceReport.FXML";
 	public static final String TRAINING_REPORT = "/view/TrainingReport.FXML";
 	public static final String CHECKLIST_MANAGER = "/view/ChecklistManager.FXML";
+	public static final String LOGIN = "/view/LoginForm.FXML";
 	
 	private Views() {
 		

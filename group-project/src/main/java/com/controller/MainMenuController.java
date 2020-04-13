@@ -122,6 +122,10 @@ public class MainMenuController {
 		loadView(Views.TASK_ADMINISTRATOR, "CHECKLIST ITEMS MANAGER");
 	}
 	
+	public void openLogin() {
+		loadView(Views.LOGIN, "LOGIN");
+	}
+	
 	// method to upload the fxml files
 	public void loadView(String view, String windowTitle) {
 		try {
