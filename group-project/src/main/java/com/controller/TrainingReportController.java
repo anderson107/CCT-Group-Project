@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import com.saturn.dao.DatabaseConnection;
 import com.saturn.model.employee.Employee;
 import com.saturn.model.reports.TrainingReport;
 import com.saturn.model.training.EmployeeHSE;
@@ -13,7 +12,6 @@ import com.saturn.model.training.EmployeeSeaChange;
 import com.saturn.model.training.EmployeeTraining;
 import com.saturn.model.training.EmployeeVirtualAcademy;
 import com.saturn.model.training.TrainingReportObject;
-import com.saturn.model.training.TrainingSuperClass;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -40,7 +38,7 @@ public class TrainingReportController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-
+		Dao dao = new Dao();
 		empList = new ArrayList<>();
 
 		ObservableList<String> list = FXCollections.observableArrayList();
@@ -50,7 +48,7 @@ public class TrainingReportController implements Initializable {
 
 		ObservableList<String> list2 = FXCollections.observableArrayList();
 		list2.add("All Employees");
-		empList.addAll(DatabaseConnection.loadAllData(Employee.class));
+		empList.addAll(dao.loadAllData(Employee.class));
 		for (Employee e : empList) {
 			list2.add(e.getFirstName() + " " + e.getLastName());
 		}

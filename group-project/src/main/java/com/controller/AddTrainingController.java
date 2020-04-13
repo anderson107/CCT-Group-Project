@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import com.saturn.dao.DatabaseConnection;
 import com.saturn.model.Validation;
 import com.saturn.model.employee.Employee;
 import com.saturn.model.training.EmployeeHSE;
@@ -52,7 +51,7 @@ public class AddTrainingController implements Initializable {
 
 	@FXML
 	private void addTraining() {
-
+		Dao dao = new Dao();
 		// training validations
 		boolean text = Validation.isTextAreaEmpty(textArea, textLabel, "Required");
 		boolean choicebox = Validation.isChoiceBoxSelected(trainingTypeChoiceBox, choiceboxLabel, "Select training");
@@ -61,14 +60,14 @@ public class AddTrainingController implements Initializable {
 		if (text && choicebox) {
 			// creating new object of type training and saving to the database
 			TrainingSuperClass training = TrainingFactory.create(textArea.getText(), trainingTypeChoiceBox.getValue());
-			DatabaseConnection.add(training);
+			dao.add(training);
 
 			TrainingSuperClass lastEntry = null;
 
 			// retrieving all employees from the database
 			List<Employee> employees = new ArrayList<>();
 
-			employees.addAll(DatabaseConnection.loadAllData(Employee.class));
+			employees.addAll(dao.loadAllData(Employee.class));
 
 			List<TrainingSuperClass> trainingList = new ArrayList<>();
 
@@ -77,33 +76,33 @@ public class AddTrainingController implements Initializable {
 			if (employees.size() != 0) {
 
 				if (training instanceof SeaChangeTraining) {
-					trainingList.addAll(DatabaseConnection.loadAllData(SeaChangeTraining.class));
+					trainingList.addAll(dao.loadAllData(SeaChangeTraining.class));
 					lastEntry = trainingList.get(trainingList.size() - 1);
 					for (Employee e : employees) {
 						EmployeeSeaChange seachange = new EmployeeSeaChange();
 						seachange.setTraining(lastEntry);
 						seachange.setEmployee(e);
-						DatabaseConnection.add(seachange);
+						dao.add(seachange);
 						closeAddTrainingWindow();
 					}
 				} else if (training instanceof HSETraining) {
-					trainingList.addAll(DatabaseConnection.loadAllData(HSETraining.class));
+					trainingList.addAll(dao.loadAllData(HSETraining.class));
 					lastEntry = trainingList.get(trainingList.size() - 1);
 					for (Employee e : employees) {
 						EmployeeHSE hse = new EmployeeHSE();
 						hse.setTraining(lastEntry);
 						hse.setEmployee(e);
-						DatabaseConnection.add(hse);
+						dao.add(hse);
 						closeAddTrainingWindow();
 					}
 				} else if (training instanceof VirtualAcademyTraining) {
-					trainingList.addAll(DatabaseConnection.loadAllData(VirtualAcademyTraining.class));
+					trainingList.addAll(dao.loadAllData(VirtualAcademyTraining.class));
 					lastEntry = trainingList.get(trainingList.size() - 1);
 					for (Employee e : employees) {
 						EmployeeVirtualAcademy virtual = new EmployeeVirtualAcademy();
 						virtual.setTraining(lastEntry);
 						virtual.setEmployee(e);
-						DatabaseConnection.add(virtual);
+						dao.add(virtual);
 					}
 				}
 			}

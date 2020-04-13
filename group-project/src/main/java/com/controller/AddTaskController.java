@@ -1,6 +1,5 @@
 package com.controller;
 
-import com.saturn.dao.DatabaseConnection;
 import com.saturn.model.Validation;
 import com.saturn.model.task.Task;
 
@@ -33,6 +32,7 @@ public class AddTaskController {
 	
 	@FXML
 	private void addItem(){
+		Dao dao = new Dao();
 		boolean text = Validation.isTextAreaEmpty(textArea, textAreaLabel, "Required");
 		boolean date = Validation.isDateEmpty(datePicker, dateLabel, "Required");
 		
@@ -40,7 +40,7 @@ public class AddTaskController {
 			Task task = new Task(textArea.getText());
 			task.setDate(datePicker.getValue());
 			
-			DatabaseConnection.add(task);
+			dao.add(task);
 			
 			closeWindow();
 		}

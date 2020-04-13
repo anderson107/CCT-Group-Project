@@ -3,7 +3,6 @@ package com.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import com.saturn.dao.DatabaseConnection;
 import com.saturn.model.Validation;
 import com.saturn.model.training.HSETraining;
 import com.saturn.model.training.SeaChangeTraining;
@@ -63,6 +62,8 @@ public class UpdateTrainingController implements Initializable {
 	@FXML
 	private void updateTrainingDatabase() {
 
+		Dao dao = new Dao();
+		
 		boolean textAreaField = Validation.isTextAreaEmpty(textArea, textAreaLabel, "Required");
 		boolean choicebox = Validation.isChoiceBoxSelected(trainingTypeChoiceBox, categoryLabel,
 				"Select Training Type");
@@ -70,13 +71,13 @@ public class UpdateTrainingController implements Initializable {
 		if (textAreaField && choicebox) {
 
 			if (className.matches("HSETraining")) {
-				DatabaseConnection.updateTraining(HSETraining.class, trainingID, textArea.getText(),
+				dao.updateTraining(HSETraining.class, trainingID, textArea.getText(),
 						trainingTypeChoiceBox.getValue());
 			}else if(className.matches("VirtualAcademyTraining")) {
-				DatabaseConnection.updateTraining(VirtualAcademyTraining.class, trainingID, textArea.getText(),
+				dao.updateTraining(VirtualAcademyTraining.class, trainingID, textArea.getText(),
 						trainingTypeChoiceBox.getValue());
 			}else if(className.matches("SeaChangeTraining")) {
-				DatabaseConnection.updateTraining(SeaChangeTraining.class, trainingID, textArea.getText(),
+				dao.updateTraining(SeaChangeTraining.class, trainingID, textArea.getText(),
 						trainingTypeChoiceBox.getValue());
 			}
 			

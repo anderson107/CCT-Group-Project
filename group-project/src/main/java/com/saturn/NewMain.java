@@ -11,8 +11,8 @@ import com.saturn.model.employee.Employee;
 public class NewMain {
 
 	public static void main(String[] args) {
-	//DataSource data = DataSource.getInstance();
-	//data.getFactory();
+	DataSource data = DataSource.getInstance();
+	data.getFactory();
 	Main.main(args);
 //	FireWarden fire = new FireWarden();
 //	System.out.println(fire.getClass().getName());

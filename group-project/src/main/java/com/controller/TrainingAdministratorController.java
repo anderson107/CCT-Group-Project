@@ -9,7 +9,6 @@ import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
 import com.saturn.Main;
-import com.saturn.dao.DatabaseConnection;
 import com.saturn.model.training.HSETraining;
 import com.saturn.model.training.SeaChangeTraining;
 import com.saturn.model.training.TrainingSuperClass;
@@ -61,6 +60,7 @@ public class TrainingAdministratorController implements Initializable {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		Dao dao = new Dao();
 		ObservableList<String> list = FXCollections.observableArrayList();
 		list.addAll("SeaChange", "HSE", "Virtual Academy", "All");
 
@@ -74,9 +74,9 @@ public class TrainingAdministratorController implements Initializable {
 		type.setCellValueFactory(new PropertyValueFactory<TrainingSuperClass, String>("className"));
 		creationDate.setCellValueFactory(new PropertyValueFactory<TrainingSuperClass, LocalDate>("creationDate"));
 
-		trainingList.addAll(DatabaseConnection.loadAllData(SeaChangeTraining.class));
-		trainingList.addAll(DatabaseConnection.loadAllData(VirtualAcademyTraining.class));
-		trainingList.addAll(DatabaseConnection.loadAllData(HSETraining.class));
+		trainingList.addAll(dao.loadAllData(SeaChangeTraining.class));
+		trainingList.addAll(dao.loadAllData(VirtualAcademyTraining.class));
+		trainingList.addAll(dao.loadAllData(HSETraining.class));
 
 		for (TrainingSuperClass tsc : trainingList) {
 			tsc.setCheckbox(new CheckBox());
@@ -96,24 +96,43 @@ public class TrainingAdministratorController implements Initializable {
 
 	@FXML
 	private void updateTrainingList() {
-
+		Dao dao = new Dao();
 		trainingList.clear();
 
 		switch (trainingAdministratorChoicebox.getValue()) {
 
 		case "SeaChange":
-			trainingList.addAll(DatabaseConnection.loadAllData(SeaChangeTraining.class));
+			trainingList.addAll(dao.loadAllData(SeaChangeTraining.class));
+			for(TrainingSuperClass t: trainingList) {
+				t.setClassName("SeaChange");
+			}
 			break;
 		case "HSE":
-			trainingList.addAll(DatabaseConnection.loadAllData(HSETraining.class));
+			trainingList.addAll(dao.loadAllData(HSETraining.class));
+			for(TrainingSuperClass t: trainingList) {
+				t.setClassName("HSE");
+			}
 			break;
 		case "Virtual Academy":
-			trainingList.addAll(DatabaseConnection.loadAllData(VirtualAcademyTraining.class));
+			trainingList.addAll(dao.loadAllData(VirtualAcademyTraining.class));
+			for(TrainingSuperClass t: trainingList) {
+				t.setClassName("Virtual Academy");
+			}
 			break;
 		case "All":
-			trainingList.addAll(DatabaseConnection.loadAllData(SeaChangeTraining.class));
-			trainingList.addAll(DatabaseConnection.loadAllData(VirtualAcademyTraining.class));
-			trainingList.addAll(DatabaseConnection.loadAllData(HSETraining.class));
+			trainingList.addAll(dao.loadAllData(SeaChangeTraining.class));
+			trainingList.addAll(dao.loadAllData(VirtualAcademyTraining.class));
+			trainingList.addAll(dao.loadAllData(HSETraining.class));
+			for(TrainingSuperClass t: trainingList) {
+				
+				if(t instanceof SeaChangeTraining) {
+					t.setClassName("SeaChange");
+				}else if(t instanceof VirtualAcademyTraining) {
+					t.setClassName("Virtual Academy");
+				}else if(t instanceof HSETraining) {
+					t.setClassName("HSE");
+				}
+			}
 			break;
 		}
 
@@ -127,6 +146,7 @@ public class TrainingAdministratorController implements Initializable {
 
 	@FXML
 	private void removeTraining() {
+		Dao dao = new Dao();
 		ObservableList<TrainingSuperClass> delete = FXCollections.observableArrayList();
 		for (TrainingSuperClass c : trainingList) {
 			if (c.getCheckbox().isSelected()) {
@@ -142,7 +162,7 @@ public class TrainingAdministratorController implements Initializable {
 				return;
 			} else {
 				for (TrainingSuperClass d : delete) {
-					DatabaseConnection.delete(d);
+					dao.delete(d);
 				}
 			}
 		}
@@ -153,10 +173,11 @@ public class TrainingAdministratorController implements Initializable {
 	}
 
 	private void refresh() {
+		Dao dao = new Dao();
 		trainingList.clear();
-		trainingList.addAll(DatabaseConnection.loadAllData(SeaChangeTraining.class));
-		trainingList.addAll(DatabaseConnection.loadAllData(VirtualAcademyTraining.class));
-		trainingList.addAll(DatabaseConnection.loadAllData(HSETraining.class));
+		trainingList.addAll(dao.loadAllData(SeaChangeTraining.class));
+		trainingList.addAll(dao.loadAllData(VirtualAcademyTraining.class));
+		trainingList.addAll(dao.loadAllData(HSETraining.class));
 
 		for (TrainingSuperClass tsc : trainingList) {
 			tsc.setCheckbox(new CheckBox());

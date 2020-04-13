@@ -1,14 +1,14 @@
 package com.controller;
 
-import com.saturn.Main;
+
+import com.saturn.model.Administrator;
+import com.saturn.model.Validation;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class LoginController {
 
@@ -21,30 +21,34 @@ public class LoginController {
 	@FXML
 	private TextField passwordTextField;
 	
-	private String email = "admin@admin.admin";
+	@FXML
+	private Label emailLabel;
 	
-	private String password = "admin";
+	@FXML
+	private Label passwordLabel;
 	
+	@FXML
+	private Label invalid;
 	
 	@FXML
 	private void openMenu() {
 		
-		if(emailTextField.getText().matches(email) && passwordTextField.getText().matches(password)) {
+		boolean email = Validation.isEmailValid(emailTextField, emailLabel, "Invalid Email");
+		boolean password = Validation.isTextFieldEmpty(passwordTextField, passwordLabel, "Invalid password");
+		
+		if(email && password) {
 			
-			try {
-				 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(Views.MAIN_MENU));
-			        Parent root1 = (Parent) fxmlLoader.load();
-			        Stage stage = new Stage();
-			        stage.setScene(new Scene(root1));  
-			        stage.initOwner(Main.stage);
-			        stage.setMaximized(true);
-			        stage.setTitle("HEALTH AND SAFETY APPLICATION");
-			        stage.show();
-			        
-			}catch(Exception e) {
-				e.printStackTrace();
+			Dao dao = new Dao();
+			Administrator adm = dao.getAdministrator(1);
+			
+			if(emailTextField.getText().matches(adm.getEmail()) && passwordTextField.getText().matches(adm.getPassword())) {
+				
+				Stage stage = (Stage) signInButton.getScene().getWindow();
+				stage.close();
+			}else {
+				invalid.setText("Invalid email or password");
+				return;
 			}
-			
 		}
 		
 	}

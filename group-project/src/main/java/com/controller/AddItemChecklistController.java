@@ -4,7 +4,6 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-import com.saturn.dao.DatabaseConnection;
 import com.saturn.model.Validation;
 import com.saturn.model.checklists.ChecklistCategory;
 import com.saturn.model.checklists.ChecklistFactory;
@@ -77,6 +76,8 @@ public class AddItemChecklistController implements Initializable {
 	@FXML
 	public void addItem(ActionEvent actionEvent) {
 
+		Dao dao = new Dao();
+		
 		Boolean choiceboxCategoryValidation = Validation.isChoiceBoxSelected(selectChecklist, checklistLabel,
 				"Select a category");
 		Boolean choiceboxFrequencyValidation = Validation.isChoiceBoxSelected(selectFrequency, frequencyLabel,
@@ -109,7 +110,7 @@ public class AddItemChecklistController implements Initializable {
 				break;
 			}
 			
-			DatabaseConnection.add(ChecklistFactory.create(addItemTextfield.getText(), "Pending",
+			dao.add(ChecklistFactory.create(addItemTextfield.getText(), "Pending",
 					selectFrequency.getValue(), selectChecklist.getValue(), date));
 
 			Stage stage = (Stage) addItemTextfield.getScene().getWindow();

@@ -2,7 +2,6 @@ package com.controller;
 
 import java.util.ResourceBundle;
 
-import com.saturn.dao.DatabaseConnection;
 import com.saturn.model.Validation;
 import com.saturn.model.employee.Employee;
 import com.saturn.model.employee.EmployeeFields;
@@ -71,6 +70,8 @@ public class UpdateEmployeeController implements Initializable {
 	@FXML
 	private void updateEmployee() {
 		
+		Dao dao = new Dao();
+		
 		boolean choicebox = Validation.isChoiceBoxSelected(choiceBox, updateLabel, "Select an option");
 		boolean newData = Validation.isTextFieldEmpty(textField, newDataLabel, "Enter new data");
 		
@@ -82,7 +83,7 @@ public class UpdateEmployeeController implements Initializable {
 			case "Last Name":
 				boolean validation1 = Validation.isTextFieldValid(textField, newDataLabel, "Enter a valid name");
 				if(validation1) {
-					DatabaseConnection.updateEmployee(employeeId, choice, textField.getText());
+					dao.updateEmployee(employeeId, choice, textField.getText());
 					break;
 				}else {
 					return;
@@ -90,7 +91,7 @@ public class UpdateEmployeeController implements Initializable {
 			case "Email":
 				boolean validation2 = Validation.isEmailValid(textField, newDataLabel, "Enter a valid email");
 				if(validation2) {
-					DatabaseConnection.updateEmployee(employeeId, choice, textField.getText());
+					dao.updateEmployee(employeeId, choice, textField.getText());
 					break;
 				}else {
 					return;
@@ -99,7 +100,7 @@ public class UpdateEmployeeController implements Initializable {
 			case "Telephone":
 				boolean validation3 = Validation.isPhoneValid(textField, newDataLabel, "Enter a valid number");
 				if(validation3) {
-					DatabaseConnection.updateEmployee(employeeId, choice, textField.getText());
+					dao.updateEmployee(employeeId, choice, textField.getText());
 					break;
 				}else {
 					return;
@@ -108,7 +109,7 @@ public class UpdateEmployeeController implements Initializable {
 			case "City/County":
 				boolean validation4 = Validation.isTextFieldEmpty(textField, newDataLabel, "Required");
 				if(validation4) {
-					DatabaseConnection.updateEmployee(employeeId, choice, textField.getText());
+					dao.updateEmployee(employeeId, choice, textField.getText());
 					break;
 				}else {
 					return;

@@ -9,7 +9,6 @@ import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
 import com.saturn.Main;
-import com.saturn.dao.DatabaseConnection;
 import com.saturn.model.task.Task;
 
 import javafx.collections.FXCollections;
@@ -61,7 +60,7 @@ public class TaskTableController implements Initializable{
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+		Dao dao = new Dao();
 		select.setCellValueFactory(new PropertyValueFactory<Task, CheckBox>("checkbox"));
 		id.setCellValueFactory(new PropertyValueFactory<Task, Integer>("id"));
 		description.setCellValueFactory(new PropertyValueFactory<Task, String>("itemDescription"));
@@ -72,7 +71,7 @@ public class TaskTableController implements Initializable{
 		
 		taskList = new ArrayList<>();
 		
-		taskList.addAll(DatabaseConnection.loadAllData(Task.class));
+		taskList.addAll(dao.loadAllData(Task.class));
 		
 		for(Task t: taskList) {
 			t.setCheckbox(new CheckBox());
@@ -83,7 +82,7 @@ public class TaskTableController implements Initializable{
 	
 	@FXML
 	private void deleteTask() {
-		
+		Dao dao = new Dao();
 		ObservableList<Task> delete = FXCollections.observableArrayList();
 		for (Task task : taskList) {
 			if (task.getCheckbox().isSelected()) {
@@ -99,7 +98,7 @@ public class TaskTableController implements Initializable{
 				return;
 			} else {
 				for (Task task : delete) {
-					DatabaseConnection.delete(task);
+					dao.delete(task);
 				}
 			}
 		}
@@ -110,8 +109,9 @@ public class TaskTableController implements Initializable{
 	}
 	
 	private void refresh() {
+		Dao dao = new Dao();
 		taskList.clear();
-		taskList.addAll(DatabaseConnection.loadAllData(Task.class));
+		taskList.addAll(dao.loadAllData(Task.class));
 		for (Task e : taskList) {
 			e.setCheckbox(new CheckBox());
 		}

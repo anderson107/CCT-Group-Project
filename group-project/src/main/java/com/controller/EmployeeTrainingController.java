@@ -7,7 +7,6 @@ import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
-import com.saturn.dao.DatabaseConnection;
 import com.saturn.model.employee.Employee;
 import com.saturn.model.training.EmployeeHSE;
 import com.saturn.model.training.EmployeeSeaChange;
@@ -53,11 +52,12 @@ public class EmployeeTrainingController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
+		Dao dao = new Dao();
 		List<Employee> empList = new ArrayList<>();
 
 		ObservableList<String> list = FXCollections.observableArrayList();
 
-		empList.addAll(DatabaseConnection.loadAllData(Employee.class));
+		empList.addAll(dao.loadAllData(Employee.class));
 
 		for (Employee e : empList) {
 			list.add(e.getFirstName() + " " + e.getLastName());
@@ -68,6 +68,7 @@ public class EmployeeTrainingController implements Initializable {
 	// this method fills up the table with the employee information;
 	@FXML
 	private void fillUpTable() {
+		Dao dao = new Dao();
 		
 		empTraining.clear();
 		
@@ -77,8 +78,7 @@ public class EmployeeTrainingController implements Initializable {
 		// it gets the first name and last name in the choice box and query the database to get the employee with the given name
 		String name = choicebox.getValue();
 		int id = 0;
-		List<Employee> emp = DatabaseConnection
-				.queryDatabase("from Employee WHERE CONCAT(first_name,' ',last_name)='"+name+"'");
+		List<Employee> emp = dao.queryDB("from Employee WHERE CONCAT(first_name,' ',last_name)='"+name+"'");
 		
 		// if the list is empty it returns from the method so there won't be an exception
 		if(emp.size()==0) {
@@ -88,9 +88,9 @@ public class EmployeeTrainingController implements Initializable {
 		}
 		
 		// it retrieves all the training from the database
-		employeeTrainingList.addAll(DatabaseConnection.loadAllData(EmployeeSeaChange.class));
-		employeeTrainingList.addAll(DatabaseConnection.loadAllData(EmployeeHSE.class));
-		employeeTrainingList.addAll(DatabaseConnection.loadAllData(EmployeeVirtualAcademy.class));
+		employeeTrainingList.addAll(dao.loadAllData(EmployeeSeaChange.class));
+		employeeTrainingList.addAll(dao.loadAllData(EmployeeHSE.class));
+		employeeTrainingList.addAll(dao.loadAllData(EmployeeVirtualAcademy.class));
 		
 		// it adds all the training related to employee id retrieved from the choice box
 		for(EmployeeTraining training:employeeTrainingList) {
@@ -126,21 +126,15 @@ public class EmployeeTrainingController implements Initializable {
 	// it updates the items modified in the table
 	@FXML
 	private void updateEmployeeTraining() {
-		
-		int count = 0;
+		Dao dao = new Dao();
 		// it sets the user inputs in the table
 		for(EmployeeTraining e: empTraining) {
 			e.setDate(e.getDatePicker().getValue());
 			e.setStatus(e.getStatusChoicebox().getValue());
-			
-			if(e.getStatus().equals("Done") && !(e.getDate()==null)) {
-				count++;
-			}
 		}
 		
-		
 		// it updates the training
-		DatabaseConnection.updateEmployeeTraining(empTraining);
+		dao.updateEmployeeTraining(empTraining);
 		
 		int index = JOptionPane.showConfirmDialog(null, "Employee Training updated successfully \nGo back to menu?", "Confirmation", JOptionPane.YES_NO_OPTION);
 		

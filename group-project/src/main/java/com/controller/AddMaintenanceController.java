@@ -1,6 +1,5 @@
 package com.controller;
 
-import com.saturn.dao.DatabaseConnection;
 import com.saturn.model.Validation;
 import com.saturn.model.maintenance.Maintenance;
 
@@ -43,6 +42,7 @@ public class AddMaintenanceController {
 	@FXML
 	private void addContractor() {
 		
+		Dao dao = new Dao();
 		boolean contractor = Validation.isTextFieldEmpty(textField, textFieldLabel, "Required");
 		boolean service = Validation.isTextAreaEmpty(textArea, textAreaLabel, "Required");
 		
@@ -51,7 +51,7 @@ public class AddMaintenanceController {
 			Maintenance maintenance = new Maintenance(textField.getText(), textArea.getText());
 			maintenance.setLastDate(lastDate.getValue());
 			maintenance.setNextDate(nextDate.getValue());
-			DatabaseConnection.add(maintenance);
+			dao.add(maintenance);
 			
 			Stage stage = (Stage) textField.getScene().getWindow();
 			stage.close();

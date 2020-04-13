@@ -9,7 +9,6 @@ import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
 import com.saturn.Main;
-import com.saturn.dao.DatabaseConnection;
 import com.saturn.model.checklists.ChecklistCategory;
 import com.saturn.model.checklists.ChecklistSuperClass;
 import com.saturn.model.checklists.CoffeeHACCP;
@@ -82,6 +81,7 @@ public class TaskAdministratorController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
+		Dao dao = new Dao();
 		ObservableList<String> list = FXCollections.observableArrayList();
 		list.addAll(ChecklistCategory.HEALTH_SAFETY.getCategory(), ChecklistCategory.FIRE_WARDEN.getCategory(),
 				ChecklistCategory.DELI_HACCP.getCategory(), ChecklistCategory.FLOOR_HACCP.getCategory(),
@@ -97,11 +97,11 @@ public class TaskAdministratorController implements Initializable {
 		status.setCellValueFactory(new PropertyValueFactory<ChecklistSuperClass, String>("status"));
 		dueDate.setCellValueFactory(new PropertyValueFactory<ChecklistSuperClass, LocalDate>("dueDate"));
 		creationDate.setCellValueFactory(new PropertyValueFactory<ChecklistSuperClass, LocalDate>("creationDate"));
-		checklistList.addAll(DatabaseConnection.loadAllData(FireWarden.class));
-		checklistList.addAll(DatabaseConnection.loadAllData(HealthSafetyChecklist.class));
-		checklistList.addAll(DatabaseConnection.loadAllData(DeliHACCP.class));
-		checklistList.addAll(DatabaseConnection.loadAllData(FloorHACCP.class));
-		checklistList.addAll(DatabaseConnection.loadAllData(CoffeeHACCP.class));
+		checklistList.addAll(dao.loadAllData(FireWarden.class));
+		checklistList.addAll(dao.loadAllData(HealthSafetyChecklist.class));
+		checklistList.addAll(dao.loadAllData(DeliHACCP.class));
+		checklistList.addAll(dao.loadAllData(FloorHACCP.class));
+		checklistList.addAll(dao.loadAllData(CoffeeHACCP.class));
 
 		// it sets check boxes to each object
 		for (ChecklistSuperClass c : checklistList) {
@@ -115,9 +115,11 @@ public class TaskAdministratorController implements Initializable {
 	@FXML
 	private void updateTable() {
 
+		Dao dao = new Dao();
+		
 		checklistList.clear();
 		if (taskAdministratorChoicebox.getValue().matches(ChecklistCategory.HEALTH_SAFETY.getCategory())) {
-			checklistList.addAll(DatabaseConnection.loadAllData(HealthSafetyChecklist.class));
+			checklistList.addAll(dao.loadAllData(HealthSafetyChecklist.class));
 			// it sets check boxes to each object
 			for (ChecklistSuperClass c : checklistList) {
 				c.setCheckbox(new CheckBox());
@@ -126,7 +128,7 @@ public class TaskAdministratorController implements Initializable {
 		}
 
 		else if (taskAdministratorChoicebox.getValue().matches(ChecklistCategory.FIRE_WARDEN.getCategory())) {
-			checklistList.addAll(DatabaseConnection.loadAllData(FireWarden.class));
+			checklistList.addAll(dao.loadAllData(FireWarden.class));
 			// it sets check boxes to each object
 			for (ChecklistSuperClass c : checklistList) {
 				c.setCheckbox(new CheckBox());
@@ -135,7 +137,7 @@ public class TaskAdministratorController implements Initializable {
 		}
 
 		else if (taskAdministratorChoicebox.getValue().matches(ChecklistCategory.DELI_HACCP.getCategory())) {
-			checklistList.addAll(DatabaseConnection.loadAllData(DeliHACCP.class));
+			checklistList.addAll(dao.loadAllData(DeliHACCP.class));
 			// it sets check boxes to each object
 			for (ChecklistSuperClass c : checklistList) {
 				c.setCheckbox(new CheckBox());
@@ -143,7 +145,7 @@ public class TaskAdministratorController implements Initializable {
 			tableView.getItems().setAll(checklistList);
 
 		} else if (taskAdministratorChoicebox.getValue().matches(ChecklistCategory.FLOOR_HACCP.getCategory())) {
-			checklistList.addAll(DatabaseConnection.loadAllData(FloorHACCP.class));
+			checklistList.addAll(dao.loadAllData(FloorHACCP.class));
 			// it sets check boxes to each object
 			for (ChecklistSuperClass c : checklistList) {
 				c.setCheckbox(new CheckBox());
@@ -151,7 +153,7 @@ public class TaskAdministratorController implements Initializable {
 			tableView.getItems().setAll(checklistList);
 
 		} else if (taskAdministratorChoicebox.getValue().matches(ChecklistCategory.COFFEE_HACCP.getCategory())) {
-			checklistList.addAll(DatabaseConnection.loadAllData(CoffeeHACCP.class));
+			checklistList.addAll(dao.loadAllData(CoffeeHACCP.class));
 			// it sets check boxes to each object
 			for (ChecklistSuperClass c : checklistList) {
 				c.setCheckbox(new CheckBox());
@@ -159,11 +161,11 @@ public class TaskAdministratorController implements Initializable {
 			tableView.getItems().setAll(checklistList);
 
 		} else if (taskAdministratorChoicebox.getValue().matches(ChecklistCategory.ALL.getCategory())) {
-			checklistList.addAll(DatabaseConnection.loadAllData(FireWarden.class));
-			checklistList.addAll(DatabaseConnection.loadAllData(HealthSafetyChecklist.class));
-			checklistList.addAll(DatabaseConnection.loadAllData(DeliHACCP.class));
-			checklistList.addAll(DatabaseConnection.loadAllData(FloorHACCP.class));
-			checklistList.addAll(DatabaseConnection.loadAllData(CoffeeHACCP.class));
+			checklistList.addAll(dao.loadAllData(FireWarden.class));
+			checklistList.addAll(dao.loadAllData(HealthSafetyChecklist.class));
+			checklistList.addAll(dao.loadAllData(DeliHACCP.class));
+			checklistList.addAll(dao.loadAllData(FloorHACCP.class));
+			checklistList.addAll(dao.loadAllData(CoffeeHACCP.class));
 
 			// it sets check boxes to each object
 			for (ChecklistSuperClass c : checklistList) {
@@ -175,7 +177,7 @@ public class TaskAdministratorController implements Initializable {
 
 	@FXML
 	private void deleteRow() {
-
+		Dao dao = new Dao();
 		ObservableList<ChecklistSuperClass> delete = FXCollections.observableArrayList();
 		for (ChecklistSuperClass c : checklistList) {
 			if (c.getCheckbox().isSelected()) {
@@ -191,7 +193,7 @@ public class TaskAdministratorController implements Initializable {
 				return;
 			} else {
 				for (ChecklistSuperClass d : delete) {
-					DatabaseConnection.delete((ChecklistSuperClass) d);
+					dao.delete((ChecklistSuperClass) d);
 				}
 			}
 		}
@@ -203,12 +205,13 @@ public class TaskAdministratorController implements Initializable {
 
 	// it refreshes the table view
 	private void refresh() {
+		Dao dao = new Dao();
 		checklistList.clear();
-		checklistList.addAll(DatabaseConnection.loadAllData(FireWarden.class));
-		checklistList.addAll(DatabaseConnection.loadAllData(HealthSafetyChecklist.class));
-		checklistList.addAll(DatabaseConnection.loadAllData(DeliHACCP.class));
-		checklistList.addAll(DatabaseConnection.loadAllData(FloorHACCP.class));
-		checklistList.addAll(DatabaseConnection.loadAllData(CoffeeHACCP.class));
+		checklistList.addAll(dao.loadAllData(FireWarden.class));
+		checklistList.addAll(dao.loadAllData(HealthSafetyChecklist.class));
+		checklistList.addAll(dao.loadAllData(DeliHACCP.class));
+		checklistList.addAll(dao.loadAllData(FloorHACCP.class));
+		checklistList.addAll(dao.loadAllData(CoffeeHACCP.class));
 
 		for (ChecklistSuperClass e : checklistList) {
 			e.setCheckbox(new CheckBox());

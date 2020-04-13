@@ -3,7 +3,6 @@ package com.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import com.saturn.dao.DatabaseConnection;
 import com.saturn.model.Validation;
 import com.saturn.model.checklists.ChecklistCategory;
 import com.saturn.model.checklists.ChecklistSuperClass;
@@ -111,6 +110,7 @@ public class UpdateItemChecklistController implements Initializable {
 
 	@FXML
 	private void updateItemDatabase() {
+		Dao dao = new Dao();
 		boolean category = Validation.isChoiceBoxSelected(updateSelectTypeChoiceBox, selectCategoryLabel,
 				"Select a category");
 		boolean frequency = Validation.isChoiceBoxSelected(updateSelectFrequencyChoiceBox, selectFrequencyLabel,
@@ -122,27 +122,27 @@ public class UpdateItemChecklistController implements Initializable {
 		if (category && frequency && status && date && itemDescription) {
 
 			if (className.matches("FireWarden")) {
-				DatabaseConnection.updateItemChecklistItem(FireWarden.class, itemToBeUpdatedIndex,
+				dao.updateItemChecklistItem(FireWarden.class, itemToBeUpdatedIndex,
 						textAreaUpdate.getText(), updateSelectTypeChoiceBox.getValue(),
 						updateSelectFrequencyChoiceBox.getValue(), updateStatus.getValue(), datePicker);
 
 			} else if (className.matches("HealthSafetyChecklist")) {
-				DatabaseConnection.updateItemChecklistItem(HealthSafetyChecklist.class, itemToBeUpdatedIndex,
+				dao.updateItemChecklistItem(HealthSafetyChecklist.class, itemToBeUpdatedIndex,
 						textAreaUpdate.getText(), updateSelectTypeChoiceBox.getValue(),
 						updateSelectFrequencyChoiceBox.getValue(), updateStatus.getValue(), datePicker);
 
 			} else if (className.matches("DeliHACCP")) {
-				DatabaseConnection.updateItemChecklistItem(DeliHACCP.class, itemToBeUpdatedIndex,
+				dao.updateItemChecklistItem(DeliHACCP.class, itemToBeUpdatedIndex,
 						textAreaUpdate.getText(), updateSelectTypeChoiceBox.getValue(),
 						updateSelectFrequencyChoiceBox.getValue(), updateStatus.getValue(), datePicker);
 
 			} else if (className.matches("FloorHACCP")) {
-				DatabaseConnection.updateItemChecklistItem(FloorHACCP.class, itemToBeUpdatedIndex,
+				dao.updateItemChecklistItem(FloorHACCP.class, itemToBeUpdatedIndex,
 						textAreaUpdate.getText(), updateSelectTypeChoiceBox.getValue(),
 						updateSelectFrequencyChoiceBox.getValue(), updateStatus.getValue(), datePicker);
 
 			} else if (className.matches("CoffeeHACCP")) {
-				DatabaseConnection.updateItemChecklistItem(CoffeeHACCP.class, itemToBeUpdatedIndex,
+				dao.updateItemChecklistItem(CoffeeHACCP.class, itemToBeUpdatedIndex,
 						textAreaUpdate.getText(), updateSelectTypeChoiceBox.getValue(),
 						updateSelectFrequencyChoiceBox.getValue(), updateStatus.getValue(), datePicker);
 			}

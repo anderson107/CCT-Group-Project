@@ -9,7 +9,6 @@ import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
 import com.saturn.Main;
-import com.saturn.dao.DatabaseConnection;
 import com.saturn.model.employee.Employee;
 
 import javafx.collections.FXCollections;
@@ -78,6 +77,7 @@ public class EmployeeAdministratorController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
+		Dao dao = new Dao();
 		checkbox.setCellValueFactory(new PropertyValueFactory<Employee, String>("checkbox"));
 		id.setCellValueFactory(new PropertyValueFactory<Employee, Integer>("id"));
 		firstName.setCellValueFactory(new PropertyValueFactory<Employee, String>("firstName"));
@@ -89,7 +89,7 @@ public class EmployeeAdministratorController implements Initializable {
 		city.setCellValueFactory(new PropertyValueFactory<Employee, String>("city"));
 		registered.setCellValueFactory(new PropertyValueFactory<Employee, LocalDate>("creationDate"));
 
-		employeeList.addAll(DatabaseConnection.loadAllData(Employee.class));
+		employeeList.addAll(dao.loadAllData(Employee.class));
 
 		// it sets all the check boxes that are not in the database
 		for (Employee e : employeeList) {
@@ -103,6 +103,8 @@ public class EmployeeAdministratorController implements Initializable {
 	@FXML
 	private void deleteEmployee() {
 
+		Dao dao = new Dao();
+		
 		ObservableList<Employee> delete = FXCollections.observableArrayList();
 		for (Employee e : employeeList) {
 			if (e.getCheckbox().isSelected()) {
@@ -118,7 +120,7 @@ public class EmployeeAdministratorController implements Initializable {
 				return;
 			} else {
 				for (Employee e : delete) {
-					DatabaseConnection.delete(e);
+					dao.delete(e);
 				}
 			}
 		}
@@ -129,8 +131,9 @@ public class EmployeeAdministratorController implements Initializable {
 	}
 
 	private void refresh() {
+		Dao dao = new Dao();
 		employeeList.clear();
-		employeeList.addAll(DatabaseConnection.loadAllData(Employee.class));
+		employeeList.addAll(dao.loadAllData(Employee.class));
 		for (Employee e : employeeList) {
 			e.setCheckbox(new CheckBox());
 		}

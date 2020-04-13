@@ -3,7 +3,6 @@ package com.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import com.saturn.dao.DatabaseConnection;
 import com.saturn.model.Validation;
 import com.saturn.model.task.Task;
 
@@ -63,7 +62,7 @@ public class UpdateTaskController implements Initializable{
 	
 	@FXML
 	private void updateTask() {
-		
+		Dao dao = new Dao();
 		int id = TaskTableController.selected.get(0).getId();
 		
 		// validation
@@ -75,7 +74,7 @@ public class UpdateTaskController implements Initializable{
 		// update item in the database
 		if(textAreaI && textAreaII && choicebox && datepicker) {
 			
-			DatabaseConnection.updateTask(id, textArea.getText(), actionArea.getText(), datePicker.getValue(), status.getValue());
+			dao.updateTask(id, textArea.getText(), actionArea.getText(), datePicker.getValue(), status.getValue());
 			
 			TaskTableController.selected.clear();
 			

@@ -1,10 +1,8 @@
 package com.controller;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.saturn.dao.DatabaseConnection;
 import com.saturn.model.Validation;
 import com.saturn.model.employee.Employee;
 import com.saturn.model.training.EmployeeHSE;
@@ -78,6 +76,7 @@ public class RegisterFormController {
 	@FXML
 	private void saveEmployeeDatabase() {
 
+		Dao dao = new Dao();
 		// validation for the entry fields
 		boolean firstName = Validation.isTextFieldValid(firstNameTF, firstNameLB, "Required");
 		boolean lastName = Validation.isTextFieldValid(lastNameTF, lastNameLB, "Required");
@@ -96,20 +95,20 @@ public class RegisterFormController {
 					mobileTF.getText(), telephoneTF.getText(), addressTF.getText(), cityTF.getText());
 
 			// adding the employee to the database
-			DatabaseConnection.add(employee);
+			dao.add(employee);
 			
 			// retrieving all the employee from the database
 			List<Employee>emps = new ArrayList<>();
-			emps.addAll(DatabaseConnection.loadAllData(Employee.class));
+			emps.addAll(dao.loadAllData(Employee.class));
 			
 			// getting the last entry that is the employee that was added above
 			Employee emp = emps.get(emps.size()-1);
 
 			// retrieving all the training in the database
 			List<TrainingSuperClass> training = new ArrayList<>();
-			training.addAll(DatabaseConnection.loadAllData(HSETraining.class));
-			training.addAll(DatabaseConnection.loadAllData(SeaChangeTraining.class));
-			training.addAll(DatabaseConnection.loadAllData(VirtualAcademyTraining.class));
+			training.addAll(dao.loadAllData(HSETraining.class));
+			training.addAll(dao.loadAllData(SeaChangeTraining.class));
+			training.addAll(dao.loadAllData(VirtualAcademyTraining.class));
 
 			if(training.size()==0) {
 				backToMenu();
@@ -124,21 +123,21 @@ public class RegisterFormController {
 					hse.setEmployee(emp);
 					hse.setStatus("Pending");
 					hse.setDate(null);
-					DatabaseConnection.add(hse);
+					dao.add(hse);
 				} else if (e instanceof SeaChangeTraining) {
 					EmployeeSeaChange seaChange = new EmployeeSeaChange();
 					seaChange.setTraining(e);
 					seaChange.setEmployee(emp);
 					seaChange.setStatus("Pending");
 					seaChange.setDate(null);
-					DatabaseConnection.add(seaChange);
+					dao.add(seaChange);
 				} else if (e instanceof VirtualAcademyTraining) {
 					EmployeeVirtualAcademy virtual = new EmployeeVirtualAcademy();
 					virtual.setTraining(e);
 					virtual.setEmployee(emp);
 					virtual.setStatus("Pending");
 					virtual.setDate(null);
-					DatabaseConnection.add(virtual);
+					dao.add(virtual);
 				}
 			}
 
