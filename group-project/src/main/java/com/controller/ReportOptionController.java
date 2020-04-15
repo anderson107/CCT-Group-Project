@@ -32,7 +32,7 @@ public class ReportOptionController {
 		Dao dao = new Dao();
 		
 		List<Task> taskList = new ArrayList<>();
-		taskList.addAll(dao.loadAllTask());
+		taskList.addAll(dao.loadAllData(Task.class));
 		
 		ListIterator<Task> iterator = taskList.listIterator();
 		
@@ -51,7 +51,7 @@ public class ReportOptionController {
 	private void generateMaintenance() {
 		Dao dao = new Dao();
 		List<Maintenance> maintenanceList = new ArrayList<>();
-		maintenanceList.addAll(dao.loadAllMaintenance());
+		maintenanceList.addAll(dao.loadAllData(Maintenance.class));
 		ListIterator<Maintenance> iterator = maintenanceList.listIterator();
 
 				// it removes all task that is not pending

@@ -11,15 +11,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.MainMenuController">
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.MainMenuController">
    <top>
       <TabPane tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
           <Tab text="                 ">
            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0">
+              <AnchorPane blendMode="MULTIPLY" minHeight="0.0" minWidth="0.0">
                      <children>
-                              <Button fx:id="employeeButton" blendMode="DARKEN" layoutX="51.0" layoutY="41.0" mnemonicParsing="false" onAction="#openEmployeeAdm" prefHeight="81.0" prefWidth="192.0" text="Employees">
+                              <Button fx:id="employeeButton" blendMode="MULTIPLY" layoutX="51.0" layoutY="41.0" mnemonicParsing="false" onAction="#openEmployeeAdm" prefHeight="81.0" prefWidth="192.0" text="Employees">
                               <graphic>
                               <ImageView fitHeight="65.0" fitWidth="90.0" layoutX="11.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -28,12 +28,12 @@
                               </ImageView>
                               </graphic>
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font name="System Bold" size="18.0" />
                                  </font>
                               </Button>
-                        <Button fx:id="employeeButton1" blendMode="DARKEN" layoutX="51.0" layoutY="161.0" mnemonicParsing="false" onAction="#openTaskAdmistrator" prefHeight="81.0" prefWidth="192.0" text="Checklist">
+                        <Button fx:id="employeeButton1" blendMode="MULTIPLY" layoutX="51.0" layoutY="161.0" mnemonicParsing="false" onAction="#openTaskAdmistrator" prefHeight="81.0" prefWidth="192.0" text="Checklist">
                            <font>
-                              <Font size="18.0" />
+                              <Font name="System Bold" size="18.0" />
                            </font>
                            <graphic>
                         <ImageView fitHeight="65.0" fitWidth="90.0" layoutX="70.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true">
@@ -43,9 +43,9 @@
                         </ImageView>
                         </graphic>
                         </Button>
-                        <Button fx:id="employeeButton11" blendMode="DARKEN" layoutX="51.0" layoutY="282.0" mnemonicParsing="false" onAction="#openEmployeeTrainingWindow" prefHeight="81.0" prefWidth="192.0" text="Training">
+                        <Button fx:id="employeeButton11" blendMode="MULTIPLY" layoutX="51.0" layoutY="282.0" mnemonicParsing="false" onAction="#openEmployeeTrainingWindow" prefHeight="81.0" prefWidth="192.0" text="Training">
                            <font>
-                              <Font size="18.0" />
+                              <Font name="System Bold" size="18.0" />
                            </font>
                            <graphic>
                         <ImageView fitHeight="65.0" fitWidth="90.0" layoutX="67.0" layoutY="292.0" pickOnBounds="true" preserveRatio="true">
@@ -55,9 +55,9 @@
                         </ImageView>
                         </graphic>
                         </Button>
-                        <Button fx:id="employeeButton111" blendMode="DARKEN" layoutX="51.0" layoutY="403.0" mnemonicParsing="false" onAction="#openTaskTable" prefHeight="81.0" prefWidth="192.0" text="Task">
+                        <Button fx:id="employeeButton111" blendMode="MULTIPLY" layoutX="51.0" layoutY="403.0" mnemonicParsing="false" onAction="#openTaskTable" prefHeight="81.0" prefWidth="192.0" text="Task">
                            <font>
-                              <Font size="18.0" />
+                             <Font name="System Bold" size="18.0" />
                            </font>
                           <graphic>
                         <ImageView fitHeight="65.0" fitWidth="90.0" layoutX="67.0" layoutY="413.0" pickOnBounds="true" preserveRatio="true">
@@ -67,9 +67,9 @@
                         </ImageView>
                         </graphic>
                         </Button>
-                        <Button fx:id="employeeButton2" blendMode="DARKEN" layoutX="323.0" layoutY="41.0" mnemonicParsing="false" onAction="#openMaintenanceTable" prefHeight="81.0" prefWidth="192.0" text="Maintenance">
+                        <Button fx:id="employeeButton2" blendMode="MULTIPLY" layoutX="323.0" layoutY="41.0" mnemonicParsing="false" onAction="#openMaintenanceTable" prefHeight="81.0" prefWidth="192.0" text="Maintenance">
                            <font>
-                              <Font size="17.0" />
+                              <Font name="System Bold" size="16.0" />
                            </font>
                            <graphic>
                         <ImageView fitHeight="65.0" fitWidth="90.0" layoutX="332.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
@@ -79,9 +79,9 @@
                         </ImageView>
                         </graphic>
                         </Button>
-                        <Button fx:id="employeeButton21" blendMode="DARKEN" layoutX="323.0" layoutY="161.0" mnemonicParsing="false" onAction="#openReportOptions" prefHeight="81.0" prefWidth="192.0" text="Report">
+                        <Button fx:id="employeeButton21" blendMode="MULTIPLY" layoutX="323.0" layoutY="161.0" mnemonicParsing="false" onAction="#openReportOptions" prefHeight="81.0" prefWidth="192.0" text="Report">
                            <font>
-                              <Font size="18.0" />
+                             <Font name="System Bold" size="18.0" />
                            </font>
                            <graphic>
                         <ImageView fitHeight="65.0" fitWidth="90.0" layoutX="332.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
@@ -100,17 +100,17 @@
                      <children>
                         <VBox layoutX="28.0" layoutY="38.0" prefHeight="410.0" prefWidth="146.0">
                            <children>
-                              <Button layoutX="28.0" layoutY="38.0" mnemonicParsing="false" onAction="#addEmployee" prefHeight="43.0" prefWidth="148.0" text="ADD EMPLOYEE">
+                              <Button blendMode="MULTIPLY" layoutX="28.0" layoutY="38.0" mnemonicParsing="false" onAction="#addEmployee" prefHeight="43.0" prefWidth="148.0" text="ADD EMPLOYEE">
                                  <VBox.margin>
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#openEmployeeAdm" prefHeight="43.0" prefWidth="148.0" text="EMPLOYEE MANAGER">
+                              <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openEmployeeAdm" prefHeight="43.0" prefWidth="148.0" text="EMPLOYEE MANAGER">
                                  <VBox.margin>
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#changePassword" prefHeight="43.0" prefWidth="148.0" text="CHANGE PASSWORD" />
+                              <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#changePassword" prefHeight="43.0" prefWidth="148.0" text="CHANGE PASSWORD" />
                            </children>
                         </VBox>
                      </children></AnchorPane>
@@ -124,16 +124,16 @@
                            <children>
                               <VBox layoutX="28.0" layoutY="38.0" prefHeight="410.0" prefWidth="146.0">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#openAddItemChecklistWindow" prefHeight="43.0" prefWidth="148.0" text="ADD ITEM">
+                                    <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openAddItemChecklistWindow" prefHeight="43.0" prefWidth="148.0" text="ADD ITEM">
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
                                        </VBox.margin></Button>
-                                    <Button mnemonicParsing="false" onAction="#openTaskAdmistrator" prefHeight="43.0" prefWidth="148.0" text="UPDATE STATUS">
+                                    <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openTaskAdmistrator" prefHeight="43.0" prefWidth="148.0" text="UPDATE STATUS">
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
                                        </VBox.margin>
                                     </Button>
-                                    <Button fx:id="taskAdministratorButton" mnemonicParsing="false" onAction="#openChecklistAdm" prefHeight="43.0" prefWidth="148.0" text="CHECKLIST MANAGER" />
+                                    <Button fx:id="taskAdministratorButton" blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openChecklistAdm" prefHeight="43.0" prefWidth="148.0" text="CHECKLIST MANAGER" />
                                  </children>
                               </VBox>
                            </children>
@@ -150,11 +150,11 @@
                            <children>
                               <VBox layoutX="28.0" layoutY="38.0" prefHeight="410.0" prefWidth="146.0">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#openAddTask" prefHeight="43.0" prefWidth="148.0" text="ADD TASK">
+                                    <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openAddTask" prefHeight="43.0" prefWidth="148.0" text="ADD TASK">
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
                                        </VBox.margin></Button>
-                                    <Button mnemonicParsing="false" onAction="#openTaskTable" prefHeight="43.0" prefWidth="148.0" text="TASK MANAGER" />
+                                    <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openTaskTable" prefHeight="43.0" prefWidth="148.0" text="TASK MANAGER" />
                                  </children>
                               </VBox>
                            </children>
@@ -171,17 +171,17 @@
                            <children>
                               <VBox layoutX="28.0" layoutY="38.0" prefHeight="410.0" prefWidth="146.0">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#openAddTrainingWindow" prefHeight="43.0" prefWidth="148.0" text="ADD TRAINING">
+                                    <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openAddTrainingWindow" prefHeight="43.0" prefWidth="148.0" text="ADD TRAINING">
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
                                        </VBox.margin>
                                     </Button>
-                                    <Button mnemonicParsing="false" onAction="#openTrainingAdministrator" prefHeight="43.0" prefWidth="148.0" text="TRAINING MANAGER">
+                                    <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openTrainingAdministrator" prefHeight="43.0" prefWidth="148.0" text="TRAINING MANAGER">
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
                                        </VBox.margin>
                                     </Button>
-                                    <Button mnemonicParsing="false" onAction="#openEmployeeTrainingWindow" prefHeight="43.0" prefWidth="148.0" text="EMPLOYEE/TRAINING" />
+                                    <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openEmployeeTrainingWindow" prefHeight="43.0" prefWidth="148.0" text="EMPLOYEE/TRAINING" />
                                  </children>
                               </VBox>
                            </children>
@@ -197,11 +197,11 @@
                            <children>
                               <VBox layoutX="28.0" layoutY="38.0" prefHeight="410.0" prefWidth="146.0">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#openAddMaintenance" prefHeight="43.0" prefWidth="148.0" text="ADD CONTRACTOR">
+                                    <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openAddMaintenance" prefHeight="43.0" prefWidth="148.0" text="ADD CONTRACTOR">
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
                                        </VBox.margin></Button>
-                                    <Button mnemonicParsing="false" onAction="#openMaintenanceTable" prefHeight="43.0" prefWidth="148.0" text="CONTRACTOR MANAGER">
+                                    <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openMaintenanceTable" prefHeight="43.0" prefWidth="148.0" text="CONTRACTOR MANAGER">
                                        <font>
                                           <Font size="11.0" />
                                        </font></Button>
@@ -221,21 +221,21 @@
                            <children>
                               <VBox layoutX="28.0" layoutY="38.0" prefHeight="338.0" prefWidth="146.0">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#openReportTasksWindow" prefHeight="43.0" prefWidth="148.0" text="TASK REPORT">
+                                    <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openReportTasksWindow" prefHeight="43.0" prefWidth="148.0" text="TASK REPORT">
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
                                        </VBox.margin>
                                     </Button>
-                                    <Button mnemonicParsing="false" onAction="#openChecklistReport" prefHeight="43.0" prefWidth="148.0" text="CHECKLIST REPORT">
+                                    <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openChecklistReport" prefHeight="43.0" prefWidth="148.0" text="CHECKLIST REPORT">
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
                                        </VBox.margin>
                                     </Button>
-                                    <Button mnemonicParsing="false" onAction="#openMaintenanceReport" prefHeight="43.0" prefWidth="148.0" text="MAINTENANCE REPORT">
+                                    <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openMaintenanceReport" prefHeight="43.0" prefWidth="148.0" text="MAINTENANCE REPORT">
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
                                        </VBox.margin></Button>
-                                    <Button mnemonicParsing="false" onAction="#openTrainingReport" prefHeight="43.0" prefWidth="148.0" text="TRAINING REPORT" />
+                                    <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openTrainingReport" prefHeight="43.0" prefWidth="148.0" text="TRAINING REPORT" />
                                  </children>
                               </VBox>
                            </children>

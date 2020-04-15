@@ -40,7 +40,7 @@ public class MaintenanceReportController implements Initializable {
 
 		Dao dao = new Dao();
 		List<Maintenance> maintenanceList = new ArrayList<>();
-		maintenanceList.addAll(dao.loadAllMaintenance());
+		maintenanceList.addAll(dao.loadAllData(Maintenance.class));
 		ListIterator<Maintenance> iterator = maintenanceList.listIterator();
 
 		String choiceString = choicebox.getValue();

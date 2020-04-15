@@ -70,7 +70,7 @@ public class MaintenanceTableController implements Initializable {
 		lastDate.setCellValueFactory(new PropertyValueFactory<Maintenance, LocalDate>("lastDate"));
 		nextDate.setCellValueFactory(new PropertyValueFactory<Maintenance, LocalDate>("nextDate"));
 		
-		list = dataConnection.loadAllMaintenance();
+		list = dataConnection.loadAllData(Maintenance.class);
 		
 		for(Maintenance m: list) {
 			m.setCheckbox(new CheckBox());
@@ -106,7 +106,7 @@ public class MaintenanceTableController implements Initializable {
 	
 	public void refresh() {
 		list.clear();
-		list = dataConnection.loadAllMaintenance();
+		list = dataConnection.loadAllData(Maintenance.class);
 
 		for (Maintenance e : list) {
 			e.setCheckbox(new CheckBox());

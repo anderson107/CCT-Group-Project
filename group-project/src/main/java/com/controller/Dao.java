@@ -51,58 +51,14 @@ public class Dao {
 		}
 	}
 
-	// it retrieves all objects from maintenance
-	protected List<Maintenance> loadAllMaintenance() {
-		List<Maintenance> list = null;
-		data.openSession();
-		try {
-			data.beginTransaction();
-			list = data.loadAll("from Maintenance");
-			data.commit();
-		} catch (Exception e) {
-			data.closeSession();
-		}
-		return list;
-	}
-
-	// it retrieves all objects from Task
-	protected List<Task> loadAllTask() {
-		List<Task> list = null;
-		data.openSession();
-		try {
-			data.beginTransaction();
-			list = data.loadAll("from Task");
-			data.commit();
-		} catch (Exception e) {
-			data.closeSession();
-		}
-		return list;
-
-	}
-
-	// it retrieves all objects from Task
-	protected List<ChecklistSuperClass> loadAllChecklistItems(String hql) {
-		List<ChecklistSuperClass> list = null;
-		data.openSession();
-		try {
-			data.beginTransaction();
-			list = data.loadAll(hql);
-			data.commit();
-		} catch (Exception e) {
-			data.closeSession();
-		}
-		return list;
-
-	}
-
 	protected List<ChecklistSuperClass> LoadChecklistItems() {
 
 		List<ChecklistSuperClass> list = new ArrayList<>();
-		list.addAll(loadAllChecklistItems("from FireWarden"));
-		list.addAll(loadAllChecklistItems("from HealthSafetyChecklist"));
-		list.addAll(loadAllChecklistItems("from DeliHACCP"));
-		list.addAll(loadAllChecklistItems("from FloorHACCP"));
-		list.addAll(loadAllChecklistItems("from CoffeeHACCP"));
+		list.addAll(loadAllData(FireWarden.class));
+		list.addAll(loadAllData(HealthSafetyChecklist.class));
+		list.addAll(loadAllData(DeliHACCP.class));
+		list.addAll(loadAllData(FloorHACCP.class));
+		list.addAll(loadAllData(CoffeeHACCP.class));
 
 		return list;
 	}

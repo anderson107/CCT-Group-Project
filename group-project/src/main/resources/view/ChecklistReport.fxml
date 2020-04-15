@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="269.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.ChecklistReportController">
+<BorderPane prefHeight="269.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.ChecklistReportController">
    <top>
       <AnchorPane prefHeight="269.0" prefWidth="450.0" BorderPane.alignment="CENTER">
          <children>
@@ -34,12 +34,11 @@
             </Label>
             <Button layoutX="241.0" layoutY="108.0" mnemonicParsing="false" onAction="#generateReport" prefHeight="35.0" prefWidth="145.0" text="Generate Report">
                <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/generate.png" />
-                     </image>
-                  </ImageView>
-               </graphic></Button>
+                  <FontAwesomeIconView glyphName="FILE_PDF_ALT" size="15" />
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
             <Separator layoutX="24.0" layoutY="27.0" orientation="VERTICAL" prefHeight="137.0" prefWidth="6.0" />
             <Separator layoutX="25.0" layoutY="25.0" prefHeight="4.0" prefWidth="385.0" />
             <Separator layoutX="25.0" layoutY="162.0" prefHeight="4.0" prefWidth="385.0" />
@@ -48,28 +47,20 @@
             <Separator layoutX="25.0" layoutY="183.0" prefHeight="4.0" prefWidth="385.0" />
             <Separator layoutX="25.0" layoutY="245.0" prefHeight="4.0" prefWidth="385.0" />
             <Separator layoutX="409.0" layoutY="185.0" orientation="VERTICAL" prefHeight="61.0" prefWidth="6.0" />
-            <Button layoutX="50.0" layoutY="199.0" mnemonicParsing="false" onAction="#generateTodayReport" prefHeight="25.0" prefWidth="94.0" text="TODAY">
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/today.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
+            <Button layoutX="50.0" layoutY="199.0" mnemonicParsing="false" onAction="#generateTodayReport" prefHeight="34.0" prefWidth="94.0" text="TODAY">
                <font>
                   <Font name="System Bold" size="12.0" />
-               </font></Button>
+               </font>
+               <graphic>
+                  <MaterialDesignIconView glyphName="CALENDAR_TODAY" size="15" />
+               </graphic></Button>
             <Button layoutX="171.0" layoutY="199.0" mnemonicParsing="false" onAction="#generateLate" prefHeight="33.0" prefWidth="94.0" text="LATE">
-               <graphic>
-                  <ImageView fitHeight="22.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/late.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
                <font>
                   <Font name="System Bold" size="12.0" />
-               </font></Button>
+               </font>
+               <graphic>
+                  <MaterialDesignIconView glyphName="CALENDAR_REMOVE" size="15" />
+               </graphic></Button>
             <Button layoutX="291.0" layoutY="199.0" mnemonicParsing="false" onAction="#generateTodayLate" prefHeight="33.0" prefWidth="94.0" text="TODAY/LATE">
                <font>
                   <Font name="System Bold" size="12.0" />

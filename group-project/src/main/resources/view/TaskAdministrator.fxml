@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="442.0" prefWidth="921.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.TaskAdministratorController">
+<BorderPane prefHeight="442.0" prefWidth="921.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.TaskAdministratorController">
    <top>
       <AnchorPane prefHeight="455.0" prefWidth="921.0" BorderPane.alignment="CENTER">
          <children>
@@ -30,39 +30,27 @@
                                 </columns>
                               </TableView>
                               <Button fx:id="updateTaskAdministratorButton" layoutX="18.0" layoutY="109.0" mnemonicParsing="false" onAction="#openUpdateTaskWindow" prefHeight="25.0" prefWidth="145.0" text="UPDATE">
-                     <graphic>
-                        <ImageView fitHeight="17.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/update.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
                      <font>
                         <Font name="System Bold" size="12.0" />
-                     </font></Button>
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView glyphName="REFRESH" />
+                     </graphic></Button>
                               <Button fx:id="deleteRow" layoutX="18.0" layoutY="149.0" mnemonicParsing="false" onAction="#deleteRow" prefHeight="27.0" prefWidth="145.0" text="DELETE">
-                     <graphic>
-                        <ImageView fitHeight="18.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/delete.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
                      <font>
                         <Font name="System Bold" size="12.0" />
-                     </font></Button>
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView glyphName="TRASH_ALT" size="14" />
+                     </graphic></Button>
                   <ChoiceBox fx:id="taskAdministratorChoicebox" layoutX="13.0" layoutY="56.0" prefHeight="25.0" prefWidth="89.0" />
                   <Button layoutX="108.0" layoutY="56.0" mnemonicParsing="false" onAction="#updateTable" prefHeight="25.0" prefWidth="65.0" text="Enter">
-                     <graphic>
-                        <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/enter.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
                      <font>
                         <Font name="System Bold" size="12.0" />
-                     </font></Button>
+                     </font>
+                     <graphic>
+                        <MaterialDesignIconView glyphName="LOGIN" size="14" />
+                     </graphic></Button>
                   <Label layoutX="53.0" layoutY="31.0" text="SELECT LIST">
                      <font>
                         <Font name="System Bold" size="12.0" />
@@ -71,16 +59,12 @@
                   <Separator layoutX="-2.0" layoutY="24.0" prefHeight="3.0" prefWidth="183.0" />
                   <Separator layoutX="-5.0" layoutY="90.0" prefHeight="3.0" prefWidth="183.0" />
                   <Button fx:id="backButton" layoutX="18.0" layoutY="191.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="27.0" prefWidth="145.0" text="MENU">
-                     <graphic>
-                        <ImageView fitHeight="18.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/Back.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
+                     <graphic>
+                        <FontAwesomeIconView glyphName="ARROW_CIRCLE_LEFT" size="14" />
+                     </graphic>
                   </Button>
                            </children>
                         </AnchorPane>

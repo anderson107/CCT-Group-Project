@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
@@ -7,13 +9,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="431.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.RegisterFormController">
+<BorderPane prefHeight="431.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.RegisterFormController">
    <bottom>
       <AnchorPane prefHeight="435.0" prefWidth="500.0" BorderPane.alignment="CENTER">
          <children>
@@ -80,11 +80,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/register.png" />
-                     </image>
-                  </ImageView>
+                  <MaterialDesignIconView glyphName="ACCOUNT_PLUS" size="16" />
                </graphic>
             </Button>
             <Separator layoutX="15.0" layoutY="51.0" orientation="VERTICAL" prefHeight="307.0" prefWidth="3.0" />
@@ -95,11 +91,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="23.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/Back.png" />
-                     </image>
-                  </ImageView>
+                  <FontAwesomeIconView glyphName="ARROW_CIRCLE_LEFT" size="16" />
                </graphic>
             </Button>
             <Label fx:id="firstNameLB" layoutX="126.0" layoutY="88.0" prefHeight="17.0" prefWidth="204.0" textFill="#f30404" />

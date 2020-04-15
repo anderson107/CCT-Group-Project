@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.EmployeeTrainingController">
+<BorderPane prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.EmployeeTrainingController">
    <top>
       <AnchorPane prefHeight="452.0" prefWidth="800.0" BorderPane.alignment="CENTER">
          <children>
@@ -25,16 +25,12 @@
             </TableView>
             <ChoiceBox fx:id="choicebox" layoutX="133.0" layoutY="24.0" prefWidth="150.0" />
             <Button layoutX="301.0" layoutY="23.0" mnemonicParsing="false" onAction="#fillUpTable" prefHeight="28.0" prefWidth="71.0" text="Enter">
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/enter.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
                <font>
                   <Font name="System Bold" size="12.0" />
-               </font></Button>
+               </font>
+               <graphic>
+                  <MaterialDesignIconView glyphName="LOGIN" size="14" />
+               </graphic></Button>
             <Label layoutX="32.0" layoutY="30.0" text="Select Employee">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -45,11 +41,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="19.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/update.png" />
-                     </image>
-                  </ImageView>
+                  <FontAwesomeIconView glyphName="REFRESH" size="12" />
                </graphic>
             </Button>
             <Button fx:id="backButton" layoutX="678.0" layoutY="26.0" mnemonicParsing="false" onAction="#backMenu" prefHeight="25.0" prefWidth="83.0" text="Menu">
@@ -57,11 +49,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="19.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/Back.png" />
-                     </image>
-                  </ImageView>
+                  <FontAwesomeIconView glyphName="ARROW_CIRCLE_LEFT" />
                </graphic>
             </Button>
          </children>

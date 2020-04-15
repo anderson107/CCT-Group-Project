@@ -4,11 +4,11 @@ package com.controller;
 import com.saturn.model.Administrator;
 import com.saturn.model.Validation;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 public class LoginController {
 

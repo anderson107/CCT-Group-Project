@@ -48,7 +48,7 @@ public class TaskReportController implements Initializable {
 
 		Dao dao = new Dao();
 		List<Task> taskList = new ArrayList<>();
-		taskList.addAll(dao.loadAllTask());
+		taskList.addAll(dao.loadAllData(Task.class));
 		ListIterator<Task> iterator = taskList.listIterator();
 
 		String choiceString = choicebox.getValue();

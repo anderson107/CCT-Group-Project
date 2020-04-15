@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="268.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.TrainingReportController">
+<BorderPane prefHeight="268.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.TrainingReportController">
    <top>
       <AnchorPane prefHeight="266.0" prefWidth="500.0" BorderPane.alignment="CENTER">
          <children>
@@ -23,27 +22,19 @@
             <Separator layoutX="31.0" layoutY="38.0" prefHeight="1.0" prefWidth="440.0" />
             <Separator layoutX="32.0" layoutY="233.0" prefHeight="3.0" prefWidth="440.0" />
             <Button layoutX="88.0" layoutY="175.0" mnemonicParsing="false" onAction="#printReport" prefHeight="41.0" prefWidth="154.0" text="GENERATE REPORT">
-               <graphic>
-                  <ImageView fitHeight="23.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/generate.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
                <font>
                   <Font name="System Bold" size="12.0" />
-               </font></Button>
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="FILE_PDF_ALT" size="16" />
+               </graphic></Button>
             <Button fx:id="backButton" layoutX="276.0" layoutY="175.0" mnemonicParsing="false" onAction="#closeReportWindow" prefHeight="41.0" prefWidth="117.0" text="BACK">
-               <graphic>
-                  <ImageView fitHeight="21.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/Back.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
                <font>
                   <Font name="System Bold" size="12.0" />
-               </font></Button>
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="ARROW_CIRCLE_LEFT" size="16" />
+               </graphic></Button>
             <Separator layoutX="31.0" layoutY="38.0" orientation="VERTICAL" prefHeight="195.0" prefWidth="4.0" />
             <Separator layoutX="471.0" layoutY="38.0" orientation="VERTICAL" prefHeight="195.0" prefWidth="6.0" />
             <Label layoutX="60.0" layoutY="95.0" prefHeight="20.0" prefWidth="71.0" text="Status">

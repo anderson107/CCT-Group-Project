@@ -1,31 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="409.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.AddTaskController">
+<BorderPane prefHeight="409.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.AddTaskController">
    <center>
       <AnchorPane prefHeight="395.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
          <Button fx:id="addTask" layoutX="75.0" layoutY="310.0" mnemonicParsing="false" onAction="#addItem" prefHeight="35.0" prefWidth="99.0" text="ADD">
-               <graphic>
-                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/add.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
                <font>
                   <Font name="System Bold" size="14.0" />
-               </font></Button>
+               </font>
+               <graphic>
+                  <MaterialDesignIconView glyphName="LIBRARY_PLUS" size="15" />
+               </graphic></Button>
             <Label layoutX="46.0" layoutY="44.0" text="Describe item:">
                <font>
                   <Font name="System Bold" size="14.0" />
@@ -33,16 +29,12 @@
             </Label>
             
             <Button fx:id="backButton" layoutX="216.0" layoutY="310.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="35.0" prefWidth="99.0" text="BACK">
-               <graphic>
-                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/Back.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
                <font>
                   <Font name="System Bold" size="14.0" />
-               </font></Button>
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="ARROW_CIRCLE_LEFT" size="15" />
+               </graphic></Button>
             <Separator layoutX="28.0" layoutY="25.0" prefHeight="3.0" prefWidth="345.0" />
             <Separator layoutX="27.0" layoutY="373.0" prefHeight="3.0" prefWidth="346.0" />
             <Separator layoutX="26.0" layoutY="27.0" orientation="VERTICAL" prefHeight="346.0" prefWidth="6.0" />

@@ -1,44 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="367.0" prefWidth="562.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.UpdateTaskController">
+<BorderPane prefHeight="367.0" prefWidth="562.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.UpdateTaskController">
    <bottom>
       <AnchorPane prefHeight="367.0" prefWidth="562.0" BorderPane.alignment="CENTER">
          <children>
             <TextArea fx:id="textArea" layoutX="41.0" layoutY="63.0" prefHeight="92.0" prefWidth="481.0" wrapText="true" />
-            <Button fx:id="backButton" layoutX="320.0" layoutY="308.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="105.0" text="Back">
-               <graphic>
-                  <ImageView fitHeight="31.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/Back.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
+            <Button fx:id="backButton" layoutX="320.0" layoutY="308.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="105.0" text="BACK">
                <font>
                   <Font name="System Bold" size="14.0" />
-               </font></Button>
-            <Button layoutX="133.0" layoutY="308.0" mnemonicParsing="false" onAction="#updateTask" prefHeight="41.0" prefWidth="105.0" text="Update">
+               </font>
                <graphic>
-                  <ImageView fitHeight="31.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/update.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
+                  <FontAwesomeIconView glyphName="ARROW_CIRCLE_LEFT" size="16" />
+               </graphic></Button>
+            <Button layoutX="133.0" layoutY="308.0" mnemonicParsing="false" onAction="#updateTask" prefHeight="41.0" prefWidth="105.0" text="UPDATE">
                <font>
                   <Font name="System Bold" size="14.0" />
-               </font></Button>
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="REFRESH" size="16" />
+               </graphic></Button>
             <Label layoutX="59.0" layoutY="179.0" text="Status">
                <font>
                   <Font name="System Bold" size="12.0" />
