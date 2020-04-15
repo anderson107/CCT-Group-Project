@@ -1,6 +1,5 @@
 package com.saturn.model;
 
-import javax.swing.JOptionPane;
 
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -80,7 +79,7 @@ public class Validation {
 			tf.requestFocus();
 		} else if (!tf.getText().trim().matches(
 				"^(.+)@(.+)$")) {
-			JOptionPane.showMessageDialog(null, "Enter a valid email \nemail@email.com");
+			label.setText("email@email.com");
 		}
 
 		else {
@@ -91,17 +90,26 @@ public class Validation {
 	}
 
 	public static boolean isPhoneValid(TextField tf, Label label, String text) {
-		boolean valid = true;
-
-		if (!tf.getText().trim().matches("[0-9]+")) {
-			valid = false;
-			label.setText(text);
-			tf.requestFocus();
-		} else {
+		
+		boolean valid = false;
+		
+		if(tf.getText().matches("[0-9]+")) {
+			
+			if(tf.getText().length() < 7 || tf.getText().length()>10) {
+				valid = false;
+				label.setText("Minimum 7 and maximum 10 characters");
+				tf.requestFocus();
+				return false;
+			}
+			
 			valid = true;
 			label.setText("");
+			
+		}else {
+			valid = false;
+			label.setText("Required");
 		}
-
+		
 		return valid;
 	}
 

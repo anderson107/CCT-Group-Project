@@ -104,13 +104,22 @@
                                  <VBox.margin>
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
                               </Button>
                               <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openEmployeeAdm" prefHeight="43.0" prefWidth="148.0" text="EMPLOYEE MANAGER">
                                  <VBox.margin>
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
                               </Button>
-                              <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#changePassword" prefHeight="43.0" prefWidth="148.0" text="CHANGE PASSWORD" />
+                              <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#changePassword" prefHeight="43.0" prefWidth="148.0" text="CHANGE PASSWORD">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Button>
                            </children>
                         </VBox>
                      </children></AnchorPane>
@@ -127,13 +136,22 @@
                                     <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openAddItemChecklistWindow" prefHeight="43.0" prefWidth="148.0" text="ADD ITEM">
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
-                                       </VBox.margin></Button>
+                                       </VBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></Button>
                                     <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openTaskAdmistrator" prefHeight="43.0" prefWidth="148.0" text="UPDATE STATUS">
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
                                        </VBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
                                     </Button>
-                                    <Button fx:id="taskAdministratorButton" blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openChecklistAdm" prefHeight="43.0" prefWidth="148.0" text="CHECKLIST MANAGER" />
+                                    <Button fx:id="taskAdministratorButton" blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openChecklistAdm" prefHeight="43.0" prefWidth="148.0" text="CHECKLIST MANAGER">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></Button>
                                  </children>
                               </VBox>
                            </children>
@@ -153,8 +171,14 @@
                                     <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openAddTask" prefHeight="43.0" prefWidth="148.0" text="ADD TASK">
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
-                                       </VBox.margin></Button>
-                                    <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openTaskTable" prefHeight="43.0" prefWidth="148.0" text="TASK MANAGER" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></Button>
+                                    <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openTaskTable" prefHeight="43.0" prefWidth="148.0" text="TASK MANAGER">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></Button>
                                  </children>
                               </VBox>
                            </children>
@@ -175,13 +199,22 @@
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
                                        </VBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
                                     </Button>
                                     <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openTrainingAdministrator" prefHeight="43.0" prefWidth="148.0" text="TRAINING MANAGER">
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
                                        </VBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
                                     </Button>
-                                    <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openEmployeeTrainingWindow" prefHeight="43.0" prefWidth="148.0" text="EMPLOYEE/TRAINING" />
+                                    <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openEmployeeTrainingWindow" prefHeight="43.0" prefWidth="148.0" text="EMPLOYEE/TRAINING">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></Button>
                                  </children>
                               </VBox>
                            </children>
@@ -200,10 +233,13 @@
                                     <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openAddMaintenance" prefHeight="43.0" prefWidth="148.0" text="ADD CONTRACTOR">
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
-                                       </VBox.margin></Button>
+                                       </VBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></Button>
                                     <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openMaintenanceTable" prefHeight="43.0" prefWidth="148.0" text="CONTRACTOR MANAGER">
                                        <font>
-                                          <Font size="11.0" />
+                                          <Font name="System Bold" size="10.0" />
                                        </font></Button>
                                  </children>
                               </VBox>
@@ -225,17 +261,29 @@
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
                                        </VBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
                                     </Button>
                                     <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openChecklistReport" prefHeight="43.0" prefWidth="148.0" text="CHECKLIST REPORT">
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
                                        </VBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
                                     </Button>
                                     <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openMaintenanceReport" prefHeight="43.0" prefWidth="148.0" text="MAINTENANCE REPORT">
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
-                                       </VBox.margin></Button>
-                                    <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openTrainingReport" prefHeight="43.0" prefWidth="148.0" text="TRAINING REPORT" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font></Button>
+                                    <Button blendMode="MULTIPLY" mnemonicParsing="false" onAction="#openTrainingReport" prefHeight="43.0" prefWidth="148.0" text="TRAINING REPORT">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></Button>
                                  </children>
                               </VBox>
                            </children>

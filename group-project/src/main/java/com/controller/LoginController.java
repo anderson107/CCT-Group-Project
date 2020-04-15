@@ -1,55 +1,68 @@
 package com.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 
 import com.saturn.model.Administrator;
 import com.saturn.model.Validation;
+import com.saturn.model.checklists.ChecklistSuperClass;
 
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class LoginController {
 
 	@FXML
 	private Button signInButton;
-	
+
 	@FXML
-	private TextField emailTextField;
-	
+	private TextField loginTextField;
+
 	@FXML
 	private TextField passwordTextField;
-	
+
 	@FXML
 	private Label emailLabel;
-	
+
 	@FXML
 	private Label passwordLabel;
-	
+
 	@FXML
 	private Label invalid;
-	
+
 	@FXML
 	private void openMenu() {
-		
-		boolean email = Validation.isEmailValid(emailTextField, emailLabel, "Invalid Email");
+
+		boolean login = Validation.isTextFieldEmpty(loginTextField, emailLabel, "Invalid Login");
 		boolean password = Validation.isTextFieldEmpty(passwordTextField, passwordLabel, "Invalid password");
-		
-		if(email && password) {
-			
+
+		if (login && password) {
+
 			Dao dao = new Dao();
 			Administrator adm = dao.getAdministrator(1);
-			
-			if(emailTextField.getText().matches(adm.getEmail()) && passwordTextField.getText().matches(adm.getPassword())) {
+
+			if (loginTextField.getText().matches(adm.getLogin())
+					&& passwordTextField.getText().matches(adm.getPassword())) {
+
+				List<ChecklistSuperClass> list = new ArrayList<>();
+				
+				list.addAll(dao.LoadChecklistItems());
+				
+				// it updates the checklist dates in the DB if the task wa done
+				dao.updateDBChecklistDates(list);
 				
 				Stage stage = (Stage) signInButton.getScene().getWindow();
 				stage.close();
-			}else {
+				
+				// it checks if there is any maintenance contract expired
+				dao.checkMaintenance();
+				
+			} else {
 				invalid.setText("Invalid email or password");
 				return;
 			}
 		}
-		
+
 	}
 }

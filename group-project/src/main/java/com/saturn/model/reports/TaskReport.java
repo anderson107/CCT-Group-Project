@@ -38,8 +38,8 @@ public class TaskReport {
 
 	public JasperPrint generateReport(List<Task>list) {
 		
-		String directory = "/Users/Dell/Desktop/cct";
-		String ouptup = directory + File.separatorChar + "TaskReport.pdf";
+		String directory = System.getProperty("user.home");
+		String ouptup = directory + File.separatorChar +"Downloads"+File.separatorChar+"TaskReport.pdf";
 		String sourceFile = "src/main/resources/view/report/Task.jasper";
 		JasperPrint jasperPrint = null;
 		try {

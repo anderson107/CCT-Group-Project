@@ -6,7 +6,7 @@ import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-
+import javax.swing.JOptionPane;
 
 import com.saturn.dao.DataSource;
 import com.saturn.model.Administrator;
@@ -435,7 +435,90 @@ public class Dao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			data.closeSession();;
+			data.closeSession();
+			;
+		}
+
+	}
+
+	protected void updateDBChecklistDates(List<ChecklistSuperClass> list) {
+
+		data.openSession();
+
+		try {
+
+			data.beginTransaction();
+
+			for (ChecklistSuperClass item : list) {
+
+				if (item.getDueDate().isBefore(LocalDate.now()) && item.getStatus().matches("Done")) {
+
+					ChecklistSuperClass listItem = (ChecklistSuperClass) data.getSession()
+							.get(item.getClass().getName(), item.getId());
+
+					switch (listItem.getFrequency()) {
+
+					case "Daily":
+						listItem.setDueDate(LocalDate.now());
+						listItem.setStatus("Pending");
+						data.getSession().update(listItem);
+						break;
+					case "Weekly":
+						listItem.setDueDate(LocalDate.now().plusDays(7));
+						listItem.setStatus("Pending");
+						data.getSession().update(listItem);
+						break;
+					case "Biweekly":
+						listItem.setDueDate(LocalDate.now().plusDays(15));
+						listItem.setStatus("Pending");
+						data.getSession().update(listItem);
+						break;
+					case "Monthly":
+						listItem.setDueDate(LocalDate.now().plusDays(30));
+						listItem.setStatus("Pending");
+						data.getSession().update(listItem);
+						break;
+					case "Semiannual":
+						listItem.setDueDate(LocalDate.now().plusMonths(6));
+						listItem.setStatus("Pending");
+						data.getSession().update(listItem);
+						break;
+					case "Yearly":
+						listItem.setDueDate(LocalDate.now().plusMonths(12));
+						listItem.setStatus("Pending");
+						data.getSession().update(listItem);
+						break;
+					}
+
+				}
+			}
+
+			data.commit();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			data.closeSession();
+		}
+
+	}
+
+	protected void checkMaintenance() {
+
+		List<Maintenance> list = new ArrayList<>();
+
+		list.addAll(loadAllData(Maintenance.class));
+
+		for (Maintenance m : list) {
+
+			if (m.getNextDate().isBefore(LocalDate.now())) {
+
+				JOptionPane
+						.showMessageDialog(null,
+								"Company:" + m.getCompany() + "\nService:" + m.getDescription()
+										+ "\nLast Service: " + m.getLastDate() + "\nNext Service: " + m.getNextDate(),
+										"Service Expired", JOptionPane.WARNING_MESSAGE);
+			}
 		}
 
 	}

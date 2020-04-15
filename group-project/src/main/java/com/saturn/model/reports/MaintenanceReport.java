@@ -38,8 +38,8 @@ public class MaintenanceReport {
 
 	public JasperPrint generateReport(List<Maintenance>list) {
 		
-		String directory = "/Users/Dell/Desktop/cct";
-		String ouptup = directory + File.separatorChar + "MaintenanceReport.pdf";
+		String directory = System.getProperty("user.home");
+		String ouptup = directory + File.separatorChar +"Downloads"+File.separatorChar+"Maintenance.pdf";
 		String sourceFile = "src/main/resources/view/report/Maintenance.jasper";
 		JasperPrint jasperPrint = null;
 		try {

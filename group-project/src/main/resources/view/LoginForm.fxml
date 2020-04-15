@@ -29,7 +29,7 @@
                      <children>
                         <VBox layoutX="60.0" layoutY="65.0">
                            <children>
-                              <TextField fx:id="emailTextField" prefHeight="37.0" prefWidth="200.0" style="-fx-background-color: #ff6f69;">
+                              <TextField fx:id="loginTextField" prefHeight="37.0" prefWidth="200.0" style="-fx-background-color: #ff6f69;">
                                  <VBox.margin>
                                     <Insets bottom="45.0" />
                                  </VBox.margin>
@@ -48,7 +48,7 @@
                                  </font></TextField>
                            </children>
                         </VBox>
-                        <Label layoutX="60.0" layoutY="39.0" text="Enter user email">
+                        <Label layoutX="60.0" layoutY="39.0" text="Enter user login">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -74,7 +74,7 @@
                               <Font name="System Bold" size="12.0" />
                            </font></Label>
                         <Label fx:id="invalid" layoutX="73.0" layoutY="219.0" prefHeight="17.0" prefWidth="173.0" textFill="WHITE" />
-                        <MaterialDesignIconView glyphName="EMAIL" layoutX="23.0" layoutY="93.0" size="30" />
+                        <MaterialDesignIconView glyphName="LOGIN" layoutX="23.0" layoutY="93.0" size="30" />
                         <FontAwesomeIconView glyphName="UNLOCK_ALT" layoutX="28.0" layoutY="198.0" size="30" />
                      </children>
                   </AnchorPane>
