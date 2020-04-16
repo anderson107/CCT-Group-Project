@@ -6,7 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class DataSource {
+public class DataSource implements HibernateDB{
 
 	
 	private static DataSource instance = new DataSource();
@@ -19,6 +19,7 @@ public class DataSource {
 		
 	}
 	
+	@Override
 	public Session getSession() {
 		return session;
 	}
@@ -27,16 +28,19 @@ public class DataSource {
 		return instance;
 	}
 
+	@Override
 	public SessionFactory getFactory() {
 		factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
 		return factory;
 	}
 	
+	@Override
 	public Session openSession() {
 		session = getFactory().getCurrentSession();
 		return session;
 	}
 	
+	@Override
 	public void beginTransaction() {
 		session.beginTransaction();
 	}
@@ -54,14 +58,17 @@ public class DataSource {
 		return t;
 	}
 	
+	@Override
 	public void commit() {
 		session.getTransaction().commit();
 	}
 	
+	@Override
 	public void closeSession() {
 		session.close();
 	}
 	
+	@Override
 	public void closeFactory() {
 		factory.close();
 	}

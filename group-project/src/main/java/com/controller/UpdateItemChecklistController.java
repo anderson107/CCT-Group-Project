@@ -60,8 +60,8 @@ public class UpdateItemChecklistController implements Initializable {
 
 	@FXML
 	private void closeUpdateTaskWindow() {
-//		Stage stage = (Stage) updateItemBackButton.getScene().getWindow();
-//		stage.close();
+		Stage stage = (Stage) textAreaUpdate.getScene().getWindow();
+		stage.close();
 	}
 
 	@Override
@@ -76,23 +76,22 @@ public class UpdateItemChecklistController implements Initializable {
 		updateSelectTypeChoiceBox.setItems(list);
 
 		// it sets value to type choice box
-		if (updateItem.getClass().getSimpleName().matches("HealthSafetyChecklist")) {
+		if (updateItem instanceof HealthSafetyChecklist) {
 			updateSelectTypeChoiceBox.setValue(ChecklistCategory.HEALTH_SAFETY.getCategory());
-		} else if (updateItem.getClass().getSimpleName().matches("FireWarden")) {
+		} else if (updateItem instanceof FireWarden) {
 			updateSelectTypeChoiceBox.setValue(ChecklistCategory.FIRE_WARDEN.getCategory());
-		} else if (updateItem.getClass().getSimpleName().matches("DeliHACCP")) {
+		} else if (updateItem instanceof DeliHACCP) {
 			updateSelectTypeChoiceBox.setValue(ChecklistCategory.DELI_HACCP.getCategory());
-		} else if (updateItem.getClass().getSimpleName().matches("CoffeeHACCP")) {
+		} else if (updateItem instanceof CoffeeHACCP) {
 			updateSelectTypeChoiceBox.setValue(ChecklistCategory.COFFEE_HACCP.getCategory());
-		} else if (updateItem.getClass().getSimpleName().matches("FloorHACCP")) {
+		} else if (updateItem instanceof FloorHACCP) {
 			updateSelectTypeChoiceBox.setValue(ChecklistCategory.FLOOR_HACCP.getCategory());
 		}
 
 		// it populates frequency choice box
 		ObservableList<String> list1 = FXCollections.observableArrayList();
-		list1.addAll(Frequency.DAILY.getFrequency(), Frequency.WEEKLY.getFrequency(),
-				Frequency.BIWEEKLY.getFrequency(), Frequency.SEMIANNUAL.getFrequency(),
-				Frequency.YEARLY.getFrequency());
+		list1.addAll(Frequency.DAILY.getFrequency(), Frequency.WEEKLY.getFrequency(), Frequency.BIWEEKLY.getFrequency(),
+				Frequency.SEMIANNUAL.getFrequency(), Frequency.YEARLY.getFrequency());
 		updateSelectFrequencyChoiceBox.setItems(list1);
 		updateSelectFrequencyChoiceBox.setValue(updateItem.getFrequency());
 
@@ -122,29 +121,29 @@ public class UpdateItemChecklistController implements Initializable {
 		if (category && frequency && status && date && itemDescription) {
 
 			if (className.matches("FireWarden")) {
-				dao.updateItemChecklistItem(FireWarden.class, itemToBeUpdatedIndex,
-						textAreaUpdate.getText(), updateSelectTypeChoiceBox.getValue(),
-						updateSelectFrequencyChoiceBox.getValue(), updateStatus.getValue(), datePicker);
+				dao.updateItemChecklistItem(FireWarden.class, itemToBeUpdatedIndex, textAreaUpdate.getText(),
+						updateSelectTypeChoiceBox.getValue(), updateSelectFrequencyChoiceBox.getValue(),
+						updateStatus.getValue(), datePicker);
 
 			} else if (className.matches("HealthSafetyChecklist")) {
-				dao.updateItemChecklistItem(HealthSafetyChecklist.class, itemToBeUpdatedIndex,
-						textAreaUpdate.getText(), updateSelectTypeChoiceBox.getValue(),
-						updateSelectFrequencyChoiceBox.getValue(), updateStatus.getValue(), datePicker);
+				dao.updateItemChecklistItem(HealthSafetyChecklist.class, itemToBeUpdatedIndex, textAreaUpdate.getText(),
+						updateSelectTypeChoiceBox.getValue(), updateSelectFrequencyChoiceBox.getValue(),
+						updateStatus.getValue(), datePicker);
 
 			} else if (className.matches("DeliHACCP")) {
-				dao.updateItemChecklistItem(DeliHACCP.class, itemToBeUpdatedIndex,
-						textAreaUpdate.getText(), updateSelectTypeChoiceBox.getValue(),
-						updateSelectFrequencyChoiceBox.getValue(), updateStatus.getValue(), datePicker);
+				dao.updateItemChecklistItem(DeliHACCP.class, itemToBeUpdatedIndex, textAreaUpdate.getText(),
+						updateSelectTypeChoiceBox.getValue(), updateSelectFrequencyChoiceBox.getValue(),
+						updateStatus.getValue(), datePicker);
 
 			} else if (className.matches("FloorHACCP")) {
-				dao.updateItemChecklistItem(FloorHACCP.class, itemToBeUpdatedIndex,
-						textAreaUpdate.getText(), updateSelectTypeChoiceBox.getValue(),
-						updateSelectFrequencyChoiceBox.getValue(), updateStatus.getValue(), datePicker);
+				dao.updateItemChecklistItem(FloorHACCP.class, itemToBeUpdatedIndex, textAreaUpdate.getText(),
+						updateSelectTypeChoiceBox.getValue(), updateSelectFrequencyChoiceBox.getValue(),
+						updateStatus.getValue(), datePicker);
 
 			} else if (className.matches("CoffeeHACCP")) {
-				dao.updateItemChecklistItem(CoffeeHACCP.class, itemToBeUpdatedIndex,
-						textAreaUpdate.getText(), updateSelectTypeChoiceBox.getValue(),
-						updateSelectFrequencyChoiceBox.getValue(), updateStatus.getValue(), datePicker);
+				dao.updateItemChecklistItem(CoffeeHACCP.class, itemToBeUpdatedIndex, textAreaUpdate.getText(),
+						updateSelectTypeChoiceBox.getValue(), updateSelectFrequencyChoiceBox.getValue(),
+						updateStatus.getValue(), datePicker);
 			}
 
 			Stage stage = (Stage) textAreaUpdate.getScene().getWindow();

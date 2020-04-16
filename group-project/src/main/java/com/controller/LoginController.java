@@ -47,7 +47,7 @@ public class LoginController {
 
 				List<ChecklistSuperClass> list = new ArrayList<>();
 				
-				list.addAll(dao.LoadChecklistItems());
+				list.addAll(dao.loadChecklistItems());
 				
 				// it updates the checklist dates in the DB if the task wa done
 				dao.updateDBChecklistDates(list);

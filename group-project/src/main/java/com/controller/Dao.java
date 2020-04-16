@@ -51,7 +51,7 @@ public class Dao {
 		}
 	}
 
-	protected List<ChecklistSuperClass> LoadChecklistItems() {
+	protected List<ChecklistSuperClass> loadChecklistItems() {
 
 		List<ChecklistSuperClass> list = new ArrayList<>();
 		list.addAll(loadAllData(FireWarden.class));
@@ -60,6 +60,16 @@ public class Dao {
 		list.addAll(loadAllData(FloorHACCP.class));
 		list.addAll(loadAllData(CoffeeHACCP.class));
 
+		return list;
+	}
+	
+	protected List<TrainingSuperClass> loadTrainingItems(){
+		
+		List<TrainingSuperClass> list = new ArrayList<>();
+		list.addAll(loadAllData(HSETraining.class));
+		list.addAll(loadAllData(SeaChangeTraining.class));
+		list.addAll(loadAllData(VirtualAcademyTraining.class));
+		
 		return list;
 	}
 

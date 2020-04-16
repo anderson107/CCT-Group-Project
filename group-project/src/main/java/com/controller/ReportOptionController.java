@@ -44,7 +44,7 @@ public class ReportOptionController {
 			}
 		}
 		
-		new TaskReport(taskList);
+		new TaskReport(taskList, "Task Report", "Task.pdf", "Task.jasper");
 	}
 	
 	@FXML
@@ -61,7 +61,7 @@ public class ReportOptionController {
 						iterator.remove();
 					}
 				}
-				new MaintenanceReport(maintenanceList);
+				new MaintenanceReport(maintenanceList, "Maintenance Report", "Maintenance.pdf", "Maintenance.jasper");
 	}
 	
 	@FXML
@@ -103,6 +103,6 @@ public class ReportOptionController {
 				}
 			}
 		}
-		new TrainingReport(custom);
+		new TrainingReport(custom,"Training Report", "Training.pdf", "Training.jasper");
 	}
 }

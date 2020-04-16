@@ -55,7 +55,7 @@ public class MaintenanceReportController implements Initializable {
 					}
 				}
 				closeTaskReportWindow();
-				new MaintenanceReport(maintenanceList);
+				new MaintenanceReport(maintenanceList, "Maintenance Report", "Maintenance.pdf", "Maintenance.jasper");
 
 			} else if (choiceString.matches("Done")) {
 
@@ -67,11 +67,11 @@ public class MaintenanceReportController implements Initializable {
 					}
 				}
 				closeTaskReportWindow();
-				new MaintenanceReport(maintenanceList);
+				new MaintenanceReport(maintenanceList, "Maintenance Report", "Maintenance.pdf", "Maintenance.jasper");
 
 			} else if (choiceString.matches("All")) {
 				closeTaskReportWindow();
-				new MaintenanceReport(maintenanceList);
+				new MaintenanceReport(maintenanceList, "Maintenance Report", "Maintenance.pdf", "Maintenance.jasper");
 			}
 		}
 

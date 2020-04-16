@@ -11,10 +11,8 @@ import javax.persistence.Transient;
 import com.saturn.model.employee.Employee;
 
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
-@Setter
 @Entity
 @Table(name ="emp_virtual_training")
 @AssociationOverrides({

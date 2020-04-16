@@ -1,10 +1,8 @@
 package com.saturn.model.training;
 
-import java.time.LocalDate;
 
 import javax.persistence.AssociationOverride;
 import javax.persistence.AssociationOverrides;
-import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -13,12 +11,9 @@ import javax.persistence.Transient;
 
 import com.saturn.model.employee.Employee;
 
-import javafx.scene.control.ChoiceBox;
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
-@Setter
 @Entity
 @Table(name="emp_hse_training")
 @AssociationOverrides({

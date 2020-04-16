@@ -281,7 +281,7 @@ public class TrainingReportController implements Initializable {
 				}
 			}
 		} 
-		new TrainingReport(reportList);
+		new TrainingReport(reportList,"Training Report", "Training.pdf", "Training.jasper");
 	}
 
 

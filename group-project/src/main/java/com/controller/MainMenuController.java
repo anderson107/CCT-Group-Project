@@ -6,19 +6,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class MainMenuController {
 
-	@FXML
-	private Button taskAdministratorButton;
-	
-	@FXML
-	private Button updateTaskAdministratorButton;
-	
 	public MainMenuController() {
+		
 	}
 	
 	@FXML
@@ -120,10 +114,6 @@ public class MainMenuController {
 	@FXML
 	private void openChecklistAdm() {
 		loadView(Views.TASK_ADMINISTRATOR, "CHECKLIST ITEMS MANAGER");
-	}
-	
-	public void openLogin() {
-		loadView(Views.LOGIN, "LOGIN");
 	}
 	
 	// method to upload the fxml files

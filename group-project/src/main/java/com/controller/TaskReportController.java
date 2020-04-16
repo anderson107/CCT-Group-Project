@@ -63,7 +63,7 @@ public class TaskReportController implements Initializable {
 					}
 				}
 				closeTaskReportWindow();
-				new TaskReport(taskList);
+				new TaskReport(taskList, "Task Report", "Task.pdf", "Task.jasper");
 
 			} else if (choiceString.matches("Done")) {
 
@@ -75,11 +75,11 @@ public class TaskReportController implements Initializable {
 					}
 				}
 				closeTaskReportWindow();
-				new TaskReport(taskList);
+				new TaskReport(taskList, "Task Report", "Task.pdf", "Task.jasper");
 
 			} else if (choiceString.matches("All")) {
 				closeTaskReportWindow();
-				new TaskReport(taskList);
+				new TaskReport(taskList, "Task Report", "Task.pdf", "Task.jasper");
 			}
 		}
 

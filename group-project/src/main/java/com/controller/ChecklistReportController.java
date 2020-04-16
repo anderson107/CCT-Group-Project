@@ -14,7 +14,6 @@ import com.saturn.model.checklists.FloorHACCP;
 import com.saturn.model.checklists.Frequency;
 import com.saturn.model.checklists.HealthSafetyChecklist;
 import com.saturn.model.reports.ChecklistReport;
-import com.saturn.model.reports.TrainingReport;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -70,7 +69,7 @@ public class ChecklistReportController implements Initializable {
 		List<ChecklistSuperClass> list = new ArrayList<>();
 		List<ChecklistSuperClass> custom = new ArrayList<>();
 
-		list.addAll(dao.LoadChecklistItems());
+		list.addAll(dao.loadChecklistItems());
 
 		for (ChecklistSuperClass check : list) {
 
@@ -136,7 +135,7 @@ public class ChecklistReportController implements Initializable {
 
 		}
 
-		new ChecklistReport(custom);
+		new ChecklistReport(custom, "Checklist Report", "Checklist.pdf", "Checklist.jasper");
 	}
 
 	@FXML
@@ -146,7 +145,7 @@ public class ChecklistReportController implements Initializable {
 		List<ChecklistSuperClass> list = new ArrayList<>();
 		List<ChecklistSuperClass> custom = new ArrayList<>();
 
-		list.addAll(dao.LoadChecklistItems());
+		list.addAll(dao.loadChecklistItems());
 
 		for (ChecklistSuperClass item : list) {
 			
@@ -171,7 +170,7 @@ public class ChecklistReportController implements Initializable {
 			}
 		}
 
-		new ChecklistReport(custom);
+		new ChecklistReport(custom, "Checklist Report", "Checklist.pdf", "Checklist.jasper");
 	}
 
 	@FXML
@@ -180,7 +179,7 @@ public class ChecklistReportController implements Initializable {
 		List<ChecklistSuperClass> list = new ArrayList<>();
 		List<ChecklistSuperClass> custom = new ArrayList<>();
 
-		list.addAll(dao.LoadChecklistItems());
+		list.addAll(dao.loadChecklistItems());
 
 		for (ChecklistSuperClass item : list) {
 			
@@ -205,7 +204,7 @@ public class ChecklistReportController implements Initializable {
 			}
 		}
 
-		new ChecklistReport(custom);
+		new ChecklistReport(custom, "Checklist Report", "Checklist.pdf", "Checklist.jasper");
 	}
 	
 	@FXML
@@ -214,7 +213,7 @@ public class ChecklistReportController implements Initializable {
 		List<ChecklistSuperClass> list = new ArrayList<>();
 		List<ChecklistSuperClass> custom = new ArrayList<>();
 
-		list.addAll(dao.LoadChecklistItems());
+		list.addAll(dao.loadChecklistItems());
 
 		for (ChecklistSuperClass item : list) {
 			
@@ -239,6 +238,6 @@ public class ChecklistReportController implements Initializable {
 			}
 		}
 
-		new ChecklistReport(custom);
+		new ChecklistReport(custom, "Checklist Report", "Checklist.pdf", "Checklist.jasper");
 	}
 }

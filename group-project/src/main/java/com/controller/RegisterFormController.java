@@ -106,9 +106,7 @@ public class RegisterFormController {
 
 			// retrieving all the training in the database
 			List<TrainingSuperClass> training = new ArrayList<>();
-			training.addAll(dao.loadAllData(HSETraining.class));
-			training.addAll(dao.loadAllData(SeaChangeTraining.class));
-			training.addAll(dao.loadAllData(VirtualAcademyTraining.class));
+			training.addAll(dao.loadTrainingItems());
 
 			if(training.size()==0) {
 				backToMenu();
