@@ -24,15 +24,6 @@ public class TaskReportController implements Initializable {
 	@FXML
 	private Button taskReportBackButton;
 
-	@FXML
-	private Label startDateLabel;
-
-	@FXML
-	private Label endtDateLabel;
-
-	@FXML
-	private Label choiceLabel;
-
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 

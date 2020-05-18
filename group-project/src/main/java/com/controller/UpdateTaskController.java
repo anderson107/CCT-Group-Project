@@ -78,8 +78,13 @@ public class UpdateTaskController implements Initializable{
 			
 			TaskTableController.selected.clear();
 			
-			Stage stage = (Stage) textArea.getScene().getWindow();
-			stage.close();
+			closeWindow();
 		}
+	}
+	
+	@FXML
+	private void closeWindow() {
+		Stage stage = (Stage) backButton.getScene().getWindow();
+		stage.close();
 	}
 }

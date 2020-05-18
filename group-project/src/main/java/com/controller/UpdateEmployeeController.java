@@ -117,9 +117,7 @@ public class UpdateEmployeeController implements Initializable {
 				
 			}
 			
-			
-			Stage stage = (Stage) newDataLabel.getScene().getWindow();
-			stage.close();
+			closeUpdateWindow();
 		}
 	}
 }

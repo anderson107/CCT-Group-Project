@@ -21,9 +21,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Task {
 
-	@Transient
-	private List<Task>taskList;
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")

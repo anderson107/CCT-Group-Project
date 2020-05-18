@@ -81,8 +81,7 @@ public class UpdateTrainingController implements Initializable {
 						trainingTypeChoiceBox.getValue());
 			}
 			
-			Stage stage = (Stage) textArea.getScene().getWindow();
-			stage.close();
+			closeUpdateTrainingWindow();
 		}
 	}
 

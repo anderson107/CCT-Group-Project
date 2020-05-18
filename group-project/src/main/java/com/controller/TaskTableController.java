@@ -8,7 +8,7 @@ import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
-import com.saturn.Main;
+import com.saturn.App;
 import com.saturn.model.task.Task;
 
 import javafx.collections.FXCollections;
@@ -142,7 +142,7 @@ public class TaskTableController implements Initializable{
 				stage = new Stage();
 				stage.setScene(new Scene(root1));
 				stage.initModality(Modality.APPLICATION_MODAL);
-				stage.initOwner(Main.stage);
+				stage.initOwner(App.stage);
 				stage.setTitle("UPDATE TASK");
 				stage.show();
 

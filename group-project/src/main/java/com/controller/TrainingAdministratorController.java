@@ -8,7 +8,7 @@ import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
-import com.saturn.Main;
+import com.saturn.App;
 import com.saturn.model.training.HSETraining;
 import com.saturn.model.training.SeaChangeTraining;
 import com.saturn.model.training.TrainingSuperClass;
@@ -175,9 +175,7 @@ public class TrainingAdministratorController implements Initializable {
 	private void refresh() {
 		Dao dao = new Dao();
 		trainingList.clear();
-		trainingList.addAll(dao.loadAllData(SeaChangeTraining.class));
-		trainingList.addAll(dao.loadAllData(VirtualAcademyTraining.class));
-		trainingList.addAll(dao.loadAllData(HSETraining.class));
+		trainingList.addAll(dao.loadTrainingItems());
 
 		for (TrainingSuperClass tsc : trainingList) {
 			tsc.setCheckbox(new CheckBox());
@@ -214,7 +212,7 @@ public class TrainingAdministratorController implements Initializable {
 				stage = new Stage();
 				stage.setScene(new Scene(root1));
 				stage.initModality(Modality.APPLICATION_MODAL);
-				stage.initOwner(Main.stage);
+				stage.initOwner(App.stage);
 				stage.setTitle("Update Training");
 				stage.show();
 

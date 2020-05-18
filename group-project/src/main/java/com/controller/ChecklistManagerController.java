@@ -89,11 +89,7 @@ public class ChecklistManagerController implements Initializable {
 	private List<ChecklistSuperClass> loadData() {
 		Dao dao = new Dao();
 		List<ChecklistSuperClass> list = new ArrayList<>();
-		list.addAll(dao.loadAllData(FireWarden.class));
-		list.addAll(dao.loadAllData(HealthSafetyChecklist.class));
-		list.addAll(dao.loadAllData(DeliHACCP.class));
-		list.addAll(dao.loadAllData(FloorHACCP.class));
-		list.addAll(dao.loadAllData(CoffeeHACCP.class));
+		list.addAll(dao.loadChecklistItems());
 		
 		ListIterator<ChecklistSuperClass> iterator = list.listIterator();
 

@@ -1,6 +1,6 @@
 package com.controller;
 
-import com.saturn.Main;
+import com.saturn.App;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -124,7 +124,7 @@ public class MainMenuController {
 		        Stage stage = new Stage();
 		        stage.setScene(new Scene(root1));  
 		        stage.initModality(Modality.APPLICATION_MODAL);
-		        stage.initOwner(Main.stage);
+		        stage.initOwner(App.stage);
 		        stage.setTitle(windowTitle);
 		        stage.setResizable(false);
 		        stage.show();

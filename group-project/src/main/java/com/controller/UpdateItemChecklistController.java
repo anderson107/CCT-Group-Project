@@ -109,6 +109,7 @@ public class UpdateItemChecklistController implements Initializable {
 
 	@FXML
 	private void updateItemDatabase() {
+		
 		Dao dao = new Dao();
 		boolean category = Validation.isChoiceBoxSelected(updateSelectTypeChoiceBox, selectCategoryLabel,
 				"Select a category");
@@ -146,8 +147,7 @@ public class UpdateItemChecklistController implements Initializable {
 						updateStatus.getValue(), datePicker);
 			}
 
-			Stage stage = (Stage) textAreaUpdate.getScene().getWindow();
-			stage.close();
+			closeUpdateTaskWindow();
 		}
 	}
 

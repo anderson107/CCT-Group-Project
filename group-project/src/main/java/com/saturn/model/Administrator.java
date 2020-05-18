@@ -22,4 +22,7 @@ public class Administrator {
 	@Column(name="password")
 	private String password;
 
+	private void HashPassword() {
+		
+	}
 }

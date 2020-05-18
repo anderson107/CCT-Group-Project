@@ -51,6 +51,7 @@ public class Dao {
 		}
 	}
 
+	// it loads all the checklist items
 	protected List<ChecklistSuperClass> loadChecklistItems() {
 
 		List<ChecklistSuperClass> list = new ArrayList<>();
@@ -63,6 +64,7 @@ public class Dao {
 		return list;
 	}
 	
+	// it loads all the training items
 	protected List<TrainingSuperClass> loadTrainingItems(){
 		
 		List<TrainingSuperClass> list = new ArrayList<>();
@@ -73,11 +75,12 @@ public class Dao {
 		return list;
 	}
 
+	// it returns a item
 	protected Administrator getAdministrator(int id) {
 		data.openSession();
 		try {
 			data.beginTransaction();
-			Administrator adm = data.getSession().get(Administrator.class, id);
+			Administrator adm = (Administrator) data.get(Administrator.class, id);
 			data.commit();
 			return adm;
 		} catch (Exception e) {
@@ -367,6 +370,7 @@ public class Dao {
 
 	}
 
+	// it updates a task object
 	public void updateTask(int id, String textArea, String action, LocalDate date, String status) {
 
 		data.openSession();
@@ -389,6 +393,7 @@ public class Dao {
 
 	}
 
+	// it updates a training object
 	public <T> void updateTraining(Class<T> type, int id, String training, String category) {
 
 		// it sets the string the simple name of the class
@@ -451,6 +456,7 @@ public class Dao {
 
 	}
 
+	// it updates the checklist item due date if the item is marked as Done
 	protected void updateDBChecklistDates(List<ChecklistSuperClass> list) {
 
 		data.openSession();
@@ -512,7 +518,26 @@ public class Dao {
 		}
 
 	}
+	
+	protected void changePassword(String newPassword) {
+		
+		data.openSession();
+		
+		try {
+			
+			data.beginTransaction();
+			Administrator adm = (Administrator) data.get(Administrator.class, 1);
+			adm.setPassword(newPassword);
+			data.commit();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			data.closeSession();
+		}
+	}
 
+	// it checks if it is time to call the contractor to execute the service
 	protected void checkMaintenance() {
 
 		List<Maintenance> list = new ArrayList<>();
