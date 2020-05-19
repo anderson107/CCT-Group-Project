@@ -20,6 +20,13 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.swing.JRViewer;
 
+/*
+ * We did not learn how to generate customised pdf files using Java
+ * I followed the tutorial in the link below
+ * https://www.youtube.com/watch?v=AfC6MlWrXqY
+ * It is referenced in the documentation
+ */
+
 public class ReportSuperClass {	
 
 	private JRBeanCollectionDataSource itemsBeans;

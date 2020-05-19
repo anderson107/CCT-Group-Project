@@ -8,6 +8,7 @@ import javax.persistence.ManyToOne;
 
 import com.saturn.model.employee.Employee;
 
+//this class creates a composite key in the database, employee primary key with training primary key
 @SuppressWarnings("serial")
 @Embeddable
 public class EmployeeVirtualAcademyCompositeID implements Serializable{

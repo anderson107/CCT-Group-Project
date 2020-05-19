@@ -25,6 +25,7 @@ public class MaintenanceReportController implements Initializable {
 	@FXML
 	private Button backButton;
 
+	// it populates the choice box with a list of options
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
@@ -35,6 +36,7 @@ public class MaintenanceReportController implements Initializable {
 		choicebox.setValue("All");
 	}
 
+	// it generates maintenance report
 	@FXML
 	private void printReport() {
 
@@ -75,6 +77,7 @@ public class MaintenanceReportController implements Initializable {
 			}
 		}
 
+	// it closes the window
 	@FXML
 	private void closeTaskReportWindow() {
 		Stage stage = (Stage) backButton.getScene().getWindow();

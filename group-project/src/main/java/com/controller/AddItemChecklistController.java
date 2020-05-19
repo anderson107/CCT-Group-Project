@@ -78,6 +78,7 @@ public class AddItemChecklistController implements Initializable {
 
 		Dao dao = new Dao();
 		
+		// validation process
 		Boolean choiceboxCategoryValidation = Validation.isChoiceBoxSelected(selectChecklist, checklistLabel,
 				"Select a category");
 		Boolean choiceboxFrequencyValidation = Validation.isChoiceBoxSelected(selectFrequency, frequencyLabel,
@@ -85,6 +86,7 @@ public class AddItemChecklistController implements Initializable {
 		Boolean textAreaValidation = Validation.isTextAreaEmpty(addItemTextfield, textAreaLabel,
 				"Enter item description");
 
+		// it the inputs pass the validations, the item is added
 		if (choiceboxCategoryValidation == true && choiceboxFrequencyValidation == true && textAreaValidation == true) {
 			
 			String frequency = selectFrequency.getValue();

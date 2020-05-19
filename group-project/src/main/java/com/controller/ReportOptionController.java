@@ -27,6 +27,7 @@ public class ReportOptionController {
 		report.generateTodayLate();
 	}
 	
+	// it generates a task report of all pending items
 	@FXML
 	private void generateTask() {
 		Dao dao = new Dao();
@@ -47,6 +48,7 @@ public class ReportOptionController {
 		new TaskReport(taskList, "Task Report", "Task.pdf", "Task.jasper");
 	}
 	
+	// it generates a report with all expired maintenance services
 	@FXML
 	private void generateMaintenance() {
 		Dao dao = new Dao();
@@ -64,6 +66,7 @@ public class ReportOptionController {
 				new MaintenanceReport(maintenanceList, "Maintenance Report", "Maintenance.pdf", "Maintenance.jasper");
 	}
 	
+	// it generates a report with all pending training
 	@FXML
 	private void trainingEmployeeAllReport() {
 		Dao dao = new Dao();

@@ -8,13 +8,14 @@ import org.hibernate.cfg.Configuration;
 
 public class DataSource implements HibernateDB{
 
-	
+	// only instance of this class
 	private static DataSource instance = new DataSource();
 	
 	private SessionFactory factory;
 
 	private Session session;
 	
+	// private constructor to guarantee that no other instance will be created
 	private DataSource() {
 		
 	}
@@ -28,6 +29,7 @@ public class DataSource implements HibernateDB{
 		return instance;
 	}
 
+	// it fetches the database configuration and mapped classes from the hibernate file
 	@Override
 	public SessionFactory getFactory() {
 		factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
@@ -73,6 +75,7 @@ public class DataSource implements HibernateDB{
 		factory.close();
 	}
 	
+	// it loads all items of a given table
 	@SuppressWarnings("unchecked")
 	public <T> List<T>loadAll(String query){
 		List<T> results = session.createQuery(query).getResultList();

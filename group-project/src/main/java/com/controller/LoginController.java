@@ -31,6 +31,7 @@ public class LoginController {
 	@FXML
 	private Label invalid;
 
+	// it validates the input, checks the credentials and if everything is fine it allows the user to go to the main menu
 	@FXML
 	private void openMenu() {
 

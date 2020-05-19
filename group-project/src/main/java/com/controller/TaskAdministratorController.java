@@ -209,6 +209,7 @@ public class TaskAdministratorController implements Initializable {
 		tableView.getItems().setAll(checklistList);
 	}
 
+	// it opens the update task window
 	@FXML
 	private void openUpdateTaskWindow() {
 
@@ -246,6 +247,7 @@ public class TaskAdministratorController implements Initializable {
 		}
 	}
 	
+	// it closes the window
 	@FXML
 	private void closeWindow() {
 		

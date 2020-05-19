@@ -24,6 +24,7 @@ public class TaskReportController implements Initializable {
 	@FXML
 	private Button taskReportBackButton;
 
+	// it initialises the choice box with a list of options
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
@@ -34,6 +35,7 @@ public class TaskReportController implements Initializable {
 		choicebox.setValue("Pending");
 	}
 
+	// it prints a task customised task report
 	@FXML
 	private void printReport() {
 

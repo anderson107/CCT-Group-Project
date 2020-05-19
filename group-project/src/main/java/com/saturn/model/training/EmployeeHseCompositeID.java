@@ -8,10 +8,12 @@ import javax.persistence.ManyToOne;
 
 import com.saturn.model.employee.Employee;
 
+// this class creates a composite key in the database, employee primary key with training primary key
 @SuppressWarnings("serial")
 @Embeddable
 public class EmployeeHseCompositeID implements Serializable {
 
+	// this annotation allows a many to one operation in the database
 	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
 			 CascadeType.DETACH, CascadeType.REFRESH})
 	private Employee employee;

@@ -519,6 +519,7 @@ public class Dao {
 
 	}
 	
+	// it updates the administrator password
 	protected void changePassword(String newPassword) {
 		
 		data.openSession();

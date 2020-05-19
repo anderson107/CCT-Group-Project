@@ -49,6 +49,7 @@ public class ChecklistManagerController implements Initializable {
 	@FXML
 	private Label searchLabel;
 
+	// it initialises the table view with data from the database
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
@@ -63,6 +64,7 @@ public class ChecklistManagerController implements Initializable {
 		tableView.getItems().setAll(checkList);
 	}
 
+	// it updates the checklist objects from pending to done
 	@FXML
 	private void updateChecklist() {
 
@@ -86,6 +88,7 @@ public class ChecklistManagerController implements Initializable {
 		searchTextField.setText("");
 	}
 
+	// it loads all checklist objects data from the database 
 	private List<ChecklistSuperClass> loadData() {
 		Dao dao = new Dao();
 		List<ChecklistSuperClass> list = new ArrayList<>();
@@ -120,6 +123,7 @@ public class ChecklistManagerController implements Initializable {
 		return list;
 	}
 	
+	// it validates the user input and reload the table view with the text field search input
 	@FXML
 	private void searchItem() {
 		

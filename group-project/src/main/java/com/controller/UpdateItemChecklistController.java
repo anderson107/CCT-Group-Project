@@ -58,12 +58,14 @@ public class UpdateItemChecklistController implements Initializable {
 
 	private String className;
 
+	// it closes the window
 	@FXML
 	private void closeUpdateTaskWindow() {
 		Stage stage = (Stage) textAreaUpdate.getScene().getWindow();
 		stage.close();
 	}
 
+	// it initialises the choice boxes with a list of options and fill up the table view with checklist items from the database
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
@@ -107,6 +109,7 @@ public class UpdateItemChecklistController implements Initializable {
 		TaskAdministratorController.selected.remove(updateItem);
 	}
 
+	// it updates the selected checklist item
 	@FXML
 	private void updateItemDatabase() {
 		

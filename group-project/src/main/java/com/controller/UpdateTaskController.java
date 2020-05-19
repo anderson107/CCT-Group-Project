@@ -42,6 +42,7 @@ public class UpdateTaskController implements Initializable{
 	@FXML
 	private Label actionLabel;
 
+	// it initialises the table view with task objects from the database
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
@@ -60,6 +61,7 @@ public class UpdateTaskController implements Initializable{
 		actionArea.setText(task.getAction());
 	}
 	
+	// it updates the selected task objects
 	@FXML
 	private void updateTask() {
 		Dao dao = new Dao();
@@ -82,6 +84,7 @@ public class UpdateTaskController implements Initializable{
 		}
 	}
 	
+	// it closes the window
 	@FXML
 	private void closeWindow() {
 		Stage stage = (Stage) backButton.getScene().getWindow();

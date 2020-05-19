@@ -30,6 +30,7 @@ public class ChangePasswordController {
 	@FXML
 	private Label warningLabel;
 	
+	// it validates the user inputs and change the password of the administrator
 	@FXML
 	private void resetPassword() {
 		

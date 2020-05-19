@@ -59,6 +59,7 @@ public class MaintenanceTableController implements Initializable {
 	
 	protected static List<Maintenance>selected;
 	
+	// it initialises the table view with maintenance objects from the database
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
@@ -79,6 +80,7 @@ public class MaintenanceTableController implements Initializable {
 		tableView.getItems().setAll(list);
 	}
 	
+	// it removes a maintenance object from the database
 	@FXML
 	private void delete() {
 		ObservableList<Maintenance> delete = FXCollections.observableArrayList();
@@ -104,6 +106,7 @@ public class MaintenanceTableController implements Initializable {
 		tableView.getItems().setAll(list);
 	}
 	
+	// it refreshes the table with the updated database
 	public void refresh() {
 		list.clear();
 		list = dataConnection.loadAllData(Maintenance.class);
@@ -115,6 +118,7 @@ public class MaintenanceTableController implements Initializable {
 		tableView.getItems().setAll(list);
 	}
 	
+	// it opens the update contractor window
 	@FXML
 	private void openUpdateContractor() {
 		
@@ -154,6 +158,7 @@ public class MaintenanceTableController implements Initializable {
 		}
 	}
 	
+	// it closes the window
 	@FXML
 	private void closeWindow() {
 		

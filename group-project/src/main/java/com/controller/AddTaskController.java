@@ -24,12 +24,14 @@ public class AddTaskController {
 	@FXML
 	private Label dateLabel;
 
+	// it closes the add task window
 	@FXML
 	private void closeWindow() {
 		Stage stage = (Stage) backButton.getScene().getWindow();
 		stage.close();
 	}
 	
+	// it validates the user input and add it to the database
 	@FXML
 	private void addItem(){
 		Dao dao = new Dao();

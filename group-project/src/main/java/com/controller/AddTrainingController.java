@@ -40,6 +40,7 @@ public class AddTrainingController implements Initializable {
 	@FXML
 	private Label choiceboxLabel;
 
+	// it initialises the choice box component with string objects from the list
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		ObservableList<String> list = FXCollections.observableArrayList();
@@ -49,6 +50,7 @@ public class AddTrainingController implements Initializable {
 
 	}
 
+	// it validates and adds the training to the databases
 	@FXML
 	private void addTraining() {
 		Dao dao = new Dao();
@@ -110,6 +112,7 @@ public class AddTrainingController implements Initializable {
 		}
 	}
 
+	// it closes the window
 	@FXML
 	private void closeAddTrainingWindow() {
 		Stage stage = (Stage) addTrainingBackButton.getScene().getWindow();

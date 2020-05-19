@@ -40,6 +40,7 @@ public class Validation {
 		return isValid;
 	}
 
+	// it validates the date input
 	public static boolean isDateEmpty(DatePicker datepicker, Label label, String text) {
 		boolean valid = true;
 
@@ -55,6 +56,7 @@ public class Validation {
 		return valid;
 	}
 
+	// it validates if a text field is valid, only English alphabet is allowed
 	public static boolean isTextFieldValid(TextField tf, Label label, String text) {
 		boolean valid = true;
 
@@ -70,6 +72,7 @@ public class Validation {
 		return valid;
 	}
 
+	// it validate the email
 	public static boolean isEmailValid(TextField tf, Label label, String text) {
 		boolean valid = true;
 
@@ -89,6 +92,7 @@ public class Validation {
 		return valid;
 	}
 
+	// it validates the phone number
 	public static boolean isPhoneValid(TextField tf, Label label, String text) {
 		
 		boolean valid = false;
@@ -113,6 +117,7 @@ public class Validation {
 		return valid;
 	}
 
+	// it checks if the text field is empty
 	public static boolean isTextFieldEmpty(TextField tf, Label label, String text) {
 		boolean valid = true;
 
@@ -128,6 +133,7 @@ public class Validation {
 		return valid;
 	}
 
+	// it checks if the input in a valid number
 	public static boolean isNumber(TextField tf, Label label, String text) {
 		boolean valid = true;
 

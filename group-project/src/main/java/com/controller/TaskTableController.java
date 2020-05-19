@@ -58,6 +58,7 @@ public class TaskTableController implements Initializable{
 	@FXML
 	private Button backButton;
 	
+	// it initialises the table view with data from the database
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		Dao dao = new Dao();
@@ -80,6 +81,7 @@ public class TaskTableController implements Initializable{
 		tableView.getItems().setAll(taskList);
 	}
 	
+	// it removes all the selected items from the database
 	@FXML
 	private void deleteTask() {
 		Dao dao = new Dao();
@@ -108,6 +110,7 @@ public class TaskTableController implements Initializable{
 
 	}
 	
+	// it refreshes the updated database
 	private void refresh() {
 		Dao dao = new Dao();
 		taskList.clear();
@@ -119,6 +122,7 @@ public class TaskTableController implements Initializable{
 		tableView.getItems().setAll(taskList);
 	}
 	
+	// it opens the update task manager window
 	@FXML
 	private void updateTask() {
 		
@@ -158,6 +162,7 @@ public class TaskTableController implements Initializable{
 		}
 	}
 	
+	// it closes the window
 	@FXML
 	private void closeWindow() {
 		Stage stage = (Stage) backButton.getScene().getWindow();

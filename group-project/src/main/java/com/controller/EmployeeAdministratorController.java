@@ -71,6 +71,7 @@ public class EmployeeAdministratorController implements Initializable {
 	protected static ObservableList<Employee> selected = FXCollections.observableArrayList();;
 
 	public EmployeeAdministratorController() {
+		
 	}
 
 	// this method populates the table in the employee administrator
@@ -130,6 +131,7 @@ public class EmployeeAdministratorController implements Initializable {
 
 	}
 
+	// it refreshes the table with updated database
 	private void refresh() {
 		Dao dao = new Dao();
 		employeeList.clear();
@@ -140,6 +142,7 @@ public class EmployeeAdministratorController implements Initializable {
 		tableView.getItems().setAll(employeeList);
 	}
 
+	// it loads the update window
 	@FXML
 	private void openUpdateWindow() {
 		Stage stage = null;
@@ -177,6 +180,7 @@ public class EmployeeAdministratorController implements Initializable {
 		});
 	}
 	
+	// it closes the window
 	@FXML
 	private void backMenu() {
 		Stage stage = (Stage) backButton.getScene().getWindow();

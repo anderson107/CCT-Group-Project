@@ -58,6 +58,7 @@ public class TrainingAdministratorController implements Initializable {
 	@FXML
 	private Button backButton;
 	
+	// it initialises the choice boxes with a list of options and the table view with data from the database
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		Dao dao = new Dao();
@@ -94,6 +95,7 @@ public class TrainingAdministratorController implements Initializable {
 
 	}
 
+	// it updates a training object
 	@FXML
 	private void updateTrainingList() {
 		Dao dao = new Dao();
@@ -144,6 +146,7 @@ public class TrainingAdministratorController implements Initializable {
 
 	}
 
+	// it removes all selected objects from the database
 	@FXML
 	private void removeTraining() {
 		Dao dao = new Dao();
@@ -172,6 +175,7 @@ public class TrainingAdministratorController implements Initializable {
 
 	}
 
+	// it refreshes the updated database
 	private void refresh() {
 		Dao dao = new Dao();
 		trainingList.clear();
@@ -192,6 +196,7 @@ public class TrainingAdministratorController implements Initializable {
 
 	}
 
+	// it opens the update window
 	@FXML
 	private void openUpdateWindow() {
 		Stage stage = null;
@@ -228,6 +233,7 @@ public class TrainingAdministratorController implements Initializable {
 		}
 	}
 	
+	// it closes the window
 	@FXML
 	private void closeWindow() {
 		

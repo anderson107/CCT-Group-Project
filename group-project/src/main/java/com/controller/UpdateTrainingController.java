@@ -39,12 +39,14 @@ public class UpdateTrainingController implements Initializable {
 
 	private int trainingID;
 
+	// it closes the application
 	@FXML
 	private void closeUpdateTrainingWindow() {
 		Stage stage = (Stage) backButton.getScene().getWindow();
 		stage.close();
 	}
 
+	// it initialises the table view with data from the database
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		ObservableList<String> list = FXCollections.observableArrayList();
@@ -59,6 +61,7 @@ public class UpdateTrainingController implements Initializable {
 		TrainingAdministratorController.selected.remove(training);
 	}
 
+	// it updates the selected objects 
 	@FXML
 	private void updateTrainingDatabase() {
 

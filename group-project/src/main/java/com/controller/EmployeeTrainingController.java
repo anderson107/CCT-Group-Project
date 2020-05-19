@@ -49,6 +49,7 @@ public class EmployeeTrainingController implements Initializable {
 
 	private List<EmployeeTraining>empTraining = new ArrayList<>();
 
+	// it populates the choice box with a list of options
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 

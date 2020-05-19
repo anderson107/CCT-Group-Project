@@ -36,6 +36,7 @@ public class TrainingReportController implements Initializable {
 
 	private List<Employee> empList;
 
+	// it initialises the choice boxes with a list of options
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		Dao dao = new Dao();
@@ -61,6 +62,7 @@ public class TrainingReportController implements Initializable {
 		trainingChoicebox.setValue("All Training");
 	}
 
+	// it generates a customised report
 	@FXML
 	private void printReport() {
 
@@ -284,7 +286,7 @@ public class TrainingReportController implements Initializable {
 		new TrainingReport(reportList,"Training Report", "Training.pdf", "Training.jasper");
 	}
 
-
+	// it closes the window
 	@FXML
 	private void closeReportWindow() {
 		Stage stage = (Stage) backButton.getScene().getWindow();

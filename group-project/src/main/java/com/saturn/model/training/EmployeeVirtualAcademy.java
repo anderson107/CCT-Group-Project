@@ -14,6 +14,7 @@ import lombok.Getter;
 
 @Getter
 @Entity
+//these annotations are used to perform a join table operation in our database
 @Table(name ="emp_virtual_training")
 @AssociationOverrides({
 	@AssociationOverride(name = "primaryKey.employee",

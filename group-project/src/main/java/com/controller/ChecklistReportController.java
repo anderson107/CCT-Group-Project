@@ -37,6 +37,7 @@ public class ChecklistReportController implements Initializable {
 
 	private String All = "All";
 
+	// it initialises the choice boxes with lists
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		ObservableList<String> list = FXCollections.observableArrayList();
@@ -58,6 +59,7 @@ public class ChecklistReportController implements Initializable {
 
 	}
 
+	// it generates a checklist report according to the user input
 	@FXML
 	private void generateReport() {
 
@@ -85,6 +87,8 @@ public class ChecklistReportController implements Initializable {
 				check.setClassName("Coffee HACCP");
 			}
 
+			// if statements that allow the user to customise the report
+			
 			if (checkList.matches(All) && statusString.matches(All) && frequencyString.matches(All)) {
 				custom.add(check);
 				continue;
@@ -138,6 +142,7 @@ public class ChecklistReportController implements Initializable {
 		new ChecklistReport(custom, "Checklist Report", "Checklist.pdf", "Checklist.jasper");
 	}
 
+	// it generates all the checklist items that must be done in the day
 	@FXML
 	private void generateTodayReport() {
 
@@ -172,6 +177,8 @@ public class ChecklistReportController implements Initializable {
 
 		new ChecklistReport(custom, "Checklist Report", "Checklist.pdf", "Checklist.jasper");
 	}
+	
+	// it generates a report of all late checklist items
 
 	@FXML
 	private void generateLate() {
@@ -207,6 +214,7 @@ public class ChecklistReportController implements Initializable {
 		new ChecklistReport(custom, "Checklist Report", "Checklist.pdf", "Checklist.jasper");
 	}
 	
+	// it generates all pending checklist items from the day and backwards
 	@FXML
 	protected void generateTodayLate() {
 		Dao dao = new Dao();

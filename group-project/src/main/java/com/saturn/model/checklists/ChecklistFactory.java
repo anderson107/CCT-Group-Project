@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 public class ChecklistFactory {
 
+	// it creates one of the checklist objects based on the user input
 	public static ChecklistSuperClass create(String itemDescription, String status, String frequency, String type, LocalDate date) {
 		
 		switch(type) {
