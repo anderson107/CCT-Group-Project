@@ -15,7 +15,7 @@
         <java.version>13</java.version>
         <openjfx.version>13</openjfx.version>
         <dynamic_report_version>6.1.0</dynamic_report_version>
-        <mySql_version>8.0.19</mySql_version>
+        <mySql_version>8.0.28</mySql_version>
         <hibernate_version>5.4.11.Final</hibernate_version>
     </properties>
 
